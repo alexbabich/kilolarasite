@@ -1,0 +1,33 @@
+.df-button {
+    border: 0;
+    border-radius: 14px;
+    background-color: transparent;
+    color: #fff;
+    font-weight: bold;
+    font-size: rem(18);
+    line-height: rem(22);
+    letter-spacing: rem(2);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 13px 0;
+    width: 100%;
+    min-width: 176px;
+    margin: 0 0 16px;
+
+    @include tablet {
+        width: auto;
+        margin: auto;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &.blue {
+        background-color: $blue;
+    }
+    
+    &.red {
+        background-color: $red;
+    }
+}

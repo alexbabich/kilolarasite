@@ -1,0 +1,114 @@
+.df-quiz {
+    background: #F3F4F8;
+    height: 600px;
+    display: flex;
+    position: relative;
+
+    @include tablet {
+        background: #F3F4F8 url('../../assets/images/quizBackground.png') no-repeat center right;
+        background-position-x: 55vw;
+        align-items: center;
+    }
+
+    @include laptopL {
+        background-position-x: right;
+    }
+
+    &:after {
+        content: "";
+        background: url('../../assets/images/quizBackground.png') no-repeat center;
+        background-size: cover;
+        display: block;
+        height: 400px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        
+        @include tablet {
+            display: none;
+        }
+    }
+
+    .container {
+        padding-right: 24px;
+        padding-left: 24px;
+
+        @include mobileL {
+            padding-right: 15px;
+            padding-left: 15px; 
+        }
+    }
+
+    .df-left-side {
+        width: 100%;
+        display: block;
+
+        @include tablet {
+            width: 40%;
+            padding-bottom: 30px;
+        }
+
+        @include tabletL {
+            width: 40%;
+            padding-bottom: 20px;
+        }
+
+        @include laptopL {
+            width: 30vw;
+            padding-bottom: 50px;
+        }
+    }
+
+    .df-title-block {
+        font-weight: bold;
+        font-size: rem(30);
+        line-height: rem(36);
+        margin: 60px auto 24px;
+
+        @include tablet {
+            font-size: rem(50);
+            line-height: rem(56);
+            margin: 60px auto 24px;
+        }
+
+        @include tabletL {
+            font-size: rem(60);
+            line-height: rem(66);
+            margin: 100px auto 24px;
+        }
+    }
+
+    .df-text-description {
+        font-size: rem(16);
+        line-height: rem(24);
+        opacity: 0.8;
+
+        @include tablet {
+            font-size: rem(18);
+            line-height: rem(24);
+        }
+
+        b {
+            font-size: rem(16);
+            line-height: rem(24);
+
+            @include tablet {
+                font-size: rem(20);
+                line-height: rem(24);
+            }
+        }
+    }
+}
+
+.df-quiz-select-gender {
+    padding-top: 20px;
+
+    button:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 15px;
+
+        @include tablet {
+            margin-right: 15px;
+        }
+    }
+}

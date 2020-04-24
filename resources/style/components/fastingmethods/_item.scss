@@ -1,0 +1,109 @@
+.df-fasting-item {
+    width: 100%;
+    padding: 40px 0;
+
+    @include tablet {
+        padding: 80px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+    
+    &:nth-child(even) {
+        background-color: #f9f9fb;
+
+        .container {
+            flex-direction: column;
+
+            @include tablet {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .df-item-text-wrapper {
+            padding-right: 10px;
+        }
+    }
+
+    &:nth-child(odd) {
+
+        .df-item-text-wrapper {
+            padding-left: 10px;
+        }
+    }
+
+    .df-item-image {
+        width: 325px;
+        height: 324px;
+        display: inline-block;
+        margin-bottom: 30px;
+
+        @include tablet {
+            width: 350px;
+            height: 320px;
+            margin-bottom: 0;
+        }
+
+        @include tabletL {
+            width: 435px;
+            height: 420px;
+        }
+    }
+
+    .df-item-title {
+        font-weight: bold;
+        font-size: rem(24);
+        line-height: rem(29);
+    }
+
+    .df-item-text-wrapper {
+        width: 100%;
+        max-width: 600px;
+        display: inline-block;
+
+        @include mobileL {
+            width: 50vw;
+        }
+
+        @include tabletL {
+            width: 40vw;
+        }
+
+        @include laptopL {
+            width: 55%;
+        }
+
+        .df-item-text {
+            font-size: rem(16);
+            line-height: rem(24);
+            opacity: 0.8;
+
+            @include tablet {
+                font-size: rem(18);
+                line-height: rem(26);
+            }
+
+            a {
+                color: #638def;
+                text-decoration: underline;
+            }
+
+            ul {
+                padding-left: 10px;
+                list-style: none;
+            }
+
+            h6 {
+                font-weight: bold;
+            }
+        }
+    }
+}

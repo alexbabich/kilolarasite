@@ -1,0 +1,66 @@
+.df-item-wrapper {
+    width: 100%;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin-bottom: 48px;
+    
+    @include tablet {
+        width: 40%;
+    }
+
+    .df-link-more {
+        text-transform: uppercase;
+        color: $blue;
+        font-size: rem(16);
+        line-height: rem(19);
+        letter-spacing: 1px;
+    }
+
+    .df-title {
+        font-weight: bold;
+        font-size: rem(20);
+        line-height: rem(30);
+        margin-bottom: 8px;
+        margin-top: 16px;
+
+        @include tablet {
+            margin-bottom: 16px;
+            margin-top: 24px;
+            font-size: rem(24);
+            line-height: rem(30);
+        }
+    }
+
+    .df-benefits-items {
+        font-size: rem(16);
+        line-height: rem(24);
+        opacity: 0.8;
+        margin-bottom: 16px;
+
+        @include tablet {
+            font-size: rem(16);
+            line-height: rem(24);
+        }
+    }
+}
+
+.df-logo-wrapper {
+    background-color: #E9EDF3;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+        height: 60px;
+        width: 60px;
+    }
+
+    svg {
+        height: 50%;
+    }
+}

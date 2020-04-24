@@ -1,0 +1,274 @@
+@import "mixins";
+
+input:focus {
+  outline: none;
+}
+
+.button {
+  display: inline-flex;
+
+  @include bp-phone-xl() {
+    width: 100%;
+  }
+
+  a, button {
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    padding: 13px 50px;
+    border: none;
+    width: 100%;
+    margin: 0;
+    flex-shrink: 0;
+    text-align: center;
+    display: block;
+    transition: background-color 0.15s;
+    user-select: none;
+    min-height: 48px;
+
+    @include bp-phone-xl() {
+      padding: 13px 10px;
+    }
+  }
+
+  &-type {
+    &--pink {
+      a, button {
+        background-color: #DE2B70;
+        color: white;
+
+        &:hover {
+          background-color: #CA2866;
+          color: white;
+        }
+      }
+    }
+
+    &--blue {
+      a, button {
+        background-color: #2D73F7;
+        color: white;
+
+        &:hover {
+          background-color: #2969E0;
+          color: white;
+        }
+      }
+    }
+
+    &--white {
+      a, button {
+        background-color: white;
+        color: #DE2B70;
+
+        &:hover {
+          background-color: #f3f3f3;
+          color: #DE2B70;
+        }
+      }
+    }
+  }
+
+
+  &-action {
+    &--select {
+      overflow: hidden;
+
+      a, button {
+        background-color: #E9EDF3;
+        color: #222222;
+        font-size: 18px;
+        font-weight: normal;
+        letter-spacing: 0;
+        line-height: 22px;
+        padding: 12px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include bp-phone-xl {
+          padding: 12px 12px;
+        }
+
+        &:hover {
+          background-color: #2969E0;
+          color: #FFFFFF;
+        }
+
+        &.selected {
+          font-weight: bold;
+          background-color: #2D73F7;
+          color: #FFFFFF;
+          padding: 12px 0;
+
+          &:hover {
+            background-color: #2969E0;
+            color: #FFFFFF;
+          }
+        }
+
+        .button--selected---icon {
+          margin-right: 16px;
+          width: 24px;
+          flex-shrink: 0;
+          height: 24px;
+        }
+      }
+    }
+
+    &--questionnaire {
+      overflow: hidden;
+
+      a, button {
+        background-color: #E9EDF3;
+        color: #222222;
+        font-size: 18px;
+        font-weight: normal;
+        letter-spacing: 0;
+        line-height: 22px;
+        padding: 21px 64px 21px 24px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        text-align: left;
+
+        &:after {
+          position: absolute;
+          content: '';
+          display: inline-block;
+          right: 19px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 24px;
+          height: 14px;
+          background-image: url('/assets/new/icons/button-arrow-black.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+
+        &:hover {
+          background-color: #2969E0;
+          color: #FFFFFF;
+
+          &:after {
+            background-image: url('/assets/new/icons/button-arrow-white.svg');
+          }
+        }
+      }
+    }
+
+    &--landing {
+      width: calc(50% - 8px);
+      max-width: 156px;
+      overflow: visible;
+
+      a {
+        position: relative;
+        text-align: left;
+        justify-content: unset;
+        padding: 0;
+
+        span {
+          color: white;
+          position: relative;
+          z-index: 2;
+          padding: 13px 16px;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          border-radius: 14px;
+          transform: translateY(-3px);
+          transition: all 0.15s;
+
+          @include bp-phone-small {
+            font-size: 16px;
+          }
+
+          &:after {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            right: 19px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 14px;
+            background-image: url('/assets/new/icons/button-arrow-white.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: 2;
+          }
+        }
+      }
+
+      &.button-type--blue {
+        span {
+          background: #2D73F7;
+        }
+
+        a {
+          background: #224FA4;
+
+          &:hover span {
+            background: #2a63cd;
+          }
+
+          &:focus span {
+            background: #224FA4;
+            transform: translateY(0);
+          }
+
+          @include bp-phone-xl {
+            &:hover span {
+              background: #224FA4;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+
+      &.button-type--pink {
+        span {
+          background: #DE2B70;
+        }
+
+        a {
+          background: #A92558;
+
+          &:hover span {
+            background: #d12e6d;
+          }
+
+          &:focus span {
+            background: #A92558;
+            transform: translateY(0);
+          }
+
+          @include bp-phone-xl {
+            &:hover span {
+              background: #A92558;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    a, button {
+      background-color: #DDE1E6;
+      cursor: unset;
+
+      &:hover {
+        background-color: #DDE1E6;
+      }
+    }
+  }
+}

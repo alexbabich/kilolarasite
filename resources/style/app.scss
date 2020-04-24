@@ -6,3 +6,111 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Mixins
+@import 'mixins';
+
+// style for molecules/atoms
+@import 'molecules/allmolecules';
+
+// style for components/pages/views
+@import 'components/allcomponents';
+
+
+/* make sure to set some focus styles for accessibility */
+:focus {
+    outline: 0;
+}
+
+.df-gray-bg {
+    background-color: #F3F4F8;
+}
+
+.df-white-bg {
+    background-color: #fff;
+}
+
+.df-ul-empty-style {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.df-block-title {
+    font-size: rem(30);
+    line-height: rem(36);
+    margin-bottom: 32px;
+    width: 100%;
+
+    @include tablet {
+        font-size: rem(40);
+        line-height: rem(49);
+    }
+}
+
+.df-block-text {
+    font-size: rem(18);
+    line-height: rem(26);
+    max-width: 800px;
+    margin: auto;
+    opacity: 0.8;
+
+    @include tablet {
+        font-size: rem(16);
+        line-height: rem(24);
+    }
+    
+    p {
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: #638def;
+        text-decoration: underline;
+    }
+
+    ul {
+        padding-left: 10px;
+        list-style: none;
+    }
+
+    h6 {
+        font-weight: bold;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: rem(40);
+        line-height: rem(49);
+        margin-bottom: 23px;
+    }
+
+    h4 {
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+.df-block-wrapper {
+    padding: 40px 24px;
+
+    @include tablet {
+        padding: 80px 0;
+    }
+}
+
+.df-mobile {
+    display: block;
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.df-desktop {
+    display: none;
+
+    @include tablet {
+        display: block;
+    }
+}

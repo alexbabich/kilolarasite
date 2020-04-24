@@ -1,0 +1,180 @@
+#df-footer {
+    width: 100%;
+    padding: 0 0 23px;
+    background-color: rgb(234, 237, 242);
+    line-height: 1;
+
+
+    .df-top-footer,
+    .df-bottom-footer {
+        .container {
+            display: block;
+    
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .df-navigation-link {
+        margin: auto auto 30px;
+
+        @include tablet {
+            margin: 0;
+            padding: 0 10px 0 0;
+        }
+
+        @include laptopL {
+            width: auto;
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        a,
+        .df-linsk-title {
+            color: $base-font-color;
+            font-size: rem(12);
+            line-height: rem(15);
+            letter-spacing: rem(3.33333);
+        }
+
+        .df-linsk-title {
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+
+            @include tablet {
+                width: auto;
+                display: inline-block;
+            }
+
+            @include laptopL {
+                margin-bottom: 0;
+            }
+
+            &:not(:last-child) {
+                margin-right: 0;
+
+                @include tablet {
+                    margin-right: 40px;
+                }
+            }
+
+            &.df-social-in,
+            &.df-social-fb {
+                display: inline-block;
+        
+                svg {
+                    width: auto;
+                    height: 18px;
+                }
+        
+                &:not(:last-child) {
+                    margin-right: 10px;
+        
+                    @include tablet {
+                        margin-right: 15px;
+                    }
+                }
+            }
+
+            &.df-playmarket,
+            &.df-appstore {
+                vertical-align: top;
+                display: inline-block;
+                border-radius: 5px;
+            }
+
+            &.df-appstore {
+                width: 106px;
+                height: 34px;
+                margin-right: 20px;
+                background: url('../../assets/images/appstore.png')  no-repeat center;
+                background-size: contain;
+                margin-right: 10px;
+            }
+
+            &.df-playmarket {
+                width: 120px;
+                height: 34px;
+                background: url('../../assets/images/playmarket.png')  no-repeat center;
+                background-size: contain;
+            }
+        }
+    }
+    
+    .df-copyright {
+        font-size: rem(12);
+        line-height: rem(15);
+        letter-spacing: rem(3.33333);
+        color: $base-font-color;
+        margin: 10px 0 0;
+        display: inline-block;
+        
+        @include laptopL {
+            margin: 0 0 0 10px;
+        }
+    }
+
+    .df-footer-right {
+        display: flex;
+    }
+
+    .df-social-link {
+        margin: 10px auto 30px;
+
+        @include tabletL {
+            margin: 16px 0 0;
+        }
+    }
+
+    .df-logo-footer {
+        width: 120px;
+        height: 15px;
+        margin: 0 auto;
+    }
+
+    .df-market-links {
+        display: flex;
+        margin-bottom: 20px;
+        width: 100%;
+
+        @include tablet {
+            justify-content: flex-end;
+            margin-bottom: 0;
+            width: auto;
+        }
+    }
+
+    .df-logo-footer {
+        width: 200px;
+        height: 25px;
+        margin-right: 0;
+        display: inline-block;
+    }
+
+    .df-top-footer {
+        display: flex;
+        background-color: rgb(244, 246, 249);
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        @include tablet {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    }
+
+    .df-bottom-footer {
+        padding-top: 23px;
+
+        .container {
+            align-items: baseline;
+        }
+    }
+}

@@ -6,10 +6,8 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}"/>
-        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700|Lato:300,400,700,900&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="app"></div>

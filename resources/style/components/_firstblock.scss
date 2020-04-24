@@ -1,0 +1,90 @@
+.df-logo-header {
+    width: 200px;
+    height: 25px;
+    padding-top: 25px;
+    margin: auto;
+
+    @include tablet {
+        padding-top: 48px;
+        margin: 0;
+    }
+}
+
+.df-top-block {
+    background: #fff;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom: 130vw;
+    background-position: center bottom;
+
+    @include mobileL {
+        padding-bottom: 0;
+        background-position: 50vw center;
+        background-size: auto;
+    }
+
+    @include laptopL {
+        background-position: right center;
+    }
+
+    .container {
+        padding-right: 24px;
+        padding-left: 24px;
+
+        @include mobileL {
+            padding-right: 15px;
+            padding-left: 15px; 
+        }
+    }
+
+    .df-left-side {
+        width: 100%;
+        display: block;
+
+        @include mobileL {
+            width: 40%;
+            padding-bottom: 30px;
+        }
+
+        @include tabletL {
+            width: 40%;
+            padding-bottom: 20px;
+        }
+
+        @include laptopL {
+            width: 30vw;
+            padding-bottom: 50px;
+        }
+    }
+
+    .df-title-block {
+        font-weight: bold;
+        font-size: rem(30);
+        line-height: rem(36);
+        margin: 60px auto 24px;
+
+        @include tablet {
+            font-size: rem(50);
+            line-height: rem(56);
+            margin: 60px auto 24px;
+        }
+
+        @include tabletL {
+            font-size: rem(60);
+            line-height: rem(66);
+            margin: 100px auto 24px;
+        }
+    }
+
+    .df-text-description {
+        font-family: "Lato", sans-serif;
+        font-size: rem(16);
+        line-height: rem(24);
+        opacity: 0.8;
+
+        @include tablet {
+            font-size: rem(18);
+            line-height: rem(26);
+        }
+    }
+}

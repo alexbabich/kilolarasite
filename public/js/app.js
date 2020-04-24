@@ -1,6 +1,50 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"/js/app": 0
+/******/ 	};
+/******/
+/******/
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js"
+/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +70,67 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 							error.name = 'ChunkLoadError';
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -78,6 +183,16 @@
 /******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -1899,10 +2014,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Homepage.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/Item.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArticlePreview/Item.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1914,11 +2029,352 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Hompage",
-  components: {},
+  components: {
+    'df-button': function dfButton() {
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! @/js/molecules/DFButton */ "./resources/js/molecules/DFButton.vue"));
+    }
+  },
+  name: "Item",
+  props: {
+    title: {
+      type: String,
+      "default": ""
+    },
+    description: {
+      type: String,
+      "default": ""
+    },
+    image: {
+      type: String,
+      "default": ""
+    },
+    className: {
+      type: String,
+      "default": ""
+    },
+    showQuiz: {
+      type: Boolean,
+      "default": false
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/index.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArticlePreview/index.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Item */ "./resources/js/components/ArticlePreview/Item.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ArticlePreview",
+  components: {
+    Item: _Item__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    dataArray: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    },
+    direction: {
+      type: String,
+      "default": ""
+    },
+    backgroundcolor: {
+      type: String,
+      "default": ""
+    }
+  },
+  filters: {
+    returnClass: function returnClass(value) {
+      switch (value) {
+        case 'grey':
+          return 'df-gray-bg';
+          break;
+
+        case 'white':
+          return 'df-white-bg';
+          break;
+
+        default:
+          return '';
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Firstblock.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Firstblock.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Firstblock",
+  components: {
+    'df-button': function dfButton() {
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! @/js/molecules/DFButton */ "./resources/js/molecules/DFButton.vue"));
+    }
+  },
+  methods: {
+    startQuiz: function startQuiz(data) {
+      console.log(data);
+    }
+  },
+  props: {
+    isShowButton: {
+      type: Boolean,
+      "default": true
+    },
+    title: {
+      type: String,
+      "default": ""
+    },
+    text: {
+      type: String,
+      "default": ""
+    },
+    background: {
+      type: String,
+      "default": ""
+    },
+    bgColor: {
+      type: String,
+      "default": "#0099CC"
+    }
+  },
+  filters: {
+    bgImage: function bgImage(value) {
+      return 'background-image: url(/images/' + value + '.png);';
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Quiz.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Quiz",
+  components: {
+    'df-button': function dfButton() {
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! @/js/molecules/DFButton */ "./resources/js/molecules/DFButton.vue"));
+    }
+  },
+  props: {
+    backgroundcolor: {
+      type: String,
+      "default": ""
+    }
+  },
+  methods: {
+    startQuiz: function startQuiz(data) {
+      console.log(data);
+    },
+    returnClass: function returnClass(value) {
+      switch (value) {
+        case 'grey':
+          return 'df-gray-bg';
+          break;
+
+        case 'white':
+          return 'df-white-bg';
+          break;
+
+        default:
+          return '';
+      }
+    }
+  },
+  filters: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AppFeatures.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/AppFeatures.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_components_Firstblock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/components/Firstblock */ "./resources/js/components/Firstblock.vue");
+/* harmony import */ var _js_components_ArticlePreview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/js/components/ArticlePreview */ "./resources/js/components/ArticlePreview/index.vue");
+/* harmony import */ var _js_components_Quiz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/js/components/Quiz */ "./resources/js/components/Quiz.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AppFeatures",
+  components: {
+    Firstblock: _js_components_Firstblock__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ArticlePreview: _js_components_ArticlePreview__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Quiz: _js_components_Quiz__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
-    return {};
+    return {
+      ItemList: [{
+        title: "Daily motivation boosts",
+        description: "<p>Intermittent fasting takes time to get used to. The first few days, even weeks may seem a bit more challenging than you thought. However, those are the days that actually determine whether you will reach your goal or not. You will either build a sustainable foundation for further fasting, form new habits, or lose interest.</p><p>To guarantee your success, we want to be there for you through the best and the toughest days of fasting with motivational boosts and friendly reminders.</p>",
+        image: "dailyMotivation"
+      }, {
+        title: "Effective training routines",
+        description: "<p>Set up your workout schedule, choose a fitness level, and tone up your body without spending additional money on gyms and equipment.</p><p>DoFasting exercise suggestions feature professionally visualized training routines – warmups, workouts and stretching guides.</p><p>Only 10-30 minutes a day will result in improved posture, lean muscle gain, reduced weight, and improved overall body health.</p>",
+        image: "effectiveTraining"
+      }, {
+        title: "Tips & Guidance",
+        description: "<p>Become a real fasting expert! Our new Articles section gives you direct access to freshly-published articles, keeps you up-to-date with scientific research, and helps you to practice intermittent fasting the educated way.</p>",
+        image: "tipsGuidance"
+      }, {
+        title: "Progress Tracker & Calendar",
+        description: "<p>Start tracking your weight loss progress from the very first day of fasting! Your DoFasting profile shows your starting, current, and target weight to keep you motivated and help to achieve desired results.</p>",
+        image: "progressTracker"
+      }, {
+        title: "Meal recommendations",
+        description: "<p>Access the whole DoFasting meal database at once! Select and save your favorite meals, keep up with your recommended calorie intake and make your fasting diet even more effective. All recipes are chosen by our professional nutritionists and can be adjusted according to your allergies and dietary preferences.</p>",
+        image: "mealRecommendations"
+      }, {
+        title: "Challenge mode",
+        description: "<p>Up for a challenge? Curious to find out how your body could change in 7, 14, or 28 days? The new challenge mode gives you a set daily agenda with fasting hours and lots of useful advice on healthy nutrition, habit formation, and exercise. Join challenges, test your limits, and move on to “Advanced mode” whenever you’re ready!</p>",
+        image: "challengeMode"
+      }]
+    };
   }
 });
 
@@ -37585,10 +38041,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377& ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/Item.vue?vue&type=template&id=402bc1d6&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArticlePreview/Item.vue?vue&type=template&id=402bc1d6& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37600,7 +38056,338 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h2", [_vm._v("\n    Hompage\n")])
+  return _c("div", { class: ["container df-preview-item", this.className] }, [
+    _c("div", { staticClass: "df-item-image" }, [
+      _c("img", { attrs: { src: "/images/" + this.image + ".png", alt: "" } }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showQuiz,
+              expression: "showQuiz"
+            }
+          ],
+          staticClass: "df-quiz-mini"
+        },
+        [
+          _c("h2", { staticClass: "df-title-block" }, [
+            _vm._v("Start your fasting journey today")
+          ]),
+          _vm._v(" "),
+          _c("p", {
+            staticClass: "df-text-description",
+            domProps: {
+              innerHTML: _vm._s(
+                "Find out what works for you with this <b>60-sec quiz</b> approved by our experts and get your personal revolutionary fasting assistant"
+              )
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "df-quiz-select-gender" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("df-button", {
+                attrs: { title: "MALE", colorstyle: "blue" },
+                on: {
+                  click: function($event) {
+                    return _vm.startQuiz("start quiz")
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("df-button", {
+                attrs: { title: "FEMALE", colorstyle: "red" },
+                on: {
+                  click: function($event) {
+                    return _vm.startQuiz("start quiz")
+                  }
+                }
+              })
+            ],
+            1
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "df-item-text-wrapper" }, [
+      this.title
+        ? _c("p", {
+            staticClass: "df-item-title",
+            domProps: { innerHTML: _vm._s(this.title) }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      this.description
+        ? _c("div", {
+            staticClass: "df-item-text",
+            domProps: { innerHTML: _vm._s(this.description) }
+          })
+        : _vm._e()
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "df-text-description" }, [
+      _c("b", [_vm._v("Select your gender:")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/index.vue?vue&type=template&id=0ff4a640&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArticlePreview/index.vue?vue&type=template&id=0ff4a640&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { class: _vm._f("returnClass")(this.backgroundcolor) }, [
+    this.dataArray
+      ? _c(
+          "div",
+          { staticClass: "justify-content-around" },
+          _vm._l(_vm.dataArray, function(item, index) {
+            return _c("item", {
+              key: index,
+              attrs: {
+                title: item.title,
+                description: item.description,
+                image: item.image,
+                showQuiz: item.showQuiz,
+                className: _vm.direction
+              }
+            })
+          }),
+          1
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Firstblock.vue?vue&type=template&id=da44d3f0&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Firstblock.vue?vue&type=template&id=da44d3f0& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "df-top-block", style: _vm._f("bgImage")(this.background) },
+    [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "df-left-side" },
+          [
+            _c(
+              "div",
+              { staticClass: "df-logo-header" },
+              [_c("svg-vue", { attrs: { icon: "logo" } })],
+              1
+            ),
+            _vm._v(" "),
+            _c("h2", {
+              staticClass: "df-title-block",
+              domProps: { innerHTML: _vm._s(this.title) }
+            }),
+            _vm._v(" "),
+            this.text
+              ? _c("div", {
+                  staticClass: "df-text-description",
+                  domProps: { innerHTML: _vm._s(this.text) }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.isShowButton
+              ? _c("df-button", {
+                  attrs: { title: "start quiz", colorstyle: "red" },
+                  on: {
+                    click: function($event) {
+                      return _vm.startQuiz("start quiz")
+                    }
+                  }
+                })
+              : _vm._e()
+          ],
+          1
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Quiz.vue?vue&type=template&id=654966c0& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { class: ["df-quiz", _vm.returnClass(this.backgroundcolor)] },
+    [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "df-left-side" }, [
+          _c("h2", { staticClass: "df-title-block" }, [
+            _vm._v("Start your fasting journey today")
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("p", {
+            staticClass: "df-text-description",
+            domProps: {
+              innerHTML: _vm._s(
+                "Find out what works for you with this 60-sec quiz approved by our experts and get your personal revolutionary fasting assistant"
+              )
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "df-quiz-select-gender" },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("df-button", {
+                attrs: { title: "MALE", colorstyle: "blue" },
+                on: {
+                  click: function($event) {
+                    return _vm.startQuiz("start quiz")
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("df-button", {
+                attrs: { title: "FEMALE", colorstyle: "red" },
+                on: {
+                  click: function($event) {
+                    return _vm.startQuiz("start quiz")
+                  }
+                }
+              })
+            ],
+            1
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "df-text-description" }, [
+      _c("b", [_vm._v("With your personal fasting assistant")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "df-text-description" }, [
+      _c("b", [_vm._v("Select your gender:")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AppFeatures.vue?vue&type=template&id=670bab85&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/AppFeatures.vue?vue&type=template&id=670bab85& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("firstblock", {
+        attrs: {
+          background: "appFeatures",
+          title: "App Features",
+          text:
+            "<p>DoFasting is the new, easier 3-in-1 solution for weight loss. Choose a fasting method that fits best into your lifestyle, learn to prepare healthy meals, and implement simple workouts into your daily routine.</p><p>Instead of strict dieting, we offer healthy foods that actually taste amazing. Instead of exhausting fitness routines, we’re giving you workouts that you can complete every day. We believe in sustainable results and tools that help you achieve them without sacrificing your lifestyle.</p>",
+          isShowButton: false
+        }
+      }),
+      _vm._v(" "),
+      _c("article-preview", {
+        attrs: { backgroundcolor: "grey", dataArray: _vm.ItemList }
+      }),
+      _vm._v(" "),
+      _c("quiz", { attrs: { backgroundcolor: "white" } })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -52726,17 +53513,310 @@ module.exports = function(module) {
   !*** ./resources/assets/svg sync ^\.\/.*$ ***!
   \********************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
+var map = {
+	"./0205.svg": "./resources/assets/svg/0205.svg",
+	"./1212.svg": "./resources/assets/svg/1212.svg",
+	"./1410.svg": "./resources/assets/svg/1410.svg",
+	"./1608.svg": "./resources/assets/svg/1608.svg",
+	"./2004.svg": "./resources/assets/svg/2004.svg",
+	"./apple.svg": "./resources/assets/svg/apple.svg",
+	"./eating.svg": "./resources/assets/svg/eating.svg",
+	"./fb.svg": "./resources/assets/svg/fb.svg",
+	"./fire.svg": "./resources/assets/svg/fire.svg",
+	"./hand.svg": "./resources/assets/svg/hand.svg",
+	"./head.svg": "./resources/assets/svg/head.svg",
+	"./heart.svg": "./resources/assets/svg/heart.svg",
+	"./in.svg": "./resources/assets/svg/in.svg",
+	"./logo.svg": "./resources/assets/svg/logo.svg",
+	"./oxi.svg": "./resources/assets/svg/oxi.svg",
+	"./pig.svg": "./resources/assets/svg/pig.svg",
+	"./sendwatch.svg": "./resources/assets/svg/sendwatch.svg",
+	"./skin.svg": "./resources/assets/svg/skin.svg",
+	"./water.svg": "./resources/assets/svg/water.svg",
+	"./weight.svg": "./resources/assets/svg/weight.svg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
 }
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "./resources/assets/svg sync recursive ^\\.\\/.*$";
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/assets/svg sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
+/***/ "./resources/assets/svg/0205.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/0205.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 435 420\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"transparent\" cx=\"173.27\" cy=\"231.73\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"202.617\" cy=\"189.27\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"261.311\" cy=\"221.115\" r=\"172.77\" stroke=\"#D9E2F0\"/><mask id=\"a\" maskUnits=\"userSpaceOnUse\" x=\"9\" y=\"307\" width=\"40\" height=\"40\"><circle cx=\"29\" cy=\"327\" r=\"20\" fill=\"#B7CFFC\"/></mask><g mask=\"url(#a)\"><circle cx=\"29\" cy=\"327\" r=\"20\" fill=\"#B7CFFC\"/><path d=\"M31.747 338.48c-.883.211-1.8.335-2.747.335-1.069 0-2.099-.154-3.084-.422l.138 2.294a14.031 14.031 0 005.556.067l.137-2.274z\" fill=\"#222\"/><path d=\"M29 313c-7.732 0-14 6.269-14 14 0 5.695 3.404 10.593 8.284 12.78l.143-2.366c-3.711-1.994-6.242-5.913-6.242-10.414 0-6.515 5.3-11.816 11.816-11.816 6.515 0 11.814 5.301 11.814 11.816 0 4.628-2.68 8.632-6.565 10.569l.144 2.353C39.449 337.81 43 332.821 43 327c0-7.731-6.268-14-14-14z\" fill=\"#222\"/><path d=\"M31.82 337.257l.435-7.179c-1.23-.457-2.137-1.976-2.137-3.786 0-2.17 1.303-3.93 2.907-3.93 1.605 0 2.906 1.76 2.906 3.93 0 1.81-.905 3.329-2.136 3.786l.377 6.222c3.26-1.822 5.474-5.305 5.474-9.299 0-5.871-4.777-10.649-10.649-10.649-5.87 0-10.646 4.777-10.646 10.648 0 3.861 2.071 7.238 5.155 9.105l.371-6.122h-.575a1.237 1.237 0 01-1.236-1.237v-5.15a1.23 1.23 0 011.079-1.219v4.343h.869v-4.359h1.254v4.359h.869v-4.343c.607.078 1.08.592 1.08 1.219v5.15c0 .683-.555 1.237-1.237 1.237h-.576l.436 7.187a10.557 10.557 0 005.98.087z\" fill=\"#222\"/></g><circle cx=\"367\" cy=\"132\" r=\"20\" fill=\"#C9B4F4\"/><path d=\"M357 132c0-5.523 4.476-10 10-10 5.523 0 10 4.476 10 10 0 5.523-4.476 10-10 10-5.523 0-10-4.476-10-10zm11.053-5.792a.526.526 0 00-.532-.524h-1.042a.53.53 0 00-.532.526v6.316c0 .279.111.547.309.745l2.26 2.26a.526.526 0 00.747-.004l.737-.738a.53.53 0 00.003-.749l-1.95-1.95v-5.882z\" fill=\"#222\"/><circle cx=\"146\" cy=\"120\" r=\"120\" fill=\"#C9B4F4\"/><path d=\"M116.801 114.02c2.32-3.56 3.9-6.24 4.74-8.04.88-1.8 1.32-3.5 1.32-5.1 0-1.72-.5-3.06-1.5-4.02-.96-1-2.3-1.5-4.02-1.5-1.92 0-3.7.46-5.34 1.38-1.64.92-3.24 2.16-4.8 3.72l-.96-7.74c1.88-1.52 3.84-2.66 5.88-3.42 2.04-.76 4.3-1.14 6.78-1.14 2.44 0 4.52.52 6.24 1.56 1.72 1 3 2.36 3.84 4.08.88 1.72 1.32 3.62 1.32 5.7 0 2.36-.52 4.78-1.56 7.26-1 2.48-2.78 5.66-5.34 9.54l-4.92 7.5h13.32v7.2h-26.04l11.04-16.98zm34.535-1.02v18h-2.808l-.048-.768a5.585 5.585 0 01-1.464.768c-.496.16-1.088.24-1.776.24-1.168 0-2.176-.28-3.024-.84a5.335 5.335 0 01-1.896-2.256c-.432-.944-.648-1.984-.648-3.12 0-1.136.216-2.176.648-3.12a5.335 5.335 0 011.896-2.256c.848-.56 1.856-.84 3.024-.84s2.208.32 3.12.96V113h2.976zm-5.664 15.792c.944 0 1.648-.336 2.112-1.008.48-.672.72-1.592.72-2.76 0-1.168-.24-2.088-.72-2.76-.464-.672-1.168-1.008-2.112-1.008-.928 0-1.656.344-2.184 1.032-.512.688-.768 1.6-.768 2.736 0 1.136.256 2.048.768 2.736.528.688 1.256 1.032 2.184 1.032zm11.023 2.448c-.992 0-1.824-.32-2.496-.96-.656-.656-.984-1.536-.984-2.64 0-1.04.376-1.872 1.128-2.496.752-.64 1.64-1.088 2.664-1.344a13.25 13.25 0 012.952-.456c-.032-.704-.216-1.208-.552-1.512-.32-.304-.856-.456-1.608-.456-.528 0-1.048.072-1.56.216-.496.144-1.072.376-1.728.696l-.264-2.424c1.456-.704 2.912-1.056 4.368-1.056 1.408 0 2.48.384 3.216 1.152.752.768 1.128 1.992 1.128 3.672v3.24c0 .608.024 1.048.072 1.32.064.256.16.424.288.504.144.064.376.096.696.096h.384l-.264 2.448h-1.08c-.656 0-1.208-.12-1.656-.36a2.665 2.665 0 01-1.032-1.032c-.384.432-.912.776-1.584 1.032a6.03 6.03 0 01-2.088.36zm1.248-2.28c.304 0 .648-.072 1.032-.216.384-.16.72-.376 1.008-.648v-2.736c-.96.048-1.808.256-2.544.624s-1.104.88-1.104 1.536c0 .496.128.864.384 1.104.256.224.664.336 1.224.336zm11.221 1.248L164.172 119h3.312l3.072 7.728 3.12-7.728h3.312l-7.512 17.808H166.5l2.664-6.6zm12.581 1.032a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zm-92.58 24.36h5.16v1.32h-3.769v2.04h2.904v1.32h-2.903V164h-1.392v-8.4zm11.016 6.312h-3.12L96.329 164h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm6.977 3.492c-.48 0-.984-.06-1.512-.18s-.948-.256-1.26-.408l.168-1.476c1.04.496 1.98.744 2.82.744.472 0 .84-.088 1.104-.264.264-.176.396-.44.396-.792 0-.272-.072-.492-.216-.66-.136-.168-.34-.312-.612-.432-.272-.128-.676-.28-1.212-.456a7.281 7.281 0 01-1.296-.54c-.344-.2-.62-.452-.828-.756-.2-.312-.3-.7-.3-1.164 0-.704.26-1.272.78-1.704.528-.432 1.28-.648 2.256-.648.48 0 .952.052 1.416.156.464.104.876.236 1.236.396l-.144 1.44a7.75 7.75 0 00-1.344-.516 4.693 4.693 0 00-1.248-.168c-.48 0-.852.084-1.116.252-.264.16-.396.408-.396.744 0 .24.064.44.192.6.136.152.32.28.552.384.24.104.584.228 1.032.372.96.296 1.664.644 2.112 1.044.456.392.684.932.684 1.62 0 .68-.248 1.252-.744 1.716-.496.464-1.336.696-2.52.696zm7.192-7.248h-2.4v-1.32h6.192v1.32h-2.4V164h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V155.6h1.404v8.4h-1.152l-4.056-6.084V164h-1.392v-8.4zm13.169 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V155.6h1.404v8.4h-1.152l-4.056-6.084V164h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/><circle cx=\"297\" cy=\"330\" r=\"90\" fill=\"#B7CFFC\"/><path d=\"M269.987 314.6c4.08 0 7.36 1.2 9.84 3.6 2.52 2.36 3.78 5.6 3.78 9.72 0 2.84-.64 5.3-1.92 7.38-1.24 2.08-2.98 3.68-5.22 4.8-2.2 1.12-4.74 1.68-7.62 1.68-4.4 0-8.24-1.12-11.52-3.36l1.8-6.96c1.6 1 3.16 1.78 4.68 2.34 1.52.52 3.16.78 4.92.78 2.28 0 4.08-.6 5.4-1.8 1.36-1.2 2.04-2.82 2.04-4.86 0-2.2-.78-3.92-2.34-5.16-1.52-1.24-3.7-1.86-6.54-1.86-2.24 0-4.86.28-7.86.84l2.7-22.74h19.8l-.48 7.44h-13.56l-1.02 8.34c.96-.12 2-.18 3.12-.18zm33.349 8.4v18h-2.808l-.048-.768a5.585 5.585 0 01-1.464.768c-.496.16-1.088.24-1.776.24-1.168 0-2.176-.28-3.024-.84a5.335 5.335 0 01-1.896-2.256c-.432-.944-.648-1.984-.648-3.12 0-1.136.216-2.176.648-3.12a5.335 5.335 0 011.896-2.256c.848-.56 1.856-.84 3.024-.84s2.208.32 3.12.96V323h2.976zm-5.664 15.792c.944 0 1.648-.336 2.112-1.008.48-.672.72-1.592.72-2.76 0-1.168-.24-2.088-.72-2.76-.464-.672-1.168-1.008-2.112-1.008-.928 0-1.656.344-2.184 1.032-.512.688-.768 1.6-.768 2.736 0 1.136.256 2.048.768 2.736.528.688 1.256 1.032 2.184 1.032zm11.023 2.448c-.992 0-1.824-.32-2.496-.96-.656-.656-.984-1.536-.984-2.64 0-1.04.376-1.872 1.128-2.496.752-.64 1.64-1.088 2.664-1.344a13.25 13.25 0 012.952-.456c-.032-.704-.216-1.208-.552-1.512-.32-.304-.856-.456-1.608-.456-.528 0-1.048.072-1.56.216-.496.144-1.072.376-1.728.696l-.264-2.424c1.456-.704 2.912-1.056 4.368-1.056 1.408 0 2.48.384 3.216 1.152.752.768 1.128 1.992 1.128 3.672v3.24c0 .608.024 1.048.072 1.32.064.256.16.424.288.504.144.064.376.096.696.096h.384l-.264 2.448h-1.08c-.656 0-1.208-.12-1.656-.36a2.665 2.665 0 01-1.032-1.032c-.384.432-.912.776-1.584 1.032a6.03 6.03 0 01-2.088.36zm1.248-2.28c.304 0 .648-.072 1.032-.216.384-.16.72-.376 1.008-.648v-2.736c-.96.048-1.808.256-2.544.624s-1.104.88-1.104 1.536c0 .496.128.864.384 1.104.256.224.664.336 1.224.336zm11.221 1.248L316.172 329h3.312l3.072 7.728 3.12-7.728h3.312l-7.512 17.808H318.5l2.664-6.6zm12.581 1.032a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zm-89.329 24.36h5.28v1.32h-3.864v2.04h3.036v1.32h-3.036v2.4h3.984V374h-5.4v-8.4zm12.118 6.312h-3.12l-.732 2.088h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm5.564-3.756h-2.4v-1.32h6.192v1.32h-2.4V374h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.27 0h1.416l3.78 5.736V365.6h1.404v8.4h-1.152l-4.056-6.084V374h-1.392v-8.4zm13.168 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V365.6h1.404v8.4h-1.152l-4.056-6.084V374h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/1212.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/1212.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 435 432\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"transparent\" cx=\"173.27\" cy=\"242.729\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"202.617\" cy=\"200.27\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"261.311\" cy=\"232.115\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"#C9B4F4\" cx=\"135\" cy=\"100\" r=\"100\"/><path d=\"M79.165 135.6h5.16v1.32h-3.769v2.04h2.904v1.32h-2.903V144h-1.392v-8.4zm11.016 6.312h-3.12L86.329 144h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm6.977 3.492c-.48 0-.984-.06-1.513-.18-.527-.12-.947-.256-1.26-.408l.168-1.476c1.04.496 1.98.744 2.82.744.472 0 .84-.088 1.105-.264.263-.176.395-.44.395-.792 0-.272-.072-.492-.216-.66-.135-.168-.34-.312-.611-.432-.273-.128-.677-.28-1.213-.456a7.281 7.281 0 01-1.295-.54c-.344-.2-.62-.452-.828-.756-.2-.312-.3-.7-.3-1.164 0-.704.26-1.272.78-1.704.528-.432 1.28-.648 2.255-.648.48 0 .953.052 1.416.156.465.104.876.236 1.236.396l-.144 1.44a7.75 7.75 0 00-1.344-.516 4.693 4.693 0 00-1.248-.168c-.48 0-.852.084-1.115.252-.265.16-.397.408-.397.744 0 .24.064.44.192.6.137.152.32.28.553.384.24.104.584.228 1.031.372.96.296 1.665.644 2.112 1.044.456.392.684.932.684 1.62a2.26 2.26 0 01-.743 1.716c-.496.464-1.337.696-2.52.696zm7.192-7.248h-2.4v-1.32h6.192v1.32h-2.4V144h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V135.6h1.404v8.4h-1.152l-4.056-6.084V144h-1.392v-8.4zm13.169 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V135.6h1.404v8.4h-1.152l-4.056-6.084V144h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zM98.687 79.86c-1.68 1.12-3.44 1.84-5.28 2.16l-.66-6.48c1.32-.28 2.8-1.08 4.44-2.4 1.64-1.36 2.74-2.74 3.3-4.14h5.88v42h-7.68V79.86zm27.188 14.16c2.32-3.56 3.9-6.24 4.74-8.04.88-1.8 1.32-3.5 1.32-5.1 0-1.72-.5-3.06-1.5-4.02-.96-1-2.3-1.5-4.02-1.5-1.92 0-3.7.46-5.34 1.38-1.64.92-3.24 2.16-4.8 3.72l-.96-7.74c1.88-1.52 3.84-2.66 5.88-3.42 2.04-.76 4.3-1.14 6.78-1.14 2.44 0 4.52.52 6.24 1.56 1.72 1 3 2.36 3.84 4.08.88 1.72 1.32 3.62 1.32 5.7 0 2.36-.52 4.78-1.56 7.26-1 2.48-2.78 5.66-5.34 9.54l-4.92 7.5h13.32v7.2h-26.04l11.04-16.98zm29.565 4.788c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V111h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V111h-2.976V93h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V111h-2.976V99zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936z\" fill=\"#222\"/><mask id=\"a\" maskUnits=\"userSpaceOnUse\" x=\"35\" y=\"265\" width=\"40\" height=\"40\"><circle cx=\"55\" cy=\"285\" r=\"20\" fill=\"#B7CFFC\"/></mask><g mask=\"url(#a)\"><circle cx=\"55\" cy=\"285\" r=\"20\" fill=\"#B7CFFC\"/><path d=\"M57.747 296.48c-.883.211-1.8.335-2.747.335-1.069 0-2.099-.154-3.084-.422l.138 2.294a14.031 14.031 0 005.555.067l.138-2.274z\" fill=\"#222\"/><path d=\"M55 271c-7.732 0-14 6.269-14 14 0 5.695 3.404 10.593 8.284 12.78l.144-2.366c-3.712-1.994-6.243-5.913-6.243-10.414 0-6.515 5.3-11.816 11.816-11.816 6.515 0 11.814 5.301 11.814 11.816 0 4.628-2.68 8.632-6.565 10.569l.144 2.353C65.448 295.81 69 290.821 69 285c0-7.731-6.268-14-14-14z\" fill=\"#222\"/><path d=\"M57.82 295.257l.435-7.18c-1.23-.456-2.137-1.976-2.137-3.785 0-2.171 1.303-3.93 2.907-3.93 1.605 0 2.906 1.759 2.906 3.93 0 1.809-.905 3.329-2.136 3.785l.377 6.223c3.26-1.823 5.474-5.305 5.474-9.299 0-5.872-4.777-10.649-10.648-10.649-5.872 0-10.648 4.777-10.648 10.648 0 3.861 2.072 7.238 5.156 9.105l.371-6.123h-.575a1.236 1.236 0 01-1.236-1.236v-5.15c0-.628.471-1.142 1.079-1.22v4.344h.869v-4.359h1.254v4.359h.869v-4.344c.607.079 1.08.593 1.08 1.22v5.15c0 .683-.555 1.236-1.237 1.236h-.576l.436 7.188c.998.31 2.058.478 3.159.478.977 0 1.92-.143 2.82-.391z\" fill=\"#222\"/></g><circle cx=\"369\" cy=\"152\" r=\"20\" fill=\"#C9B4F4\"/><path d=\"M359 152c0-5.523 4.476-10 10-10 5.523 0 10 4.476 10 10 0 5.523-4.476 10-10 10-5.523 0-10-4.476-10-10zm11.053-5.792a.526.526 0 00-.532-.524h-1.042a.53.53 0 00-.532.526v6.316c0 .279.111.547.309.745l2.26 2.26a.526.526 0 00.747-.004l.737-.738a.53.53 0 00.003-.749l-1.95-1.95v-5.882z\" fill=\"#222\"/><circle cx=\"296\" cy=\"332\" r=\"100\" fill=\"#B7CFFC\"/><path d=\"M259.687 311.86c-1.68 1.12-3.44 1.84-5.28 2.16l-.66-6.48c1.32-.28 2.8-1.08 4.44-2.4 1.64-1.36 2.74-2.74 3.3-4.14h5.88v42h-7.68v-31.14zm27.188 14.16c2.32-3.56 3.9-6.24 4.74-8.04.88-1.8 1.32-3.5 1.32-5.1 0-1.72-.5-3.06-1.5-4.02-.96-1-2.3-1.5-4.02-1.5-1.92 0-3.7.46-5.34 1.38-1.64.92-3.24 2.16-4.8 3.72l-.96-7.74c1.88-1.52 3.84-2.66 5.88-3.42 2.04-.76 4.3-1.14 6.78-1.14 2.44 0 4.52.52 6.24 1.56 1.72 1 3 2.36 3.84 4.08.88 1.72 1.32 3.62 1.32 5.7 0 2.36-.52 4.78-1.56 7.26-1 2.48-2.78 5.66-5.34 9.54l-4.92 7.5h13.32v7.2h-26.04l11.04-16.98zm29.565 4.788c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V343h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V343h-2.976v-18h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V343h-2.976v-12zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zm-91.525 24.36h5.28v1.32h-3.864v2.04h3.036v1.32h-3.036v2.4h3.984V376h-5.4v-8.4zm12.118 6.312h-3.12l-.732 2.088h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm5.564-3.756h-2.4v-1.32h6.192v1.32h-2.4V376h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.27 0h1.416l3.78 5.736V367.6h1.404v8.4h-1.152l-4.056-6.084V376h-1.392v-8.4zm13.168 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V367.6h1.404v8.4h-1.152l-4.056-6.084V376h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/1410.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/1410.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 435 420\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"transparent\" cx=\"173.27\" cy=\"231.729\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"202.617\" cy=\"189.27\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"261.311\" cy=\"221.115\" r=\"172.77\" stroke=\"#D9E2F0\"/><mask id=\"a\" maskUnits=\"userSpaceOnUse\" x=\"9\" y=\"307\" width=\"40\" height=\"40\"><circle cx=\"29\" cy=\"327\" r=\"20\" fill=\"#B7CFFC\"/></mask><g mask=\"url(#a)\"><circle cx=\"29\" cy=\"327\" r=\"20\" fill=\"#B7CFFC\"/><path d=\"M31.747 338.48c-.883.211-1.8.335-2.747.335-1.069 0-2.099-.154-3.084-.422l.138 2.294a14.031 14.031 0 005.556.067l.137-2.274z\" fill=\"#222\"/><path d=\"M29 313c-7.732 0-14 6.269-14 14 0 5.695 3.404 10.593 8.284 12.78l.143-2.366c-3.711-1.994-6.242-5.913-6.242-10.414 0-6.515 5.3-11.816 11.816-11.816 6.515 0 11.814 5.301 11.814 11.816 0 4.628-2.68 8.632-6.565 10.569l.144 2.353C39.449 337.81 43 332.821 43 327c0-7.731-6.268-14-14-14z\" fill=\"#222\"/><path d=\"M31.82 337.257l.436-7.18c-1.231-.456-2.137-1.976-2.137-3.785 0-2.171 1.302-3.93 2.906-3.93 1.605 0 2.906 1.759 2.906 3.93 0 1.809-.905 3.329-2.136 3.785l.377 6.223c3.26-1.823 5.474-5.305 5.474-9.299 0-5.872-4.777-10.649-10.649-10.649-5.87 0-10.646 4.777-10.646 10.648 0 3.861 2.071 7.238 5.155 9.105l.371-6.123h-.575a1.236 1.236 0 01-1.236-1.236v-5.15c0-.628.471-1.142 1.079-1.22v4.344h.869v-4.359h1.254v4.359h.869v-4.344c.607.079 1.08.593 1.08 1.22v5.15c0 .683-.555 1.236-1.237 1.236h-.576l.436 7.188c.998.31 2.058.478 3.16.478.976 0 1.92-.143 2.82-.391z\" fill=\"#222\"/></g><circle cx=\"367\" cy=\"132\" r=\"20\" fill=\"#C9B4F4\"/><path d=\"M357 132c0-5.523 4.476-10 10-10 5.523 0 10 4.476 10 10 0 5.523-4.476 10-10 10-5.523 0-10-4.476-10-10zm11.053-5.792a.526.526 0 00-.532-.524h-1.042a.53.53 0 00-.532.526v6.316c0 .279.111.547.309.745l2.26 2.26a.526.526 0 00.747-.004l.737-.738a.53.53 0 00.003-.749l-1.95-1.95v-5.882z\" fill=\"#222\"/><circle cx=\"146\" cy=\"120\" r=\"120\" fill=\"#C9B4F4\"/><path d=\"M107.933 99.86c-1.68 1.12-3.44 1.84-5.28 2.16l-.66-6.48c1.32-.28 2.8-1.08 4.44-2.4 1.64-1.36 2.74-2.74 3.3-4.14h5.88v42h-7.68V99.86zm47.648 15.3v6.24h-5.4v9.6h-7.38v-9.6h-20.94l23.1-32.4h5.22v26.16h5.4zm-12.78 0v-12.9l-9.06 12.9h9.06zm27.639 3.648c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V131h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V131h-2.976v-18h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V131h-2.976v-12zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zM89.165 155.6h5.16v1.32h-3.769v2.04h2.904v1.32h-2.903V164h-1.392v-8.4zm11.016 6.312h-3.12L96.329 164h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm6.977 3.492c-.48 0-.984-.06-1.512-.18s-.948-.256-1.26-.408l.168-1.476c1.04.496 1.98.744 2.82.744.472 0 .84-.088 1.104-.264.264-.176.396-.44.396-.792 0-.272-.072-.492-.216-.66-.136-.168-.34-.312-.612-.432-.272-.128-.676-.28-1.212-.456a7.281 7.281 0 01-1.296-.54c-.344-.2-.62-.452-.828-.756-.2-.312-.3-.7-.3-1.164 0-.704.26-1.272.78-1.704.528-.432 1.28-.648 2.256-.648.48 0 .952.052 1.416.156.464.104.876.236 1.236.396l-.144 1.44a7.75 7.75 0 00-1.344-.516 4.693 4.693 0 00-1.248-.168c-.48 0-.852.084-1.116.252-.264.16-.396.408-.396.744 0 .24.064.44.192.6.136.152.32.28.552.384.24.104.584.228 1.032.372.96.296 1.664.644 2.112 1.044.456.392.684.932.684 1.62 0 .68-.248 1.252-.744 1.716-.496.464-1.336.696-2.52.696zm7.192-7.248h-2.4v-1.32h6.192v1.32h-2.4V164h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V155.6h1.404v8.4h-1.152l-4.056-6.084V164h-1.392v-8.4zm13.169 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V155.6h1.404v8.4h-1.152l-4.056-6.084V164h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/><circle cx=\"297\" cy=\"330\" r=\"90\" fill=\"#B7CFFC\"/><path d=\"M254.884 309.86c-1.68 1.12-3.44 1.84-5.28 2.16l-.66-6.48c1.32-.28 2.8-1.08 4.44-2.4 1.64-1.36 2.74-2.74 3.3-4.14h5.88v42h-7.68v-31.14zm34.689 31.98c-3.52 0-6.62-.92-9.3-2.76-2.64-1.84-4.7-4.44-6.18-7.8-1.48-3.36-2.22-7.24-2.22-11.64 0-4.2.74-7.92 2.22-11.16 1.48-3.28 3.56-5.82 6.24-7.62 2.68-1.8 5.76-2.7 9.24-2.7 3.52 0 6.62.92 9.3 2.76 2.68 1.8 4.74 4.32 6.18 7.56 1.48 3.24 2.22 6.96 2.22 11.16 0 4.4-.74 8.28-2.22 11.64-1.44 3.36-3.5 5.96-6.18 7.8-2.68 1.84-5.78 2.76-9.3 2.76zm0-6.9c3.04 0 5.46-1.26 7.26-3.78 1.84-2.52 2.76-6.36 2.76-11.52 0-4.8-.92-8.44-2.76-10.92-1.84-2.52-4.26-3.78-7.26-3.78s-5.42 1.26-7.26 3.78c-1.84 2.48-2.76 6.12-2.76 10.92 0 5.12.9 8.96 2.7 11.52 1.84 2.52 4.28 3.78 7.32 3.78zm32.867-6.132c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V341h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V341h-2.976v-18h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V341h-2.976v-12zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zm-96.525 24.36h5.28v1.32h-3.864v2.04h3.036v1.32h-3.036v2.4h3.984V374h-5.4v-8.4zm12.118 6.312h-3.12l-.732 2.088h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm5.564-3.756h-2.4v-1.32h6.192v1.32h-2.4V374h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.27 0h1.416l3.78 5.736V365.6h1.404v8.4h-1.152l-4.056-6.084V374h-1.392v-8.4zm13.168 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V365.6h1.404v8.4h-1.152l-4.056-6.084V374h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/1608.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/1608.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 451 404\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"transparent\" cx=\"261.311\" cy=\"188.271\" r=\"172.77\" transform=\"rotate(-180 261.311 188.271)\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"231.964\" cy=\"230.73\" r=\"172.77\" transform=\"rotate(-180 231.964 230.73)\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"173.27\" cy=\"198.885\" r=\"172.77\" transform=\"rotate(-180 173.27 198.885)\" stroke=\"#D9E2F0\"/><mask id=\"a\" maskUnits=\"userSpaceOnUse\" x=\"31\" y=\"302\" width=\"41\" height=\"40\"><circle cx=\"51.999\" cy=\"322\" r=\"20\" fill=\"#B7CFFC\"/></mask><g mask=\"url(#a)\"><circle cx=\"51.999\" cy=\"322\" r=\"20\" fill=\"#B7CFFC\"/><path d=\"M54.746 333.48c-.883.211-1.8.335-2.747.335-1.069 0-2.099-.154-3.084-.422l.138 2.294a14.031 14.031 0 005.556.067l.137-2.274z\" fill=\"#222\"/><path d=\"M51.999 308c-7.732 0-14 6.269-14 14 0 5.695 3.404 10.593 8.284 12.78l.143-2.366c-3.711-1.994-6.242-5.913-6.242-10.414 0-6.515 5.3-11.816 11.816-11.816 6.515 0 11.815 5.301 11.815 11.816 0 4.628-2.68 8.632-6.566 10.569l.143 2.353C62.448 332.81 66 327.821 66 322c-.001-7.731-6.269-14-14.001-14z\" fill=\"#222\"/><path d=\"M54.819 332.257l.435-7.179c-1.23-.457-2.136-1.976-2.136-3.786 0-2.17 1.302-3.93 2.906-3.93 1.605 0 2.906 1.76 2.906 3.93 0 1.81-.905 3.329-2.136 3.786l.377 6.222c3.26-1.822 5.474-5.304 5.474-9.299 0-5.871-4.777-10.649-10.649-10.649-5.87 0-10.647 4.777-10.647 10.648 0 3.861 2.072 7.238 5.156 9.105l.371-6.122h-.575a1.236 1.236 0 01-1.236-1.236v-5.15c0-.629.471-1.142 1.079-1.22v4.343h.869v-4.359h1.254v4.359h.869v-4.343c.607.078 1.08.592 1.08 1.22v5.15c0 .683-.555 1.236-1.237 1.236h-.576l.436 7.187a10.557 10.557 0 005.98.087z\" fill=\"#222\"/></g><circle cx=\"430.999\" cy=\"167\" r=\"20\" fill=\"#C9B4F4\"/><path d=\"M420.999 167c0-5.523 4.476-10 10-10 5.523 0 10 4.476 10 10 0 5.523-4.476 10-10 10-5.523 0-10-4.476-10-10zm11.053-5.792a.526.526 0 00-.532-.524h-1.042a.53.53 0 00-.532.526v6.316c0 .279.111.547.309.745l2.26 2.26a.526.526 0 00.747-.004l.737-.738a.53.53 0 00.003-.749l-1.95-1.95v-5.882z\" fill=\"#222\"/><circle cx=\"161.999\" cy=\"130\" r=\"130\" fill=\"#C9B4F4\"/><path d=\"M124.719 109.86c-1.68 1.12-3.44 1.84-5.28 2.16l-.66-6.48c1.32-.28 2.8-1.08 4.44-2.4 1.64-1.36 2.74-2.74 3.3-4.14h5.88v42h-7.68v-31.14zm32.409 5.88c2.32 0 4.42.54 6.3 1.62s3.34 2.58 4.38 4.5c1.08 1.92 1.62 4.1 1.62 6.54 0 2.64-.56 4.98-1.68 7.02-1.12 2.04-2.72 3.62-4.8 4.74-2.08 1.12-4.52 1.68-7.32 1.68-2.88 0-5.42-.64-7.62-1.92-2.2-1.32-3.9-3.16-5.1-5.52-1.2-2.36-1.8-5.1-1.8-8.22 0-4.24.96-8.22 2.88-11.94 1.92-3.72 4.34-6.94 7.26-9.66 2.96-2.72 5.98-4.86 9.06-6.42l5.34 4.2c-2.92 1.44-5.96 3.52-9.12 6.24-3.16 2.68-5.48 5.74-6.96 9.18 2.08-1.36 4.6-2.04 7.56-2.04zm-1.38 19.74c1.92 0 3.52-.64 4.8-1.92 1.28-1.32 1.92-2.94 1.92-4.86 0-1.88-.64-3.44-1.92-4.68-1.28-1.28-2.88-1.92-4.8-1.92-1.96 0-3.58.64-4.86 1.92-1.24 1.24-1.86 2.8-1.86 4.68 0 1.92.64 3.54 1.92 4.86 1.28 1.28 2.88 1.92 4.8 1.92zm27.691-6.672c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V141h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V141h-2.976v-18h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V141h-2.976v-12zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zm-95.776 24.36h5.16v1.32h-3.768v2.04h2.904v1.32h-2.904V174h-1.392v-8.4zm11.016 6.312h-3.12l-.732 2.088h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm6.977 3.492c-.48 0-.984-.06-1.512-.18s-.948-.256-1.26-.408l.168-1.476c1.04.496 1.98.744 2.82.744.472 0 .84-.088 1.104-.264.264-.176.396-.44.396-.792 0-.272-.072-.492-.216-.66-.136-.168-.34-.312-.612-.432-.272-.128-.676-.28-1.212-.456a7.281 7.281 0 01-1.296-.54c-.344-.2-.62-.452-.828-.756-.2-.312-.3-.7-.3-1.164 0-.704.26-1.272.78-1.704.528-.432 1.28-.648 2.256-.648.48 0 .952.052 1.416.156.464.104.876.236 1.236.396l-.144 1.44a7.75 7.75 0 00-1.344-.516 4.693 4.693 0 00-1.248-.168c-.48 0-.852.084-1.116.252-.264.16-.396.408-.396.744 0 .24.064.44.192.6.136.152.32.28.552.384.24.104.584.228 1.032.372.96.296 1.664.644 2.112 1.044.456.392.684.932.684 1.62 0 .68-.248 1.252-.744 1.716-.496.464-1.336.696-2.52.696zm7.192-7.248h-2.4v-1.32h6.192v1.32h-2.4V174h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.27 0h1.416l3.78 5.736V165.6h1.404v8.4h-1.152l-4.056-6.084V174h-1.392v-8.4zm13.168 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V165.6h1.404v8.4h-1.152l-4.056-6.084V174h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/><circle cx=\"302.999\" cy=\"330\" r=\"70\" fill=\"#B7CFFC\"/><path d=\"M295.511 316.95c1.667.9 2.967 2.133 3.9 3.7.933 1.567 1.4 3.333 1.4 5.3 0 2.1-.5 3.967-1.5 5.6-1 1.633-2.433 2.9-4.3 3.8-1.867.9-4.033 1.35-6.5 1.35-2.5 0-4.683-.45-6.55-1.35-1.833-.9-3.25-2.167-4.25-3.8s-1.5-3.5-1.5-5.6c0-2 .467-3.767 1.4-5.3.967-1.567 2.3-2.8 4-3.7-1.2-.833-2.133-1.867-2.8-3.1a8.667 8.667 0 01-1-4.1c0-1.633.383-3.167 1.15-4.6.767-1.433 1.95-2.6 3.55-3.5 1.6-.9 3.6-1.35 6-1.35s4.383.45 5.95 1.35c1.567.9 2.717 2.067 3.45 3.5a9.961 9.961 0 011.1 4.6c0 1.5-.3 2.867-.9 4.1a8.325 8.325 0 01-2.6 3.1zm-7-11.65c-1.6 0-2.85.417-3.75 1.25-.9.8-1.35 1.883-1.35 3.25 0 1.3.45 2.383 1.35 3.25.933.867 2.183 1.3 3.75 1.3 1.567 0 2.767-.433 3.6-1.3.867-.867 1.3-1.95 1.3-3.25 0-1.367-.433-2.45-1.3-3.25-.833-.833-2.033-1.25-3.6-1.25zm0 25.9c2 0 3.567-.5 4.7-1.5 1.133-1.033 1.7-2.417 1.7-4.15 0-1.633-.583-2.967-1.75-4-1.133-1.033-2.683-1.55-4.65-1.55-1.967 0-3.533.517-4.7 1.55-1.133 1.033-1.7 2.367-1.7 4 0 1.733.567 3.117 1.7 4.15 1.133 1 2.7 1.5 4.7 1.5zm26.928-7.392c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V336h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V336h-2.976v-18h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V336h-2.976v-12zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zm-83.525 15.36h5.28v1.32h-3.864v2.04h3.036v1.32h-3.036v2.4h3.984V360h-5.4v-8.4zm12.118 6.312h-3.12l-.732 2.088h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm5.564-3.756h-2.4v-1.32h6.192v1.32h-2.4V360h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.27 0h1.416l3.78 5.736V351.6h1.404v8.4h-1.152l-4.056-6.084V360h-1.392v-8.4zm13.168 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V351.6h1.404v8.4h-1.152l-4.056-6.084V360h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/2004.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/2004.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 435 406\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"transparent\" cx=\"173.27\" cy=\"232.729\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"202.617\" cy=\"190.27\" r=\"172.77\" stroke=\"#D9E2F0\"/><circle fill=\"transparent\" cx=\"261.311\" cy=\"222.115\" r=\"172.77\" stroke=\"#D9E2F0\"/><mask id=\"a\" maskUnits=\"userSpaceOnUse\" x=\"29\" y=\"329\" width=\"40\" height=\"40\"><circle cx=\"49\" cy=\"349\" r=\"20\" fill=\"#B7CFFC\"/></mask><g mask=\"url(#a)\"><circle cx=\"49\" cy=\"349\" r=\"20\" fill=\"#B7CFFC\"/><path d=\"M51.747 360.48c-.883.211-1.8.335-2.747.335-1.069 0-2.099-.154-3.084-.422l.138 2.294a14.031 14.031 0 005.555.067l.138-2.274z\" fill=\"#222\"/><path d=\"M49 335c-7.732 0-14 6.269-14 14 0 5.695 3.404 10.593 8.284 12.78l.144-2.366c-3.712-1.994-6.243-5.913-6.243-10.414 0-6.515 5.3-11.816 11.816-11.816 6.515 0 11.814 5.301 11.814 11.816 0 4.628-2.68 8.632-6.565 10.569l.144 2.353C59.449 359.81 63 354.821 63 349c0-7.731-6.268-14-14-14z\" fill=\"#222\"/><path d=\"M51.82 359.257l.436-7.179c-1.231-.457-2.138-1.976-2.138-3.786 0-2.17 1.303-3.93 2.907-3.93 1.605 0 2.906 1.76 2.906 3.93 0 1.81-.905 3.329-2.136 3.786l.377 6.222c3.26-1.822 5.474-5.304 5.474-9.299 0-5.871-4.777-10.649-10.648-10.649-5.872 0-10.648 4.777-10.648 10.648 0 3.861 2.072 7.238 5.156 9.105l.371-6.122h-.575a1.236 1.236 0 01-1.236-1.236v-5.15c0-.629.471-1.142 1.079-1.22v4.343h.869v-4.359h1.254v4.359h.869v-4.343c.607.078 1.08.592 1.08 1.22v5.15c0 .683-.555 1.236-1.237 1.236h-.576l.436 7.187a10.557 10.557 0 005.98.087z\" fill=\"#222\"/></g><circle cx=\"415\" cy=\"160\" r=\"20\" fill=\"#C9B4F4\"/><path d=\"M405 160c0-5.523 4.476-10 10-10 5.523 0 10 4.476 10 10 0 5.523-4.476 10-10 10-5.523 0-10-4.476-10-10zm11.053-5.792a.526.526 0 00-.532-.524h-1.042a.53.53 0 00-.532.526v6.316c0 .279.111.547.309.745l2.26 2.26a.526.526 0 00.747-.004l.737-.738a.53.53 0 00.003-.749l-1.95-1.95v-5.882z\" fill=\"#222\"/><circle cx=\"177\" cy=\"140\" r=\"140\" fill=\"#C9B4F4\"/><path d=\"M136.119 134.02c2.32-3.56 3.9-6.24 4.74-8.04.88-1.8 1.32-3.5 1.32-5.1 0-1.72-.5-3.06-1.5-4.02-.96-1-2.3-1.5-4.02-1.5-1.92 0-3.7.46-5.34 1.38-1.64.92-3.24 2.16-4.8 3.72l-.96-7.74c1.88-1.52 3.84-2.66 5.88-3.42 2.04-.76 4.3-1.14 6.78-1.14 2.44 0 4.52.52 6.24 1.56 1.72 1 3 2.36 3.84 4.08.88 1.72 1.32 3.62 1.32 5.7 0 2.36-.52 4.78-1.56 7.26-1 2.48-2.78 5.66-5.34 9.54l-4.92 7.5h13.32v7.2h-26.04l11.04-16.98zm39.258 17.82c-3.52 0-6.62-.92-9.3-2.76-2.64-1.84-4.7-4.44-6.18-7.8-1.48-3.36-2.22-7.24-2.22-11.64 0-4.2.74-7.92 2.22-11.16 1.48-3.28 3.56-5.82 6.24-7.62 2.68-1.8 5.76-2.7 9.24-2.7 3.52 0 6.62.92 9.3 2.76 2.68 1.8 4.74 4.32 6.18 7.56 1.48 3.24 2.22 6.96 2.22 11.16 0 4.4-.74 8.28-2.22 11.64-1.44 3.36-3.5 5.96-6.18 7.8-2.68 1.84-5.78 2.76-9.3 2.76zm0-6.9c3.04 0 5.46-1.26 7.26-3.78 1.84-2.52 2.76-6.36 2.76-11.52 0-4.8-.92-8.44-2.76-10.92-1.84-2.52-4.26-3.78-7.26-3.78s-5.42 1.26-7.26 3.78c-1.84 2.48-2.76 6.12-2.76 10.92 0 5.12.9 8.96 2.7 11.52 1.84 2.52 4.28 3.78 7.32 3.78zm33.063-6.132c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V151h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V151h-2.976v-18h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V151h-2.976v-12zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zM120.165 175.6h5.16v1.32h-3.768v2.04h2.904v1.32h-2.904V184h-1.392v-8.4zm11.016 6.312h-3.12l-.732 2.088h-1.392l3-8.4h1.368l2.988 8.4h-1.38l-.732-2.088zm-.444-1.236l-1.116-3.192-1.128 3.192h2.244zm6.977 3.492c-.48 0-.984-.06-1.512-.18s-.948-.256-1.26-.408l.168-1.476c1.04.496 1.98.744 2.82.744.472 0 .84-.088 1.104-.264.264-.176.396-.44.396-.792 0-.272-.072-.492-.216-.66-.136-.168-.34-.312-.612-.432-.272-.128-.676-.28-1.212-.456a7.281 7.281 0 01-1.296-.54c-.344-.2-.62-.452-.828-.756-.2-.312-.3-.7-.3-1.164 0-.704.26-1.272.78-1.704.528-.432 1.28-.648 2.256-.648.48 0 .952.052 1.416.156.464.104.876.236 1.236.396l-.144 1.44a7.75 7.75 0 00-1.344-.516 4.693 4.693 0 00-1.248-.168c-.48 0-.852.084-1.116.252-.264.16-.396.408-.396.744 0 .24.064.44.192.6.136.152.32.28.552.384.24.104.584.228 1.032.372.96.296 1.664.644 2.112 1.044.456.392.684.932.684 1.62 0 .68-.248 1.252-.744 1.716-.496.464-1.336.696-2.52.696zm7.192-7.248h-2.4v-1.32h6.192v1.32h-2.4V184h-1.392v-7.08zm5.907-1.32h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V175.6h1.404v8.4h-1.152l-4.056-6.084V184h-1.392v-8.4zm13.169 8.568c-.84 0-1.58-.18-2.22-.54a3.684 3.684 0 01-1.464-1.524c-.344-.664-.516-1.436-.516-2.316 0-.864.184-1.624.552-2.28a3.894 3.894 0 011.56-1.536c.664-.36 1.42-.54 2.268-.54.432 0 .852.044 1.26.132.408.088.764.208 1.068.36l-.144 1.284a5.542 5.542 0 00-2.172-.456c-.944 0-1.66.28-2.148.84-.48.552-.72 1.28-.72 2.184 0 .928.24 1.672.72 2.232.488.56 1.192.84 2.112.84.416 0 .828-.052 1.236-.156v-1.716h-1.212v-1.188h2.604v3.744a4.905 4.905 0 01-1.224.456c-.48.12-1 .18-1.56.18zm8.163-8.568h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4zm13.325 0h1.392v8.4h-1.392v-8.4zm4.269 0h1.416l3.78 5.736V175.6h1.404v8.4h-1.152l-4.056-6.084V184h-1.392v-8.4zm9.473 0h3.132c.808 0 1.524.168 2.148.504.632.336 1.124.82 1.476 1.452.352.632.528 1.38.528 2.244 0 .864-.176 1.612-.528 2.244a3.584 3.584 0 01-1.476 1.452c-.624.336-1.34.504-2.148.504h-3.132v-8.4zm3.132 7.152c.856 0 1.508-.26 1.956-.78.448-.528.672-1.252.672-2.172 0-.92-.224-1.64-.672-2.16-.448-.528-1.1-.792-1.956-.792h-1.74v5.904h1.74zm10.188 1.416c-.8 0-1.512-.18-2.136-.54a3.867 3.867 0 01-1.476-1.524c-.352-.664-.528-1.432-.528-2.304 0-.872.176-1.636.528-2.292a3.847 3.847 0 011.476-1.536c.624-.36 1.336-.54 2.136-.54s1.512.18 2.136.54c.624.36 1.112.872 1.464 1.536.36.656.54 1.42.54 2.292 0 .872-.18 1.64-.54 2.304a3.785 3.785 0 01-1.464 1.524c-.624.36-1.336.54-2.136.54zm0-1.344c.856 0 1.512-.28 1.968-.84.464-.56.696-1.288.696-2.184 0-.896-.232-1.624-.696-2.184-.456-.56-1.112-.84-1.968-.84-.856 0-1.516.28-1.98.84-.464.56-.696 1.288-.696 2.184 0 .896.232 1.624.696 2.184.464.56 1.124.84 1.98.84zm5.582-7.224h1.452l1.716 6.312 1.932-6.252h1.116l1.98 6.156 1.68-6.216h1.452l-2.436 8.4h-1.308l-1.932-6.024-1.92 6.024h-1.368l-2.364-8.4z\" fill=\"#222\"/><circle cx=\"308\" cy=\"329\" r=\"60\" fill=\"#B7CFFC\"/><path d=\"M302.923 317.8v5.2h-4.5v8h-6.15v-8h-17.45l19.25-27h4.35v21.8h4.5zm-10.65 0v-10.75l-7.55 10.75h7.55zm27.167 1.008c1.52 0 2.648.496 3.384 1.488.752.976 1.128 2.32 1.128 4.032V331h-2.976v-6.456c0-1.136-.184-1.968-.552-2.496-.368-.528-.952-.792-1.752-.792-.944 0-1.72.344-2.328 1.032V331h-2.976v-18h2.976v6.768a6.42 6.42 0 011.464-.696 4.85 4.85 0 011.632-.264zm7.171.192h2.784l.072 1.272c.352-.4.8-.752 1.344-1.056a3.624 3.624 0 011.752-.456c.192 0 .368.016.528.048l-.216 2.928a4.063 4.063 0 00-1.032-.12c-.496 0-.952.12-1.368.36-.416.224-.712.504-.888.84V331h-2.976v-12zm11.33 12.24a9.628 9.628 0 01-2.112-.216 10.417 10.417 0 01-1.944-.672l.264-2.544c.672.4 1.296.704 1.872.912.592.192 1.2.288 1.824.288 1.216 0 1.824-.4 1.824-1.2 0-.432-.16-.76-.48-.984-.32-.24-.896-.52-1.728-.84-1.184-.432-2.056-.92-2.616-1.464-.56-.56-.84-1.312-.84-2.256 0-1.04.4-1.88 1.2-2.52.8-.656 1.88-.984 3.24-.984 1.36 0 2.6.312 3.72.936l-.264 2.544a9.52 9.52 0 00-1.728-.96 4.257 4.257 0 00-1.68-.336c-.512 0-.912.104-1.2.312-.272.208-.408.504-.408.888 0 .304.08.552.24.744.176.192.416.368.72.528.304.144.808.352 1.512.624 1.168.448 2.008.944 2.52 1.488.512.528.768 1.24.768 2.136 0 1.136-.408 2.016-1.224 2.64-.816.624-1.976.936-3.48.936zM263.18 346h4.4v1.1h-3.22v1.7h2.53v1.1h-2.53v2h3.32v1.1h-4.5v-7zm10.265 5.26h-2.6l-.61 1.74h-1.16l2.5-7h1.14l2.49 7h-1.15l-.61-1.74zm-.37-1.03l-.93-2.66-.94 2.66h1.87zm4.804-3.13h-2V346h5.16v1.1h-2v5.9h-1.16v-5.9zm5.089-1.1h1.16v7h-1.16v-7zm3.724 0h1.18l3.15 4.78V346h1.17v7h-.96l-3.38-5.07V353h-1.16v-7zm11.141 7.14c-.7 0-1.317-.15-1.85-.45a3.062 3.062 0 01-1.22-1.27c-.287-.553-.43-1.197-.43-1.93 0-.72.153-1.353.46-1.9.313-.553.746-.98 1.3-1.28.553-.3 1.183-.45 1.89-.45.36 0 .71.037 1.05.11.34.073.636.173.89.3l-.12 1.07a4.627 4.627 0 00-1.81-.38c-.787 0-1.384.233-1.79.7-.4.46-.6 1.067-.6 1.82 0 .773.2 1.393.6 1.86.406.467.993.7 1.76.7.346 0 .69-.043 1.03-.13v-1.43h-1.01v-.99h2.17v3.12c-.274.153-.614.28-1.02.38-.4.1-.834.15-1.3.15zm7.136-7.14h1.21l1.43 5.26 1.61-5.21h.93l1.65 5.13 1.4-5.18h1.21l-2.03 7h-1.09l-1.61-5.02-1.6 5.02h-1.14l-1.97-7zm11.27 0h1.16v7h-1.16v-7zm3.725 0h1.18l3.15 4.78V346h1.17v7h-.96l-3.38-5.07V353h-1.16v-7zm8.06 0h2.61c.673 0 1.27.14 1.79.42.527.28.937.683 1.23 1.21.293.527.44 1.15.44 1.87 0 .72-.147 1.343-.44 1.87a2.98 2.98 0 01-1.23 1.21c-.52.28-1.117.42-1.79.42h-2.61v-7zm2.61 5.96c.713 0 1.257-.217 1.63-.65.373-.44.56-1.043.56-1.81 0-.767-.187-1.367-.56-1.8-.373-.44-.917-.66-1.63-.66h-1.45v4.92h1.45zm8.657 1.18c-.667 0-1.26-.15-1.78-.45a3.22 3.22 0 01-1.23-1.27c-.294-.553-.44-1.193-.44-1.92 0-.727.146-1.363.44-1.91.3-.553.71-.98 1.23-1.28.52-.3 1.113-.45 1.78-.45.666 0 1.26.15 1.78.45.52.3.926.727 1.22 1.28.3.547.45 1.183.45 1.91 0 .727-.15 1.367-.45 1.92-.294.547-.7.97-1.22 1.27-.52.3-1.114.45-1.78.45zm0-1.12c.713 0 1.26-.233 1.64-.7.386-.467.58-1.073.58-1.82 0-.747-.194-1.353-.58-1.82-.38-.467-.927-.7-1.64-.7-.714 0-1.264.233-1.65.7-.387.467-.58 1.073-.58 1.82 0 .747.193 1.353.58 1.82.386.467.936.7 1.65.7zm4.818-6.02h1.21l1.43 5.26 1.61-5.21h.93l1.65 5.13 1.4-5.18h1.21l-2.03 7h-1.09l-1.61-5.02-1.6 5.02h-1.14l-1.97-7z\" fill=\"#222\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/apple.svg":
+/*!****************************************!*\
+  !*** ./resources/assets/svg/apple.svg ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 25 29\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.028 28.679a3.004 3.004 0 012.22 0c5.268 2.088 10.712-6.446 11.02-13.102.278-6.045-5.649-9.704-11.338-6.485A16.206 16.206 0 0010.553.668l-1.293.854a14.788 14.788 0 012.12 7.589C5.681 5.858-.27 9.52.01 15.576c.305 6.657 5.75 15.191 11.017 13.104z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/eating.svg":
+/*!*****************************************!*\
+  !*** ./resources/assets/svg/eating.svg ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 36 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M21.527 32.753a15.172 15.172 0 01-3.53.431 15.09 15.09 0 01-3.966-.543l.178 2.95a18.05 18.05 0 007.141.085l.177-2.923z\" fill=\"#2D73F6\"/><path d=\"M17.996 0C8.057 0 0 8.058 0 17.996c0 7.321 4.375 13.617 10.649 16.428l.184-3.041c-4.771-2.564-8.024-7.601-8.024-13.387 0-8.374 6.813-15.188 15.188-15.188s15.187 6.814 15.187 15.188c0 5.949-3.445 11.096-8.439 13.586l.184 3.025c6.498-2.715 11.064-9.129 11.064-16.611C35.992 8.058 27.935 0 17.996 0z\" fill=\"#2D73F6\"/><path d=\"M21.623 31.181l.56-9.229c-1.582-.587-2.747-2.54-2.747-4.866 0-2.79 1.674-5.052 3.736-5.052 2.063 0 3.736 2.262 3.736 5.052 0 2.326-1.164 4.28-2.746 4.866l.484 8c4.192-2.344 7.037-6.82 7.037-11.955 0-7.547-6.141-13.688-13.688-13.688-7.547 0-13.686 6.14-13.686 13.687 0 4.963 2.663 9.304 6.627 11.704l.477-7.87h-.74a1.59 1.59 0 01-1.588-1.589v-6.62c0-.808.606-1.468 1.387-1.568v5.583h1.117v-5.603H13.2v5.603h1.117v-5.583c.78.101 1.388.761 1.388 1.568v6.62a1.59 1.59 0 01-1.59 1.59h-.74l.56 9.238a13.573 13.573 0 007.687.112z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/fb.svg":
+/*!*************************************!*\
+  !*** ./resources/assets/svg/fb.svg ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 8 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4.964 18V8h2.209l.293-2.758H4.964l.004-1.38c0-.72.068-1.105 1.101-1.105H7.45V0H5.24C2.588 0 1.654 1.338 1.654 3.587v1.655H0V8h1.654v10h3.31z\" fill=\"#767778\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/fire.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/fire.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 24 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M23.765 19.472c-.454-5.095-2.862-6.84-2.862-6.84.244 6.84-5.444 10.26-7.398 8.969-2.757-1.815 0-4.676 0-4.676 2.547-3.106 3.21-4.397 3.35-7.468C17.065 3.873 11.202 0 11.202 0c0 5.409-2.722 7.189-4.711 9.073-.314.28-2.129 1.85-2.234 1.92l-.035.034A11.831 11.831 0 000 20.1c0 2.583.803 4.956 2.198 6.875 0 0 .175.244.489.628a11.332 11.332 0 003.28 2.757c1.466.942 3.385 1.64 5.758 1.64h.455c.384 0 .768-.035 1.117-.07l.034-.035c.21-.035.454-.07.663-.104.035 0 .07.035.105 0 .663-.14 1.256-.314 1.885-.524.034 0 .07-.035.104-.035a12.039 12.039 0 007.154-7.677c.314-1.082.489-2.233.489-3.42.035-.244.035-.453.035-.663z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/hand.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/hand.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 30 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M26.159 17.732c-2.39.16-3.533 2.308-3.533 2.308s1.12.455 1.604 1.282c.572.973.358 2.458.358 2.458s-.663-1.956-1.8-2.724c-1.293-.873-2.855-1.066-3.833-1.12-2.493-.139-4.478.33-5.714 1.04-2.355 1.35-4.017 4.398-4.017 4.398s-.139-1.005.138-1.42c.762-1.143 1.905-2.46 1.905-2.46s-.231-3.082-.716-3.81c-.485-.727-2.771-3.682-2.771-4.617s.522-5.93.07-6.176c-2.512-1.368-.832-1.662-.832-1.662S8.265 7.042 8.61 7.11c.346.07 1.42-.381 1.8-.415.382-.035 2.068.508 2.31.23.242-.276.681-.6.785-.6.104 0 .196-.692-.046-.83-.243-.14 1.05-1.54 1.108-1.94.104-.727-2.828-2.69-3.555-3.279-.728-.588-1.155-.092-1.94.139C8.206.67 5.47 1.662 5.47 1.662c-1.038.576-1.293.692-2.216 3.602-.317 1.006-1.846 12.1-2.123 13.116-.278 1.015-1.294 5.172-1.109 6.926.185 1.754 1.294 3.232 1.57 4.063.278.831.184 2.493.37 2.955.185.462 2.216.647 3.601.37 1.386-.278 7.02 1.477 10.067 1.292 2.388-.145 9.314-1.807 12.202-2.305.797-.137 1.292.274 1.292.274l-.011-13.484s-1.845-.813-2.954-.739zm-21.01 2.955c-.093 1.293.554 4.248.554 4.248s-1.016-1.662-1.109-3.971c-.092-2.308.74-4.248.74-4.248s0 .831.277 1.2c.277.37-.37 1.478-.463 2.771zm12.144 7.249c-2.91.093-4.802-2.262-4.802-2.262s3.187 1.339 5.033 1.062c1.847-.278 4.156-.97 4.156-.97s-1.478 2.077-4.387 2.17z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/head.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/head.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 28 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M25.463 15.969c-.853-1.387-.711-3.841-.64-4.694 0-.178.036-.392 0-.605C24.183-.604 12.625-.07 11.167.036h-.143C6.26.143.925 3.451.107 9.426-.711 15.4 3.449 20.77 3.449 20.77c2.561 5.583-.71 11.167-.71 11.167h12.873l.213-1.707c.285-2.276 2.81-2.276 5.726-1.814 2.916.498 3.663-.462 4.019-.89.355-.426-.071-2.275-.071-2.275s.498-.57.711-1.103c.249-.533-.285-1.03-.285-1.03l.427-.748a.538.538 0 00-.035-.604c-.356-.391-.57-1.174-.57-1.174s1.494-1.138 1.743-1.636c.25-.498-1.138-1.494-2.027-2.987zm-3.912-9.176c-.569-.177-1.565-.355-2.276.107a5.79 5.79 0 01-1.138-1.031c.036-.071.071-.178.107-.25.107-.248.284-.604.355-.675.32-.07.996-.178 1.316-.213.783.604 1.316 1.316 1.636 2.062zM7.113 18.067c-1.636-.533-1.85-2.24-1.85-2.24.96.284 4.197-.498 4.197-.498l1.28.747c-.32.782-1.992 2.524-3.627 1.991zm4.48-5.477c-.106-.142-.32-.142-.462 0 0 0-.391.392-.96.64a2.796 2.796 0 01-.925.285.301.301 0 00-.284.356c0 .177.142.284.32.284h.035c.285-.035.57-.107.854-.178.107.285.142.534.142.64v.036c-.782.071-1.707.249-2.596.391.142-.498.427-1.316.996-1.814.356-.32.498-.675.533-1.03.605-.036 1.956-.143 2.916.035.925.142 1.28 0 1.494-.107.142.107.356.462.391.605-.035.035-.106.106-.213.142-.782.604-1.565 1.209-1.707 1.778-.107 0-.178-.036-.249-.036a3.492 3.492 0 00-.89-.035c0-.285-.07-.605-.177-.89.498-.284.818-.604.854-.64.07-.106.07-.32-.071-.462zm1.139 4.126l-.854 2.205c-.107.213-.32.39-.569.39a.623.623 0 01-.605-.604v-.249l-1.28-.32c1.103-.533 1.814-1.671 1.814-1.671l1.494-.498v.747zm-1.174-.854l-1.423-.782c.392-.071.498-.107 1.21 0 .71.106 1.92 0 1.92 0l-1.707.782zm1.21-1.209c.106-.213.461-.569 1.386-1.28.036 0 .036-.036.036-.036.32.25.782.534 1.316.605-.783.39-1.885.64-2.739.711zm3.769-1.458c-.89.355-1.6-.107-1.92-.356v-.178c-.036-.462-.499-.995-.748-1.138-.213-.106-.39-.035-.533 0-.142.072-.391.178-1.138.036-1.067-.178-2.49-.071-3.094-.036a2.662 2.662 0 00-.427-.782c-.106-.142-.32-.142-.462-.035-.142.106-.142.32-.036.462.036.035.285.355.356.747.036.249-.036.533-.32.818-.818.746-1.138 1.884-1.245 2.418-.853.107-1.671.213-2.347.178-1.458-.071-1.956-1.103-2.134-1.672.463-.142 1.067-.391 1.458-.782.214-.214.356-.427.498-.605.143.214.32.427.605.605.142.107.355.035.427-.107.106-.142.035-.356-.107-.427-.498-.284-.534-.853-.534-.889 0-.142-.106-.284-.284-.32a.315.315 0 00-.356.214s-.142.498-.71 1.066c-.285.285-.748.498-1.139.605-.036-.284-.036-.782 0-1.422l.996-.32c.178-.036.249-.25.213-.392-.035-.177-.249-.249-.391-.213l-.747.213a11.18 11.18 0 01.391-1.956c.107.356.25.712.498.96.071.072.142.072.214.072a.323.323 0 00.249-.107.335.335 0 00-.036-.462c-.356-.285-.427-1.21-.427-1.85.214-.426.427-.853.747-1.28.427-.036 1.138.036 1.707.462l-.107.107c-.675.818-.924 1.6-.96 1.743a.714.714 0 00-.035.533c.142.391.604.534 1.102.711.285.107.676.25.747.392.178.32-.213.64-.249.675a.323.323 0 00-.107.25c0 .106.036.177.107.248.036.036.427.427-.071 1.245-.57.889-1.672.889-1.778.889-.036 0 0 0 0 0a.319.319 0 00-.32.32c0 .178.142.32.32.32h.035c.214 0 1.6-.035 2.312-1.21.498-.781.391-1.422.142-1.813.25-.32.462-.782.142-1.28-.213-.32-.64-.498-1.067-.64-.213-.071-.675-.25-.71-.356v-.071s.248-.747.853-1.53c1.102-1.35 1.671-1.244 2.027-.995.676.462.498 1.245.462 1.245-.035.178.036.355.214.391.177.036.355-.036.39-.213.036-.143.072-.32.036-.57.605-.07 1.92-.142 2.703.392.036.249.142.533.391.747.072.07.143.07.214.07a.384.384 0 00.249-.106.374.374 0 000-.462c-.427-.391-.036-1.138-.036-1.138.071-.143.036-.356-.142-.427-.142-.071-.356-.036-.427.142 0 .036-.107.214-.178.462-.995-.497-2.347-.39-2.916-.32a1.655 1.655 0 00-.64-.782c-.925-.605-1.778-.036-2.347.498-.534-.427-1.138-.57-1.636-.64 1.031-1.21 2.596-2.205 4.836-2.632h.143c.284.036 1.138.57 1.244.818.036.142.178.213.32.213.036 0 .072 0 .107-.035a.314.314 0 00.178-.427c-.107-.249-.391-.533-.747-.782.783-.071 1.53-.143 2.24-.143.25.25.534.605.64.89.107.284-.568.995-1.28 1.493h-.497c-.356 0-.676 0-.96-.035-.427-.071-.712-.356-1.032-.676-.249-.213-.498-.462-.818-.64-.818-.427-2.205.427-2.454.604-.142.107-.178.285-.106.463.106.142.284.178.462.106.533-.355 1.458-.782 1.814-.569.249.143.426.32.675.534.356.32.747.711 1.352.818.32.07.711.07 1.067.035.569 0 1.244 0 1.458.25.142.213.355.604.533.995.391.854.783 1.672 1.352 1.814h.07a.342.342 0 00.32-.25.328.328 0 00-.248-.39c-.071 0-.178-.107-.25-.25 1.139.32 2.241.819 2.348 1.174.142.427-.676 1.138-1.316 1.494-.818-.462-1.6-.782-1.636-.818-.178-.071-.355 0-.426.178a.314.314 0 00.177.427s1.458.64 2.419 1.315c.07.214.142.427.213.747.107.427 0 .676-.142.925zm1.245-1.707c-.143 0-.356-.071-.605-.142a7.891 7.891 0 00-.57-.427c.605-.391 1.601-1.21 1.317-2.063-.32-.96-2.632-1.565-3.414-1.742-.071-.143-.143-.32-.214-.427-.213-.463-.39-.854-.604-1.138a1.263 1.263 0 00-.57-.391c.285-.25.64-.57.854-.925.32.071.818.107 1.245.107.391 0 .782-.072.96-.214.142-.106.142-.284.036-.427-.107-.142-.32-.142-.463-.07-.142.106-.853.07-1.6-.036 0-.107 0-.214-.071-.32a3.1 3.1 0 00-.391-.64c2.383.106 4.196.675 5.477 1.458-.285.035-.605.106-.783.142-.32.071-.498.462-.782 1.067-.143.32-.427.96-.57 1.031-.497-.178-1.386-.889-1.706-1.138-.143-.107-.356-.107-.463.036-.106.142-.106.355.036.462.036.036 1.209.996 1.92 1.245a.46.46 0 00.214.035c.284 0 .533-.213.711-.533.285.284.711.711 1.28 1.102.783.534.712 1.992.712 1.992 0 .178.106.32.284.355h.036c.177 0 .32-.142.32-.284 0-.071.106-1.423-.64-2.276.675-.249 1.635.035 1.991.213.071.32.107.605.107.925.106 1.707-2.739 3.13-4.054 3.023z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/heart.svg":
+/*!****************************************!*\
+  !*** ./resources/assets/svg/heart.svg ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 33 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M15.949 27.841c-6.164-4.458-10.753-8.205-13.39-11.685h3.378l2.672 1.224a.722.722 0 00.999-.473l2.128-8.102 1.79 13.665c.1.763 1.178.856 1.406.12l2.703-8.737 1.702 2.043a.72.72 0 00.555.26h7.153v-1.444H20.23l-2.336-2.805a.723.723 0 00-1.245.248l-2.12 6.852-1.84-14.042c-.102-.78-1.214-.851-1.414-.09L8.43 15.71l-2.035-.932a.722.722 0 00-.3-.066H1.57C.54 13.021 0 11.38 0 9.734 0 4.361 4.36 0 9.734 0c2.558 0 4.886.991 6.624 2.605l.08.082.079-.082A9.703 9.703 0 0123.14 0c5.374 0 9.736 4.36 9.736 9.734 0 5.44-5.911 10.846-15.95 18.108a.833.833 0 01-.977 0z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/in.svg":
+/*!*************************************!*\
+  !*** ./resources/assets/svg/in.svg ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0 5a5 5 0 015-5h8a5 5 0 015 5v8a5 5 0 01-5 5H5a5 5 0 01-5-5V5zm9 7a3 3 0 100-6 3 3 0 000 6zm0 1.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM14 4a1 1 0 100-2 1 1 0 000 2z\" fill=\"#767778\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/logo.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/logo.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 120 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M24 1v13.745h3.667v-4.467h6.664V7.226h-6.664V4.072h7.983V1H24zm17.036 0L35 14.745h3.609l.933-2.142h6.803l.913 2.142h3.629L44.831 1h-3.795zm2.203 4l2.199 5.134H41L43.24 5zm19.979-.185h-3.57c0-.72-.875-1.697-2.408-1.697-1.073 0-2.387.467-2.387 1.294 0 .7.986.976 3.088 1.507 2.343.594 5.649 1.357 5.649 4.54 0 2.757-2.496 4.476-5.977 4.476C52.949 14.935 51 11.88 51 9.63h3.569s.284 2.291 3.24 2.291c1.6 0 2.19-.657 2.19-1.273 0-.912-1.248-1.23-2.628-1.548-2.233-.51-6.152-1.316-6.152-4.519C51.219 1.952 53.89 0 57.284 0c3.875 0 5.934 2.567 5.934 4.815zm15.97-1.59h-5.277v11.2h-3.634v-11.2H65V0h14.188v3.225zM81 14.425h3.59V0H81v14.425zm21.758 0h-3.613L91.613 5.6v8.825H88V0h3.613l7.532 8.804V0h3.613v14.425zM119.757 3.16l-3.109 1.528c-.745-.912-1.905-1.421-3.612-1.421-2.606 0-4.423 1.76-4.423 4.158 0 2.291 1.86 4.264 4.466 4.264 1.599 0 2.869-.488 3.656-1.21v-1.4h-4.532V6.408h7.708v5.346c-.11.212-2.453 3.182-6.81 3.182-4.927 0-8.101-3.586-8.101-7.467C105 3.458 108.394 0 113.079 0c2.869 0 5.19 1.252 6.678 3.16z\" fill=\"#222\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M2 7.845h1.822c1.516 0 2.567-.966 2.567-2.435C6.389 3.838 5.365 3 3.822 3H2v4.845zm6.778-2.477c0 2.551-1.955 4.394-4.774 4.394H0V1.013L4.004 1C6.982.987 8.778 2.843 8.778 5.368z\" fill=\"#DE2B70\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 7.358h1.57c1.386 0 2.316-.881 2.316-2.192C6.886 3.789 6.042 3 4.571 3H3v4.358zm1.073.974H2V3h2.073c1.739 0 2.818 1.017 2.818 2.653 0 1.577-1.158 2.68-2.818 2.68zM1 9.275h3.752c2.663 0 4.523-1.707 4.523-4.15 0-1.184-.405-2.2-1.17-2.94C7.294 1.406 6.132.989 4.753 1L1 1.012v8.263zm3.255.974H0V1.014L4.254 1h.032c1.504 0 2.775.459 3.676 1.328.862.832 1.318 1.967 1.318 3.284 0 2.687-2.113 4.637-5.025 4.637zM12 5.564c0 1.43 1.197 2.577 2.673 2.577 1.45 0 2.647-1.147 2.647-2.577C17.32 4.146 16.123 3 14.673 3 13.197 3 12 4.146 12 5.564zm7.336-.028c0 2.5-2.101 4.536-4.668 4.536-2.593 0-4.668-2.036-4.668-4.536C10 3.049 12.075 1 14.668 1c2.567 0 4.668 2.05 4.668 4.536z\" fill=\"#DE2B70\"/><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M14.422 3C13.086 3 12 4.041 12 5.32c0 1.287 1.086 2.334 2.422 2.334 1.32 0 2.395-1.047 2.395-2.333C16.817 4.04 15.742 3 14.422 3zm.503 5.629C13.312 8.629 12 7.363 12 5.808 12 4.26 13.312 3 14.925 3c1.598 0 2.898 1.26 2.898 2.808 0 1.555-1.3 2.82-2.898 2.82zM15.417 1C12.982 1 11 2.925 11 5.292s1.982 4.292 4.417 4.292c2.435 0 4.417-1.925 4.417-4.292S17.852 1 15.417 1zm-.498 9.559c-2.712 0-4.919-2.145-4.919-4.78C10 3.144 12.207 1 14.92 1c2.712 0 4.919 2.144 4.919 4.78 0 2.634-2.207 4.779-4.92 4.779z\" fill=\"#DE2B70\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/oxi.svg":
+/*!**************************************!*\
+  !*** ./resources/assets/svg/oxi.svg ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 35 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.378.01a4.768 4.768 0 00-1.718.463 4.714 4.714 0 00-2.678 4.421c.024.73.194 1.388.521 2.018.244.473.46.761.877 1.179.42.424.713.64 1.186.88.184.094.341.174.344.177.007.007-.761 2.157-.782 2.17-.004.004-.14-.024-.306-.055a5.46 5.46 0 00-2.863.212 5.46 5.46 0 00-2.202 1.475l-.18.206-2.123-1.611A317.37 317.37 0 017.294 9.9c-.035-.032-.024-.067.056-.237a2.77 2.77 0 00.271-1.36 2.833 2.833 0 00-.86-1.934c-.406-.404-.893-.658-1.516-.79a3.606 3.606 0 00-1.071.014c-1.374.292-2.32 1.45-2.32 2.842a2.89 2.89 0 003.45 2.828c.254-.052.599-.174.804-.285.191-.104.473-.306.563-.404a.288.288 0 01.084-.066c.017 0 4.257 3.204 4.334 3.277.014.014-.028.125-.108.275a5.45 5.45 0 00.278 5.506c.105.154.174.293.164.303-.014.01-.87.817-1.903 1.788l-1.882 1.767-.153-.15c-.556-.528-1.346-.928-2.163-1.092-.25-.052-.366-.059-.87-.059-.504.004-.616.01-.852.06-1.42.309-2.553 1.189-3.159 2.462a4.401 4.401 0 00-.219 3.301 4.448 4.448 0 002.842 2.866c.536.174.734.206 1.398.206.672 0 .874-.028 1.434-.216a4.505 4.505 0 002.323-1.805 4.473 4.473 0 00.056-4.762c-.066-.105-.115-.195-.108-.21.004-.01.863-.82 1.9-1.801l1.895-1.777.205.18a5.415 5.415 0 002.682 1.298 5.471 5.471 0 003.89-.81c.152-.101.281-.185.288-.185.007 0 3.353 3.917 3.465 4.056.031.038.024.056-.066.163a4.306 4.306 0 00-.967 1.945c-.053.233-.06.344-.06.8 0 .58.035.831.195 1.3a4.122 4.122 0 002.832 2.666 4.117 4.117 0 003.311-.526c.272-.177.369-.257.63-.511a4.091 4.091 0 001.169-2.164c.076-.386.083-1.088.01-1.475a4.13 4.13 0 00-3.34-3.343 4.713 4.713 0 00-1.38-.006 4.221 4.221 0 00-1.461.542c-.129.077-.244.136-.25.122-.008-.014-.787-.925-1.73-2.031a272.108 272.108 0 01-1.735-2.042c-.014-.021.031-.087.128-.195.665-.717 1.148-1.705 1.33-2.724.069-.393.09-1.169.041-1.544l-.035-.268.153-.07c.087-.038 1.93-.88 4.098-1.868l3.945-1.798.076.097c.143.185.463.505.633.633.22.167.679.393.96.473a3.028 3.028 0 003.082-.91 2.861 2.861 0 00.72-1.838c.014-.413-.014-.681-.125-1.026a3.018 3.018 0 00-2.094-2 3.653 3.653 0 00-1.204-.066 3.047 3.047 0 00-1.687.87c-.723.734-1.026 1.822-.775 2.793.034.136.055.254.045.264-.042.045-8.004 3.656-8.018 3.639a2.494 2.494 0 01-.115-.271c-.466-1.222-1.44-2.286-2.637-2.874a2.413 2.413 0 01-.292-.153c0-.017.78-2.157.79-2.17.003-.004.135.01.285.034.4.063.824.077 1.18.046 2.024-.199 3.686-1.618 4.174-3.57.118-.472.152-.803.135-1.325-.024-.772-.17-1.325-.525-2.017A4.748 4.748 0 0020.634.114c-.41-.104-.856-.132-1.256-.104zm.936 1.353c.244.066.557.22.724.355.153.125.323.32.299.344a2.247 2.247 0 01-.345-.045c-.393-.07-1.057-.083-1.308-.024-.424.094-.862.292-1.304.591-.852.574-1.256 1.13-1.496 2.08-.027.115-.066.254-.08.31l-.024.104-.066-.128a1.798 1.798 0 01-.153-1.17c.167-.824.82-1.627 1.694-2.09.285-.15.703-.292 1.005-.348.275-.052.818-.038 1.054.021zM5.03 6.352c.199.034.49.187.602.313.052.055.087.11.08.118a1.044 1.044 0 01-.226-.021c-.327-.056-.668-.045-.897.024a2.832 2.832 0 00-1.148.73c-.185.2-.33.495-.425.846l-.073.268-.055-.118a1.077 1.077 0 01-.094-.543c.1-.964 1.256-1.802 2.236-1.617zm27.192 1.791c.077.024.185.066.244.094.1.052.375.292.375.33 0 .01-.09.004-.198-.017-.289-.056-.73-.052-.936 0-.483.129-1.102.553-1.363.932a2.36 2.36 0 00-.317.73c-.035.133-.066.24-.073.24-.049 0-.136-.285-.146-.476-.014-.275.024-.456.164-.734.403-.81 1.45-1.322 2.25-1.099zm-15.775 4.574c.268.066.633.24.831.397.167.135.376.382.334.396a1.553 1.553 0 01-.268-.031c-.48-.08-.633-.094-.984-.094-.424 0-.772.06-1.12.195-.772.299-1.586.88-2.025 1.444-.344.441-.51.81-.699 1.544-.045.18-.09.337-.1.344-.025.025-.192-.358-.24-.553a2.32 2.32 0 01-.042-.459c.003-1.457 1.464-2.946 3.155-3.221.33-.052.862-.035 1.158.038zM5.061 23.386c.302.08.542.216.762.431.1.101.184.195.184.209 0 .014-.16-.004-.355-.035-.97-.163-1.614-.02-2.435.525-.835.56-1.224 1.127-1.457 2.126a.77.77 0 01-.063.201c-.035 0-.174-.35-.205-.51-.073-.37.014-.88.215-1.281.314-.623.936-1.193 1.611-1.482.22-.094.581-.198.79-.233.24-.035.72-.01.953.049zm20.961 1.562c.286.076.553.226.73.414.091.094.157.174.15.184-.007.01-.135-.003-.281-.031a3.468 3.468 0 00-.693-.046c-.386.004-.445.007-.654.073-.57.174-1.245.613-1.645 1.068-.282.32-.452.675-.591 1.221-.094.355-.108.355-.22.056a1.746 1.746 0 01-.034-.94c.292-1.15 1.58-2.093 2.8-2.052.157.008.351.032.438.053z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/pig.svg":
+/*!**************************************!*\
+  !*** ./resources/assets/svg/pig.svg ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 37 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M35.946 4.052c.477 1.444-.29 1.88-.967 2.003C32.945 2.515 27.818 0 21.81 0c-3.99 0-7.59 1.112-10.157 2.894l-.002-.004S10.622-.094 6.783.198c0 0 1.717 1.256.918 3.637 0 0-3.15 1.17-4.965 4.937H.001c0 .886.001 1.773-.001 2.66 0 .076 0 .153.017.228a.93.93 0 00.113.252c.618 1.065 1.495 1.969 2.454 2.74 1.239.995 2.643 1.78 4.104 2.406 1.488.638 3.043 1.116 4.622 1.478 0 0 .788 1.472.547 3.464h4.724s1.377-1.526 1.597-3.437l-.002-.004c1.16.207 2.376.32 3.633.32 1.838 0 3.592-.238 5.203-.666l-.013.007c1.142 1.242.739 3.78.739 3.78h4.287c1.903-2.577.615-6.512.615-6.512l-.005.002c2.048-1.638 3.282-3.748 3.282-6.05 0-.7-.117-1.383-.334-2.04.396-.067 1.148-.324 1.37-1.3.307-1.343-1.007-2.048-1.007-2.048zM8.009 9.577a1.13 1.13 0 01-1.135-1.123c0-.62.508-1.124 1.135-1.124a1.13 1.13 0 011.135 1.124 1.13 1.13 0 01-1.135 1.123zm18.79-6.206c-1.458-.696-3.184-1.064-4.99-1.064-2.151 0-4.206.53-5.785 1.493a.46.46 0 01-.63-.149.45.45 0 01.15-.623c1.721-1.05 3.946-1.627 6.265-1.627 1.942 0 3.806.399 5.388 1.154a.45.45 0 01.213.604.46.46 0 01-.61.212z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/sendwatch.svg":
+/*!********************************************!*\
+  !*** ./resources/assets/svg/sendwatch.svg ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 26 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.315 26.8H4.813c.219-.565.49-1.101.816-1.6H18.38l-.35-.343A7.175 7.175 0 0013 22.8H7.953a8.743 8.743 0 015.048-1.6c4.853 0 8.8 3.948 8.8 8.8v5.166c-.598.39-1 1.061-1 1.834a2.2 2.2 0 104.4 0 2.19 2.19 0 00-1-1.834V30c0-4.372-2.523-8.157-6.182-10 3.658-1.843 6.181-5.629 6.181-10V4.834A2.19 2.19 0 0025.2 3a2.2 2.2 0 10-4.4 0 2.19 2.19 0 001 1.834V6.8h-16v2.4h16v.8c0 .269-.014.535-.04.8H5.85l.033.229c.105.726.317 1.417.623 2.057l.054.114h14.628a8.657 8.657 0 01-.816 1.6H7.62l.35.343A7.175 7.175 0 0013 17.2h5.048A8.743 8.743 0 0113 18.8c-4.853 0-8.8-3.948-8.8-8.8V4.834A2.19 2.19 0 005.2 3 2.2 2.2 0 10.8 3a2.19 2.19 0 001 1.834V10c0 4.371 2.523 8.157 6.182 10C4.322 21.843 1.8 25.628 1.8 30v5.166c-.598.39-1 1.061-1 1.834a2.2 2.2 0 104.4 0 2.19 2.19 0 00-1-1.834V33.2h16v-2.4h-16V30c0-.269.014-.535.04-.8h15.91l-.033-.229a7.137 7.137 0 00-.622-2.057l-.055-.114h-.126z\" fill=\"#2D73F6\" stroke=\"#2D73F6\" stroke-width=\".4\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/skin.svg":
+/*!***************************************!*\
+  !*** ./resources/assets/svg/skin.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 37 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M17.454 21.85v5.662L13.45 25.51h0a.55.55 0 00-.635.103h0l-2.045 2.045-4.415-3.68s0 0 0 0a.55.55 0 00-.636-.048s0 0 0 0l-3.636 2.18a17.812 17.812 0 01-1.881-6.76h17.252v1.384l-4.34.723h-.001 0l.024.148m4.317.244l-6.24 1.362.106.106m6.134-1.468l-3.986.665m3.986-.665v-.152l-4.059.676m-.258-.768a.398.398 0 00-.217.112m.217-.112l4.467-.744-4.466.744zm-.217.112l-.106-.106h0l.106.106zm0 0l-1.6 1.6m0 0l-.106-.106a.55.55 0 10.778.778m-.672-.672a.4.4 0 10.566.566m0 0l.106.106h0m-.106-.106l.106.106m-.106-.106l1.51-1.51m-1.404 1.616l1.476-1.475m0 0l-.048.007-.024-.148m.072.14l.034-.034-.107-.106\" fill=\"#2D73F6\" stroke=\"#E9EDF3\" stroke-width=\".3\"/><path d=\"M11.193 28.791h0a.55.55 0 01-.74.034s0 0 0 0l-4.502-3.75-3.338 2.002a17.833 17.833 0 006.915 6.652.538.538 0 01.018-.03l1.6-2.4v-.001a.55.55 0 01.632-.217m-.585-2.29l.538 2.433m-.538-2.433l2.12-2.12 4.143 2.071v7.104m-6.263-7.055l6.263 7.055m-5.678-4.765l-.047.143m.047-.143h0l-.047.143m.047-.143l2.401.8-.047.143m-2.401-.8l2.4.8m0 0l.048-.143m-.047.143l.047-.143m0 0a.55.55 0 01.348.696h0a.55.55 0 01-.696.348l-2.002-.667-1.31 1.966a17.843 17.843 0 006.937 1.622m-3.277-3.965l3.277 3.965m-.002-17.596H.152A15.656 15.656 0 01.15 18C.15 8.34 7.863.446 17.454.154V18.25zm1.099-6.742V.155C28.144.446 35.858 8.339 35.858 18l-.002.25H18.553v-5.51l4.143-2.072 2.92 2.92s0 0 0 0a.55.55 0 00.778 0s0 0 0 0l3.2-3.2a.55.55 0 10-.777-.778s0 0 0 0l-2.812 2.812-2.812-2.812a.55.55 0 00-.635-.103h0l-4.005 2.002zm17.253 7.842a17.814 17.814 0 01-1.895 6.789l-4.46-2.23h0a.55.55 0 00-.634.104l-2.812 2.811-2.812-2.811s0 0 0 0a.55.55 0 00-.778 0l.107.106m13.284-4.769l-9.8 7.686-2.919-2.917a.4.4 0 00-.566 0m13.285-4.769H18.553v16.496a17.808 17.808 0 0014.827-8.742l-4.066-2.033-2.92 2.92-.106-.106m9.518-8.535l-9.412 8.641m-3.872-3.872a.4.4 0 000 .565l3.2 3.201m-3.2-3.766l-.106-.107a.55.55 0 000 .779l3.2 3.2.106-.106m0 0a.398.398 0 00.566 0m-.566 0l-.106.106m.672-.106l-.672.106m.672-.106l.106.106m-.106-.106l2.997-2.997-2.997 2.997zm-.672.106a.548.548 0 00.778 0m-.778 0h.778\" fill=\"#2D73F6\" stroke=\"#E9EDF3\" stroke-width=\".3\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/water.svg":
+/*!****************************************!*\
+  !*** ./resources/assets/svg/water.svg ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 20 34\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0 24.243C.045 17.245 9.22 13.772 9.62 0c.535 13.727 9.265 16.751 9.621 24.243-.089 13.01-19.018 13.01-19.241 0zm7.037.449c-.712-3.993-.267-8.658 1.337-12.292-2.54 5.249-4.098 9.062-3.965 12.202-.133 2.96 3.296 3.185 2.628.09z\" fill=\"#2D73F6\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/assets/svg/weight.svg":
+/*!*****************************************!*\
+  !*** ./resources/assets/svg/weight.svg ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<svg viewBox=\"0 0 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M34.194 22.637V8.374c0-1.042.04-2.084-.04-3.085C33.914 2.404 31.87.16 28.946 0H6.989C4.826 0 2.822.08 1.34 1.923.338 3.165.058 4.688.018 6.25c-.04 3.406 0 6.812 0 10.177v11.62c0 3.405 1.402 6.65 5.289 6.81 7.011.321 14.103 0 21.074 0 3.326 0 6.691-.36 7.573-4.287.64-2.484.24-5.409.24-7.933zM11.116 1.683h11.62c1.041 0 2.644-.04 3.645.28.12.04.24.08.32.12.321 1.122.361 2.164.161 3.166-.24 1.041-.761 2.003-1.402 2.844-1.523 1.843-3.967 3.126-6.37 3.646-.682.12-1.403.2-2.124.2-.561 0-1.122-.08-1.683-.16-2.444-.4-4.968-1.602-6.61-3.445-.041-.04-.081-.12-.121-.16l-.08-.08a7.32 7.32 0 01-1.443-2.966c-.2-.961-.16-2.003.16-3.085.08-.04.201-.08.321-.12.962-.24 2.604-.24 3.606-.24z\" fill=\"#2D73F6\"/></svg>");
 
 /***/ }),
 
@@ -52820,18 +53900,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/pages/Homepage.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/pages/Homepage.vue ***!
-  \*****************************************/
+/***/ "./resources/js/components/ArticlePreview/Item.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/ArticlePreview/Item.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Homepage.vue?vue&type=template&id=00e83377& */ "./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&");
-/* harmony import */ var _Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Homepage.vue?vue&type=script&lang=js& */ "./resources/js/pages/Homepage.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Item_vue_vue_type_template_id_402bc1d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Item.vue?vue&type=template&id=402bc1d6& */ "./resources/js/components/ArticlePreview/Item.vue?vue&type=template&id=402bc1d6&");
+/* harmony import */ var _Item_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Item.vue?vue&type=script&lang=js& */ "./resources/js/components/ArticlePreview/Item.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -52840,9 +53920,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Item_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Item_vue_vue_type_template_id_402bc1d6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Item_vue_vue_type_template_id_402bc1d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -52852,38 +53932,314 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/pages/Homepage.vue"
+component.options.__file = "resources/js/components/ArticlePreview/Item.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/pages/Homepage.vue?vue&type=script&lang=js&":
-/*!******************************************************************!*\
-  !*** ./resources/js/pages/Homepage.vue?vue&type=script&lang=js& ***!
-  \******************************************************************/
+/***/ "./resources/js/components/ArticlePreview/Item.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/ArticlePreview/Item.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Homepage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Item_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Item.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/Item.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Item_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&":
-/*!************************************************************************!*\
-  !*** ./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377& ***!
-  \************************************************************************/
+/***/ "./resources/js/components/ArticlePreview/Item.vue?vue&type=template&id=402bc1d6&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/ArticlePreview/Item.vue?vue&type=template&id=402bc1d6& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Homepage.vue?vue&type=template&id=00e83377& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Homepage.vue?vue&type=template&id=00e83377&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Item_vue_vue_type_template_id_402bc1d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Item.vue?vue&type=template&id=402bc1d6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/Item.vue?vue&type=template&id=402bc1d6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Item_vue_vue_type_template_id_402bc1d6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Homepage_vue_vue_type_template_id_00e83377___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Item_vue_vue_type_template_id_402bc1d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ArticlePreview/index.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/ArticlePreview/index.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_vue_vue_type_template_id_0ff4a640_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=0ff4a640&scoped=true& */ "./resources/js/components/ArticlePreview/index.vue?vue&type=template&id=0ff4a640&scoped=true&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/ArticlePreview/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_0ff4a640_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_0ff4a640_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "0ff4a640",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ArticlePreview/index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ArticlePreview/index.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/ArticlePreview/index.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ArticlePreview/index.vue?vue&type=template&id=0ff4a640&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/ArticlePreview/index.vue?vue&type=template&id=0ff4a640&scoped=true& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0ff4a640_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=0ff4a640&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticlePreview/index.vue?vue&type=template&id=0ff4a640&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0ff4a640_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0ff4a640_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Firstblock.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/Firstblock.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Firstblock_vue_vue_type_template_id_da44d3f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Firstblock.vue?vue&type=template&id=da44d3f0& */ "./resources/js/components/Firstblock.vue?vue&type=template&id=da44d3f0&");
+/* harmony import */ var _Firstblock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Firstblock.vue?vue&type=script&lang=js& */ "./resources/js/components/Firstblock.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Firstblock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Firstblock_vue_vue_type_template_id_da44d3f0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Firstblock_vue_vue_type_template_id_da44d3f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Firstblock.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Firstblock.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/Firstblock.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Firstblock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Firstblock.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Firstblock.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Firstblock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Firstblock.vue?vue&type=template&id=da44d3f0&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/Firstblock.vue?vue&type=template&id=da44d3f0& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Firstblock_vue_vue_type_template_id_da44d3f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Firstblock.vue?vue&type=template&id=da44d3f0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Firstblock.vue?vue&type=template&id=da44d3f0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Firstblock_vue_vue_type_template_id_da44d3f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Firstblock_vue_vue_type_template_id_da44d3f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Quiz.vue":
+/*!******************************************!*\
+  !*** ./resources/js/components/Quiz.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Quiz.vue?vue&type=template&id=654966c0& */ "./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&");
+/* harmony import */ var _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Quiz.vue?vue&type=script&lang=js& */ "./resources/js/components/Quiz.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Quiz.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Quiz.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/Quiz.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Quiz.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/Quiz.vue?vue&type=template&id=654966c0& ***!
+  \*************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Quiz.vue?vue&type=template&id=654966c0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Quiz.vue?vue&type=template&id=654966c0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Quiz_vue_vue_type_template_id_654966c0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/AppFeatures.vue":
+/*!********************************************!*\
+  !*** ./resources/js/pages/AppFeatures.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AppFeatures_vue_vue_type_template_id_670bab85___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppFeatures.vue?vue&type=template&id=670bab85& */ "./resources/js/pages/AppFeatures.vue?vue&type=template&id=670bab85&");
+/* harmony import */ var _AppFeatures_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppFeatures.vue?vue&type=script&lang=js& */ "./resources/js/pages/AppFeatures.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AppFeatures_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AppFeatures_vue_vue_type_template_id_670bab85___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AppFeatures_vue_vue_type_template_id_670bab85___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/AppFeatures.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/AppFeatures.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/pages/AppFeatures.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFeatures_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AppFeatures.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AppFeatures.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFeatures_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/AppFeatures.vue?vue&type=template&id=670bab85&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/pages/AppFeatures.vue?vue&type=template&id=670bab85& ***!
+  \***************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFeatures_vue_vue_type_template_id_670bab85___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AppFeatures.vue?vue&type=template&id=670bab85& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AppFeatures.vue?vue&type=template&id=670bab85&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFeatures_vue_vue_type_template_id_670bab85___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppFeatures_vue_vue_type_template_id_670bab85___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -52901,7 +54257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _js_pages_Homepage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/js/pages/Homepage */ "./resources/js/pages/Homepage.vue");
+/* harmony import */ var _js_pages_AppFeatures__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/js/pages/AppFeatures */ "./resources/js/pages/AppFeatures.vue");
 
 
 
@@ -52910,8 +54266,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
   routes: [{
     path: "/",
-    name: "home",
-    component: _js_pages_Homepage__WEBPACK_IMPORTED_MODULE_2__["default"]
+    name: "appFeatures",
+    component: _js_pages_AppFeatures__WEBPACK_IMPORTED_MODULE_2__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
