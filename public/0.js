@@ -18,6 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "DFButton",
   props: {
@@ -26,6 +27,14 @@ __webpack_require__.r(__webpack_exports__);
       "default": ""
     },
     colorstyle: {
+      type: String,
+      "default": ""
+    },
+    className: {
+      type: String,
+      "default": ""
+    },
+    svgIcon: {
       type: String,
       "default": ""
     }
@@ -56,8 +65,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "button",
-    { class: ["df-button", this.colorstyle], on: { click: _vm.clickButton } },
-    [_vm._v("\n    " + _vm._s(this.title) + "\n")]
+    {
+      class: ["df-button", this.colorstyle, this.className],
+      on: { click: _vm.clickButton }
+    },
+    [
+      this.svgIcon
+        ? _c("svg-vue", { attrs: { icon: this.svgIcon } })
+        : _vm._e(),
+      _vm._v("\n    " + _vm._s(this.title) + "\n")
+    ],
+    1
   )
 }
 var staticRenderFns = []

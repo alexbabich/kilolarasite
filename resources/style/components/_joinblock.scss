@@ -1,0 +1,36 @@
+.df-join {
+
+    &.df-quiz {
+        display: block;
+        padding-top: 5px;
+
+        @include tablet {
+            margin-top: 0;
+            background-position-x: left;
+            display: flex;
+        }
+
+        .df-left-side {
+            margin-right: 0;
+            margin-left: auto;
+        }
+
+        .df-title-block {
+            font-size: rem(30);
+            line-height: rem(36);
+            
+            @include tablet {
+                font-size: rem(40);
+                line-height: rem(49);
+            }
+        }
+    }
+
+    .df-join-img {
+        width: 100%;
+
+        @include tablet {
+            display: none;
+        }
+    }
+}

@@ -10,21 +10,45 @@
     }
 }
 
-.df-top-block {
-    background: #fff;
-    background-repeat: no-repeat;
-    background-size: contain;
-    padding-bottom: 130vw;
-    background-position: center bottom;
+.df-top-block-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    display: none;
 
-    @include mobileL {
+    @include tablet {
+        display: block;
         padding-bottom: 0;
         background-position: 50vw center;
         background-size: auto;
+        background: transparent;
+        background-repeat: no-repeat;
+
     }
 
     @include laptopL {
-        background-position: right center;
+        background-position: right top;
+    }
+
+}
+
+.df-top-block {
+    position: relative;
+    background: #fff;
+
+    h4 {
+        font-weight: bold;
+        font-size: rem(24);
+    }
+    
+    .df-top-img {
+        width: 100%;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     .container {
@@ -42,11 +66,10 @@
         display: block;
 
         @include mobileL {
-            width: 40%;
             padding-bottom: 30px;
         }
 
-        @include tabletL {
+        @include tablet {
             width: 40%;
             padding-bottom: 20px;
         }
@@ -85,6 +108,19 @@
         @include tablet {
             font-size: rem(18);
             line-height: rem(26);
+        }
+    }
+
+    .df-navigation-link {
+        margin: 20px 0 30px;
+
+        @include tablet {
+            margin: 30px 0 0;
+        }
+
+        .df-linsk-title {
+            font-size: rem(18);
+            letter-spacing: 0;
         }
     }
 }

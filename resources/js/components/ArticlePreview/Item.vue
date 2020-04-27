@@ -3,7 +3,8 @@
         :class="['container df-preview-item', this.className]"
     >
         <div class="df-item-image">
-            <img :src="`/images/${this.image}.png`" alt=""/>
+            <img v-if="this.image" :src="`/images/${this.image}.png`" alt="" />
+            <svg-vue v-if="this.svg" :icon="this.svg" class="df-item-svg"/>
             <div class="df-quiz-mini" v-show="showQuiz">
                 <h2 class="df-title-block">Start your fasting journey today</h2>
                 <p class="df-text-description" v-html="'Find out what works for you with this <b>60-sec quiz</b> approved by our experts and get your personal revolutionary fasting assistant'"></p>
@@ -57,6 +58,10 @@ export default {
         showQuiz: {
             type: Boolean,
             default: false
+        },
+        svg: {
+            type: String,
+            default: ""
         }
     }
 };

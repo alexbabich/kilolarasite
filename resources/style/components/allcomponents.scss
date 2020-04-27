@@ -1,9 +1,10 @@
 // style for components/pages/views
-@import 'benefits/_item';
-@import 'articlepreview/_item';
-@import 'fastingmethods/_item';
-@import '_firstblock';
-@import '_footerblock';
-@import '_quiz';
-@import '_singletext';
-@import '_freeblock';
+@import './benefits/item';
+@import './articlepreview/item';
+@import './fastingmethods/item';
+@import './firstblock';
+@import './footerblock';
+@import './quiz';
+@import './singletext';
+@import './freeblock';
+@import './joinblock';

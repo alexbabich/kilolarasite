@@ -22,6 +22,12 @@
     outline: 0;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 .df-gray-bg {
     background-color: #F3F4F8;
 }
@@ -112,5 +118,143 @@
 
     @include tablet {
         display: block;
+    }
+}
+
+.df-navigation-link {
+    margin: auto auto 30px;
+
+    @include tablet {
+        margin: 0;
+        padding: 0 10px 0 0;
+    }
+
+    @include laptopL {
+        width: auto;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    a,
+    .df-linsk-title {
+        color: $base-font-color;
+        font-size: rem(12);
+        line-height: rem(15);
+        letter-spacing: rem(3.33333);
+    }
+
+    .df-linsk-title {
+        font-weight: bold;
+    }
+
+    a {
+        display: block;
+
+        @include tablet {
+            width: auto;
+            display: inline-block;
+        }
+
+        @include laptopL {
+            margin-bottom: 0;
+        }
+
+        &:not(:last-child) {
+            margin-right: 0;
+
+            @include tablet {
+                margin-right: 40px;
+            }
+        }
+
+        &.df-social-in,
+        &.df-social-fb {
+            display: inline-block;
+    
+            svg {
+                width: auto;
+                height: 18px;
+            }
+    
+            &:not(:last-child) {
+                margin-right: 10px;
+    
+                @include tablet {
+                    margin-right: 15px;
+                }
+            }
+        }
+
+        &.df-playmarket,
+        &.df-appstore {
+            vertical-align: top;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        &.df-appstore {
+            width: 106px;
+            height: 34px;
+            margin-right: 20px;
+            background: url('../../assets/images/appstore.png')  no-repeat center;
+            background-size: contain;
+            margin-right: 10px;
+        }
+
+        &.df-playmarket {
+            width: 120px;
+            height: 34px;
+            background: url('../../assets/images/playmarket.png')  no-repeat center;
+            background-size: contain;
+        }
+    }
+}
+
+.df-page-welcomeapp {
+    
+    .df-preview-item {
+        padding: 0;
+
+        // @include tablet
+
+        .df-item-image img {
+            max-height: 100%;
+        }
+    }
+}
+
+.df-quiz-block-img,
+.df-join-block-img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    display: none;
+
+    @include tablet {
+        display: block;
+        padding-bottom: 0;
+        background-position: center;
+        background-size: auto;
+        // background: transparent;
+        background-repeat: no-repeat;
+    }
+}
+
+.df-quiz-block-img {
+    right: 0;
+
+    @include laptopL {
+        background-position: right top;
+    }
+}
+
+.df-join-block-img {
+    left: 0;
+
+    @include laptopL {
+        background-position: left top;
     }
 }

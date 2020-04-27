@@ -2,13 +2,14 @@
     <div
         :class="this.backgroundcolor | returnClass"
     >
-        <div class="justify-content-around" v-if="this.dataArray">
+        <div v-if="this.dataArray">
             <item 
                 v-for="(item, index) in dataArray" 
                 :key="index"
                 :title="item.title"
                 :description="item.description"
                 :image="item.image"
+                :svg="item.svg"
                 :showQuiz="item.showQuiz"
                 :className="direction"
             />

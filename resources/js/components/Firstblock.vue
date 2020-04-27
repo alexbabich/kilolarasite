@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="df-top-block"
-        :style="this.background | bgImage"
-    >
+    <div class="df-top-block">
         <div class="container">
             <div class="df-left-side">
                 <div class="df-logo-header">
@@ -16,8 +13,17 @@
                     :colorstyle="'red'"
                     @click="startQuiz('start quiz')"
                 />
+                <div class="df-navigation-link">
+                    <p class="df-linsk-title">Download the app</p>
+                    <div class="df-market-links">
+                        <router-link to="#" tag="a" class="df-appstore"></router-link>
+                        <router-link to="#" tag="a" class="df-playmarket"></router-link>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="df-top-block-img" :style="this.background | bgImage"></div>
+        <img :src="this.background | srcImage" alt="header image" class="df-top-img" />
     </div>
 </template>
 
@@ -59,6 +65,9 @@ export default {
     filters: {
         bgImage: function (value) {
             return 'background-image: url(/images/'+ value +'.png);';
+        },
+        srcImage: function (value) {
+            return '../images/'+ value +'.png';
         }
     }
 };

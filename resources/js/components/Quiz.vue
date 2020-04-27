@@ -2,7 +2,7 @@
     <div
         :class="['df-quiz', returnClass(this.backgroundcolor)]"
     >
-        <div class="container">
+        <div class="container d-flex">
             <div class="df-left-side">
                 <h2 class="df-title-block">Start your fasting journey today</h2>
                 <p class="df-text-description">
@@ -24,6 +24,8 @@
                 </div>
             </div>
         </div>
+        <div class="df-quiz-block-img" :style="this.image | bgImage"></div>
+        <img :src="this.image | srcImage" alt="quiz image" class="df-quiz-img" />
     </div>
 </template>
 
@@ -38,6 +40,10 @@ export default {
     },
     props: {
         backgroundcolor: {
+            type: String,
+            default: ""
+        },
+        image: {
             type: String,
             default: ""
         }
@@ -59,7 +65,13 @@ export default {
             }
         }
     },
-    filters: { 
+    filters: {
+        bgImage: function (value) {
+            return 'background-image: url(/images/'+ value +'.png);';
+        },
+        srcImage: function (value) {
+            return '../images/'+ value +'.png';
+        }
     }
 };
 </script>

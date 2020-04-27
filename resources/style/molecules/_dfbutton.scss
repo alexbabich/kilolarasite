@@ -31,3 +31,25 @@
         background-color: $red;
     }
 }
+
+.fb-button {
+    position: relative;
+    width: 321px;
+    height: 48px;
+    font-family: "Cabin";
+    letter-spacing: 2px;
+    font-size: rem(18);
+    line-height: rem(22);
+    margin-top: 24px;
+    margin-bottom: 33px;
+
+    @include tablet {
+        margin: auto;
+    }
+
+    svg {
+        width: auto;
+        height: 20px;
+        margin-right: 16px;
+    }
+}
