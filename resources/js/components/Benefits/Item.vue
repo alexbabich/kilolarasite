@@ -1,5 +1,5 @@
 <template>
-    <div class="container df-item-wrapper">
+    <div class="df-item-wrapper">
         <div class="df-logo-wrapper" v-if="this.logo">
             <svg-vue :icon="this.logo" />
         </div>
@@ -7,7 +7,7 @@
         <div class="df-benefits-items" v-if="this.description">
             {{ this.description }}
         </div>
-        <router-link to="#" class="df-link-more">Read more</router-link>
+        <!-- <router-link to="#" class="df-link-more">Read more</router-link> -->
     </div>
 </template>
 

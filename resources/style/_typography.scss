@@ -1,0 +1,44 @@
+.df-link {
+    border-radius: 8px;
+    padding: 14px 13px 10px;
+    width: fit-content;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'AvertaBold', sans-serif;
+    font-size: rem(16);
+    line-height: rem(24);
+
+    @include tablet {
+        padding: 18px 16px 14px;
+        font-size: rem(20);
+        line-height: rem(24);  
+    }
+
+    &.df-link-purple {
+        background: rgba(94, 0, 215, 0.1);
+        color: $baseColor;
+    }
+}
+
+label {
+    font-size: rem(16);
+    line-height: rem(20px);
+    color: #222;
+    opacity: 0.8;
+    font-weight: bold;
+    font-family: 'AvertaBold', sans-serif;
+}
+
+input {
+    background: #E9EDF3;
+    border-radius: 10px;
+    border: none;
+    padding: 0 16px;
+    font-size: rem(16);
+    line-height: rem(20px);
+    color: #222;
+    min-height: 48px;
+    width: calc(100% - 32px);
+    margin: auto;
+}

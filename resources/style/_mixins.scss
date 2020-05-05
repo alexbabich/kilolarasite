@@ -130,15 +130,6 @@ $baseFontSize : 16;
 }
 
 // for mobile breakpoint
-$mobileS: 320px;
-$mobileM: 375px;
-$mobileL: 576px;
-$tablet: 768px;
-$tabletL: 992px;
-$laptop: 1024px;
-$laptopL: 1200px;
-$desktop: 1440px;
-
 @mixin mobileS { 
     @media (min-width: $mobileS) {
         @content; 
@@ -188,3 +179,36 @@ $desktop: 1440px;
 }
 
 
+// mixin for padding
+@mixin padding($top: null, $right: null, $bottom: null, $left: null, $media: null) {
+  @if $media {
+    @media #{$media} {
+      padding-top: $top;
+      padding-right: $right;
+      padding-bottom: $bottom;
+      padding-left: $left;
+    }
+  } @else {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+  }  
+}
+
+// mixin for margin
+@mixin margin($top: null, $right: null, $bottom: null, $left: null, $media: null) {
+  @if $media {
+    @media #{$media} {
+      margin-top: $top;
+      margin-right: $right;
+      margin-bottom: $bottom;
+      margin-left: $left;
+    }
+  } @else {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+  }  
+}
