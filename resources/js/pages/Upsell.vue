@@ -18,76 +18,158 @@
             </div>
         </div>
 
+        <div class="df-white-bg df-pt-50 df-pb-50">
+            <div class="container">
+                <div class="row df-fasting-results">
+                    <div class="df-fasting-results-image"></div>
+                    <div class="df-fasting-results-text">
+                        <h2 class="df-subtitle">Multiply Your Fasting Results With BHB Ketone Boost</h2>
+                        <p class="df-fasting-results-description">A safe and effective way to increase ketone body concentrations</p>
+                        <ul class="df-list">
+                            <li>
+                                <div class="df-logo-wrapper">
+                                    <svg-vue icon="restore2" />
+                                </div>
+                                <p>Enjoy easy transition into ketosis</p>
+                            </li>
+                            <li>
+                                <div class="df-logo-wrapper">
+                                    <svg-vue icon="battery" />
+                                </div>
+                                <p>Boost energy levels</p>
+                            </li>
+                            <li>
+                                <div class="df-logo-wrapper">
+                                    <svg-vue icon="libra" />
+                                </div>
+                                <p>Speed up weight loss</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <benefits
             :title="'6  Key Benefits That Will Enhance Your Health'"
             :dataArray="BenefitsItems"
         />
-        <div class="container">
-            <div class="row justify-content-center align-items-center df-mb-40 df-product-list">
-                <div class="df-product-wrapper df-most-popular">
-                    <div class="df-most-popular-title">
-                        <p>
-                            <span>
-                                <svg-vue icon="star" />
-                            </span>
-                            MOST POPULAR
-                        </p>
+
+        <firstblock
+            :background="'smoothie2'"
+            :title="'How to use it?'"
+            :text="'<p>For maximum results, BHB Ketone Body Boost should be taken 30 minutes before a selected meal.</p><p>Simply combine one sachet of powder with 14 fl oz (420ml) of water, mix well and drink up!</p>'"
+            :isShowButton="false"
+            :isShowLink="false"
+            :isShowLogo="false"
+        />
+
+        <firstblock
+            :background="'sunset'"
+            :title="'How it works?'"
+            :text="'<p>Once ingested, the minerals are cleaved off the BHB and absorbed into your bloodstream.</p><p>Here they are able to enter cells throughout your whole body (that’s including your brain cells!) and act as precursors to ketones. Ketones are then used as a source of energy.</p>'"
+            :isShowButton="false"
+            :isShowLink="false"
+            :isShowLogo="false"
+            :className="'df-reverse'"
+        />
+
+        <div class="container df-pt-50 df-pb-50 df-body-boost-block">
+            <div class="row df-mb-40 ">
+                <h2 class="df-subtitle text-center">After just a few weeks of using BHB Ketone Body Boost you will:</h2>
+            </div>
+            <div class="row">
+                <div class="df-body-boost">
+
+                    <div
+                        v-for="(item, index) in BodyBoostItems"
+                        :key="index"
+                        class="df-body-boost-item"
+                    >
+                        <div class="df-logo-wrapper">
+                            <svg-vue :icon="item.svg" />
+                        </div>
+                        <p>{{ item.title }}</p>
                     </div>
-                    <div class="df-product-item">
-                        <p class="df-poduct-title">6 months</p>
-                        <p class="df-safe-mony">SAVE $189.95</p>
-                        <div class="df-product-price">
-                            <p>$<b>29.16</b> / box</p>
-                        </div>
-                        <div class="df-product-info">
-                            <p><span>12 boxes</span><span>180 servings</span></p>
-                        </div>
-                        <button class="df-button df-buy-button">BUY NOW</button>
-                    </div>
-                </div>
-                <div class="df-product-wrapper">
-                    <div class="df-product-item">
-                        <p class="df-poduct-title">3 months </p>
-                        <p class="df-safe-mony">SAVE $69.97</p>
-                        <div class="df-product-price">
-                            <p>$<b>33.33</b> / box</p>
-                        </div>
-                        <div class="df-product-info">
-                            <p><span>6 boxes</span><span>90 servings</span></p>
-                        </div>
-                        <button class="df-button df-buy-button">BUY NOW</button>
-                    </div>
-                </div>
-                <div class="df-product-wrapper">
-                    <div class="df-product-item">
-                        <p class="df-poduct-title">1 months</p>
-                        <div class="df-product-price">
-                            <p>$<b>44.99</b> / box</p>
-                        </div>
-                        <div class="df-product-info">
-                            <p><span>2 boxes</span><span>30 servings</span></p>
-                        </div>
-                        <button class="df-button df-buy-button">BUY NOW</button>
-                    </div>
+
                 </div>
             </div>
+        </div>
 
-            <div class="row justify-content-center align-items-center df-mb-30">
-                <a href="" class="df-unsbscribe">No, thank you, I’m not interested in this offer</a>
+        <div class="df-white-bg df-pt-50 df-pb-50">
+            <div class="container">
+                <div class="row df-mb-40 df-pt-40">
+                    <h2 class="df-subtitle text-center">Get BHB Ketone Boost</h2>
+                </div>
+                <div class="row">
+                    <div class="df-ketone-boost-image"></div>
+                </div>
+                <div class="row df-mb-40 df-product-list">
+                    <div class="df-product-wrapper df-most-popular">
+                        <div class="df-most-popular-title">
+                            <p>
+                                <span>
+                                    <svg-vue icon="star" />
+                                </span>
+                                VALUE PACK
+                            </p>
+                        </div>
+                        <div class="df-product-item">
+                            <p class="df-poduct-title">6 months</p>
+                            <p class="df-safe-mony">SAVE $189.95</p>
+                            <div class="df-product-price">
+                                <p>$<b>29.16</b> / box</p>
+                            </div>
+                            <div class="df-product-info">
+                                <p><span>12 boxes</span><span>180 servings</span></p>
+                            </div>
+                            <button class="df-button df-buy-button">BUY NOW</button>
+                        </div>
+                    </div>
+                    <div class="df-product-wrapper">
+                        <div class="df-product-item">
+                            <p class="df-poduct-title">3 months </p>
+                            <p class="df-safe-mony">SAVE $69.97</p>
+                            <div class="df-product-price">
+                                <p>$<b>33.33</b> / box</p>
+                            </div>
+                            <div class="df-product-info">
+                                <p><span>6 boxes</span><span>90 servings</span></p>
+                            </div>
+                            <button class="df-button df-buy-button">BUY NOW</button>
+                        </div>
+                    </div>
+                    <div class="df-product-wrapper">
+                        <div class="df-product-item">
+                            <p class="df-poduct-title">1 months</p>
+                            <div class="df-product-price">
+                                <p>$<b>44.99</b> / box</p>
+                            </div>
+                            <div class="df-product-info">
+                                <p><span>2 boxes</span><span>30 servings</span></p>
+                            </div>
+                            <button class="df-button df-buy-button">BUY NOW</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center align-items-center df-mb-30">
+                    <a href="" class="df-unsbscribe">No, thank you, I’m not interested in this offer</a>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Firstblock from "@/js/components/Firstblock";
 import Benefits from "@/js/components/Benefits";
-import ArticlePreview from "@/js/components/ArticlePreview";
 
 export default {
     name: "Upsell",
     components: {
         Benefits,
-        ArticlePreview
+        Firstblock
     },
     data() {
         return {
@@ -123,42 +205,30 @@ export default {
                     logo: "runner"
                 }
             ],
-            ItemList: [
+            BodyBoostItems: [
                 {
-                    title: "Daily motivation boosts",
-                    description: "<p>Intermittent fasting takes time to get used to. The first few days, even weeks may seem a bit more challenging than you thought. However, those are the days that actually determine whether you will reach your goal or not. You will either build a sustainable foundation for further fasting, form new habits, or lose interest.</p><p>To guarantee your success, we want to be there for you through the best and the toughest days of fasting with motivational boosts and friendly reminders.</p>",
-                    image: "dailyMotivation",
-                    svg: "dailyMotivation"
+                    title: "Increase your cognitive function and mental clarity",
+                    svg: "head"
                 },
                 {
-                    title: "Effective training routines",
-                    description: "<p>Set up your workout schedule, choose a fitness level, and tone up your body without spending additional money on gyms and equipment.</p><p>DoFasting exercise suggestions feature professionally visualized training routines – warmups, workouts and stretching guides.</p><p>Only 10-30 minutes a day will result in improved posture, lean muscle gain, reduced weight, and improved overall body health.</p>",
-                    image: "effectiveTraining",
-                    svg: "effectiveTraining"
+                    title: "Experience consistent fat loss",
+                    svg: "body2"
                 },
                 {
-                    title: "Tips & Guidance",
-                    description: "<p>Become a real fasting expert! Our new Articles section gives you direct access to freshly-published articles, keeps you up-to-date with scientific research, and helps you to practice intermittent fasting the educated way.</p>",
-                    image: "tipsGuidance",
-                    svg: "tipsGuidance"
+                    title: "Stabilize your blood sugar",
+                    svg: "blood"
                 },
                 {
-                    title: "Progress Tracker & Calendar",
-                    description: "<p>Start tracking your weight loss progress from the very first day of fasting! Your DoFasting profile shows your starting, current, and target weight to keep you motivated and help to achieve desired results.</p>",
-                    image: "progressTracker",
-                    svg: "progressTracker"
+                    title: "Enjoy better exercise performance",
+                    svg: "body"
                 },
                 {
-                    title: "Meal recommendations",
-                    description: "<p>Access the whole DoFasting meal database at once! Select and save your favorite meals, keep up with your recommended calorie intake and make your fasting diet even more effective. All recipes are chosen by our professional nutritionists and can be adjusted according to your allergies and dietary preferences.</p>",
-                    image: "mealRecommendations",
-                    svg: "mealRecommendations"
+                    title: "Have more energy",
+                    svg: "bolt"
                 },
                 {
-                    title: "Challenge mode",
-                    description: "<p>Up for a challenge? Curious to find out how your body could change in 7, 14, or 28 days? The new challenge mode gives you a set daily agenda with fasting hours and lots of useful advice on healthy nutrition, habit formation, and exercise. Join challenges, test your limits, and move on to “Advanced mode” whenever you’re ready!</p>",
-                    image: "challengeMode",
-                    svg: "challengeMode"
+                    title: "Reach higher results",
+                    svg: "medal"
                 }
             ]
         }

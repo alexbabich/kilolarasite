@@ -1,8 +1,13 @@
 <template>
-    <div class="df-top-block">
+    <div 
+        :class="['df-top-block', this.className]"
+    >
         <div class="container">
             <div class="df-left-side">
-                <div class="df-logo-header">
+                <div
+                    v-if="isShowLogo" 
+                    class="df-logo-header"
+                >
                     <svg-vue icon="logo" />
                 </div>
                 <h2 class="df-title-block" v-html="this.title"></h2>
@@ -13,7 +18,10 @@
                     :colorstyle="'red'"
                     @click="startQuiz('start quiz')"
                 />
-                <div class="df-navigation-link">
+                <div
+                    v-if="isShowLink"
+                    class="df-navigation-link"
+                >
                     <p class="df-linsk-title">Download the app</p>
                     <div class="df-market-links">
                         <router-link to="#" tag="a" class="df-appstore"></router-link>
@@ -41,6 +49,18 @@ export default {
         }
     },
     props: {
+        className: {
+            type: String,
+            default: ""
+        },
+        isShowLogo: {
+            type: Boolean,
+            default: true
+        },
+        isShowLink: {
+            type: Boolean,
+            default: true
+        },
         isShowButton: {
             type: Boolean,
             default: true

@@ -1,9 +1,155 @@
 .df-page-upsell {
-    .df-product-list {
+
+    .df-body-boost-block {
+
+        .df-subtitle {
+            width: 80%;
+            margin: auto;
+
+            @include tablet {
+                width: 60%;
+            }
+        }
+    }
+
+    .df-body-boost {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0 24px;
+
+        @include tablet {
+            flex-direction: row;
+            padding: 0;
+        }
+
+        &-item {
+            font-size: rem(16);
+            line-height: rem(22);
+            font-weight: 500;
+            opacity: 0.8;
+            width: 100%;
+            display: flex;
+            margin-bottom: 32px;
+            align-items: center;
+            padding-right: 20px;
+
+            @include tablet {
+                width: 35%;
+                font-size: rem(20);
+                line-height: rem(24);
+            }
+
+            .df-logo-wrapper {
+                margin-right: 32px;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: rem(20);
+                line-height: rem(24);
+                margin: 0;
+            }
+        }
+    }
+
+    .df-ketone-boost-image {
+        background: url('../../assets/images/product2.png') no-repeat center;
+        background-size: contain;
+        height: 270px;
+        width: 100%;
+
+        @include tablet {
+            height: 395px;
+            margin-bottom: 100px;
+        }
+    }
+
+    .df-top-block {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-    
+
+        @include tablet {
+            display: block;
+            height: 590px;
+        }
+
+        &.df-reverse {
+
+            .df-top-block-img {
+                background-position: left top;
+                right: unset;
+                left: 0;
+            }
+
+            .df-top-img {
+                order: 1;
+                
+                @include tablet {
+                    order: unset;
+                }
+            }
+
+            .container {
+                order: 2;
+                justify-content: flex-end;
+
+                @include tablet {
+                    order: unset;
+                }
+            }
+        }
+
+        .df-top-img {
+            order: 1;
+            margin-bottom: 30px;
+            
+            @include tablet {
+                margin-bottom: 0;
+                order: unset;
+            }
+        }
+
+        .container {
+            order: 2;
+
+            @include tablet {
+                order: unset;
+            }
+        }
+
+        .df-title-block {
+            margin: auto auto 32px;
+            font-weight: bold;
+            font-size: rem(40);
+            line-height: rem(49);
+        }
+
+        .df-text-description {
+            p {
+                margin-bottom: 35px;
+            }
+        }
+
+        .container {
+            align-items: center;
+            height: 100%;
+            display: flex;
+        }
+    }
+
+    .df-product-list {
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        padding-top: 50px;
+
+        @include tablet {
+            padding-top: 0;
+            overflow: visible;
+        }
+
         @include tabletL {
             justify-content: space-between;
             flex-direction: row;
@@ -13,14 +159,16 @@
             position: relative;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
             border-radius: 10px;
-            width: 100%;
-            height: 345px;
+            width: 90%;
+            height: 327px;
             background: #fff;
             z-index: 2;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
     
             @include mobileL {
-                width: 300px; 
+                width: 300px;
+                height: 345px;
+                margin-bottom: 30px;
             }
     
             @include laptopL {
@@ -31,7 +179,7 @@
             &.df-most-popular {
     
                 .df-most-popular-title {
-                    background: #E8DFF7;
+                    background:rgba(153, 187, 250, 0.8);
                     border-radius: 10px;
                     position: absolute;
                     height: calc(100% + 56px);
@@ -47,19 +195,23 @@
                     }
     
                     p {
-                        color: $baseColor;
+                        color: #fff;
                         font-size: rem(16);
-                        line-height: rem(16);
+                        line-height: rem(19);
                         text-transform: uppercase;
                         text-align: center;
                         letter-spacing: 0;
                         margin-top: 12px;
-                        font-family: 'AvertaBold', sans-serif;
+                        font-weight: bold;
     
                         span {
                             margin-right: 10px;
                             position: relative;
-                            top: 2px;
+                            top: -2px;
+                        }
+
+                        svg {
+                            width: 20px;
                         }
                     }
                 }
@@ -71,8 +223,14 @@
                 z-index: 2;
                 background: #fff;
                 border-radius: 10px;
-                padding: 40px;
+                padding: 24px;
                 box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+                max-height: 327px;
+
+                @include tablet {
+                    padding: 40px;
+                    max-height: 100%;
+                }
             }
     
             .df-safe-mony {
@@ -86,18 +244,29 @@
                 width: 108px;
                 height: 34px;
                 position: absolute;
-                top: 38px;
-                right: 32px;
+                top: 24px;
+                right: 24px;
                 display: flex;
                 align-content: center;
                 align-items: center;
                 justify-content: center;
+                margin: 0;
+
+                @include tablet {
+                    top: 38px;
+                    right: 32px;
+                    line-height: rem(15);
+                }
             }
     
             .df-poduct-title {
                 font-size: rem(24);
-                line-height: rem(24);
-                font-family: 'AvertaBold', sans-serif;
+                line-height: rem(29);
+                font-weight: bold;
+
+                @include tablet {
+                    line-height: rem(24);
+                }
             }
     
             .df-product-info {
@@ -143,7 +312,7 @@
     
                 &:first-letter {
                     vertical-align: top;
-                    font-family: 'AvertaBold', sans-serif;
+                    font-weight: bold;
                     font-size: rem(24);
                     line-height: rem(24);
                     margin-right: 10px;
@@ -152,7 +321,7 @@
                 b {
                     font-size: rem(54);
                     line-height: rem(48);
-                    font-family: 'AvertaBold', sans-serif;
+                    font-weight: bold;
                 }
             }
         }
@@ -183,6 +352,105 @@
     
         @include tablet {
             width: 180px;
+        }
+    }
+
+    .df-fasting-results {
+        flex-direction: row;
+        padding: 0 24px;
+
+        @include tablet {
+            padding: 0;
+        }
+
+        .df-fasting-results-description {
+            margin-top: 16px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-size: rem(16);
+            line-height: rem(24);
+
+            @include tablet {
+                font-size: rem(24);
+                line-height: rem(32);
+            }
+
+            &:after {
+                display: block;
+                content: "";
+                background: url('../../assets/images/product.png') no-repeat center;
+                background-size: contain;
+                height: 260px;
+
+                @include tablet {
+                    height: 395px;
+                }
+            }
+
+            @include tablet {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        .df-fasting-results-image,
+        .df-fasting-results-text {
+            width: 100%;
+
+            @include tablet {
+                width: 50%;
+            }
+        }
+
+        .df-fasting-results-image {
+            display: none;
+            @include tablet {
+                display: inline-block;
+                background: url('../../assets/images/product.png') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .df-fasting-results-text {
+            
+            @include tablet {
+                padding: 30px 0 0 70px;
+            }
+        }
+
+        .df-list {
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: flex;
+                margin-bottom: 24px;
+                align-items: center;
+
+                @include tablet {
+                    margin-bottom: 32px;
+                }
+
+                p {
+                    font-size: rem(16);
+                    line-height: rem(24);
+                    margin: 0;
+
+                    @include tablet {
+                        font-size: rem(20);
+                    }
+                }
+            }
+
+            .df-logo-wrapper {
+                background-color: rgba(222, 43, 112, 0.2);
+                margin-right: 24px;
+
+                @include tablet {
+                    margin-right: 32px;
+                }
+            }
         }
     }
 }
