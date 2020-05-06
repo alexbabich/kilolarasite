@@ -1,0 +1,192 @@
+.df-page-checkout {
+
+    @include tablet {
+        padding: 50px 0;
+    }
+
+    .df-order-product-title {
+        font-weight: bold;
+        font-size: rem(24);
+        line-height: rem(29);
+        text-align: left;
+        margin-bottom: 24px;
+    }
+}
+
+.df-order-details {
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 0 0 32px;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+
+    @include tablet {
+        width: 734px;
+        border-radius: 10px;
+    }
+}
+
+.df-order-title {
+    background: $baseColor;
+    color: #fff;
+    padding: 18px 24px 17px;
+
+    p {
+        font-weight: bold;
+        line-height: rem(19);
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}
+
+.df-order-info {
+    flex-direction: column;
+    padding: 32px 25px;
+    text-align: center;
+    border-bottom: 1px solid #C2C2C2;
+
+    @include tablet {
+        padding: 32px 40px;
+    }
+
+    .df-product-price-info {
+    
+        .df-product-price-item {
+            padding: 18px 0 16px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+    
+            h4 {
+                margin: 0;
+            }
+        }
+    
+        .df-product-price-item:not(:last-child) {
+            border-bottom: 1px solid #E3E3E3;
+        }
+    }
+}
+
+.df-order-count-title {
+    font-weight: bold;
+    font-size: rem(16);
+    line-height: rem(20);
+    margin-bottom: 24px;
+    padding: 0 24px;
+
+    @include tablet {
+        font-size: rem(20);
+        margin-bottom: 32px;
+        padding: 0 40px;
+    }
+}
+
+.df-order-counters {
+    flex-direction: column;
+    padding: 0 24px;
+
+    @include tablet {
+        flex-direction: row;
+        padding: 0 40px;
+    }
+}
+
+.df-order-counter-wrapper {
+    width: 100%;
+
+    @include tablet {
+        width: 316px;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 32px;
+        
+        @include tablet {
+            margin-bottom: 0;
+        }
+    }
+
+    p {
+        color: #000;
+        font-weight: bold;
+        font-size: rem(16);
+        line-height: rem(24);
+        margin-bottom: 8px;
+    }
+
+    .df-order-counter-block {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        background: #E9EDF3;
+        border-radius: 10px;
+    }
+
+    .df-order-value {
+        width: calc(100% - 84px);
+        border-radius: 0;
+        text-align: center;
+        min-height: 42px;
+        font-size: rem(18);
+        line-height: rem(22);
+        color: #000;
+    }
+
+    .df-plus,
+    .df-minus {
+        display: inline-block;
+        background: #2D73F6;
+        color: #fff;
+        border-radius: 10px;
+        width: 42px;
+        height: 42px;
+        font-weight: bold;
+        font-size: rem(42);
+        line-height: rem(36);
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.df-order-image {
+    width: 233px;
+    margin: 32px auto 35px;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.df-order-contact {
+    padding: 25px;
+    width: 100%;
+
+    @include tablet {
+        padding: 34px 49px 0 31px;
+    }
+
+    .df-order-contact-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        &:not(:last-child) {
+            align-items: flex-start;
+            margin-bottom: 26px;
+        }
+
+        .df-button-confirm {
+            width: 100%;
+            background-color: $baseColor;
+
+            @include tablet {
+                width: 327px;
+            }
+        }
+    }
+}

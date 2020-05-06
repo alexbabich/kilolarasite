@@ -39,7 +39,7 @@ input {
     line-height: rem(20px);
     color: #222;
     min-height: 48px;
-    width: calc(100% - 32px);
+    width: 100%;
     margin: auto;
 }
 
@@ -53,4 +53,12 @@ input {
         font-size: rem(40);
         line-height: rem(49);
     }
+}
+
+.df-crossed-text {
+    text-decoration: line-through;
+}
+
+.df-text-red {
+    color: $textRed;
 }
