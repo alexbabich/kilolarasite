@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;
+
+0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -6,7 +8,6 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
 :root {
   --blue: #2D73F6;
   --indigo: #6610f2;
@@ -10882,6 +10883,98 @@ a.text-dark:focus {
   }
 }
 
+.df-row-nopadding {
+  padding: 0;
+}
+
+.df-row {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+.df-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.df-container {
+  width: calc(100% - 30px);
+  margin: auto;
+  padding: 0 15px;
+  overflow: hidden;
+}
+
+@media (min-width: 576px) {
+  .df-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-container {
+    max-width: 1196px;
+  }
+}
+
+.df-content-center {
+  align-content: center;
+}
+
+.df-content-left {
+  align-content: flex-start;
+}
+
+.df-content-right {
+  align-content: flex-end;
+}
+
+.df-align-center {
+  align-items: center;
+}
+
+.df-align-left {
+  align-items: flex-start;
+}
+
+.df-align-right {
+  align-items: flex-end;
+}
+
+.df-justify-center {
+  justify-content: center;
+}
+
+.df-justify-left {
+  justify-content: flex-start;
+}
+
+.df-justify-end {
+  justify-content: flex-end;
+}
+
+.df-justify-between {
+  justify-content: space-between;
+}
+
+.df-justify-around {
+  justify-content: space-around;
+}
+
+.df-direction-column {
+  flex-direction: column;
+}
+
+.df-direction-row {
+  flex-direction: row;
+}
+
 .df-m-auto {
   margin: auto;
 }
@@ -10986,6 +11079,10 @@ a.text-dark:focus {
   padding-top: 50px;
 }
 
+.df-pt-100 {
+  padding-top: 100px;
+}
+
 .df-pb-10 {
   padding-bottom: 10px;
 }
@@ -11006,44 +11103,70 @@ a.text-dark:focus {
   padding-bottom: 50px;
 }
 
-.df-pl-10 {
-  padding-left: 10px;
+input {
+  background: #E9EDF3;
+  border-radius: 10px;
+  border: none;
+  padding: 0 16px;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #222;
+  min-height: 48px;
+  width: 100%;
+  margin: auto;
 }
 
-.df-pl-20 {
-  padding-left: 20px;
+h1,
+h2,
+h3,
+h4,
+h5,
+b,
+strong {
+  font-weight: bold;
+  margin: auto;
+  font-family: 'Cabin', sans-serif;
 }
 
-.df-pl-30 {
-  padding-left: 30px;
+h2 {
+  font-size: 2.25rem;
+  line-height: 2.375rem;
 }
 
-.df-pl-40 {
-  padding-left: 40px;
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
 }
 
-.df-pl-50 {
-  padding-left: 50px;
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
-.df-pr-10 {
-  padding-right: 10px;
+p {
+  line-height: 1.5rem;
+  letter-spacing: 0.06rem;
+  margin: 0;
 }
 
-.df-pr-20 {
-  padding-right: 20px;
+span {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
-.df-pr-30 {
-  padding-right: 30px;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.df-pr-40 {
-  padding-right: 40px;
-}
-
-.df-pr-50 {
-  padding-right: 50px;
+label {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #222;
+  opacity: 0.8;
+  font-weight: bold;
 }
 
 .df-link {
@@ -11055,7 +11178,8 @@ a.text-dark:focus {
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  font-family: 'AvertaBold', sans-serif;
+  font-family: 'Cabin', sans-serif;
+  font-weight: bold;
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -11073,26 +11197,113 @@ a.text-dark:focus {
   color: #DE2B70;
 }
 
-label {
-  font-size: 1rem;
-  line-height: 1.25rem;
+.df-simple-text {
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #222;
   opacity: 0.8;
-  font-weight: bold;
-  font-family: 'AvertaBold', sans-serif;
+  letter-spacing: 0;
+  margin-bottom: 20px;
 }
 
-input {
-  background: #E9EDF3;
-  border-radius: 10px;
+.df-button {
+  width: 280px;
+  height: 48px;
+  padding: 16px 0 14px;
+  text-align: center;
+  background: #DE2B70;
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
   border: none;
-  padding: 0 16px;
-  font-size: 1rem;
-  line-height: 1.25rem;
-  color: #222;
-  min-height: 48px;
-  width: 100%;
+  display: block;
   margin: auto;
+}
+
+@media (min-width: 768px) {
+  .df-button {
+    width: 180px;
+  }
+}
+
+.df-text-blue {
+  color: #2D73F6;
+}
+
+.df-text-purple {
+  color: #DE2B70;
+}
+
+.df-text-red {
+  color: #DE2B70;
+}
+
+.df-crossed-text {
+  text-decoration: line-through;
+}
+
+.df-text-center {
+  text-align: center;
+}
+
+.df-uppercase-text {
+  text-transform: uppercase;
+}
+
+.df-bold {
+  font-weight: bold;
+}
+
+.df-italic {
+  font-style: italic;
+}
+
+.df-underline-text {
+  text-decoration: underline;
+}
+
+.df-custom-underline {
+  position: relative;
+}
+
+.df-custom-underline:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: #2D73F6;
+  opacity: 0.15;
+}
+
+.df-text-important {
+  position: relative;
+  padding-left: 10px;
+}
+
+.df-text-important:before {
+  content: '*';
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.75rem;
+}
+
+.df-mobile-text {
+  width: 60%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-mobile-text {
+    text-align: left;
+    width: 100%;
+  }
 }
 
 .df-subtitle {
@@ -11109,12 +11320,14 @@ input {
   }
 }
 
-.df-crossed-text {
-  text-decoration: line-through;
-}
-
-.df-text-red {
-  color: #F70D0D;
+.df-unsbscribe {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  opacity: 0.6;
+  display: block;
+  margin: auto;
+  color: #222;
+  text-decoration: underline;
 }
 
 .df-button {
@@ -12255,6 +12468,7 @@ input {
   margin-top: 16px;
   margin-bottom: 32px;
   position: relative;
+  max-width: 900px;
 }
 
 @media (min-width: 768px) {
@@ -12391,6 +12605,248 @@ input {
   width: 16px;
   border-radius: 50%;
   position: relative;
+}
+
+.df-product-list {
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 50px;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .df-product-list {
+    padding-top: 0;
+    overflow: visible;
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-product-list {
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-product-list {
+    max-width: 1196px;
+  }
+}
+
+.df-product-list .df-product-wrapper {
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  width: 90%;
+  height: 327px;
+  background: #fff;
+  z-index: 2;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 576px) {
+  .df-product-list .df-product-wrapper {
+    width: 300px;
+    height: 345px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-product-list .df-product-wrapper {
+    width: 370px;
+    height: 345px;
+  }
+}
+
+.df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+  background: rgba(153, 187, 250, 0.8);
+  border-radius: 10px;
+  position: absolute;
+  height: calc(100% + 56px);
+  width: calc(100% + 120px);
+  top: -46px;
+  z-index: 1;
+  display: block;
+  left: calc(-50% + 120px);
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+    width: calc(100% + 20px);
+    left: -10px;
+  }
+}
+
+.df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title p span {
+  margin-right: 10px;
+  position: relative;
+  top: -2px;
+}
+
+.df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title p svg {
+  width: 20px;
+}
+
+.df-product-list .df-product-wrapper .df-product-item {
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-height: 327px;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-product-item {
+    padding: 40px;
+    max-height: 100%;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-product-item .df-button {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  background: #DE2B70;
+  width: 280px;
+  height: 48px;
+  padding: 16px 0 14px;
+  line-height: 1.125rem;
+  display: block;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-product-item .df-button {
+    width: 180px;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-safe-mony {
+  background: #E91010;
+  border-radius: 8px;
+  letter-spacing: 0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  width: 108px;
+  height: 34px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-safe-mony {
+    top: 38px;
+    right: 32px;
+    line-height: 0.9375rem;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-poduct-title {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-poduct-title {
+    line-height: 1.5rem;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-product-info {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-product-info {
+    text-align: left;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-product-info p {
+  margin-bottom: 8px;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-product-info p {
+    display: block;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-product-info p span:not(:last-child) {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-product-info p span:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .df-product-list .df-product-wrapper .df-product-info p span:not(:last-child):after {
+    content: "•";
+    margin: 0 3px;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-product-image svg {
+  width: 100%;
+}
+
+.df-product-list .df-product-wrapper .df-product-price {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-product-list .df-product-wrapper .df-product-price {
+    text-align: left;
+  }
+}
+
+.df-product-list .df-product-wrapper .df-product-price:first-letter {
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin-right: 10px;
+}
+
+.df-product-list .df-product-wrapper .df-product-price b {
+  font-size: 3.375rem;
+  line-height: 3rem;
+  font-weight: bold;
 }
 
 .df-page-upsell .df-body-boost-block .df-subtitle {
@@ -12540,245 +12996,6 @@ input {
   align-items: center;
   height: 100%;
   display: flex;
-}
-
-.df-page-upsell .df-product-list {
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 50px;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list {
-    padding-top: 0;
-    overflow: visible;
-  }
-}
-
-@media (min-width: 992px) {
-  .df-page-upsell .df-product-list {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper {
-  position: relative;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  width: 90%;
-  height: 327px;
-  background: #fff;
-  z-index: 2;
-  margin-bottom: 24px;
-}
-
-@media (min-width: 576px) {
-  .df-page-upsell .df-product-list .df-product-wrapper {
-    width: 300px;
-    height: 345px;
-    margin-bottom: 30px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .df-page-upsell .df-product-list .df-product-wrapper {
-    width: 370px;
-    height: 345px;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
-  background: rgba(153, 187, 250, 0.8);
-  border-radius: 10px;
-  position: absolute;
-  height: calc(100% + 56px);
-  width: calc(100% + 120px);
-  top: -46px;
-  z-index: 1;
-  display: block;
-  left: calc(-50% + 120px);
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
-    width: calc(100% + 20px);
-    left: -10px;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title p {
-  color: #fff;
-  font-size: 1rem;
-  line-height: 1.1875rem;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 0;
-  margin-top: 12px;
-  font-weight: bold;
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title p span {
-  margin-right: 10px;
-  position: relative;
-  top: -2px;
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title p svg {
-  width: 20px;
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-product-item {
-  height: 100%;
-  position: relative;
-  z-index: 2;
-  background: #fff;
-  border-radius: 10px;
-  padding: 24px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-  max-height: 327px;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper .df-product-item {
-    padding: 40px;
-    max-height: 100%;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-safe-mony {
-  background: #E91010;
-  border-radius: 8px;
-  letter-spacing: 0;
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.75rem;
-  line-height: 0.75rem;
-  width: 108px;
-  height: 34px;
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper .df-safe-mony {
-    top: 38px;
-    right: 32px;
-    line-height: 0.9375rem;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-poduct-title {
-  font-size: 1.5rem;
-  line-height: 1.8125rem;
-  font-weight: bold;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper .df-poduct-title {
-    line-height: 1.5rem;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-product-info {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper .df-product-info {
-    text-align: left;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-product-info p {
-  margin-bottom: 8px;
-  line-height: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper .df-product-info p {
-    display: block;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-product-info p span:not(:last-child) {
-  position: relative;
-  margin-bottom: 8px;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper .df-product-info p span:not(:last-child) {
-    margin-bottom: 0;
-  }
-
-  .df-page-upsell .df-product-list .df-product-wrapper .df-product-info p span:not(:last-child):after {
-    content: "•";
-    margin: 0 3px;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-product-price {
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-product-list .df-product-wrapper .df-product-price {
-    text-align: left;
-  }
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-product-price:first-letter {
-  vertical-align: top;
-  font-weight: bold;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  margin-right: 10px;
-}
-
-.df-page-upsell .df-product-list .df-product-wrapper .df-product-price b {
-  font-size: 3.375rem;
-  line-height: 3rem;
-  font-weight: bold;
-}
-
-.df-page-upsell .df-unsbscribe {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  opacity: 0.6;
-  display: block;
-  margin: auto;
-  color: #222;
-  text-decoration: underline;
-}
-
-.df-page-upsell .df-button {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  background: #DE2B70;
-  width: 280px;
-  height: 48px;
-  padding: 16px 0 14px;
-  line-height: 1.125rem;
-  display: block;
-  margin: auto;
-}
-
-@media (min-width: 768px) {
-  .df-page-upsell .df-button {
-    width: 180px;
-  }
 }
 
 .df-page-upsell .df-fasting-results {
@@ -13102,6 +13319,209 @@ input {
   }
 }
 
+.df-page-newupsell {
+  padding: 30px 0;
+}
+
+.df-page-newupsell .df-page-title {
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-page-title {
+    margin-bottom: 16px;
+  }
+}
+
+.df-page-newupsell .df-page-subtitle {
+  margin-bottom: 8px;
+  line-height: 2.5rem;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-page-subtitle {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-page-subtitle {
+    line-height: 1.5rem;
+    line-height: 1.8125rem;
+  }
+}
+
+.df-page-newupsell .df-page-description {
+  margin-top: 14px;
+  margin-bottom: 24px;
+  max-width: 730px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-page-description {
+    margin-top: 40px;
+    margin-bottom: 32px;
+  }
+}
+
+.df-page-newupsell .df-slogan {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 3.125rem;
+  line-height: 3.75rem;
+  letter-spacing: 0.02em;
+  min-height: 94px;
+}
+
+.df-page-newupsell .df-slogan span {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin-left: 18px;
+}
+
+.df-page-newupsell .df-image {
+  margin-bottom: 8px;
+}
+
+.df-page-newupsell .df-image svg {
+  max-width: 100%;
+}
+
+.df-page-newupsell .df-second-title {
+  text-align: center;
+}
+
+.df-page-newupsell .df-second-title h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-second-title h2 {
+    font-size: 2.5rem;
+    line-height: 3.125rem;
+  }
+}
+
+.df-page-newupsell .df-second-title .df-link {
+  font-family: 'AvertaBold', sans-serif;
+}
+
+.df-page-newupsell .df-product-list .df-product-wrapper {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 90%;
+  height: 513px;
+}
+
+@media (min-width: 576px) {
+  .df-page-newupsell .df-product-list .df-product-wrapper {
+    width: 330px;
+    height: 513px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-page-newupsell .df-product-list .df-product-wrapper {
+    width: 370px;
+    height: 513px;
+  }
+}
+
+.df-page-newupsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+  left: calc(-50% + 95px);
+}
+
+@media (min-width: 375px) {
+  .df-page-newupsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+    left: calc(-50% + 130px);
+  }
+}
+
+@media (min-width: 576px) {
+  .df-page-newupsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+    left: calc(-50% + 105px);
+  }
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+    left: -10px;
+  }
+}
+
+.df-page-newupsell .df-product-list .df-product-wrapper .df-product-item {
+  max-height: 513px;
+}
+
+.df-section-straight {
+  padding: 30px 0;
+  background-color: #fff;
+}
+
+.df-section-straight .df-container {
+  max-width: 900px;
+}
+
+.df-section-straight .df-image-description {
+  font-weight: bold;
+  font-size: 1.375rem;
+  line-height: 1.6875rem;
+  color: #000;
+}
+
+.df-section-product-preview {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.df-section-product-preview .df-image-description {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  color: #1A1E27;
+  font-style: italic;
+  margin-bottom: 22px;
+  letter-spacing: 0;
+}
+
+.df-section-product-preview .df-product-preview-description {
+  font-style: italic;
+  max-width: 588px;
+  margin: auto;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  text-align: center;
+  color: #1A1E27;
+}
+
+.df-section-product-preview .df-product-preview-link {
+  font-family: 'Cabin', sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  text-align: center;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  color: #1A1E27;
+}
+
+.df-section-product-preview .df-product-preview-button {
+  width: 327px;
+  background: #DE2B70;
+  margin-top: 30px;
+}
+
 /* make sure to set some focus styles for accessibility */
 
 :focus {
@@ -13124,6 +13544,14 @@ ul {
 
 .df-white-bg {
   background-color: #fff;
+}
+
+.df-blue-bg {
+  background-color: #2D73F6;
+}
+
+.df-red-bg {
+  background-color: #DE2B70;
 }
 
 .df-ul-empty-style {

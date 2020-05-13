@@ -1,3 +1,89 @@
+.df-row-nopadding {
+    padding: 0;
+}
+
+.df-row {
+    display: flex;
+    width: 100%;
+    margin: auto;
+}
+
+.df-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.df-container {
+    width: calc(100% - 30px);
+    margin: auto;
+    padding: 0 15px;
+    overflow: hidden;
+
+    @include mobileL {
+        max-width: 540px;
+    }
+
+    @include tablet {
+        max-width: 720px;
+    }
+
+    @include laptopL {
+        max-width: 1196px;
+    }
+}
+
+.df-content-center {
+    align-content: center;
+}
+
+.df-content-left {
+    align-content: flex-start;
+}
+
+.df-content-right {
+    align-content: flex-end;
+}
+
+.df-align-center {
+    align-items: center;
+}
+
+.df-align-left {
+    align-items: flex-start;
+}
+
+.df-align-right {
+    align-items: flex-end;
+}
+
+.df-justify-center {
+    justify-content: center;
+}
+
+.df-justify-left {
+    justify-content: flex-start;
+}
+
+.df-justify-end {
+    justify-content: flex-end;
+}
+
+.df-justify-between {
+    justify-content: space-between;
+}
+
+.df-justify-around {
+    justify-content: space-around;
+}
+
+.df-direction-column {
+    flex-direction: column;
+}
+
+.df-direction-row {
+    flex-direction: row;
+}
+
 .df-m-auto {
     margin: auto;
 }
@@ -102,6 +188,10 @@
     padding-top: 50px;
 }
 
+.df-pt-100 {
+    padding-top: 100px;
+}
+
 .df-pb-10 {
     padding-bottom: 10px;
 }
@@ -120,44 +210,4 @@
 
 .df-pb-50 {
     padding-bottom: 50px;
-}
-
-.df-pl-10 {
-    padding-left: 10px;
-}
-
-.df-pl-20 {
-    padding-left: 20px;
-}
-
-.df-pl-30 {
-    padding-left: 30px;
-}
-
-.df-pl-40 {
-    padding-left: 40px;
-}
-
-.df-pl-50 {
-    padding-left: 50px;
-}
-
-.df-pr-10 {
-    padding-right: 10px;
-}
-
-.df-pr-20 {
-    padding-right: 20px;
-}
-
-.df-pr-30 {
-    padding-right: 30px;
-}
-
-.df-pr-40 {
-    padding-right: 40px;
-}
-
-.df-pr-50 {
-    padding-right: 50px;
 }

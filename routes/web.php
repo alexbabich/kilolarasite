@@ -16,4 +16,10 @@
 // });
 
 
+Route::get('/newupsell', function () {
+    return view('newupsell');
+});
+
 Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
+
+

@@ -1,0 +1,176 @@
+.df-page-newupsell {
+    padding: 30px 0;
+
+    .df-page-title {
+        @include margin($bottom: 8px);
+        @include margin($media: $media-tablet,$bottom: 16px);
+    }
+
+    .df-page-subtitle {
+        @include margin($bottom: 8px);
+        @include margin($media: $media-tablet,$bottom: 40px);
+        line-height: rem(40);
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        @include tablet {
+            line-height: rem(24);
+            line-height: rem(29);
+        }
+    }
+
+    .df-page-description {
+        @include margin($bottom: 24px, $top: 14px);
+        @include margin($media: $media-tablet, $bottom: 32px, $top: 40px);
+        max-width: 730px;
+        font-weight: bold;
+        font-size: rem(24);
+        line-height: rem(32);
+        text-align: center;
+    }
+
+    .df-slogan {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: rem(50);
+        line-height: rem(60);
+        letter-spacing: 0.02em;
+        min-height: 94px;
+
+        span {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: rem(18);
+            line-height: rem(24);
+            margin-left: 18px;
+        }
+    }
+
+    .df-image {
+        margin-bottom: 8px;
+
+        svg {
+            max-width: 100%;
+        }
+    }
+
+    .df-second-title {
+        text-align: center;
+
+        h2 {
+            font-size: rem(24);
+            line-height: rem(32);
+
+            @include tablet {
+                font-size: rem(40);
+                line-height: rem(50);  
+            }
+        }
+
+        .df-link {
+            font-family: 'AvertaBold', sans-serif;
+        }
+    }
+
+    .df-product-list {
+
+        .df-product-wrapper {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            width: 90%;
+            height: 513px;
+            
+            @include mobileL {
+                width: 330px;
+                height: 513px;
+            }
+
+            @include laptopL {
+                width: 370px;
+                height: 513px;
+            }
+
+            &.df-most-popular {
+
+                .df-most-popular-title {
+                    left: calc(-50% + 95px);
+
+                    @include mobileM {
+                        left: calc(-50% + 130px);
+                    }
+
+                    @include mobileL {
+                        left: calc(-50% + 105px);
+                    }
+
+                    @include tablet {
+                        left: -10px;
+                    }
+                }
+            }
+
+            .df-product-item {
+                max-height: 513px;
+            }
+        }
+    }
+}
+
+.df-section-straight {
+    padding: 30px 0;
+    background-color: #fff;
+    
+    .df-container {
+        max-width: 900px;
+    }
+
+    .df-image-description {
+        font-weight: bold;
+        font-size: rem(22);
+        line-height: rem(27);
+        color: #000;
+    }
+}
+
+.df-section-product-preview {
+    padding: 50px 0;
+    background-color: #fff;
+
+    .df-image-description {
+        font-size: rem(20);
+        line-height: rem(24);
+        color: #1A1E27;
+        font-style: italic;
+        margin-bottom: 22px;
+        letter-spacing: 0;
+    }
+
+    .df-product-preview-description {
+        font-style: italic;
+        max-width: 588px;
+        margin: auto;
+        font-size: rem(30);
+        line-height: rem(36);
+        text-align: center;
+        color: #1A1E27;
+    }
+
+    .df-product-preview-link {
+        font-family: 'Cabin', sans-serif;
+        font-weight: bold;
+        font-size: rem(20);
+        line-height: rem(24);
+        text-align: center;
+        text-decoration-line: underline;
+        color: #1A1E27;
+    }
+
+    .df-product-preview-button {
+        width: 327px;
+        background: $baseColor;
+        margin-top: 30px;
+    }
+}

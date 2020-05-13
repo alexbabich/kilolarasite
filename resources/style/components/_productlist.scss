@@ -1,0 +1,219 @@
+.df-product-list {
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 50px;
+    max-width: 100%;
+
+    @include tablet {
+        padding-top: 0;
+        overflow: visible;
+        max-width: 720px;
+    }
+
+    @include tabletL {
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @include laptopL {
+        max-width: 1196px;
+    }
+   
+    .df-product-wrapper {
+        position: relative;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        width: 90%;
+        height: 327px;
+        background: #fff;
+        z-index: 2;
+        margin-bottom: 24px;
+
+        @include mobileL {
+            width: 300px;
+            height: 345px;
+            margin-bottom: 30px;
+        }
+
+        @include laptopL {
+            width: 370px;
+            height: 345px;
+        }
+
+        &.df-most-popular {
+
+            .df-most-popular-title {
+                background:rgba(153, 187, 250, 0.8);
+                border-radius: 10px;
+                position: absolute;
+                height: calc(100% + 56px);
+                width: calc(100% + 120px);
+                top: -46px;
+                z-index: 1;
+                display: block;
+                left: calc(-50% + 120px);
+
+                @include tablet {
+                    width: calc(100% + 20px);
+                    left: -10px;
+                }
+
+                p {
+                    color: #fff;
+                    font-size: rem(16);
+                    line-height: rem(19);
+                    text-transform: uppercase;
+                    text-align: center;
+                    letter-spacing: 0;
+                    margin-top: 12px;
+                    font-weight: bold;
+
+                    span {
+                        margin-right: 10px;
+                        position: relative;
+                        top: -2px;
+                    }
+
+                    svg {
+                        width: 20px;
+                    }
+                }
+            }
+        }
+
+        .df-product-item {
+            height: 100%;
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-height: 327px;
+
+            @include tablet {
+                padding: 40px;
+                max-height: 100%;
+            }
+
+            .df-button {
+                position: absolute;
+                bottom: 40px;
+                left: 0;
+                right: 0;
+                background: $baseColor;
+                width: 280px;
+                height: 48px;
+                padding: 16px 0 14px;
+                line-height: rem(18);
+                display: block;
+                margin: auto;
+            
+                @include tablet {
+                    width: 180px;
+                }
+            }
+        }
+
+        .df-safe-mony {
+            background: $redColor;
+            border-radius: 8px;
+            letter-spacing: 0;
+            color: #fff;
+            font-weight: bold;
+            font-size: rem(12);
+            line-height: rem(12);
+            width: 108px;
+            height: 34px;
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+
+            @include tablet {
+                top: 38px;
+                right: 32px;
+                line-height: rem(15);
+            }
+        }
+
+        .df-poduct-title {
+            font-size: rem(24);
+            line-height: rem(29);
+            font-weight: bold;
+
+            @include tablet {
+                line-height: rem(24);
+            }
+        }
+
+        .df-product-info {
+            text-align: center;
+
+            @include tablet {
+                text-align: left;
+            }
+            
+            p {
+                margin-bottom: 8px;
+                line-height: rem(24);
+                display: flex;
+                flex-direction: column;
+
+                @include tablet {
+                    display: block;
+                }
+
+                span:not(:last-child) {
+                    position: relative;
+                    margin-bottom: 8px;
+
+                    @include tablet {
+                        margin-bottom: 0;
+
+                        &:after {
+                            content: "•";
+                            margin: 0 3px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .df-product-image {
+        
+            svg {
+                width: 100%;
+            }
+        }
+
+        .df-product-price {
+            margin-bottom: 25px;
+            text-align: center;
+
+            @include tablet {
+                text-align: left;
+            }
+
+            &:first-letter {
+                vertical-align: top;
+                font-weight: bold;
+                font-size: rem(24);
+                line-height: rem(24);
+                margin-right: 10px;
+            }
+
+            b {
+                font-size: rem(54);
+                line-height: rem(48);
+                font-weight: bold;
+            }
+        }
+    }
+}
