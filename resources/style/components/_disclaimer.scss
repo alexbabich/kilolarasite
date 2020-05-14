@@ -1,0 +1,28 @@
+.df-disclaimer {
+    background: #F6F7FA;
+    padding: 24px 0;
+
+    &-title,
+    &-text {
+        color: #222222;
+        text-align: center;
+        opacity: 0.6;
+        font-family: 'Cabin', sans-serif;
+        font-style: normal;
+    }
+
+    &-title {
+        font-weight: 600;
+        font-size: rem(16);
+        line-height: rem(20);
+        margin-bottom: 10px;
+    }
+
+    &-text {
+        font-weight: normal;
+        font-size: rem(14);
+        line-height: rem(24);
+        max-width: 900px;
+        margin: auto;
+    }
+}

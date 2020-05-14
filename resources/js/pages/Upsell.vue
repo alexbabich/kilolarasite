@@ -104,7 +104,7 @@
                 <div class="row">
                     <div class="df-ketone-boost-image"></div>
                 </div>
-                <div class="row df-mb-40 df-product-list">
+                <div class="row df-product-list">
                     <div class="df-product-wrapper df-most-popular">
                         <div class="df-most-popular-title">
                             <p>

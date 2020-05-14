@@ -10899,7 +10899,7 @@ a.text-dark:focus {
 }
 
 .df-container {
-  width: calc(100% - 30px);
+  width: 100%;
   margin: auto;
   padding: 0 15px;
   overflow: hidden;
@@ -10913,7 +10913,15 @@ a.text-dark:focus {
 
 @media (min-width: 768px) {
   .df-container {
+    width: calc(100% - 30px);
     max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-container {
+    width: calc(100% - 30px);
+    max-width: 960px;
   }
 }
 
@@ -10921,6 +10929,63 @@ a.text-dark:focus {
   .df-container {
     max-width: 1196px;
   }
+}
+
+.df-two-column-1,
+.df-two-column-2-3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-two-column-1,
+  .df-two-column-2-3 {
+    flex-direction: row;
+  }
+}
+
+.df-two-column-1-right,
+.df-two-column-1-left {
+  width: 100%;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .df-two-column-1-right,
+  .df-two-column-1-left {
+    width: 50%;
+  }
+}
+
+.df-two-column-2-3 {
+  justify-content: space-between;
+}
+
+.df-two-column-2-3-right,
+.df-two-column-2-3-left {
+  width: 100%;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .df-two-column-2-3-right {
+    width: 38%;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-two-column-2-3-left {
+    width: 58%;
+  }
+}
+
+.df-two-column-2-3.df-column-reverse .df-two-column-2-3-left {
+  order: 2;
+}
+
+.df-two-column-2-3.df-column-reverse .df-two-column-2-3-right {
+  order: 1;
 }
 
 .df-content-center {
@@ -10969,6 +11034,16 @@ a.text-dark:focus {
 
 .df-direction-column {
   flex-direction: column;
+}
+
+.df-direction-column-mobile {
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-direction-column-mobile {
+    flex-direction: unset;
+  }
 }
 
 .df-direction-row {
@@ -11303,6 +11378,34 @@ label {
   .df-mobile-text {
     text-align: left;
     width: 100%;
+  }
+}
+
+.df-section-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  color: #1D1D1D;
+}
+
+@media (min-width: 768px) {
+  .df-section-title {
+    font-size: 2.5rem;
+    line-height: 3.0625rem;
+  }
+}
+
+.df-section-subtitle {
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: #000;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .df-section-subtitle {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -12613,6 +12716,7 @@ label {
   overflow: hidden;
   padding-top: 50px;
   max-width: 100%;
+  margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
@@ -12820,7 +12924,12 @@ label {
   }
 }
 
-.df-product-list .df-product-wrapper .df-product-image svg {
+.df-product-list .df-product-wrapper .df-product-image {
+  text-align: center;
+}
+
+.df-product-list .df-product-wrapper .df-product-image svg,
+.df-product-list .df-product-wrapper .df-product-image img {
   width: 100%;
 }
 
@@ -12847,6 +12956,35 @@ label {
   font-size: 3.375rem;
   line-height: 3rem;
   font-weight: bold;
+}
+
+.df-disclaimer {
+  background: #F6F7FA;
+  padding: 24px 0;
+}
+
+.df-disclaimer-title,
+.df-disclaimer-text {
+  color: #222222;
+  text-align: center;
+  opacity: 0.6;
+  font-family: 'Cabin', sans-serif;
+  font-style: normal;
+}
+
+.df-disclaimer-title {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.df-disclaimer-text {
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  max-width: 900px;
+  margin: auto;
 }
 
 .df-page-upsell .df-body-boost-block .df-subtitle {
@@ -13419,6 +13557,11 @@ label {
   font-family: 'AvertaBold', sans-serif;
 }
 
+.df-page-newupsell .df-product-list {
+  align-items: center;
+  justify-content: center;
+}
+
 .df-page-newupsell .df-product-list .df-product-wrapper {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   width: 90%;
@@ -13520,6 +13663,878 @@ label {
   width: 327px;
   background: #DE2B70;
   margin-top: 30px;
+}
+
+.df-page-gummies-upsell .df-product-list,
+.df-page-gummies-landing .df-product-list {
+  align-items: center;
+  justify-content: center;
+}
+
+.df-page-gummies-upsell .df-product-list .df-product-wrapper,
+.df-page-gummies-landing .df-product-list .df-product-wrapper {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 90%;
+  height: 498px;
+}
+
+@media (min-width: 576px) {
+  .df-page-gummies-upsell .df-product-list .df-product-wrapper,
+  .df-page-gummies-landing .df-product-list .df-product-wrapper {
+    width: 330px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-page-gummies-upsell .df-product-list .df-product-wrapper,
+  .df-page-gummies-landing .df-product-list .df-product-wrapper {
+    width: 370px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-page-gummies-upsell .df-product-list .df-product-wrapper:not(:last-child),
+  .df-page-gummies-landing .df-product-list .df-product-wrapper:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+
+.df-page-gummies-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title,
+.df-page-gummies-landing .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+  left: -30px;
+  width: calc(100% + 60px);
+  height: calc(100% + 66px);
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title,
+  .df-page-gummies-landing .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+    left: -20px;
+    width: calc(100% + 40px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-page-gummies-upsell .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title,
+  .df-page-gummies-landing .df-product-list .df-product-wrapper.df-most-popular .df-most-popular-title {
+    width: 410px;
+  }
+}
+
+.df-page-gummies-upsell .df-product-list .df-product-wrapper .df-product-item,
+.df-page-gummies-landing .df-product-list .df-product-wrapper .df-product-item {
+  max-height: 498px;
+}
+
+.df-page-gummies-upsell .df-product-list .df-product-wrapper .df-product-image,
+.df-page-gummies-landing .df-product-list .df-product-wrapper .df-product-image {
+  margin: 14px auto 19px;
+}
+
+.df-page-gummies-upsell .df-product-list .df-product-wrapper .df-product-image img,
+.df-page-gummies-landing .df-product-list .df-product-wrapper .df-product-image img {
+  height: 160px;
+  max-width: 290px;
+  margin: auto;
+}
+
+.df-page-gummies-upsell .df-gummies-order,
+.df-page-gummies-landing .df-gummies-order {
+  padding-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-order,
+  .df-page-gummies-landing .df-gummies-order {
+    padding-top: 80px;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-two-column-right,
+.df-page-gummies-landing .df-gummies-order .df-two-column-right {
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-order .df-two-column-right,
+  .df-page-gummies-landing .df-gummies-order .df-two-column-right {
+    order: unset;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-two-column-left,
+.df-page-gummies-landing .df-gummies-order .df-two-column-left {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-order .df-two-column-left,
+  .df-page-gummies-landing .df-gummies-order .df-two-column-left {
+    order: unset;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-list-item,
+.df-page-gummies-landing .df-gummies-order .df-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-list-item:not(:last-child),
+.df-page-gummies-landing .df-gummies-order .df-list-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-list-icon,
+.df-page-gummies-landing .df-gummies-order .df-list-icon {
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  margin-right: 17px;
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-list-text,
+.df-page-gummies-landing .df-gummies-order .df-list-text {
+  color: #000;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-order .df-list-text,
+  .df-page-gummies-landing .df-gummies-order .df-list-text {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-list .df-icon-shield,
+.df-page-gummies-landing .df-gummies-order .df-list .df-icon-shield {
+  background: rgba(22, 186, 197, 0.15);
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-list .df-icon-apple,
+.df-page-gummies-landing .df-gummies-order .df-list .df-icon-apple {
+  background: rgba(222, 43, 111, 0.15);
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-list .df-icon-body,
+.df-page-gummies-landing .df-gummies-order .df-list .df-icon-body {
+  background: rgba(237, 161, 0, 0.15);
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-gummies-order-iamge,
+.df-page-gummies-landing .df-gummies-order .df-gummies-order-iamge {
+  position: relative;
+  height: auto;
+  width: 100%;
+  max-width: 510px;
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-gummies-order-iamge img,
+.df-page-gummies-landing .df-gummies-order .df-gummies-order-iamge img {
+  width: 100%;
+}
+
+.df-page-gummies-upsell .df-gummies-order .df-gummies-order-iamge .df-appleGummies,
+.df-page-gummies-landing .df-gummies-order .df-gummies-order-iamge .df-appleGummies {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 25%;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-order .df-gummies-order-iamge .df-appleGummies,
+  .df-page-gummies-landing .df-gummies-order .df-gummies-order-iamge .df-appleGummies {
+    width: auto;
+    top: 55px;
+    right: 15px;
+  }
+}
+
+.df-page-gummies-upsell .df-article,
+.df-page-gummies-landing .df-article {
+  padding: 0 15px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-article,
+  .df-page-gummies-landing .df-article {
+    padding: 50px 0;
+  }
+}
+
+.df-page-gummies-upsell .df-article:not(.df-column-reverse) .df-two-column-2-3-left,
+.df-page-gummies-landing .df-article:not(.df-column-reverse) .df-two-column-2-3-left {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-article:not(.df-column-reverse) .df-two-column-2-3-left,
+  .df-page-gummies-landing .df-article:not(.df-column-reverse) .df-two-column-2-3-left {
+    order: unset;
+  }
+}
+
+.df-page-gummies-upsell .df-article:not(.df-column-reverse) .df-two-column-2-3-right,
+.df-page-gummies-landing .df-article:not(.df-column-reverse) .df-two-column-2-3-right {
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-article:not(.df-column-reverse) .df-two-column-2-3-right,
+  .df-page-gummies-landing .df-article:not(.df-column-reverse) .df-two-column-2-3-right {
+    order: unset;
+  }
+}
+
+.df-page-gummies-upsell .df-article-wrapper,
+.df-page-gummies-landing .df-article-wrapper {
+  padding: 70px 0;
+  background: linear-gradient(180deg, rgba(243, 244, 248, 0) 0%, rgba(243, 244, 248, 0.8) 100%);
+}
+
+.df-page-gummies-upsell .df-article-wrapper .df-section-title,
+.df-page-gummies-landing .df-article-wrapper .df-section-title {
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+.df-page-gummies-upsell .df-article-text,
+.df-page-gummies-landing .df-article-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #000;
+  opacity: 0.8;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-article-text,
+  .df-page-gummies-landing .df-article-text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 35px;
+    margin-top: 0;
+  }
+}
+
+.df-page-gummies-upsell .df-article-image img,
+.df-page-gummies-upsell .df-article-image svg,
+.df-page-gummies-landing .df-article-image img,
+.df-page-gummies-landing .df-article-image svg {
+  width: 100%;
+  height: auto;
+}
+
+.df-page-gummies-upsell .df-article-image img,
+.df-page-gummies-landing .df-article-image img {
+  max-width: 600px;
+  max-height: 470px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.df-page-gummies-upsell .df-versus,
+.df-page-gummies-landing .df-versus {
+  background: url("/images/applesVersus.png"), linear-gradient(180deg, #f0f0f0 0%, #f4f4f8 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 100px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-versus,
+  .df-page-gummies-landing .df-versus {
+    padding-bottom: 200px;
+    padding-top: 40px;
+  }
+}
+
+.df-page-gummies-upsell .df-versus-table,
+.df-page-gummies-landing .df-versus-table {
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  max-width: 925px;
+  margin: auto;
+}
+
+.df-page-gummies-upsell .df-versus-table-row,
+.df-page-gummies-upsell .df-versus-table-header,
+.df-page-gummies-landing .df-versus-table-row,
+.df-page-gummies-landing .df-versus-table-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.df-page-gummies-upsell .df-versus-table-header,
+.df-page-gummies-landing .df-versus-table-header {
+  border-bottom: 1px solid #E9EDF3;
+}
+
+.df-page-gummies-upsell .df-versus-table-header .df-column-first,
+.df-page-gummies-landing .df-versus-table-header .df-column-first {
+  background: #E9EDF3;
+}
+
+.df-page-gummies-upsell .df-versus-table-header .df-column-first p,
+.df-page-gummies-landing .df-versus-table-header .df-column-first p {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #222;
+  padding-left: 40px;
+}
+
+@media (min-width: 1200px) {
+  .df-page-gummies-upsell .df-versus-table-header .df-column-first p,
+  .df-page-gummies-landing .df-versus-table-header .df-column-first p {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+}
+
+.df-page-gummies-upsell .df-versus-table-header .df-column-second,
+.df-page-gummies-landing .df-versus-table-header .df-column-second {
+  background: #DE2B70;
+}
+
+.df-page-gummies-upsell .df-versus-table-header .df-column-third,
+.df-page-gummies-landing .df-versus-table-header .df-column-third {
+  background: #EEA201;
+}
+
+.df-page-gummies-upsell .df-versus-table-header .df-column-second,
+.df-page-gummies-upsell .df-versus-table-header .df-column-third,
+.df-page-gummies-landing .df-versus-table-header .df-column-second,
+.df-page-gummies-landing .df-versus-table-header .df-column-third {
+  align-content: center;
+}
+
+.df-page-gummies-upsell .df-versus-table-header .df-column-second p,
+.df-page-gummies-upsell .df-versus-table-header .df-column-third p,
+.df-page-gummies-landing .df-versus-table-header .df-column-second p,
+.df-page-gummies-landing .df-versus-table-header .df-column-third p {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #FFF;
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .df-page-gummies-upsell .df-versus-table-header .df-column-second p,
+  .df-page-gummies-upsell .df-versus-table-header .df-column-third p,
+  .df-page-gummies-landing .df-versus-table-header .df-column-second p,
+  .df-page-gummies-landing .df-versus-table-header .df-column-third p {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+}
+
+.df-page-gummies-upsell .df-versus-table-row,
+.df-page-gummies-landing .df-versus-table-row {
+  border-bottom: 1px solid #E9EDF3;
+  align-items: center;
+}
+
+.df-page-gummies-upsell .df-versus-table-row p,
+.df-page-gummies-landing .df-versus-table-row p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #000;
+  opacity: 0.8;
+  padding-left: 16px;
+  padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-versus-table-row p,
+  .df-page-gummies-landing .df-versus-table-row p {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    padding-left: 40px;
+  }
+}
+
+.df-page-gummies-upsell .df-versus-table-row:last-child,
+.df-page-gummies-landing .df-versus-table-row:last-child {
+  border-right: none;
+}
+
+.df-page-gummies-upsell .df-versus-table-row:last-child .df-column-first,
+.df-page-gummies-upsell .df-versus-table-row:last-child .df-column-second,
+.df-page-gummies-upsell .df-versus-table-row:last-child .df-column-third,
+.df-page-gummies-landing .df-versus-table-row:last-child .df-column-first,
+.df-page-gummies-landing .df-versus-table-row:last-child .df-column-second,
+.df-page-gummies-landing .df-versus-table-row:last-child .df-column-third {
+  padding: 14px 0 17px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-versus-table-row:last-child .df-column-first,
+  .df-page-gummies-upsell .df-versus-table-row:last-child .df-column-second,
+  .df-page-gummies-upsell .df-versus-table-row:last-child .df-column-third,
+  .df-page-gummies-landing .df-versus-table-row:last-child .df-column-first,
+  .df-page-gummies-landing .df-versus-table-row:last-child .df-column-second,
+  .df-page-gummies-landing .df-versus-table-row:last-child .df-column-third {
+    padding: 17px 0 21px;
+  }
+}
+
+.df-page-gummies-upsell .df-versus-table .df-versus-table-header .df-column-second,
+.df-page-gummies-landing .df-versus-table .df-versus-table-header .df-column-second {
+  border-right: none;
+  position: relative;
+}
+
+.df-page-gummies-upsell .df-versus-table .df-versus-table-header .df-column-second:after,
+.df-page-gummies-landing .df-versus-table .df-versus-table-header .df-column-second:after {
+  content: 'vs';
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 0;
+  right: -14px;
+  background: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+  margin: auto;
+  bottom: 0;
+}
+
+@media (min-width: 1200px) {
+  .df-page-gummies-upsell .df-versus-table .df-versus-table-header .df-column-second:after,
+  .df-page-gummies-landing .df-versus-table .df-versus-table-header .df-column-second:after {
+    height: 28px;
+    width: 28px;
+    font-size: 1.25rem;
+    line-height: 1.5625rem;
+  }
+}
+
+.df-page-gummies-upsell .df-versus .df-column-first,
+.df-page-gummies-upsell .df-versus .df-column-second,
+.df-page-gummies-upsell .df-versus .df-column-third,
+.df-page-gummies-landing .df-versus .df-column-first,
+.df-page-gummies-landing .df-versus .df-column-second,
+.df-page-gummies-landing .df-versus .df-column-third {
+  padding: 14px 0;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-versus .df-column-first,
+  .df-page-gummies-upsell .df-versus .df-column-second,
+  .df-page-gummies-upsell .df-versus .df-column-third,
+  .df-page-gummies-landing .df-versus .df-column-first,
+  .df-page-gummies-landing .df-versus .df-column-second,
+  .df-page-gummies-landing .df-versus .df-column-third {
+    padding: 17px 0;
+  }
+}
+
+.df-page-gummies-upsell .df-versus .df-column-first,
+.df-page-gummies-landing .df-versus .df-column-first {
+  flex: 453px;
+}
+
+.df-page-gummies-upsell .df-versus .df-column-first,
+.df-page-gummies-upsell .df-versus .df-column-second,
+.df-page-gummies-landing .df-versus .df-column-first,
+.df-page-gummies-landing .df-versus .df-column-second {
+  border-right: 1px solid #E9EDF3;
+}
+
+.df-page-gummies-upsell .df-versus .df-column-second,
+.df-page-gummies-upsell .df-versus .df-column-third,
+.df-page-gummies-landing .df-versus .df-column-second,
+.df-page-gummies-landing .df-versus .df-column-third {
+  flex: 253px;
+}
+
+.df-page-gummies-upsell .df-versus .df-column-uncheck,
+.df-page-gummies-upsell .df-versus .df-column-check,
+.df-page-gummies-landing .df-versus .df-column-uncheck,
+.df-page-gummies-landing .df-versus .df-column-check {
+  height: 24px;
+  width: 24px;
+  display: block;
+  margin: auto;
+}
+
+.df-page-gummies-upsell .df-versus .df-column-uncheck,
+.df-page-gummies-landing .df-versus .df-column-uncheck {
+  background: url("/svg/uncheck-icon.svg") no-repeat center bottom;
+}
+
+.df-page-gummies-upsell .df-versus .df-column-check,
+.df-page-gummies-landing .df-versus .df-column-check {
+  background: url("/svg/check-icon.svg") no-repeat center bottom;
+}
+
+.df-page-gummies-upsell .df-gummies-benefits,
+.df-page-gummies-landing .df-gummies-benefits {
+  background: #f1f1f0;
+  padding-top: 30px;
+}
+
+.df-page-gummies-upsell .df-gummies-benefits-list,
+.df-page-gummies-landing .df-gummies-benefits-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.df-page-gummies-upsell .df-gummies-benefits-list-item,
+.df-page-gummies-landing .df-gummies-benefits-list-item {
+  max-width: 343px;
+  width: 100%;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  background: #FFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-benefits-list-item,
+  .df-page-gummies-landing .df-gummies-benefits-list-item {
+    margin-bottom: 40px;
+    flex-direction: row;
+    height: 140px;
+    max-width: 540px;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-image,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-image {
+  height: 75px;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-benefits .df-benefits-image,
+  .df-page-gummies-landing .df-gummies-benefits .df-benefits-image {
+    height: auto;
+    width: auto;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-image img,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-image img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-benefits .df-benefits-image img,
+  .df-page-gummies-landing .df-gummies-benefits .df-benefits-image img {
+    position: unset;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-description,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-description {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 21px;
+  position: relative;
+  top: -8px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-benefits .df-benefits-description,
+  .df-page-gummies-landing .df-gummies-benefits .df-benefits-description {
+    top: 0;
+    padding-left: 0;
+    width: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-description-icon,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-description-icon {
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  margin-right: 16px;
+  margin-bottom: 7px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-benefits .df-benefits-description-icon,
+  .df-page-gummies-landing .df-gummies-benefits .df-benefits-description-icon {
+    margin-left: 12px;
+    margin-bottom: 0;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-description-text,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-description-text {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  color: #222;
+  opacity: 0.8;
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-description .df-icon-virus,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-description .df-icon-virus {
+  background: rgba(120, 194, 14, 0.15);
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-description .df-icon-shield,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-description .df-icon-shield {
+  background: rgba(22, 186, 197, 0.15);
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-description .df-icon-bloodChart,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-description .df-icon-bloodChart {
+  background: rgba(192, 16, 69, 0.15);
+}
+
+.df-page-gummies-upsell .df-gummies-benefits .df-benefits-description .df-icon-body,
+.df-page-gummies-landing .df-gummies-benefits .df-benefits-description .df-icon-body {
+  background: rgba(237, 161, 0, 0.15);
+}
+
+.df-page-gummies-upsell .df-gummies-top,
+.df-page-gummies-landing .df-gummies-top {
+  padding-bottom: 40px;
+}
+
+.df-page-gummies-upsell .df-gummies-top-title,
+.df-page-gummies-landing .df-gummies-top-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-top-title,
+  .df-page-gummies-landing .df-gummies-top-title {
+    font-size: 3.75rem;
+    line-height: 4.5625rem;
+    margin-bottom: 16px;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-top-text,
+.df-page-gummies-landing .df-gummies-top-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #000;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-top-text,
+  .df-page-gummies-landing .df-gummies-top-text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 30px;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-top-button,
+.df-page-gummies-landing .df-gummies-top-button {
+  background: #DE2B70;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.df-page-gummies-upsell .df-gummies-top img,
+.df-page-gummies-landing .df-gummies-top img {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-top img,
+  .df-page-gummies-landing .df-gummies-top img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-page-gummies-upsell .df-gummies-top img,
+  .df-page-gummies-landing .df-gummies-top img {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-page-gummies-upsell .df-gummies-top img,
+  .df-page-gummies-landing .df-gummies-top img {
+    width: auto;
+    height: auto;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-honor,
+.df-page-gummies-landing .df-gummies-honor {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-honor,
+  .df-page-gummies-landing .df-gummies-honor {
+    margin-bottom: 24px;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-honor-medal,
+.df-page-gummies-landing .df-gummies-honor-medal {
+  margin-right: 15px;
+}
+
+.df-page-gummies-upsell .df-gummies-honor-text,
+.df-page-gummies-landing .df-gummies-honor-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.df-page-gummies-upsell .df-gummies-honor-text p,
+.df-page-gummies-landing .df-gummies-honor-text p {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.df-page-gummies-upsell .df-gummies-honor-text p:not(:last-child),
+.df-page-gummies-landing .df-gummies-honor-text p:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.df-page-gummies-upsell .df-gummies-description,
+.df-page-gummies-landing .df-gummies-description {
+  width: 100%;
+  padding-top: 100px;
+  position: relative;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-description,
+  .df-page-gummies-landing .df-gummies-description {
+    width: 160px;
+    padding-top: 0;
+    right: 15px;
+    bottom: 90px;
+    position: absolute;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-page-gummies-upsell .df-gummies-description,
+  .df-page-gummies-landing .df-gummies-description {
+    bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-page-gummies-upsell .df-gummies-description,
+  .df-page-gummies-landing .df-gummies-description {
+    right: 50px;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-description:before,
+.df-page-gummies-landing .df-gummies-description:before {
+  content: '';
+  background: url("/svg/yummiesText.svg") no-repeat;
+  width: 250px;
+  height: 80px;
+  display: block;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-description:before,
+  .df-page-gummies-landing .df-gummies-description:before {
+    right: unset;
+    margin: unset;
+    top: -100px;
+    left: -50px;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-description-item,
+.df-page-gummies-landing .df-gummies-description-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .df-page-gummies-upsell .df-gummies-description-item,
+  .df-page-gummies-landing .df-gummies-description-item {
+    width: 100%;
+  }
+}
+
+.df-page-gummies-upsell .df-gummies-description-item svg,
+.df-page-gummies-landing .df-gummies-description-item svg {
+  margin-right: 10px;
+  width: 40px;
+}
+
+.df-page-gummies-upsell .df-gummies-description-item p,
+.df-page-gummies-landing .df-gummies-description-item p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  color: #000;
 }
 
 /* make sure to set some focus styles for accessibility */
@@ -13647,6 +14662,10 @@ ul {
   .df-desktop {
     display: block;
   }
+}
+
+.df-relative {
+  position: relative;
 }
 
 .df-navigation-link {

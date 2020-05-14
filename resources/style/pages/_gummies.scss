@@ -1,0 +1,691 @@
+.df-page-gummies-upsell,
+.df-page-gummies-landing {
+
+
+    .df-product-list {
+        align-items: center;
+        justify-content: center;
+
+        .df-product-wrapper {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            width: 90%;
+            height: 498px;
+            
+            @include mobileL {
+                width: 330px;
+            }
+
+            @include laptopL {
+                width: 370px;
+            }
+
+            &:not(:last-child) {
+                @include tabletL {
+                    margin-right: 40px;
+                }
+            }
+
+            &.df-most-popular {
+
+                .df-most-popular-title {
+                    left: -30px;
+                    width: calc(100% + 60px);
+                    height: calc(100% + 66px);
+                    
+                    @include tablet {
+                        left: -20px;
+                        width: calc(100% + 40px);
+                    }
+
+                    @include laptopL {
+                        width: 410px;
+                    }
+                }
+            }
+
+            .df-product-item {
+                max-height: 498px;
+            }
+
+            .df-product-image {
+                margin: 14px auto 19px;
+                
+                img {
+                    height: 160px;
+                    max-width: 290px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    .df-gummies-order {
+        padding-top: 30px;
+
+        @include tablet {
+            padding-top: 80px;
+        }
+
+        .df-two-column-right {
+            order: 1;
+
+            @include tablet {
+                order: unset;
+            }
+        }
+
+        .df-two-column-left {
+            order: 2;
+
+            @include tablet {
+                order: unset;
+            }
+        }
+
+        .df-list {
+
+            &-item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+
+            &-icon {
+                display: flex;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                height: 60px;
+                width: 60px;
+                margin-right: 17px;
+            }
+
+            &-text {
+                color: #000;
+                margin: 0;
+                font-size: rem(18);
+                line-height: rem(20);
+
+                @include tablet {
+                    font-size: rem(24);
+                    line-height: rem(36);
+                }
+            }
+
+            .df-icon-shield {
+                background: rgba(22, 186, 197, 0.15);
+            }
+
+            .df-icon-apple {
+                background: rgba(222, 43, 111, 0.15);
+            }
+
+            .df-icon-body {
+                background: rgba(237, 161, 0, 0.15);
+            }
+        }
+
+        .df-gummies-order-iamge {
+            position: relative;
+            height: auto;
+            width: 100%;
+            max-width: 510px;
+
+            img {
+                width: 100%;
+            }
+
+            .df-appleGummies {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                width: 25%;
+
+                @include tablet {
+                    width: auto;
+                    top: 55px;
+                    right: 15px;
+                }               
+            }
+        }
+    }
+
+    .df-article {
+        padding: 0 15px;
+
+        @include tablet {
+            padding: 50px 0;
+        }
+
+        &:not(.df-column-reverse) {
+            
+            .df-two-column-2-3-left {
+                order: 2;
+
+                @include tablet {
+                    order: unset;
+                }
+            }
+
+            .df-two-column-2-3-right {
+                order: 1;
+
+                @include tablet {
+                    order: unset;
+                }
+            }
+        }
+        
+        &-wrapper {
+            padding: 70px 0;
+            background: linear-gradient(180deg, rgba(243, 244, 248, 0) 0%, rgba(243, 244, 248, 0.8) 100%);
+        
+            .df-section-title {
+                margin-left: 0;
+                margin-bottom: 30px;
+            }
+        }
+        
+        &-text {
+            font-size: rem(16);
+            line-height: rem(24);
+            color: #000;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            margin-top: 10px;
+
+            @include tablet {
+                font-size: rem(18);
+                line-height: rem(28);
+                margin-bottom: 35px;
+                margin-top: 0;
+            }
+        }
+
+        &-image {
+            
+            img,
+            svg {
+                width: 100%;
+                height: auto;
+            }
+
+            img {
+                max-width: 600px;
+                max-height: 470px;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .df-versus {
+        background: url('/images/applesVersus.png'), linear-gradient(180deg, #f0f0f0 0%, #f4f4f8 100%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding-bottom: 100px;
+        padding-top: 20px;
+
+        @include tablet {
+            padding-bottom: 200px;
+            padding-top: 40px;
+        }
+
+        &-table {
+            border-radius: 10px;
+            background: #FFF;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            max-width: 925px;
+            margin: auto;
+
+            &-row,
+            &-header {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &-header {
+                border-bottom: 1px solid #E9EDF3;
+
+                .df-column {
+
+                    &-first {
+                        background: #E9EDF3;
+
+                        p {
+                            font-weight: bold;
+                            font-size: rem(16);
+                            line-height: rem(20);
+                            color: #222;
+                            padding-left: 40px;
+
+                            @include laptopL {
+                                font-size: rem(18);
+                                line-height: rem(22);
+                            }
+                        }
+                    }
+
+                    &-second {
+                        background: $baseColor;
+                    }
+
+                    &-third {
+                        background: #EEA201;
+                    }
+
+                    &-second,
+                    &-third {
+                        align-content: center;
+
+                        p {
+                            font-weight: bold;
+                            font-size: rem(16);
+                            line-height: rem(20);
+                            color: #FFF;
+                            margin: 0;
+                            text-align: center;
+
+                            @include laptopL {
+                                font-size: rem(18);
+                                line-height: rem(22);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-row {
+                border-bottom: 1px solid #E9EDF3;
+                align-items: center;
+
+                p {
+                    margin: 0;
+                    font-size: rem(16);
+                    line-height: rem(16);
+                    color: #000;
+                    opacity: 0.8;
+                    padding-left: 16px;
+                    padding-right: 15px;
+
+                    @include tablet {
+                        font-size: rem(18);
+                        line-height: rem(22);
+                        padding-left: 40px;
+                    }
+                }
+
+                &:last-child {
+                    border-right: none;
+
+                    .df-column {
+                        &-first,
+                        &-second,
+                        &-third {
+                            padding: 14px 0 17px;
+
+                            @include tablet {
+                                padding: 17px 0 21px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .df-versus-table-header {
+                
+                .df-column-second {
+                    border-right: none;
+                    position: relative;
+
+                    &:after {
+                        content: 'vs';
+                        height: 24px;
+                        width: 24px;
+                        position: absolute;
+                        top: 0;
+                        right: -14px;;
+                        background: #fff;
+                        border-radius: 50%;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: rem(18);
+                        line-height: rem(23);
+                        margin: auto;
+                        bottom: 0;
+
+                        @include laptopL {
+                            height: 28px;
+                            width: 28px;
+                            font-size: rem(20);
+                            line-height: rem(25);
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .df-column {
+
+            &-first,
+            &-second,
+            &-third {
+                padding: 14px 0;
+
+                @include tablet {
+                    padding: 17px 0;
+                }
+            }
+
+            &-first {
+                flex: 453px;
+            }
+
+            &-first,
+            &-second {
+                border-right: 1px solid #E9EDF3;
+            }
+
+            &-second,
+            &-third {
+                flex: 253px;
+            }
+
+            &-uncheck,
+            &-check {
+                height: 24px;
+                width: 24px;
+                display: block;
+                margin: auto;
+            }
+
+            &-uncheck {
+                background: url('/svg/uncheck-icon.svg') no-repeat center bottom;
+            }
+
+            &-check {
+                background: url('/svg/check-icon.svg') no-repeat center bottom;
+            }
+        }
+    }
+
+    .df-gummies-benefits {
+        background: #f1f1f0;
+        padding-top: 30px;
+
+        &-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            
+            &-item {
+                max-width: 343px;
+                width: 100%;
+                height: 170px;
+                display: flex;
+                align-items: center;
+                align-content: center;
+                background: #FFF;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                border-radius: 10px;
+                margin-bottom: 15px;
+                overflow: hidden;
+                flex-direction: column;
+
+                @include tablet {
+                    margin-bottom: 40px;
+                    flex-direction: row;
+                    height: 140px;
+                    max-width: 540px;
+                }
+            }
+        }
+
+        .df-benefits-image {
+            height: 75px;
+            position: relative;
+            width: 100%;
+
+            @include tablet {
+                height: auto;
+                width: auto;
+            }
+
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                @include tablet {
+                    position: unset;
+                }
+            }
+        }
+
+        .df-benefits-description {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-left: 21px;
+            position: relative;
+            top: -8px;
+
+            @include tablet {
+                top: 0;
+                padding-left: 0;
+                width: auto;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &-icon {
+                display: flex;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                height: 60px;
+                width: 60px;
+                margin-right: 16px;
+                margin-bottom: 7px;
+
+                @include tablet {
+                    margin-left: 12px;
+                    margin-bottom: 0;
+                }
+            }
+
+            &-text {
+                font-weight: 600;
+                font-size: rem(18);
+                line-height: rem(26);
+                color: #222;
+                opacity: 0.8;
+            }
+
+            .df-icon-virus {
+                background: rgba(120, 194, 14, 0.15);
+            }
+            
+            .df-icon-shield {
+                background: rgba(22, 186, 197, 0.15);
+            }
+
+            .df-icon-bloodChart {
+                background: rgba(192, 16, 69, 0.15);
+            }
+
+            .df-icon-body {
+                background: rgba(237, 161, 0, 0.15);
+            }
+        }
+    }
+
+    .df-gummies-top {
+        padding-bottom: 40px;
+
+        &-title {
+            font-size: rem(30);
+            line-height: rem(36);
+            margin-top: 0;
+            margin-left: 0;
+            margin-bottom: 8px;
+
+            @include tablet {
+                font-size: rem(60);
+                line-height: rem(73);
+                margin-bottom: 16px;
+            }
+        }
+
+        &-text {
+            font-size: rem(16);
+            line-height: rem(24);
+            color: #000;
+            margin-bottom: 0;
+
+            @include tablet {
+                font-size: rem(18);
+                line-height: rem(28);
+                margin-bottom: 30px;
+            }
+        }
+
+        &-button {
+            background: $baseColor;
+            margin-left: 0;
+            margin-top: 0;
+        }
+
+        img {
+            width: 100%;
+
+            @include tablet {
+                width: 250px;
+                height: 250px;
+            }
+
+            @include tabletL {
+                width: 350px;
+                height: 350px;
+            }
+
+            @include laptopL {
+                width: auto;
+                height: auto;
+            }
+        }
+    }
+
+    .df-gummies-honor {
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @include tablet {
+            margin-bottom: 24px;
+        }
+
+        &-medal {
+            margin-right: 15px;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                font-weight: 500;
+                font-size: rem(16);
+                line-height: rem(19);
+                letter-spacing: rem(4);
+                text-transform: uppercase;
+                margin-bottom: 0;
+    
+                &:not(:last-child) {
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
+
+    .df-gummies-description {
+        width: 100%;
+        padding-top: 100px;
+        position: relative;
+        flex-wrap: wrap;
+        display: flex;
+
+        @include tablet {
+            width: 160px;
+            padding-top: 0;
+            right: 15px;
+            bottom: 90px;
+            position: absolute;
+        }
+
+        @include tabletL {
+            bottom: 0;
+        }
+
+        @include laptopL {
+            right: 50px;
+        }
+
+        &:before {
+            content: '';
+            background: url('/svg/yummiesText.svg') no-repeat;
+            width: 250px;
+            height: 80px;
+            display: block;
+            background-size: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            @include tablet {
+                right: unset;
+                margin: unset;
+                top: -100px;
+                left: -50px;
+            }
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-content: center;
+            justify-content: flex-start;
+            margin-bottom: 25px;
+            width: 50%;
+
+            @include tablet {
+                width: 100%;
+            }
+
+            svg {
+                margin-right: 10px;
+                width: 40px;
+            }
+
+            p {
+                margin: 0;
+                font-weight: 500;
+                font-size: rem(16);
+                line-height: rem(19);
+                color: #000;
+            }
+        }
+    }
+}

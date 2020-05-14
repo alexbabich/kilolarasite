@@ -100,7 +100,7 @@
             </section>
 
             <section class="df-grey-bg df-pb-50 df-pt-100">
-                <div class="df-row df-justify-center df-align-center df-mb-40 df-product-list">
+                <div class="df-row df-product-list">
                     <div class="df-product-wrapper df-most-popular">
                         <div class="df-most-popular-title">
                             <p>

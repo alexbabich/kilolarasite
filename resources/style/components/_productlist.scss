@@ -4,6 +4,7 @@
     overflow: hidden;
     padding-top: 50px;
     max-width: 100%;
+    margin-bottom: 40px;
 
     @include tablet {
         padding-top: 0;
@@ -187,8 +188,10 @@
         }
 
         .df-product-image {
+            text-align: center;
         
-            svg {
+            svg,
+            img {
                 width: 100%;
             }
         }
