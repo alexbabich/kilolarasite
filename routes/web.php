@@ -16,6 +16,14 @@
 // });
 
 
+Route::get('/checkoutgummieslanding', function () {
+    return view('checkoutgummieslanding');
+});
+
+Route::get('/checkoutgummies', function () {
+    return view('checkoutgummies');
+});
+
 Route::get('/gummieslanding', function () {
     return view('gummieslanding');
 });

@@ -161,23 +161,33 @@
     }
 }
 
+.df-order-payment-info,
 .df-order-contact {
     padding: 25px;
     width: 100%;
 
     @include tablet {
-        padding: 34px 49px 0 31px;
+        padding: 32px 49px 14px 31px;
     }
-
+    
     .df-order-contact-item {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
+        margin-bottom: 26px;
+    }
+}
 
-        &:not(:last-child) {
-            align-items: flex-start;
-            margin-bottom: 26px;
+.df-order-contact {
+    @include tablet {
+        padding-bottom: 0;
+    }
+
+    .df-order-contact-item {
+        
+        &:last-child {
+            align-items: center;
         }
 
         .df-button-confirm {
@@ -188,5 +198,163 @@
                 width: 327px;
             }
         }
+    }
+}
+
+.df-order-payment-info {
+
+    &-subtitle {
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: rem(20);
+        line-height: rem(20);
+        color: #222;
+        opacity: 0.8;
+        margin-bottom: 24px;
+    }
+
+    .df-cardnumber {
+        position: relative;
+
+        &-type {
+            position: absolute;
+            top: 44px;
+            right: 30px;
+            display: block;
+        }
+
+        input {
+            padding-right: 80px;
+        }
+    }
+
+    .df-order-contact-item {
+
+        label {
+            
+            span {
+                font-weight: normal;
+                font-size: rem(16);
+                line-height: rem(20);
+                opacity: 0.4;
+            }
+        }
+    }
+}
+
+.df-order-two-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include tablet {
+        flex-direction: row;
+    }
+
+    .df-order-item {
+        width: 100%;
+
+        @include tablet {
+            width: 318px;
+        }
+    }
+}
+
+.df-payment-selector {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    @include tablet {
+        flex-direction: row;
+    }
+
+    .df-row-paypal,
+    .df-row-credit {
+        width: 100%;
+        background: #FFF;
+        border: 3px solid transparent;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        padding: 10px 24px 20px;
+        margin-bottom: 20px;
+
+        @include tablet {
+            width: 318px;
+            margin-bottom: 0;
+            padding: 10px 24px 40px;
+        }
+
+        &.active {
+            border-color: #2D73F6
+        }
+    }
+
+    .df-left-side,
+    .df-right-side {
+        position: relative;
+        padding-left: 40px;
+
+        @include tablet {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .df-right-side {
+        
+        svg:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+
+    label {
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: rem(20);
+        line-height: rem(24);
+        opacity: 0.8;
+        position: relative;
+        left: -20px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    input {
+        background: transparent; 
+        border-radius: unset;
+        border: unset;
+        padding: unset;
+        font-size: unset;
+        line-height: unset;
+        color: unset;
+        min-height: unset;
+        width: unset;
+        margin: auto;
+    }
+
+    input[type=radio] {
+        visibility: hidden;
+    }
+
+    .df-radio {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #E9EDF3;
+        cursor: pointer;
+    }
+
+    input[type=radio]:checked ~ .df-radio {
+        background: url('/svg/paymentcheck.svg') no-repeat center;
     }
 }

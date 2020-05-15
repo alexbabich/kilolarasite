@@ -1,0 +1,59 @@
+.df-page-checkoutgummies {
+    padding: 20px 0;
+
+    @include tablet {
+        padding: 50px 0;
+    }
+
+    .df-page-title {
+        font-size: rem(40);
+        line-height: rem(40);
+        display: none;
+
+        @include tablet {
+            display: inline-block;
+        }
+    }
+
+    .df-order {
+
+        &-info {
+            justify-content: space-between;
+            padding-bottom: 10px;
+
+            @include tablet {
+                flex-direction: row;
+                padding: 14px 40px 16px 10px;
+            }
+
+            .df-product-image {
+                display: flex;
+                align-items: center;
+            }
+
+            .df-product-price-info {
+                width: 100%;
+
+                @include tablet {
+                    width: 336px;
+                }
+            }
+
+            .df-order-total {
+                
+                h4 {
+                    font-size: rem(24);
+                    line-height: rem(29);
+                    color: #222;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    .df-order-contact .df-order-contact-item .df-button-confirm {
+        @include tablet {
+            width: 223px;
+        }
+    }
+}
