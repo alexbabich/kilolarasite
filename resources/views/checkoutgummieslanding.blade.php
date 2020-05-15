@@ -85,6 +85,7 @@
                             <label class="df-mb-10">Card Number</label>
                             <input type="text" placeholder="Enter here" />
                             <div class="df-cardnumber-type">
+                                <!-- need to change svg of card type after user enter card number -->
                                 @svg('mastercard.svg')
                             </div>
                         </div>
