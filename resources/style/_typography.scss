@@ -92,12 +92,16 @@ label {
 
 .df-simple-text {
     font-family: 'Cabin', sans-serif;
-    font-size: rem(18);
+    font-size: rem(16);
     line-height: rem(24);
     color: #222;
     opacity: 0.8;
     letter-spacing: 0;
     margin-bottom: 20px;
+
+    @include tablet {
+        font-size: rem(18);
+    }
 }
 
 .df-button {

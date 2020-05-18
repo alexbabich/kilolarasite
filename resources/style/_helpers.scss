@@ -13,6 +13,14 @@
     flex-direction: column;
 }
 
+.df-image {
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .df-container {
     // width: calc(100% - 30px);
     width: 100%;

@@ -68,15 +68,173 @@
                         <p class="df-simple-text df-text-red df-bold df-pb-40">
                             In the next 33 seconds you will<br/>understand why.
                         </p>
-                        <div class="df-image df-text-center df-mb-30">
+                        <div class="df-image df-text-center">
                             <img src="/images/straight.png" alt="straight" />
                         </div>
                         <p class="df-image-description">
                             It Doesn’t Matter Where You Are on the Journey to Your Dream Body, we will <span class="df-text-blue">Accelerate Your Results</span> and Make Your Transformation Feel <span class="df-text-blue">EFFORTLESS</span>.
                         </p>
                     </div>
+                    <div class="df-row df-direction-column">
+                        <ul class="df-list">
+                            <li class="df-list-item"><p><b>Forget</b> extreme hunger spikes that lead to overeating.</p></li>
+                            <li class="df-list-item"><p><b>Forget</b> high cholesterol levels that might lead to serious heart diseases.</p></li>
+                            <li class="df-list-item"><p><b>Forget</b> bloating and digestive problems.</p></li>
+                            <li class="df-list-item"><p><b>Forget</b> being overweight and feeling ashamed.</p></li>
+                        </ul>
+                    </div>
+
+                    <div class="df-row df-direction-column df-section-straight-text">
+                        <p>Remember who you truly are.</p>
+                        <p>And with the <span class="df-text-blue">Essential Fiber Complex</span> you will enjoy your transformation.</p>
+                        <p>The Essential Fiber Complex <span class="df-text-blue">over-delivers</span> for the following reasons:</p>
+                    </div>
                 </div>
             </section>
+
+
+            <section class="df-section-dietologists-identified">
+                <div class="df-container">
+                    <div class="df-row df-direction-column df-align-center df-pb-20">
+                        <h2 class="df-page-title">DoFasting dietologists identified the precise <span class="df-underline-text">balance of two fibers</span></h2>
+                    </div>
+
+                    <div class="df-row df-direction-column">
+                        <p class="df-simple-text">
+                            The <span class="df-bold">Essential Fiber Complex</span> is a designer blend of <span class="df-text-red">glucomannan</span> and <span class="df-text-red">cellulose</span>, two <span class="df-text-red">archaic fibers</span> that have been reinvented for the modern human to contribute to the <span class="df-bold df-underline-text">weight loss journey</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="df-container df-two-column-1 df-dietologists-types">
+                    <div class="df-two-column-1-left">
+                        <img class="df-dietologists-types-images" src="/images/leaves.png" alt="" />
+                        <p class="df-dietologists-types-text">
+                            <span class="df-bold"><span class="df-text-red">Glucomannan</span> is a 100% natural</span> dietary fiber extracted from the root of the elephant yam.  Thousands of years ago, the indigenous people of China used it as traditional medicine.
+                        </p>
+                    </div>
+                    <div class="df-two-column-1-right">
+                        <img class="df-dietologists-types-images" src="/images/molecules.png" alt="" />
+                        <p class="df-dietologists-types-text">
+                            <span class="df-bold"><span class="df-text-red">Cellulose</span> is a fully ecologica</span> dietary fiber extracted from “sun-fed” plants. Cellulose is a polymer of beta glucose. Its benefits for colon health have been exploited for centuries.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="df-container df-dietologists-identified-description">
+                    <div class="df-row df-direction-column df-align-center">
+                        <p class="df-dietologists-identified-description-title">It’s No Wonder That This Fasting “Hack” Has <span class="df-text-red">SOLD OUT 3 TIMES</span> Since Its Launch!</p>
+                        <p class="df-dietologists-identified-description-text"><span class="df-bold">The <span class="df-text-red">Essential Fiber Complex</span> not only makes your intermittent fasting diet almost effortless</span>, but it boosts your well-being <span class="df-text-red df-bold">WITHOUT</span> breaking the fasting window.</p>
+                        <p class="df-dietologists-identified-description-text">Listen...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="df-white-bg df-section-simple">
+                <div class="df-container">
+                    <p>
+                        Want a proven <span class="df-text-blue">calorie-free solution</span> to kill hunger without breaking the fast?
+                    </p>
+                    <p>
+                        Don’t just take our word for it!
+                    </p>
+                </div>
+            </section>
+
+            <section class="df-blue-bg">
+                <div class="df-container">
+                    <h3 class="df-slogan df-slogan-simple">
+                        Scientists patiently explain:
+                    </h3>
+                </div>
+            </section>
+
+            <section class="df-section-scientists-explain">
+                <div class="df-row df-direction-column">
+                    <div class="df-image df-text-center">
+                        <img src="/images/scientist.png" alt="" />
+                    </div>
+                </div>
+                <div class="df-container">
+                    <div class="df-row df-direction-column">
+                        <p class="df-scientists-explain-description">
+                            <span class="df-bold">Glucomannan</span> and <span class="df-bold">cellulose</span> are an ideal way to fight cravings for the following reasons:
+                        </p>
+                        <p class="df-scientists-explain-description">
+                            Unlike other macronutrients such as fats, proteins, or <span class="df-bold">carbohydrates</span> – which the <span class="df-bold">body breaks down and absorbs – fiber isn't digested by your body</span>, because fiber has no macronutrients.
+                        </p>
+
+                        <ul class="df-list">
+                            <li class="df-list-item"><p>Instead, it passes relatively intact through the <span class="df-bold">stomach</span>, small <span class="df-bold">intestine</span>, and <span class="df-bold">colon</span>.</p></li>
+                            <li class="df-list-item"><p>While in our digestive tract, the soluble fiber in glucomannan <span class="df-bold df-underline-text">absorbs water</span>. The fiber <span class="df-bold">EXPANDS</span> to many times its original size.</p></li>
+                            <li class="df-list-item"><p>Then our gut microbes begin playing a major role. When an individual takes glucomannan, the <span class="df-bold df-underline-text">healthy bacteria</span> feeds on the soluble fiber. As a by-product of eating fiber, the bacteria release a short-chain fatty acid called acetate.</p></li>
+                            <li class="df-list-item"><p>Acetate then <span class="df-underline-text">enters the bloodstream</span> and <span class="df-underline-text">travels to the brain</span>. The portion of our brain responsible for the metabolic processes, the hypothalamus, reacts to this chemical, signaling us to <span class="df-bold">stop eating</span>. In other words, it stops the desire to eat.</li>
+                            <li class="df-list-item"><p>Read on to find out <span class="df-bold">more...</span></p></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="df-section-about-complex">
+                <div class="df-container">
+                    <h2 class="df-section-about-complex-title">Take the Essential Fiber Complex Once Daily, Multiply Your Results & Enjoy an Ocean of Benefits!</h2>
+                </div>
+                <div class="df-devider"></div>
+                <div class="df-container df-mobile">
+                    <ul class="df-list">
+                        <li class="df-list-item">Lowers hunger and helps to prolong the fast</li>
+                        <li class="df-list-item">Helps to lose weight</li>
+                        <li class="df-list-item">Lowers cholesterol</li>
+                        <li class="df-list-item">Cleanses the colon</li>
+                        <li class="df-list-item">Improves skin health</li>
+                        <li class="df-list-item">Lowers the risk of diabetes</li>
+                        <li class="df-list-item">Decreases the symptoms of constipation</li>
+                        <li class="df-list-item">Reduces hunger pangs and sugar cravings</li>
+                    </ul>
+                </div>
+                <div class="df-container df-desktop">
+                    <div class="df-image df-text-center">
+                        <img src="/images/complexDesktop.png" alt="" />
+                    </div>
+                </div>
+                <div class="df-devider"></div>
+                <div class="df-container">
+                    <p class="df-section-about-complex-text">But here’s the issue with <span class="df-text-underline df-bold">97%</span> of <span class="df-bold">Americans...</span></p>
+                </div>
+            </section>
+
+            <section class="df-red-bg">
+                <div class="df-container">
+                    <h3 class="df-slogan df-slogan-simple">
+                        Scientists are not optimistic
+                    </h3>
+                </div>
+            </section>
+
+
+            <section class="df-section-scientists-optimistic">
+                <div class="df-container">
+                    <div class="df-row df-direction-column df-section-scientists-optimistic-text">
+                        <p class="df-simple-text">Even though dietary fiber is essential for a healthy gut,</p>
+                        <p class="df-simple-text df-text-center df-bold">unfortunately <span class="df-text-red">LESS THAN 3%</span> of Americans get the recommended minimum adequate <span class="df-text-underline">intake of fiber</span>.</p>
+                        <p class="df-simple-text">In other words,</p>
+                        <p class="df-text"><span class="df-text-blue">97/100</span> Americans <span class="df-text-red">fail</span> to nourish their healthy gut bacteria.</p>
+                    </div>
+                </div>
+                <div class="df-row">
+                    <div class="df-section-scientists-optimistic-testimonial">
+                        <div class="df-side-left"></div>
+                        <div class="df-side-right">
+                            <div class="df-testimonial-content">
+                                <p class="df-testimonial-content-text">Why do people brush their teeth and wash their hands, but do not take care of their digestive system? A high-fiber diet is recommended by diet experts in most cultures.</p>
+                                <p class="df-testimonial-content-author"><span class="df-bold">Head of Nutrition</span>,<br/>Christine Ellis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
 
             <section class="df-section-product-preview">
                 <div class="df-container">

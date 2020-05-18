@@ -10898,6 +10898,11 @@ a.text-dark:focus {
   flex-direction: column;
 }
 
+.df-image img {
+  width: 100%;
+  height: auto;
+}
+
 .df-container {
   width: 100%;
   margin: auto;
@@ -11274,12 +11279,18 @@ label {
 
 .df-simple-text {
   font-family: 'Cabin', sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   color: #222;
   opacity: 0.8;
   letter-spacing: 0;
   margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-simple-text {
+    font-size: 1.125rem;
+  }
 }
 
 .df-button {
@@ -13212,11 +13223,6 @@ label {
   }
 }
 
-.df-page-upsell .df-fasting-results .df-list {
-  margin: 0;
-  padding: 0;
-}
-
 .df-page-upsell .df-fasting-results .df-list li {
   display: flex;
   margin-bottom: 24px;
@@ -13738,6 +13744,19 @@ label {
   min-height: 94px;
 }
 
+.df-page-newupsell .df-slogan.df-slogan-simple {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.625rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-slogan.df-slogan-simple {
+    font-size: 1.875rem;
+    line-height: 1.625rem;
+  }
+}
+
 .df-page-newupsell .df-slogan span {
   font-weight: bold;
   text-transform: uppercase;
@@ -13777,6 +13796,12 @@ label {
 .df-page-newupsell .df-product-list {
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-product-list {
+    justify-content: space-between;
+  }
 }
 
 .df-page-newupsell .df-product-list .df-product-wrapper {
@@ -13830,6 +13855,14 @@ label {
   background-color: #fff;
 }
 
+.df-section-straight-text p {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
 .df-section-straight .df-container {
   max-width: 900px;
 }
@@ -13839,6 +13872,144 @@ label {
   font-size: 1.375rem;
   line-height: 1.6875rem;
   color: #000;
+}
+
+.df-section-straight .df-image {
+  margin-bottom: 30px;
+}
+
+.df-section-straight .df-list {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.df-section-straight .df-list-item {
+  padding-left: 32px;
+  position: relative;
+}
+
+.df-section-straight .df-list-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.df-section-straight .df-list-item:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  background: url("/svg/paymentcheck.svg") no-repeat;
+  background-size: cover;
+  height: 16px;
+  width: 16px;
+}
+
+.df-section-straight .df-list-item p {
+  margin: 0;
+}
+
+.df-section-dietologists-identified {
+  padding: 40px 0 45px;
+}
+
+.df-section-dietologists-identified .df-container {
+  max-width: 900px;
+}
+
+.df-section-dietologists-identified .df-page-title {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .df-section-dietologists-identified .df-page-title {
+    text-align: center;
+    max-width: 630px;
+  }
+}
+
+.df-section-dietologists-identified .df-simple-text {
+  margin-bottom: 34;
+}
+
+@media (min-width: 768px) {
+  .df-section-dietologists-identified .df-simple-text {
+    margin-bottom: 44px;
+  }
+}
+
+.df-section-dietologists-identified .df-dietologists-types {
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .df-section-dietologists-identified .df-dietologists-types {
+    margin-bottom: 51px;
+  }
+}
+
+.df-section-dietologists-identified .df-dietologists-types-images {
+  width: 100%;
+  height: auto;
+  margin-bottom: 14px;
+}
+
+.df-section-dietologists-identified .df-dietologists-types-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.df-section-dietologists-identified .df-dietologists-types .df-two-column-1-left,
+.df-section-dietologists-identified .df-dietologists-types .df-two-column-1-right {
+  flex-direction: column;
+  max-width: 100%;
+  margin-bottom: 34px;
+}
+
+@media (min-width: 576px) {
+  .df-section-dietologists-identified .df-dietologists-types .df-two-column-1-left,
+  .df-section-dietologists-identified .df-dietologists-types .df-two-column-1-right {
+    max-width: 327px;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-section-dietologists-identified .df-dietologists-types .df-two-column-1-left,
+  .df-section-dietologists-identified .df-dietologists-types .df-two-column-1-right {
+    max-width: 415px;
+  }
+}
+
+.df-section-dietologists-identified .df-dietologists-identified-description-title {
+  max-width: 460px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  margin-bottom: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-dietologists-identified .df-dietologists-identified-description-title {
+    margin-bottom: 44px;
+    font-size: 1.375rem;
+    line-height: 1.6875rem;
+  }
+}
+
+.df-section-dietologists-identified .df-dietologists-identified-description-text {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .df-section-dietologists-identified .df-dietologists-identified-description-text {
+    text-align: center;
+  }
+}
+
+.df-section-dietologists-identified .df-dietologists-identified-description-text:not(:last-child) {
+  margin-bottom: 25px;
 }
 
 .df-section-product-preview {
@@ -13880,6 +14051,357 @@ label {
   width: 327px;
   background: #DE2B70;
   margin-top: 30px;
+}
+
+.df-section-simple {
+  padding: 42px 0;
+}
+
+.df-section-simple p {
+  font-weight: bold;
+  font-size: 1.625rem;
+  line-height: 2rem;
+  text-align: left;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .df-section-simple p {
+    text-align: center;
+    max-width: 570px;
+    font-size: 1.625rem;
+    line-height: 2rem;
+    margin: auto;
+  }
+}
+
+.df-section-simple p:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.df-section-scientists-explain {
+  background: #fff;
+  padding: 0 0 30px;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-explain {
+    padding: 30px 0;
+  }
+}
+
+.df-section-scientists-explain .df-container {
+  max-width: 900px;
+}
+
+.df-section-scientists-explain .df-image {
+  max-width: 900px;
+  margin: 0 auto 34px;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-explain .df-image {
+    margin-bottom: 40px;
+  }
+}
+
+.df-section-scientists-explain .df-list {
+  counter-reset: section;
+}
+
+.df-section-scientists-explain .df-list-item {
+  position: relative;
+  padding-left: 35px;
+}
+
+.df-section-scientists-explain .df-list-item:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.df-section-scientists-explain .df-list-item:not(:last-child):before {
+  counter-increment: section;
+  /* Инкрементирует счетчик*/
+  content: counter(section);
+  height: 22px;
+  width: 22px;
+  background: #2D73F6;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  line-height: 1.5rem;
+}
+
+.df-section-scientists-explain .df-list-item p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #222;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-explain .df-list-item p {
+    font-size: 1.125rem;
+  }
+}
+
+.df-section-scientists-explain .df-scientists-explain-description {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-explain .df-scientists-explain-description {
+    font-size: 1.125rem;
+    margin-bottom: 34px;
+  }
+}
+
+.df-section-about-complex {
+  padding: 32px 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-about-complex {
+    padding: 42px 0;
+  }
+}
+
+.df-section-about-complex-title,
+.df-section-about-complex-text {
+  color: #DE2B70;
+  text-align: left;
+  max-width: 825px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .df-section-about-complex-title,
+  .df-section-about-complex-text {
+    text-align: center;
+  }
+}
+
+.df-section-about-complex-title {
+  margin: auto;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-about-complex-title {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
+
+.df-section-about-complex-text {
+  font-weight: 500;
+  font-size: 1.1875rem;
+  line-height: 1.4375rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-about-complex-text {
+    font-size: 1.375rem;
+    line-height: 1.6875rem;
+  }
+}
+
+.df-section-about-complex .df-devider {
+  height: 1px;
+  border: 1px dashed #D3D6E3;
+  margin: 28px 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-about-complex .df-devider {
+    margin: 45px 0;
+  }
+}
+
+.df-section-about-complex .df-image {
+  max-width: 1060px;
+}
+
+.df-section-about-complex .df-list {
+  position: relative;
+}
+
+.df-section-about-complex .df-list:before {
+  content: '';
+  background: url("/images/complexMobile.png") no-repeat;
+  position: absolute;
+  top: 20px;
+  right: -15px;
+  height: 260px;
+  width: 189px;
+  background-size: contain;
+  z-index: -1;
+}
+
+.df-section-about-complex .df-list-item {
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+.df-section-scientists-optimistic {
+  padding: 34px 0 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-optimistic {
+    padding: 45px 0;
+  }
+}
+
+.df-section-scientists-optimistic-testimonial {
+  width: 100%;
+  height: auto;
+  background: #1A1E27;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-optimistic-testimonial {
+    width: 940px;
+    height: 310px;
+    flex-direction: row;
+    border-radius: 10px;
+  }
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-left,
+.df-section-scientists-optimistic-testimonial .df-side-right {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-optimistic-testimonial .df-side-left,
+  .df-section-scientists-optimistic-testimonial .df-side-right {
+    width: 50%;
+  }
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-left {
+  background: url("/images/sickWoomen.png") no-repeat center;
+  background-size: cover;
+  height: 254px;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-optimistic-testimonial .df-side-left {
+    height: 100%;
+  }
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-right {
+  padding: 40px 10px 40px 27px;
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content {
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 35px;
+  padding: 0 0 0 15px;
+  border-left: 1px solid #fff;
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content:before {
+  content: '';
+  position: absolute;
+  background: url("/svg/quotesWhite.svg") no-repeat center;
+  width: 39px;
+  height: 25px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: -40px;
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content-text,
+.df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content-author {
+  color: #fff;
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content-text {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content-text {
+    margin-bottom: 50px;
+  }
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content-author {
+  width: 50%;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  position: relative;
+}
+
+.df-section-scientists-optimistic-testimonial .df-side-right .df-testimonial-content-author:after {
+  position: absolute;
+  content: '';
+  background: url("/svg/signatureBlackBg.svg") no-repeat center;
+  width: 130px;
+  height: 45px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: -150px;
+}
+
+.df-section-scientists-optimistic-text {
+  max-width: 600px;
+}
+
+.df-section-scientists-optimistic-text,
+.df-section-scientists-optimistic .df-simple-text {
+  margin-bottom: 30px;
+}
+
+.df-section-scientists-optimistic .df-container {
+  max-width: 940px;
+}
+
+.df-section-scientists-optimistic .df-text {
+  font-weight: bold;
+  font-size: 1.0625rem;
+  line-height: 1.5rem;
+  text-align: center;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .df-section-scientists-optimistic .df-text {
+    font-size: 1.375rem;
+    line-height: 1.6875rem;
+  }
 }
 
 .df-page-gummies-upsell .df-product-list,

@@ -41,6 +41,17 @@
         letter-spacing: 0.02em;
         min-height: 94px;
 
+        &.df-slogan-simple {
+            font-weight: bold;
+            font-size: rem(24);
+            line-height: rem(26);
+
+            @include tablet {
+                font-size: rem(30);
+                line-height: rem(26);
+            }
+        }
+
         span {
             font-weight: bold;
             text-transform: uppercase;
@@ -79,6 +90,10 @@
     .df-product-list {
         align-items: center;
         justify-content: center;
+    
+        @include tablet {
+            justify-content: space-between;
+        }
 
         .df-product-wrapper {
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -124,6 +139,17 @@
 .df-section-straight {
     padding: 30px 0;
     background-color: #fff;
+
+    &-text {
+
+        p {
+            font-weight: bold;
+            font-size: rem(20);
+            line-height: rem(24);
+            color: #000000;
+            margin-bottom: 25px;
+        }
+    }
     
     .df-container {
         max-width: 900px;
@@ -134,6 +160,131 @@
         font-size: rem(22);
         line-height: rem(27);
         color: #000;
+    }
+
+    .df-image {
+        margin-bottom: 30px;
+    }
+
+    .df-list {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        
+        &-item {
+            padding-left: 32px;
+            position: relative;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 4px;
+                background: url('/svg/paymentcheck.svg') no-repeat;
+                background-size: cover;
+                height: 16px;
+                width: 16px;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.df-section-dietologists-identified {
+    padding: 40px 0 45px;
+
+    .df-container {
+        max-width: 900px;
+    }
+
+    .df-page-title {
+        text-align: left;
+
+        @include tablet {
+            text-align: center;
+            max-width: 630px;
+        }
+    }
+
+    .df-simple-text {
+        margin-bottom: 34;
+
+        @include tablet {
+            margin-bottom: 44px;
+        }
+    }
+    
+    .df-dietologists-types {
+        justify-content: space-between;
+        
+        @include tablet {
+            margin-bottom: 51px;
+        }
+
+        &-images {
+            width: 100%;
+            height: auto;
+            margin-bottom: 14px;
+        }
+
+        &-text {
+            font-size: rem(16);
+            line-height: rem(24);
+            font-size: rem(18);
+        }
+
+        .df-two-column-1-left,
+        .df-two-column-1-right {
+            flex-direction: column;
+            max-width: 100%;
+            margin-bottom: 34px;
+
+            @include mobileL {
+                max-width: 327px;
+            }
+
+            @include tablet {
+                max-width: 415px;
+            }
+        }
+    }
+
+    .df-dietologists-identified-description {
+
+        &-title {
+            max-width: 460px;
+            font-size: rem(20);
+            line-height: rem(24);
+            margin-bottom: 28px;
+            font-weight: bold;
+            text-align: center;
+
+            @include tablet {
+                margin-bottom: 44px;
+                font-size: rem(22);
+                line-height: rem(27);
+            }
+        }
+
+        &-text {
+            font-size: rem(18);
+            line-height: rem(22);
+            text-align: left;
+
+            @include tablet {
+                text-align: center;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 25px;
+            }
+        }
     }
 }
 
@@ -174,5 +325,320 @@
         width: 327px;
         background: $baseColor;
         margin-top: 30px;
+    }
+}
+
+.df-section-simple {
+    padding: 42px 0;
+
+    p {
+        font-weight: bold;
+        font-size: rem(26);
+        line-height: rem(32);
+        text-align: left;
+        color: #000;
+
+        @include tablet {
+            text-align: center;
+            max-width: 570px;
+            font-size: rem(26);
+            line-height: rem(32);
+            margin: auto;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.df-section-scientists-explain {
+    background: #fff;
+    padding: 0 0 30px;
+    
+    @include tablet {
+        padding: 30px 0;
+    }
+
+    .df-container {
+        max-width: 900px;
+    }
+
+    .df-image {
+        max-width: 900px;
+        margin: 0 auto 34px;
+
+        @include tablet {
+            margin-bottom: 40px;
+        }
+    }
+
+    .df-list {
+        counter-reset: section;
+
+        &-item {
+            position: relative;
+            padding-left: 35px;
+
+            &:not(:last-child) {
+                margin-bottom: 25px;
+                
+                &:before {
+                    counter-increment: section;                 /* Инкрементирует счетчик*/
+                    content: counter(section);
+                    height: 22px;
+                    width: 22px;
+                    background: $blueColor;
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-weight: bold;
+                    font-size: rem(13);
+                    line-height: rem(24);
+                }
+            }
+
+            p {
+                font-size: rem(16);
+                line-height: rem(24);
+                color: #222;
+                opacity: 0.8;
+
+                @include tablet {
+                    font-size: rem(18);
+                }
+            }
+        }
+    }
+
+    .df-scientists-explain-description {
+        font-size: rem(16);
+        line-height: rem(24);
+        opacity: 0.8;
+        margin-bottom: 20px;
+
+        @include tablet {
+            font-size: rem(18);
+            margin-bottom: 34px;
+        }
+    }
+}
+
+.df-section-about-complex {
+    padding: 32px 0;
+
+    @include tablet {
+        padding: 42px 0;
+    }
+
+    &-title,
+    &-text {
+        color: $baseColor;
+        text-align: left;
+        max-width: 825px;
+        margin: auto;
+
+        @include tablet {
+            text-align: center;
+        }
+    }
+
+    &-title {
+        margin: auto;
+        font-weight: bold;
+        font-size: rem(24);
+        line-height: rem(29);
+
+        @include tablet {
+            font-size: rem(36);
+            line-height: rem(44);
+        }
+    }
+
+    &-text {
+        font-weight: 500;
+        font-size: rem(19);
+        line-height: rem(23);
+
+        @include tablet {
+            font-size: rem(22);
+            line-height: rem(27);
+        }
+    }
+
+    .df-devider {
+        height: 1px;
+        border: 1px dashed #D3D6E3;
+        margin: 28px 0;
+
+        @include tablet {
+            margin: 45px 0;
+        }
+    }
+
+    .df-image {
+        max-width: 1060px;
+    }
+
+    .df-list {
+        position: relative;
+
+        &:before {
+            content: '';
+            background: url('/images/complexMobile.png') no-repeat;
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            height: 260px;
+            width: 189px;
+            background-size: contain;
+            z-index: -1;
+        }
+
+        &-item {
+            font-weight: bold;
+            font-size: rem(18);
+            line-height: rem(20);
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.df-section-scientists-optimistic {
+    padding: 34px 0 0;
+
+    @include tablet {
+        padding: 45px 0;
+    }
+
+    &-testimonial {
+        width: 100%;
+        height: auto;
+        background: #1A1E27;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+
+        @include tablet {
+            width: 940px;
+            height: 310px;
+            flex-direction: row;
+            border-radius: 10px;
+        }
+        
+        .df-side-left,
+        .df-side-right {
+            width: 100%;
+
+            @include tablet {
+                width: 50%;
+            }
+        }
+
+        .df-side-left {
+            background: url('/images/sickWoomen.png') no-repeat center;
+            background-size: cover;
+            height: 254px;
+
+            @include tablet {
+                height: 100%;
+            }
+        }
+
+        .df-side-right {
+            padding: 40px 10px 40px 27px;
+
+            .df-testimonial-content {
+                position: relative;
+                margin-top: 60px;
+                margin-bottom: 35px;
+                padding: 0 0 0 15px;
+                border-left: 1px solid #fff;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    background: url('/svg/quotesWhite.svg') no-repeat center;
+                    width: 39px;
+                    height: 25px;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                    top: -40px;
+                }
+
+                &-text,
+                &-author {
+                    color: #fff;
+                }
+
+                &-text {
+                    font-style: italic;
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 22px;
+                    margin-bottom: 28px;
+
+                    @include tablet {
+                        margin-bottom: 50px;
+                    }
+                }
+
+                &-author {
+                    width: 50%;
+                    font-size: rem(18);
+                    line-height: rem(22);
+                    position: relative;
+
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        background: url('/svg/signatureBlackBg.svg') no-repeat center;
+                        width: 130px;
+                        height: 45px;
+                        margin: auto;
+                        top: 0;
+                        bottom: 0;
+                        right: -150px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-text {
+        max-width: 600px;
+    }
+
+    &-text,
+    .df-simple-text {
+        margin-bottom: 30px;
+    }
+
+    .df-container {
+        max-width: 940px;
+    }
+
+    .df-text {
+        font-weight: bold;
+        font-size: rem(17);
+        line-height: rem(24);
+        text-align: center;
+        text-decoration-line: underline;
+        text-transform: uppercase;
+
+        @include tablet {
+            font-size: rem(22);
+            line-height: rem(27);
+        }
     }
 }
