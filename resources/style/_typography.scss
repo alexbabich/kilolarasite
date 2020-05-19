@@ -42,7 +42,7 @@ h5 {
 
 p {
     line-height: rem(24);
-    letter-spacing: rem(0.96);
+    // letter-spacing: rem(0.96);
     margin: 0;
 }
 
@@ -173,6 +173,11 @@ label {
         height: 4px;
         background: $blueColor;
         opacity: 0.15;
+    }
+
+    &.df-underline-black:before {
+        background: #222;
+        opacity: 0.1;
     }
 }
 

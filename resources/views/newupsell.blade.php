@@ -50,6 +50,18 @@
                 </div>
             </section>
 
+            <section class="df-grey-bg df-section-result">
+                <div class="df-container df-direction-column">
+                    <div class="df-section-result-text">
+                        <p><span class="df-bold">If you’re looking to multiply your results</span>, use one glass of this hunger-crushing solution and <span class="df-bold">you will be amazed at the benefits it provides</span>.</p>
+                    </div>
+                    <div class="df-section-result-description">
+                        <p>This product is <span class="df-bold">necessary for anyone doing <span class="df-custom-underline df-underline-black">intermittent</span> fasting</span>.</p>
+                        <p class="df-text-blue"><span class="df-custom-underline df-bold">There is no sugar</span> and just <span class="df-custom-underline df-bold">a few</span> calories per serving; <span class="df-custom-underline df-bold">it does not break the fast</span>.</p>
+                    </div>
+                </div>
+            </section>
+
             <section class="df-section-straight">
                 <div class="df-container">
                     <div class="df-row df-direction-column df-align-center df-pb-20">
@@ -91,7 +103,6 @@
                     </div>
                 </div>
             </section>
-
 
             <section class="df-section-dietologists-identified">
                 <div class="df-container">
@@ -150,7 +161,7 @@
             </section>
 
             <section class="df-section-scientists-explain">
-                <div class="df-row df-direction-column">
+                <div class="df-row">
                     <div class="df-image df-text-center">
                         <img src="/images/scientist.png" alt="" />
                     </div>
@@ -211,7 +222,6 @@
                 </div>
             </section>
 
-
             <section class="df-section-scientists-optimistic">
                 <div class="df-container">
                     <div class="df-row df-direction-column df-section-scientists-optimistic-text">
@@ -234,7 +244,167 @@
                 </div>
             </section>
 
+            <section class="df-section-revolutionary-science">
+                <div class="df-container">
+                    <h2 class="df-text-blue df-section-revolutionary-science-title">
+                        A Revolutionary Breakthrough in Gastrointestinal Science
+                    </h2>
+                </div>
+                <div class="df-devider"></div>
+                <div class="df-container">
+                    <div class="df-section-revolutionary-science-text">
+                        <p>Thanks to modern breakthroughs in gastrointestinal science, you <span class="df-italic df-text-red df-underline-text">no longer</span> have to fast while battling insane hunger.</p>
+                    </div>
+                </div>
+                <div class="df-container">
+                    <div class="df-image">
+                        <img src="/images/scientist2.png" alt="" />
+                    </div>
+                </div>
+                <div class="df-container">
+                    <div class="df-section-revolutionary-science-text">
+                        <p>With just one <span class="df-bold">Essential Fiber Complex</span> shake a day, you’ll <span class="df-bold">CRUSH YOUR HUNGER</span> and flood your body with <span class="df-bold df-text-underline">healthy gut bacteria</span>.</p>
+                        <ul class="df-list">
+                            <li class="df-list-item"><p>If hunger is knocking at your door…</p></li>
+                            <li class="df-list-item"><p>…put 3 grams in 300 ml of water…</p></li>
+                            <li class="df-list-item"><p>…and the hunger is gone.</p></li>
+                        </ul>
+                        <p class="df-bold df-underline-text">Let the benefits in!</p>
+                    </div>
+                </div>
+                <div class="df-devider"></div>
+                <div class="df-row df-testimonial">
+                    <div class="df-testimonial-content">
+                        <p class="df-testimonial-content-text">We believe in a balanced way to lose weight and keep the weight off. We know that most of the diets or weight loss programs that you have tried in the past don’t work - they are just too hard to follow. Enormous food cravings, friends that visit you with a bottle of wine, that freshly baked cheesecake… Everything affects your journey and if your diet is not easy-to-follow, you are not going to achieve your results.</p>
+                        <p class="df-testimonial-content-text">Don’t blame yourself. It’s really hard. That’s why our nutritionists and personal coaches work around the clock to prepare the most personalized plans and supplements you love. We want to make sure that it becomes a part of your life. We don’t change habits, we help you to improve them.</p>
+                        <p class="df-testimonial-content-text">Try it out and we guarantee you will be satisfied.</p>
+                        <p class="df-testimonial-content-author"><span class="df-bold">Head of Nutrition</span>,<br/>Christine Ellis</p>
+                    </div>
+                </div>
+            </section>
 
+            <section class="df-section-product-preview">
+                <div class="df-container">
+                    <div class="df-row df-justify-center df-align-center df-mb-50">
+                        <p class="df-product-preview-description">
+                            <span class="df-bold">get a 30-pack BOX</span> of <span class="df-bold df-underline-text">natural <span class="df-text-red">Essential Fiber Complex</span></span> together with a detailed guide <span class="df-bold df-underline-text">formulated by nutrition experts</span></span>
+                        </p>
+                    </div>
+
+                    <div class="df-row df-justify-center df-align-center df-direction-column">
+                        <div class="df-image">
+                            @svg('hugebox.svg', 'df-hugebox')
+                        </div>
+                        <p class="df-image-description">
+                            No sugar and <span class="df-text-red df-bold">just three calories</span> per serving
+                        </p>
+                        <a href="" class="df-product-preview-link">A Must-Have For Fast-ers</a>
+                        <button type="button" class="df-button df-product-preview-button">ADD NOW!</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="df-section-exploit">
+                <div class="df-container">
+                    <h2 class="df-section-exploit-title">
+                        A Revolutionary Breakthrough in Gastrointestinal Science
+                    </h2>
+                </div>
+
+                <div class="df-container">
+                    <ul class="df-section-exploit-list">
+                        <li class="df-section-exploit-list-item">
+                            <div class="df-icon">
+                                @svg('fire2.svg')
+                            </div>
+                            <div class="df-item-description">
+                                <p class="df-item-description-title">KICKSTART YOUR METABOLISM AND <span class="df-underline-text">BURN STORED BODY FAT</span></p>
+                                <p class="df-item-description-text">Even if you are able to fight hunger with the help of <span class="df-text-blue">enormous self-control</span>, the Essential Fiber Complex will crush food cravings so you can continue fasting – transforming fat into energy, <span class="df-text-blue">effortlessly</span>. Use your mental energy for the better.</p>
+                            </div>
+                        </li>
+                        <li class="df-section-exploit-list-item">
+                            <div class="df-icon">
+                                @svg('promise.svg')
+                            </div>
+                            <div class="df-item-description">
+                                <p class="df-item-description-title">TAKE IT AFTER A <span class="df-underline-text">CHEAT DAY</span></p>
+                                <p class="df-item-description-text">Nobody is perfect! Let’s face it, there are always going to be days where you slip up and indulge a bit on your favorite foods. The Essential Fiber Complex helps to clean your colon and feed <span class="df-text-blue">friendly gut bacteria</span>, even when you’ve ‘fell off the wagon.’ Go ahead, have a cheat day on us and enjoy it… almost guilt free… :)</p>
+                            </div>
+                        </li>
+                        <li class="df-section-exploit-list-item">
+                            <div class="df-icon">
+                                @svg('thunder.svg')
+                            </div>
+                            <div class="df-item-description">
+                                <p class="df-item-description-title">ALL-DAY <span class="df-underline-text">ENERGY</span></p>
+                                <p class="df-item-description-text">One of the benefits of being in a fat-burning state (ketosis) is how much clean, <span class="df-text-blue">longlasting</span> energy you have. And unlike the energy you get from stimulants, there’s no awful jitters or afternoon crashes with ketosis energy. The Essential Fiber Complex is perfect first thing in the morning when you need a clean <span class="df-bold df-text-blue">burst of energy</span> by crushing intense hunger to stay in ketosis.</p>
+                            </div>
+                        </li>
+                        <li class="df-section-exploit-list-item">
+                            <div class="df-icon">
+                                @svg('muscle.svg')
+                            </div>
+                            <div class="df-item-description">
+                                <p class="df-item-description-title"><span class="df-underline-text">FAST FOR LONGER</span> WITH LESS WILLPOWER</p>
+                                <p class="df-item-description-text">Since you’re someone who does intermittent fasting, the Essential Fiber Complex is great to take an hour before sleep, too. It’s really great for <span class="df-underline-text df-text-blue">suppressing your cravings</span> and it helps to <span class="df-bold df-text-blue df-underline-text">EXTEND</span> your fasting. Fall asleep smoothly, counting sheep – not glazed donuts.</p>
+                            </div>
+                        </li>
+                        <li class="df-section-exploit-list-item">
+                            <div class="df-icon">
+                                @svg('search.svg')
+                            </div>
+                            <div class="df-item-description">
+                                <p class="df-item-description-title">ELIMINATE CHOLESTEROL, <span class="df-underline-text">IMPROVE SKIN HEALTH</span>, NURTURE FRIENDLY GUT BACTERIA, & <span class="df-underline-text">LOWER THE RISK OF DIABETES</span></p>
+                                <p class="df-item-description-text">Taking the <span class="df-bold">Essential Fiber Complex</span> will result in an ocean of benefits. <span class="df-bold df-text-blue">Drink three grams a day and let well-being flood your body.</span></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+            
+
+            <section class="df-red-bg">
+                <div class="df-container">
+                    <h3 class="df-slogan df-slogan-simple">
+                        FAQs
+                    </h3>
+                </div>
+            </section>
+
+            <section class="df-section-faq">
+                <div class="df-container">
+                    <div class="df-faq-list">
+                        <div class="df-faq-list-item">
+                            <p class="df-faq-list-item-text df-bold">Will the Essential Fiber Complex break my fasting?</p>
+                            <p class="df-faq-list-item-text">No, it will not. Unlike other macronutrients such as fats, proteins or carbohydrates – which the body breaks down and absorbs – the Essential Fiber Complex isn't digested by your body. Like tea or coffee, our product is recommended to use during a fasting window.</p>
+                        </div>
+                        <div class="df-faq-list-item">
+                            <p class="df-faq-list-item-text df-bold">Is there any fiber in eggs?</p>
+                            <p class="df-faq-list-item-text">Scrambled eggs are packed with protein, but they're not a good source of fiber. You can change that by tossing in some chopped veggies like spinach, broccoli, artichokes, or avocados.</p>
+                        </div>
+                        <div class="df-faq-list-item">
+                            <p class="df-faq-list-item-text df-bold">Can I still use it if I am not fasting anymore?</p>
+                            <p class="df-faq-list-item-text">The world’s top nutrition experts recommend using dietary fiber to keep the digestive system functioning properly. Additionally, the Essential Fiber Complex helps to lower cholesterol, feed healthy gut bacteria, clear skin, and lose weight.</p>
+                        </div>
+                        <div class="df-faq-list-item">
+                            <p class="df-faq-list-item-text df-bold">Why is dietary fiber important?</p>
+                            <p class="df-faq-list-item-text">Dietary fiber is important for our digestive health and regular bowel movements. Fiber also helps you feel fuller for longer, can improve cholesterol and blood sugar levels, and can assist in preventing some diseases such as diabetes, heart disease, and bowel cancer.</p>
+                        </div>
+                        <div class="df-faq-list-item">
+                            <p class="df-faq-list-item-text df-bold">Can glucomannan cause bloating?</p>
+                            <p class="df-faq-list-item-text">Dietary fiber is generally well-tolerated and safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <section class="df-section-product-preview">
                 <div class="df-container">

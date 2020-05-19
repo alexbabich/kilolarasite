@@ -1,6 +1,16 @@
 .df-page-newupsell {
     padding: 30px 0;
 
+    .df-devider {
+        height: 1px;
+        border: 1px dashed #D3D6E3;
+        margin: 28px 0;
+
+        @include tablet {
+            margin: 45px 0;
+        }
+    }
+
     .df-page-title {
         @include margin($bottom: 8px);
         @include margin($media: $media-tablet,$bottom: 16px);
@@ -384,7 +394,7 @@
                 margin-bottom: 25px;
                 
                 &:before {
-                    counter-increment: section;                 /* Инкрементирует счетчик*/
+                    counter-increment: section;
                     content: counter(section);
                     height: 22px;
                     width: 22px;
@@ -469,16 +479,6 @@
         @include tablet {
             font-size: rem(22);
             line-height: rem(27);
-        }
-    }
-
-    .df-devider {
-        height: 1px;
-        border: 1px dashed #D3D6E3;
-        margin: 28px 0;
-
-        @include tablet {
-            margin: 45px 0;
         }
     }
 
@@ -639,6 +639,377 @@
         @include tablet {
             font-size: rem(22);
             line-height: rem(27);
+        }
+    }
+}
+
+.df-section-result {
+    padding: 30px 0 34px;
+
+    @include tablet {
+        padding: 40px 0;
+    }
+
+    &-text,
+    &-description {
+        max-width: 477px;
+        margin: auto;
+        font-size: rem(16);
+        line-height: rem(24);
+
+        @include tablet {
+            font-size: rem(18);
+        }
+    }
+
+    &-text {
+        position: relative;
+        padding-left: 95px;
+        margin-bottom: 20px;
+        
+        @include tablet {
+            margin-bottom: 30px;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            background: url('/svg/chartResults.svg') no-repeat;
+            background-size: contain;
+            height: 80px;
+            width: 80px;
+            top: 0;
+            left: 0;
+        }
+
+        p {
+            @include tablet {
+                padding-top: 5px;
+            }
+        }
+
+    }
+
+    &-description {
+        background: #fff;
+        border-radius: 10px;
+        padding: 14px 15px 15px;
+
+        @include tablet {
+            padding: 14px 20px 15px;
+        }
+
+        p:first-child {
+            margin-bottom: 7px;
+        }
+    }
+}
+
+.df-section-revolutionary-science {
+
+    &-title,
+    &-text {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    &-title {
+        font-size: rem(30);
+        line-height: rem(36);
+        text-align: left;
+
+        @include tablet {
+            font-size: rem(36);
+            line-height: rem(44);
+            text-align: center;
+            max-width: 705px;
+        }
+    }
+
+    &-text {
+        font-size: rem(16);
+        line-height: rem(24);
+
+        @include tablet {
+            font-size: rem(18);
+        }
+    }
+
+    .df-image {
+        margin: 25px auto;
+    }
+
+    .df-devider {
+        margin: 25px 0;
+
+        @include tablet {
+            margin: 38px 0 45px;
+        }
+    }
+
+    .df-list {
+        counter-reset: section;
+        width: 100%;
+        position: relative;
+        margin: 30px 0;
+
+        &:after {
+            content: '';
+            background: url('/svg/percent.svg') no-repeat;
+            height: 80px;
+            width: 80px;
+            position: absolute;
+            right: 0;
+            top: 55px;
+
+            @include tablet {
+                top: 0;
+            }
+        }
+
+        &-item {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 5px;
+                
+            &:before {
+                counter-increment: section;
+                content: counter(section);
+                height: 22px;
+                width: 22px;
+                background: $blueColor;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-weight: bold;
+                font-size: rem(13);
+                line-height: rem(24);
+            }
+
+            p {
+                font-size: rem(16);
+                line-height: rem(24);
+                color: #222;
+                opacity: 0.8;
+
+                @include tablet {
+                    font-size: rem(18);
+                }
+            }
+        }
+    }
+
+    .df-testimonial {
+        max-width: 600px;
+        margin: auto;
+        padding: 50px 15px;
+
+        @include tablet {
+            padding: 50px 0;
+        }
+
+        &-content {
+            border-left: 1px solid rgba(34, 34, 34, 0.3);
+            padding: 0 0 0 14px;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                background: url('/svg/quotesBlack.svg') no-repeat center;
+                width: 39px;
+                height: 28px;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: -48px;
+            }
+
+            &-text,
+            &-author {
+                font-size: rem(16);
+                line-height: rem(19);
+            }
+
+            &-text {
+                font-style: italic;
+                margin-bottom: 25px;
+            }
+
+            &-author {
+                width: 100%;
+                font-size: rem(18);
+                line-height: rem(22);
+                position: relative;
+
+                &:after {
+                    position: absolute;
+                    content: '';
+                    background: url('/svg/signatureGreyBg.svg') no-repeat center;
+                    width: 173px;
+                    height: 60px;
+                    margin: auto;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+.df-section-exploit {
+    padding: 35px 0 0;
+
+    @include tablet {
+        padding: 42px 0 50px;
+    }
+
+    &-title {
+        font-size: rem(24);
+        line-height: rem(29);
+        text-align: center;
+        margin-bottom: 28px;
+
+        @include tablet {
+            max-width: 580px;
+            font-size: rem(36);
+            line-height: rem(44);
+            margin-bottom: 45px;
+        }
+    }
+
+    &-list {
+        counter-reset: section;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        &-item  {
+            position: relative;
+            padding-left: 5px;
+            margin-bottom: 35px;
+
+            @include tablet {
+                width: 325px;
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+
+            .df-icon {
+                background: #fff;
+                height: 80px;
+                width: 80px;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                border-radius: 50%;
+                align-items: center;
+                margin: 0 auto 20px;
+            }
+
+            .df-item-description {
+
+                &-title,
+                &-text {
+                    line-height: rem(24);
+                    text-align: left;
+                    padding-left: 28px;
+
+                    @include tablet {
+                        text-align: center;
+                        padding-left: 0;
+                    }
+                }
+
+                &-title {
+                    font-size: rem(18);
+                    margin-bottom: 10px;
+                    position: relative;
+                    color: $blueColor;
+                    text-transform: uppercase;
+
+                    &:before {
+                        counter-increment: section;
+                        content: counter(section);
+                        height: 22px;
+                        width: 22px;
+                        background: $blueColor;
+                        color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-weight: bold;
+                        font-size: rem(13);
+                        line-height: rem(22);
+
+                        @include tablet {
+                            position: relative;
+                            display: inline-block;
+                            margin-right: 6px;
+                            top: -2px;
+                        }
+                    }
+                }
+
+                &-text {
+                    font-size: rem(16);
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.df-section-faq {
+    background: #F3F4F8;
+    padding: 35px 0;
+
+    @include tablet {
+        padding: 46px 0 37px;
+    }
+
+    .df-faq-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @include tablet {
+            flex-direction: row;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        &-item {
+            margin-bottom: 40px;
+
+            @include tablet {
+                max-width: 450px;
+            }
+
+            &-text {
+                font-size: rem(18);
+                line-height: rem(21);
+                margin: 0;
+            }
         }
     }
 }

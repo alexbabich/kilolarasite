@@ -11225,7 +11225,6 @@ h5 {
 
 p {
   line-height: 1.5rem;
-  letter-spacing: 0.06rem;
   margin: 0;
 }
 
@@ -11365,6 +11364,11 @@ label {
   height: 4px;
   background: #2D73F6;
   opacity: 0.15;
+}
+
+.df-custom-underline.df-underline-black:before {
+  background: #222;
+  opacity: 0.1;
 }
 
 .df-text-important {
@@ -13684,6 +13688,18 @@ label {
   padding: 30px 0;
 }
 
+.df-page-newupsell .df-devider {
+  height: 1px;
+  border: 1px dashed #D3D6E3;
+  margin: 28px 0;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-devider {
+    margin: 45px 0;
+  }
+}
+
 .df-page-newupsell .df-page-title {
   margin-bottom: 8px;
 }
@@ -14120,7 +14136,6 @@ label {
 
 .df-section-scientists-explain .df-list-item:not(:last-child):before {
   counter-increment: section;
-  /* Инкрементирует счетчик*/
   content: counter(section);
   height: 22px;
   width: 22px;
@@ -14215,18 +14230,6 @@ label {
   .df-section-about-complex-text {
     font-size: 1.375rem;
     line-height: 1.6875rem;
-  }
-}
-
-.df-section-about-complex .df-devider {
-  height: 1px;
-  border: 1px dashed #D3D6E3;
-  margin: 28px 0;
-}
-
-@media (min-width: 768px) {
-  .df-section-about-complex .df-devider {
-    margin: 45px 0;
   }
 }
 
@@ -14402,6 +14405,410 @@ label {
     font-size: 1.375rem;
     line-height: 1.6875rem;
   }
+}
+
+.df-section-result {
+  padding: 30px 0 34px;
+}
+
+@media (min-width: 768px) {
+  .df-section-result {
+    padding: 40px 0;
+  }
+}
+
+.df-section-result-text,
+.df-section-result-description {
+  max-width: 477px;
+  margin: auto;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-result-text,
+  .df-section-result-description {
+    font-size: 1.125rem;
+  }
+}
+
+.df-section-result-text {
+  position: relative;
+  padding-left: 95px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-section-result-text {
+    margin-bottom: 30px;
+  }
+}
+
+.df-section-result-text:after {
+  content: '';
+  position: absolute;
+  background: url("/svg/chartResults.svg") no-repeat;
+  background-size: contain;
+  height: 80px;
+  width: 80px;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-result-text p {
+    padding-top: 5px;
+  }
+}
+
+.df-section-result-description {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 15px 15px;
+}
+
+@media (min-width: 768px) {
+  .df-section-result-description {
+    padding: 14px 20px 15px;
+  }
+}
+
+.df-section-result-description p:first-child {
+  margin-bottom: 7px;
+}
+
+.df-section-revolutionary-science-title,
+.df-section-revolutionary-science-text {
+  max-width: 600px;
+  margin: auto;
+}
+
+.df-section-revolutionary-science-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .df-section-revolutionary-science-title {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    text-align: center;
+    max-width: 705px;
+  }
+}
+
+.df-section-revolutionary-science-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-revolutionary-science-text {
+    font-size: 1.125rem;
+  }
+}
+
+.df-section-revolutionary-science .df-image {
+  margin: 25px auto;
+}
+
+.df-section-revolutionary-science .df-devider {
+  margin: 25px 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-revolutionary-science .df-devider {
+    margin: 38px 0 45px;
+  }
+}
+
+.df-section-revolutionary-science .df-list {
+  counter-reset: section;
+  width: 100%;
+  position: relative;
+  margin: 30px 0;
+}
+
+.df-section-revolutionary-science .df-list:after {
+  content: '';
+  background: url("/svg/percent.svg") no-repeat;
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  right: 0;
+  top: 55px;
+}
+
+@media (min-width: 768px) {
+  .df-section-revolutionary-science .df-list:after {
+    top: 0;
+  }
+}
+
+.df-section-revolutionary-science .df-list-item {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 5px;
+}
+
+.df-section-revolutionary-science .df-list-item:before {
+  counter-increment: section;
+  content: counter(section);
+  height: 22px;
+  width: 22px;
+  background: #2D73F6;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  line-height: 1.5rem;
+}
+
+.df-section-revolutionary-science .df-list-item p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #222;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .df-section-revolutionary-science .df-list-item p {
+    font-size: 1.125rem;
+  }
+}
+
+.df-section-revolutionary-science .df-testimonial {
+  max-width: 600px;
+  margin: auto;
+  padding: 50px 15px;
+}
+
+@media (min-width: 768px) {
+  .df-section-revolutionary-science .df-testimonial {
+    padding: 50px 0;
+  }
+}
+
+.df-section-revolutionary-science .df-testimonial-content {
+  border-left: 1px solid rgba(34, 34, 34, 0.3);
+  padding: 0 0 0 14px;
+  position: relative;
+}
+
+.df-section-revolutionary-science .df-testimonial-content:before {
+  content: '';
+  position: absolute;
+  background: url("/svg/quotesBlack.svg") no-repeat center;
+  width: 39px;
+  height: 28px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: -48px;
+}
+
+.df-section-revolutionary-science .df-testimonial-content-text,
+.df-section-revolutionary-science .df-testimonial-content-author {
+  font-size: 1rem;
+  line-height: 1.1875rem;
+}
+
+.df-section-revolutionary-science .df-testimonial-content-text {
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.df-section-revolutionary-science .df-testimonial-content-author {
+  width: 100%;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  position: relative;
+}
+
+.df-section-revolutionary-science .df-testimonial-content-author:after {
+  position: absolute;
+  content: '';
+  background: url("/svg/signatureGreyBg.svg") no-repeat center;
+  width: 173px;
+  height: 60px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.df-section-exploit {
+  padding: 35px 0 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-exploit {
+    padding: 42px 0 50px;
+  }
+}
+
+.df-section-exploit-title {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .df-section-exploit-title {
+    max-width: 580px;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    margin-bottom: 45px;
+  }
+}
+
+.df-section-exploit-list {
+  counter-reset: section;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-exploit-list {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.df-section-exploit-list-item {
+  position: relative;
+  padding-left: 5px;
+  margin-bottom: 35px;
+}
+
+@media (min-width: 768px) {
+  .df-section-exploit-list-item {
+    width: 325px;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+}
+
+.df-section-exploit-list-item .df-icon {
+  background: #fff;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: 50%;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
+.df-section-exploit-list-item .df-item-description-title,
+.df-section-exploit-list-item .df-item-description-text {
+  line-height: 1.5rem;
+  text-align: left;
+  padding-left: 28px;
+}
+
+@media (min-width: 768px) {
+  .df-section-exploit-list-item .df-item-description-title,
+  .df-section-exploit-list-item .df-item-description-text {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+.df-section-exploit-list-item .df-item-description-title {
+  font-size: 1.125rem;
+  margin-bottom: 10px;
+  position: relative;
+  color: #2D73F6;
+  text-transform: uppercase;
+}
+
+.df-section-exploit-list-item .df-item-description-title:before {
+  counter-increment: section;
+  content: counter(section);
+  height: 22px;
+  width: 22px;
+  background: #2D73F6;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  line-height: 1.375rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-exploit-list-item .df-item-description-title:before {
+    position: relative;
+    display: inline-block;
+    margin-right: 6px;
+    top: -2px;
+  }
+}
+
+.df-section-exploit-list-item .df-item-description-text {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.df-section-faq {
+  background: #F3F4F8;
+  padding: 35px 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-faq {
+    padding: 46px 0 37px;
+  }
+}
+
+.df-section-faq .df-faq-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .df-section-faq .df-faq-list {
+    flex-direction: row;
+    max-width: 1000px;
+    margin: auto;
+  }
+}
+
+.df-section-faq .df-faq-list-item {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .df-section-faq .df-faq-list-item {
+    max-width: 450px;
+  }
+}
+
+.df-section-faq .df-faq-list-item-text {
+  font-size: 1.125rem;
+  line-height: 1.3125rem;
+  margin: 0;
 }
 
 .df-page-gummies-upsell .df-product-list,
