@@ -362,14 +362,144 @@
                 </div>
             </section>
 
+            <section class="df-section-question">
+                <div class="df-container">
+                    <h2 class="df-section-question-title">
+                        Click the ‘<span class="df-text-red df-underline-text">YES</span>’ button below to get the Essential Fiber Complex <span class="df-text-blue">NOW</span>!
+                    </h2>
+                    <p class="df-section-question-text">Order Now & We’ll Give You<br/><span class="df-text-red df-underline-text">FREE SHIPPING!</span></p>
+                </div>
+                <div class="df-container">
+                    <div class="df-questions-content">
+                        <button type="button" class="df-questions-content-button df-button-yes">YES! I WANT THIS SPECIAL OFFER ADDED TO MY ORDER</button>
+                        <div class="df-questions-content-or">-or-</div>
+                        <button type="button" class="df-questions-content-button df-button-no">NO THANKS, I JUST WANT MY APP</button>
+                    </div>
+                </div>
+                <div class="df-container">
+                    <p class="df-section-question-disclaimer">This is a one-time opportunity, offered as a thank you for your business. After you leave this page, you will not be eligible for this one-time offer in the future.</p>
+                </div>
+            </section>
 
+            <section class="df-section-what">
+                <div class="df-container">
+                </div>
+                <div class="df-two-column-1">
+                    <div class="df-two-column-1-left">
+                        <div class="df-what-item">
+                            <p class="df-what-item-title">Why are we doing this?</p>
+                            <p class="df-what-item-text">We receive a lot of questions from people wanting to know if there is a way to <span class="df-bold">reduce hunger</span> during <span class="df-bold">the fasting window</span>. <span class="df-underline-text">Why?</span></p>
+                            <div class="df-image">
+                                <img src="/images/eat.png" alt="" />
+                            </div>
+                            <div class="df-with-icon">
+                                <div class="df-icon">
+                                    @svg('fire2.svg')
+                                </div>
+                                <p class="df-what-item-text">Getting into a fat-burning state <span class="df-bold">(ketosis)</span> without craving a hamburger or chocolate can often take serious <span class="df-bold">discipline</span>, especially at the beginning of the intermittent fasting diet when your body is fighting off sugar <span class="df-bold">cravings</span>.</p>
+                            </div>
+                            <p class="df-what-item-text">At <span class="df-bold">DoFasting</span>, we want to make it <span class="df-bold">easier</span> and <span class="df-bold">more convenient</span> for you to live a ketogenic (<span class="df-bold">fasting</span>) lifestyle, so when you claim your package of <span class="df-bold df-text-red">Essential Fiber Complex</span> today, you’re going to have a secret weapon to <span class="df-bold">help you fight <span class="df-text-red">cravings</span></span>, boost your morale during difficult times, and stay in ketosis to <span class="df-bold df-underline-text">lose weight efficiently</span>.</p>
+                        </div>
+                    </div>
+                    <div class="df-two-column-1-right">
+                        <div class="df-what-item">
+                            <p class="df-what-item-title">What’s the catch?</p>
+                            <p class="df-what-item-text">The catch is, this offer is <span class="df-bold df-text-red">not available to the general public</span>. And it is not available all year round.</p>
+                            <div class="df-with-icon">
+                                <div class="df-icon">
+                                    @svg('lock.svg')
+                                </div>
+                                <p class="df-what-item-text">This is an <span class="df-bold df-underline-text">exclusive offer</span> – on this page only – for the customers we believe are going to benefit from the DoFasting Box <span class="df-underline-text">the most</span>.</p>
+                            </div>
+                            <p class="df-what-item-text">Once you leave this page, this one-time offer is no longer available.</p>
+                        </div>
 
+                        <div class="df-what-item df-mb-30">
+                            <p class="df-what-item-title">Full 30-day satisfaction guarantee</p>
+                            <div class="df-with-icon df-money-back">
+                                <div class="df-icon">
+                                    @svg('money-back-guarantee.svg')
+                                </div>
+                                <p class="df-what-item-text">Your order is backed by our <span class="df-text-red">industry-leading</span> <span class="df-bold df-underline-text">30-day money-back guarantee.</span></p>
+                            </div>
+                            <p class="df-what-item-text">If you’re not <span class="df-bold">completely satisfied</span>, for any reason, <span class="df-text-red df-underline-text">just send it back</span> and <span class="df-bold">we’ll give you a refund.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <section class="df-red-bg">
+                <div class="df-container">
+                    <h3 class="df-slogan df-slogan-actnow">
+                        <b>You have nothing to lose</b>
+                        <b class="df-underline-text">SO ACT NOW!</b>
+                    </h3>
+                </div>
+            </section>
 
+            <section class="df-section-product-preview">
+                <div class="df-container">
+                    <div class="df-row df-justify-center df-align-center df-mb-50">
+                        <p class="df-product-preview-description">
+                            <span class="df-bold">get a 30-pack BOX</span> of <span class="df-bold df-underline-text">natural <span class="df-text-red">Essential Fiber Complex</span></span> together with a detailed guide <span class="df-bold df-underline-text">formulated by nutrition experts</span></span>
+                        </p>
+                    </div>
 
+                    <div class="df-row df-justify-center df-align-center df-direction-column">
+                        <div class="df-image">
+                            @svg('hugebox.svg', 'df-hugebox')
+                        </div>
+                        <p class="df-image-description">
+                            No sugar and <span class="df-text-red df-bold">just three calories</span> per serving
+                        </p>
+                        <a href="" class="df-product-preview-link">A Must-Have For Fast-ers</a>
+                        <button type="button" class="df-button df-product-preview-button">ADD NOW!</button>
+                    </div>
+                </div>
+            </section>
 
+            <section class="df-section-nutritional-value">
+                <div class="df-container">
+                    <div class="df-image">
+                        <img class="df-nutritional-value-image" src="/images/nutritional-value.png" alt="" />
+                    </div>
+                </div>
+                <div class="df-container">
+                    <div class="df-devider"></div>
+                </div>
+                <div class="df-container">
+                    <div class="df-nutritional-value">
+                        <p class="df-nutritional-value-text">The Essential Fiber Complex has just a <span class="df-text-blue df-bold">few calories</span>; the refore, it <span class="df-text-red">does not break</span> your fast. Pour one bag of the product into <span class="df-bold">300 ml of water</span> and consume it:</p>
+                        <ul class="df-list">
+                            <li class="df-list-item">three hours after your last meal, or</li>
+                            <li class="df-list-item">one hour before your first meal or earlier.</li>
+                        </ul>
+                        <p class="df-nutritional-value-text">Important: you have to take the product with the sufficient amount of <span class="df-underline-text">water</span>.</p>
+                    </div>
+                </div>
+            </section>
 
-            
+            <section class="df-section-question">
+                <div class="df-container">
+                    <p class="df-section-question-text">Order Now & We’ll Give You<br/><span class="df-text-red df-underline-text">FREE SHIPPING!</span></p>
+                </div>
+                <div class="df-container">
+                    <div class="df-questions-content">
+                        <button type="button" class="df-questions-content-button df-button-yes">YES! I WANT THIS SPECIAL OFFER ADDED TO MY ORDER</button>
+                        <div class="df-questions-content-or">-or-</div>
+                        <button type="button" class="df-questions-content-button df-button-no">NO THANKS, I JUST WANT MY APP</button>
+                    </div>
+                </div>
+                <div class="df-container">
+                    <p class="df-section-question-disclaimer">This is a <span class="df-bold">one-time opportunity</span>, offered as a <span class="df-bold">thank you</span> for your business. After you leave this page, you <span class="df-bold"><span class="df-underline-text">will not</span> be eligible</span> for this one-time offer in the future.</p>
+                </div>
+                <div class="df-container df-moneyback">
+                    <div class="df-moneyback-icon">
+                        @svg('money-back-guarantee.svg')
+                    </div>
+                    <p class="df-moneyback-text">As always, <span class="df-bold df-underline-text">you’re protected by our 30-day money-back guarantee</span>. It means that you have a full 30 days to try any DoFasting products and experience the amazing difference for yourself, <span class="df-text-red df-bold">RISK FREE!</span></p>
+                </div>
+            </section>
 
             <section class="df-red-bg">
                 <div class="df-container">

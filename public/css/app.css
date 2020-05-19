@@ -13773,6 +13773,35 @@ label {
   }
 }
 
+.df-page-newupsell .df-slogan.df-slogan-actnow {
+  flex-direction: column;
+}
+
+.df-page-newupsell .df-slogan.df-slogan-actnow b {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  text-align: center;
+  letter-spacing: 0.125rem;
+  margin: 2px 0;
+}
+
+.df-page-newupsell .df-slogan.df-slogan-actnow b:last-of-type {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.625rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell .df-slogan.df-slogan-actnow b:last-of-type {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+}
+
 .df-page-newupsell .df-slogan span {
   font-weight: bold;
   text-transform: uppercase;
@@ -14809,6 +14838,380 @@ label {
   font-size: 1.125rem;
   line-height: 1.3125rem;
   margin: 0;
+}
+
+.df-section-question {
+  padding: 32px 0 70px;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .df-section-question {
+    padding: 40px 0 60px;
+  }
+}
+
+.df-section-question-title {
+  font-weight: bold;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .df-section-question-title {
+    text-align: center;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    max-width: 580px;
+    margin: 0 auto 40px;
+  }
+}
+
+.df-section-question-text {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-question-text {
+    text-align: center;
+  }
+}
+
+.df-section-question-disclaimer {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #4E4E4E;
+}
+
+.df-section-question .df-container {
+  max-width: 740px;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .df-section-question .df-container {
+    padding: 0 15px;
+  }
+}
+
+.df-section-question .df-questions-content {
+  margin: 25px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-question .df-questions-content {
+    margin: 48px auto 35px;
+    flex-direction: row;
+  }
+}
+
+.df-section-question .df-questions-content-button {
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  text-align: center;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  padding: 15px 20px;
+}
+
+@media (min-width: 375px) {
+  .df-section-question .df-questions-content-button {
+    width: 327px;
+  }
+}
+
+.df-section-question .df-questions-content-button.df-button-yes {
+  background: #DE2B70;
+}
+
+.df-section-question .df-questions-content-button.df-button-no {
+  background: #2D73F6;
+}
+
+.df-section-question .df-questions-content-or {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  margin: 20px auto;
+}
+
+@media (min-width: 768px) {
+  .df-section-question .df-questions-content-or {
+    margin: 0;
+  }
+}
+
+.df-section-question .df-moneyback {
+  padding: 20px 36px;
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-section-question .df-moneyback {
+    border: 1px solid #D1D3DD;
+    border-radius: 10px;
+    margin: 24px auto;
+    flex-direction: row;
+  }
+}
+
+.df-section-question .df-moneyback-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #4E4E4E;
+}
+
+@media (min-width: 768px) {
+  .df-section-question .df-moneyback-text {
+    font-size: 1.125rem;
+  }
+}
+
+.df-section-question .df-moneyback-icon {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-section-question .df-moneyback-icon {
+    margin-right: 34px;
+    margin-bottom: 0;
+  }
+}
+
+.df-section-nutritional-value {
+  padding: 50px 0 48px;
+}
+
+@media (min-width: 768px) {
+  .df-section-nutritional-value {
+    padding: 51px 0 44px;
+  }
+}
+
+.df-section-nutritional-value .df-container {
+  max-width: 775px;
+}
+
+.df-section-nutritional-value .df-nutritional-value-image {
+  max-width: 327px;
+  margin: auto;
+  display: block;
+}
+
+.df-section-nutritional-value .df-nutritional-value-text {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #1A1E27;
+  max-width: 615px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .df-section-nutritional-value .df-nutritional-value-text {
+    font-size: 1.375rem;
+    line-height: 1.6875rem;
+  }
+}
+
+.df-section-nutritional-value .df-nutritional-value-text:last-of-type {
+  color: #2D73F6;
+}
+
+.df-section-nutritional-value .df-nutritional-value .df-list {
+  margin: 21px auto 27px;
+  counter-reset: section;
+  max-width: 310px;
+}
+
+.df-section-nutritional-value .df-nutritional-value .df-list-item {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 28px;
+  font-size: 1rem;
+  line-height: 1.6875rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-nutritional-value .df-nutritional-value .df-list-item {
+    font-size: 1.125rem;
+  }
+}
+
+.df-section-nutritional-value .df-nutritional-value .df-list-item:before {
+  counter-increment: section;
+  content: counter(section);
+  height: 22px;
+  width: 22px;
+  background: #2D73F6;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: -7px;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  line-height: 1.375rem;
+}
+
+@media (min-width: 768px) {
+  .df-section-nutritional-value .df-nutritional-value .df-list-item:before {
+    top: -2px;
+  }
+}
+
+.df-section-what {
+  background: #F3F4F8;
+  padding: 0 0 40px;
+}
+
+@media (min-width: 768px) {
+  .df-section-what {
+    padding: 50px 0 40px;
+  }
+}
+
+.df-section-what .df-two-column-1 {
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-section-what .df-two-column-1 {
+    flex-direction: row;
+  }
+}
+
+.df-section-what .df-two-column-1-left,
+.df-section-what .df-two-column-1-right {
+  max-width: 580px;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-section-what .df-two-column-1-right .df-what-item:first-child {
+    margin-bottom: 50px;
+  }
+}
+
+.df-section-what .df-what-item {
+  margin-bottom: 25px;
+}
+
+.df-section-what .df-what-item-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.625rem;
+  color: #fff;
+  background: #142C58;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+          clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+  .df-section-what .df-what-item-title {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  }
+}
+
+.df-section-what .df-what-item-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  max-width: 530px;
+  margin: auto;
+  padding: 0 25px;
+}
+
+@media (min-width: 768px) {
+  .df-section-what .df-what-item-text {
+    padding: 0;
+  }
+}
+
+.df-section-what .df-what-item .df-image {
+  max-width: 530px;
+  margin: 25px auto;
+}
+
+.df-section-what .df-what-item .df-with-icon {
+  width: 100%;
+  max-width: 530px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px auto;
+  padding: 0 25px;
+}
+
+@media (min-width: 768px) {
+  .df-section-what .df-what-item .df-with-icon {
+    padding: 0;
+  }
+}
+
+.df-section-what .df-what-item .df-with-icon.df-money-back .df-icon {
+  background: transparent;
+  width: 130px;
+  height: 130px;
+}
+
+@media (min-width: 768px) {
+  .df-section-what .df-what-item .df-with-icon.df-money-back .df-icon {
+    width: 156px;
+    height: 156px;
+  }
+}
+
+.df-section-what .df-what-item .df-with-icon.df-money-back .df-what-item-text {
+  max-width: calc(100% - 220px);
+  padding: 0;
+}
+
+.df-section-what .df-what-item .df-with-icon .df-what-item-text {
+  max-width: calc(100% - 105px);
+  padding: 0;
+}
+
+.df-section-what .df-what-item .df-with-icon .df-icon {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
 }
 
 .df-page-gummies-upsell .df-product-list,
