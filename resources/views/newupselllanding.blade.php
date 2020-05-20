@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>newupsell</title>
+        <title>newupselllanding</title>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700|Lato:300,400,700,900&display=swap" rel="stylesheet">
@@ -29,18 +29,78 @@
                 </div>
 
                 <div class="df-row df-justify-center df-direction-column df-align-center">
-                    <h2 class="df-page-title">Wait!</h2>
-                    <h4 class="df-page-subtitle">Last but not least, your <span class="df-text-blue df-custom-underline">SCIENCE-BASED</span> secret weapon for weight loss</h4>
+                    <p class="df-page-description">
+                        <span class="df-text-blue">FACT:</span> This Intermittent Fasting “Shortcut” Forces Your Body to <span class="df-text-blue">Lower Bad Cholesterol</span>, Crush Your Hunger Pangs, & <span class="df-text-blue">Lose Weight Faster!</span>
+                    </p>
                     <div class="df-image">
                         <img src="/images/upsellmainimg.png" alt="upsellmainimg" />
                     </div>
                 </div>
                 <div class="df-row df-justify-center">
-                    <p class="df-page-description">
-                        <span class="df-text-blue">FACT:</span> This Intermittent Fasting “Shortcut” Forces Your Body to <span class="df-text-blue">Lower Bad Cholesterol</span>, Crush Your Hunger Pangs, & <span class="df-text-blue">Lose Weight Faster!</span>
-                    </p>
+                    <h4 class="df-page-subtitle">Your <span class="df-text-blue df-custom-underline">SCIENCE-BASED</span> secret weapon for weight loss</h4>
                 </div>
             </div>
+
+            <section class="df-grey-bg df-pb-50 df-pt-100">
+                <div class="df-row df-product-list">
+                    <div class="df-product-wrapper df-most-popular">
+                        <div class="df-most-popular-title">
+                            <p>
+                                <span>@svg('starWhite.svg', 'df-star')</span>
+                                MOST POPULAR
+                            </p>
+                        </div>
+                        <div class="df-product-item">
+                            <p class="df-poduct-title">6 months *</p>
+                            <p class="df-safe-mony">SAVE $150.96</p>
+                            <div class="df-product-image">
+                                @svg('box6.svg', 'df-product')
+                            </div>
+                            <div class="df-product-price">
+                                <p>$<b>44.83</b> / box</p>
+                            </div>
+                            <div class="df-product-info">
+                                <p><span>$1.49 per serving</span><span>180 servings</span></p>
+                                <p class="df-text-important">6 boxes will be delivered at once</p>
+                            </div>
+                            <button class="df-button df-buy-button">BUY NOW</button>
+                        </div>
+                    </div>
+                    <div class="df-product-wrapper">
+                        <div class="df-product-item">
+                            <p class="df-poduct-title">3 months *</p>
+                            <p class="df-safe-mony">SAVE $60.97</p>
+                            <div class="df-product-image">
+                                @svg('box3.svg', 'df-product')
+                            </div>
+                            <div class="df-product-price">
+                                <p>$<b>49.66</b> / box</p>
+                            </div>
+                            <div class="df-product-info">
+                                <p><span>$1.65 per serving</span><span>90 servings</span></p>
+                                <p class="df-text-important">3 boxes will be delivered at once</p>
+                            </div>
+                            <button class="df-button df-buy-button">BUY NOW</button>
+                        </div>
+                    </div>
+                    <div class="df-product-wrapper">
+                        <div class="df-product-item">
+                            <p class="df-poduct-title">1 months</p>
+                            <div class="df-product-image">
+                                @svg('box1.svg', 'df-product')
+                            </div>
+                            <div class="df-product-price">
+                                <p>$<b>69.99</b> / box</p>
+                            </div>
+                            <div class="df-product-info">
+                                <p><span>$2.33 per serving</span><span>30 servings</span></p>
+                            </div>
+                            <button class="df-button df-buy-button">BUY NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="df-blue-bg">
                 <div class="df-container">
                     <h3 class="df-slogan">
@@ -295,11 +355,8 @@
                         <div class="df-image">
                             @svg('hugebox.svg', 'df-hugebox')
                         </div>
-                        <p class="df-image-description">
-                            No sugar and <span class="df-text-red df-bold">just three calories</span> per serving
-                        </p>
                         <a href="" class="df-product-preview-link">A Must-Have For Fast-ers</a>
-                        <button type="button" class="df-button df-product-preview-button">ADD NOW!</button>
+                        <button type="button" class="df-button df-product-preview-button">BUY NOW</button>
                     </div>
                 </div>
             </section>
@@ -362,25 +419,6 @@
                 </div>
             </section>
 
-            <section class="df-section-question">
-                <div class="df-container">
-                    <h2 class="df-section-question-title">
-                        Click the ‘<span class="df-text-red df-underline-text">YES</span>’ button below to get the Essential Fiber Complex <span class="df-text-blue">NOW</span>!
-                    </h2>
-                    <p class="df-section-question-text">Order Now & We’ll Give You<br/><span class="df-text-red df-underline-text">FREE SHIPPING!</span></p>
-                </div>
-                <div class="df-container">
-                    <div class="df-questions-content">
-                        <button type="button" class="df-questions-content-button df-button-yes">YES! I WANT THIS SPECIAL OFFER ADDED TO MY ORDER</button>
-                        <div class="df-questions-content-or">-or-</div>
-                        <button type="button" class="df-questions-content-button df-button-no">NO THANKS, I JUST WANT MY APP</button>
-                    </div>
-                </div>
-                <div class="df-container">
-                    <p class="df-section-question-disclaimer">This is a one-time opportunity, offered as a thank you for your business. After you leave this page, you will not be eligible for this one-time offer in the future.</p>
-                </div>
-            </section>
-
             <section class="df-section-what">
                 <div class="df-container">
                 </div>
@@ -411,7 +449,6 @@
                                 </div>
                                 <p class="df-what-item-text">This is an <span class="df-bold df-underline-text">exclusive offer</span> – on this page only – for the customers we believe are going to benefit from the DoFasting Box <span class="df-underline-text">the most</span>.</p>
                             </div>
-                            <p class="df-what-item-text">Once you leave this page, this one-time offer is no longer available.</p>
                         </div>
 
                         <div class="df-what-item df-mb-30">
@@ -453,7 +490,7 @@
                             No sugar and <span class="df-text-red df-bold">just three calories</span> per serving
                         </p>
                         <a href="" class="df-product-preview-link">A Must-Have For Fast-ers</a>
-                        <button type="button" class="df-button df-product-preview-button">ADD NOW!</button>
+                        <button type="button" class="df-button df-product-preview-button">BUY NOW</button>
                     </div>
                 </div>
             </section>
@@ -476,28 +513,6 @@
                         </ul>
                         <p class="df-nutritional-value-text">Important: you have to take the product with the sufficient amount of <span class="df-underline-text">water</span>.</p>
                     </div>
-                </div>
-            </section>
-
-            <section class="df-section-question">
-                <div class="df-container">
-                    <p class="df-section-question-text">Order Now & We’ll Give You<br/><span class="df-text-red df-underline-text">FREE SHIPPING!</span></p>
-                </div>
-                <div class="df-container">
-                    <div class="df-questions-content">
-                        <button type="button" class="df-questions-content-button df-button-yes">YES! I WANT THIS SPECIAL OFFER ADDED TO MY ORDER</button>
-                        <div class="df-questions-content-or">-or-</div>
-                        <button type="button" class="df-questions-content-button df-button-no">NO THANKS, I JUST WANT MY APP</button>
-                    </div>
-                </div>
-                <div class="df-container">
-                    <p class="df-section-question-disclaimer">This is a <span class="df-bold">one-time opportunity</span>, offered as a <span class="df-bold">thank you</span> for your business. After you leave this page, you <span class="df-bold"><span class="df-underline-text">will not</span> be eligible</span> for this one-time offer in the future.</p>
-                </div>
-                <div class="df-container df-moneyback">
-                    <div class="df-moneyback-icon">
-                        @svg('money-back-guarantee.svg')
-                    </div>
-                    <p class="df-moneyback-text">As always, <span class="df-bold df-underline-text">you’re protected by our 30-day money-back guarantee</span>. It means that you have a full 30 days to try any DoFasting products and experience the amazing difference for yourself, <span class="df-text-red df-bold">RISK FREE!</span></p>
                 </div>
             </section>
 
@@ -554,6 +569,7 @@
                         <a href="" class="df-product-preview-link">A Must-Have For Fast-ers</a>
                     </div>
                 </div>
+
                 <div class="df-container">
                     <ul class="df-list">
                         <li class="df-list-item">✓ Lowers hunger and helps to prolong the fast</li>

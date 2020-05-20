@@ -32,6 +32,10 @@ Route::get('/gummies', function () {
     return view('gummies');
 });
 
+Route::get('/newupselllanding', function () {
+    return view('newupselllanding');
+});
+
 Route::get('/newupsell', function () {
     return view('newupsell');
 });

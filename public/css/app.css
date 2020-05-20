@@ -12911,10 +12911,13 @@ label {
 }
 
 .df-product-list .df-product-wrapper .df-product-info p {
-  margin-bottom: 8px;
   line-height: 1.5rem;
   display: flex;
   flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto 8px;
 }
 
 @media (min-width: 768px) {
@@ -12941,6 +12944,7 @@ label {
 
 .df-product-list .df-product-wrapper .df-product-image {
   text-align: center;
+  margin: 25px 0;
 }
 
 .df-product-list .df-product-wrapper .df-product-image svg,
@@ -12951,6 +12955,7 @@ label {
 .df-product-list .df-product-wrapper .df-product-price {
   margin-bottom: 25px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
@@ -14098,6 +14103,44 @@ label {
   margin-top: 30px;
 }
 
+.df-section-product-preview .df-list {
+  display: flex;
+  justify-content: space-between;
+  max-width: 770px;
+  margin: 38px auto 0;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background: url("/svg/box3.svg") no-repeat;
+  background-size: 160px;
+  background-position: right 40%;
+}
+
+@media (min-width: 768px) {
+  .df-section-product-preview .df-list {
+    flex-direction: row;
+    background: none;
+  }
+}
+
+.df-section-product-preview .df-list-item {
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba(0, 0, 0, 0.75);
+  margin: 5px 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-product-preview .df-list-item {
+    width: 360px;
+    font-size: 1.125rem;
+  }
+}
+
+.df-section-product-preview .df-list-item:first-letter {
+  color: #DE2B70;
+}
+
 .df-section-simple {
   padding: 42px 0;
 }
@@ -14504,6 +14547,16 @@ label {
 
 .df-section-result-description p:first-child {
   margin-bottom: 7px;
+}
+
+.df-section-revolutionary-science {
+  padding: 32px 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-revolutionary-science {
+    padding: 44px 0 30px;
+  }
 }
 
 .df-section-revolutionary-science-title,
