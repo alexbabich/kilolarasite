@@ -16201,6 +16201,169 @@ label {
   }
 }
 
+.df-page-benefitcheckpoints {
+  background: url("/images/landing-desktop-benefitcheckpoints-mobile.png"), #fff;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 822px;
+  padding: 300px 0 50px;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints {
+    background: url("/images/landing-desktop-benefitcheckpoints.png") no-repeat;
+    background-position: center right;
+    background-size: cover;
+    padding: 60px 0;
+  }
+}
+
+.df-page-benefitcheckpoints-title {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  margin-bottom: 16px;
+  margin: 0 0 16px;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints-title {
+    font-size: 3.375rem;
+    line-height: 3.875rem;
+    max-width: 371px;
+    margin: 54px 0 32px;
+  }
+}
+
+.df-page-benefitcheckpoints-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints-text {
+    font-size: 1.125rem;
+    max-width: 418px;
+    margin-bottom: 26px;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-two-column-2-3-right {
+    width: 75%;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-page-benefitcheckpoints .df-two-column-2-3-right {
+    width: 40%;
+  }
+}
+
+.df-page-benefitcheckpoints .df-list {
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-list {
+    margin-bottom: 18px;
+  }
+}
+
+.df-page-benefitcheckpoints .df-list-item {
+  padding-left: 36px;
+  position: relative;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #222;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-list-item {
+    font-size: 1.125rem;
+    margin-bottom: 24px;
+  }
+}
+
+.df-page-benefitcheckpoints .df-list-item:before {
+  content: '';
+  background: url("/svg/paymentcheck.svg") no-repeat;
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-list-item:before {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.df-page-benefitcheckpoints .df-select-gender {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 368px;
+  padding-bottom: 20px;
+}
+
+.df-page-benefitcheckpoints .df-select-gender-text {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-select-gender-text {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    margin-bottom: 13px;
+  }
+}
+
+.df-page-benefitcheckpoints .df-select-gender-button {
+  width: 156px;
+  min-width: 156px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 17px 0 16px;
+  border-radius: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-select-gender-button {
+    width: 176px;
+    min-width: 176px;
+  }
+}
+
+.df-page-benefitcheckpoints .df-select-gender-button svg {
+  width: 24px;
+  height: 13px;
+}
+
+.df-page-benefitcheckpoints .df-select-gender-button.df-male {
+  background: #2D73F6;
+  box-shadow: 0 3px 0 0 #224fa4;
+}
+
+.df-page-benefitcheckpoints .df-select-gender-button.df-female {
+  background: #DE2B70;
+  box-shadow: 0 3px 0 0 #a92558;
+}
+
 /* make sure to set some focus styles for accessibility */
 
 :focus {

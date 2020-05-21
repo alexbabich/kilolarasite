@@ -1,0 +1,145 @@
+.df-page-benefitcheckpoints {
+    background: url('/images/landing-desktop-benefitcheckpoints-mobile.png'), #fff;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 822px;
+    padding: 300px 0 50px;
+
+    @include tablet {
+        background: url('/images/landing-desktop-benefitcheckpoints.png') no-repeat;
+        background-position: center right;
+        background-size: cover;
+        padding: 60px 0;
+    }
+
+    &-title {
+        font-size: rem(24);
+        line-height: rem(29);
+        margin-bottom: 16px;
+        margin: 0 0 16px;
+
+        @include tablet {
+            font-size: rem(54);
+            line-height: rem(62);
+            max-width: 371px;
+            margin: 54px 0 32px;
+        }
+    }
+
+    &-text {
+        font-size: rem(16);
+        line-height: rem(24);
+        margin-bottom: 24px;
+
+        @include tablet {
+            font-size: rem(18);
+            max-width: 418px;
+            margin-bottom: 26px;
+        }
+    }
+
+    .df-two-column-2-3-right {
+
+        @include tablet {
+            width: 75%;
+        }
+
+        @include tabletL {
+            width: 40%;
+        }
+    }
+
+    .df-list {
+        margin-bottom: 12px;
+
+        @include tablet {
+            margin-bottom: 18px;
+        }
+
+        &-item {
+            padding-left: 36px;
+            position: relative;
+            margin-bottom: 12px;
+            font-size: rem(16);
+            line-height: rem(20);
+            color: #222;
+            opacity: 0.8;
+
+            @include tablet {
+                font-size: rem(18);
+                margin-bottom: 24px;
+            }
+
+            &:before {
+                content: '';
+                background: url('/svg/paymentcheck.svg') no-repeat;
+                background-size: cover;
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: block;
+
+                @include tablet {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    .df-select-gender {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 368px;
+        padding-bottom: 20px;
+
+        &-text {
+            font-weight: bold;
+            font-size: rem(16);
+            line-height: rem(19);
+            margin-bottom: 16px;
+
+            @include tablet {
+                font-size: rem(18);
+                line-height: rem(22);
+                margin-bottom: 13px;
+            }
+        }
+
+        &-button {
+            width: 156px;
+            min-width: 156px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 17px 0 16px;
+            border-radius: 14px;
+            font-weight: bold;
+            margin: 0;
+
+            @include tablet {
+                width: 176px;
+                min-width: 176px;
+            }
+
+            svg {
+                width: 24px;
+                height: 13px;
+            }
+
+            &.df-male {
+                background: $blueColor;
+                box-shadow: 0 3px 0 0 rgba(34,79,164,1);
+            }
+
+            &.df-female {
+                background: $baseColor;
+                box-shadow: 0 3px 0 0 rgba(169,37,88,1);
+            }
+        }
+    }
+}

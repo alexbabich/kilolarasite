@@ -16,6 +16,10 @@
 // });
 
 
+Route::get('/benefitcheckpoints', function () {
+    return view('benefitcheckpoints');
+});
+
 Route::get('/checkoutgummieslanding', function () {
     return view('checkoutgummieslanding');
 });
