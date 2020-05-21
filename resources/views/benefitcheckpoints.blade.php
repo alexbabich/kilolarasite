@@ -26,6 +26,7 @@
                             <li class="df-list-item">Form new eating patterns</li>
                             <li class="df-list-item">Improve your health</li>
                             <li class="df-list-item">Learn how to practice fasting correctly</li>
+                            <li class="df-list-item">Celebrate success</li>
                         </ul>
                     </div>
                     <div class="df-row">
