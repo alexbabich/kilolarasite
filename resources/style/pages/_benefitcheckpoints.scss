@@ -3,28 +3,14 @@
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
-    min-height: 822px;
     padding: 300px 0 50px;
+    min-height: 822px;
 
     @include tablet {
         background: url('/images/landing-desktop-benefitcheckpoints.png') no-repeat;
         background-position: center right;
         background-size: cover;
         padding: 60px 0;
-    }
-
-    &-title {
-        font-size: rem(24);
-        line-height: rem(29);
-        margin-bottom: 16px;
-        margin: 0 0 16px;
-
-        @include tablet {
-            font-size: rem(54);
-            line-height: rem(62);
-            max-width: 371px;
-            margin: 54px 0 32px;
-        }
     }
 
     &-text {
@@ -39,14 +25,40 @@
         }
     }
 
-    .df-two-column-2-3-right {
+    &-title {
+        font-size: rem(24);
+        line-height: rem(29);
+        margin: 0 0 16px;
 
         @include tablet {
-            width: 75%;
+            max-width: 371px;
+            margin: 54px 0 32px;
+            font-size: rem(54);
+            line-height: rem(62);
+        }
+    }
+
+    .df-select-gender {
+        
+        &-button {
+        
+            &.df-male {
+                box-shadow: 0 3px 0 0 rgba(34,79,164,1);
+            }
+
+            &.df-female {
+                box-shadow: 0 3px 0 0 rgba(169,37,88,1);
+            }
         }
 
-        @include tabletL {
-            width: 40%;
+        &-text {
+            line-height: rem(19);
+            margin-bottom: 16px;
+
+            @include tablet {
+                line-height: rem(22);
+                margin-bottom: 13px;
+            }
         }
     }
 
@@ -89,6 +101,21 @@
             }
         }
     }
+}
+
+.df-page-benefitcheckpoints,
+.df-page-quizlanding {
+
+    .df-two-column-2-3-right {
+
+        @include tablet {
+            width: 75%;
+        }
+
+        @include tabletL {
+            width: 40%;
+        }
+    }
 
     .df-select-gender {
         display: flex;
@@ -100,13 +127,9 @@
         &-text {
             font-weight: bold;
             font-size: rem(16);
-            line-height: rem(19);
-            margin-bottom: 16px;
 
             @include tablet {
                 font-size: rem(18);
-                line-height: rem(22);
-                margin-bottom: 13px;
             }
         }
 
@@ -133,12 +156,10 @@
 
             &.df-male {
                 background: $blueColor;
-                box-shadow: 0 3px 0 0 rgba(34,79,164,1);
             }
 
             &.df-female {
                 background: $baseColor;
-                box-shadow: 0 3px 0 0 rgba(169,37,88,1);
             }
         }
     }

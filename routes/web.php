@@ -16,6 +16,23 @@
 // });
 
 
+Route::get('/quizlanding', function () {
+    return view('quizlanding');
+});
+
+Route::get('/quizsummary', function () {
+    return view('quizsummary');
+});
+
+Route::get('/quizupsell', function () {
+    return view('quizupsell');
+});
+
+
+
+
+
+
 Route::get('/benefitcheckpoints', function () {
     return view('benefitcheckpoints');
 });

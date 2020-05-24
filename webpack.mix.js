@@ -1,11 +1,13 @@
 const mix = require('laravel-mix');
 require('laravel-mix-svg-vue');
 
+mix.autoload({ 'jquery': ['window.$', 'window.jQuery'] })
+
 mix.webpackConfig({
     resolve: {
-        extensions: ['.js', '.vue'],
         alias: {
-            '@': __dirname + '/resources'
+            '@': __dirname + '/resources',
+            'jquery': path.join(__dirname, 'node_modules/jquery/src/jquery')
         }
     }
 });

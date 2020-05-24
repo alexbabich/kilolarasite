@@ -16206,8 +16206,8 @@ label {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: contain;
-  min-height: 822px;
   padding: 300px 0 50px;
+  min-height: 822px;
 }
 
 @media (min-width: 768px) {
@@ -16216,22 +16216,6 @@ label {
     background-position: center right;
     background-size: cover;
     padding: 60px 0;
-  }
-}
-
-.df-page-benefitcheckpoints-title {
-  font-size: 1.5rem;
-  line-height: 1.8125rem;
-  margin-bottom: 16px;
-  margin: 0 0 16px;
-}
-
-@media (min-width: 768px) {
-  .df-page-benefitcheckpoints-title {
-    font-size: 3.375rem;
-    line-height: 3.875rem;
-    max-width: 371px;
-    margin: 54px 0 32px;
   }
 }
 
@@ -16249,15 +16233,38 @@ label {
   }
 }
 
+.df-page-benefitcheckpoints-title {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  margin: 0 0 16px;
+}
+
 @media (min-width: 768px) {
-  .df-page-benefitcheckpoints .df-two-column-2-3-right {
-    width: 75%;
+  .df-page-benefitcheckpoints-title {
+    max-width: 371px;
+    margin: 54px 0 32px;
+    font-size: 3.375rem;
+    line-height: 3.875rem;
   }
 }
 
-@media (min-width: 992px) {
-  .df-page-benefitcheckpoints .df-two-column-2-3-right {
-    width: 40%;
+.df-page-benefitcheckpoints .df-select-gender-button.df-male {
+  box-shadow: 0 3px 0 0 #224fa4;
+}
+
+.df-page-benefitcheckpoints .df-select-gender-button.df-female {
+  box-shadow: 0 3px 0 0 #a92558;
+}
+
+.df-page-benefitcheckpoints .df-select-gender-text {
+  line-height: 1.1875rem;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-select-gender-text {
+    line-height: 1.375rem;
+    margin-bottom: 13px;
   }
 }
 
@@ -16307,7 +16314,22 @@ label {
   }
 }
 
-.df-page-benefitcheckpoints .df-select-gender {
+@media (min-width: 768px) {
+  .df-page-benefitcheckpoints .df-two-column-2-3-right,
+  .df-page-quizlanding .df-two-column-2-3-right {
+    width: 75%;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-page-benefitcheckpoints .df-two-column-2-3-right,
+  .df-page-quizlanding .df-two-column-2-3-right {
+    width: 40%;
+  }
+}
+
+.df-page-benefitcheckpoints .df-select-gender,
+.df-page-quizlanding .df-select-gender {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -16315,22 +16337,21 @@ label {
   padding-bottom: 20px;
 }
 
-.df-page-benefitcheckpoints .df-select-gender-text {
+.df-page-benefitcheckpoints .df-select-gender-text,
+.df-page-quizlanding .df-select-gender-text {
   font-weight: bold;
   font-size: 1rem;
-  line-height: 1.1875rem;
-  margin-bottom: 16px;
 }
 
 @media (min-width: 768px) {
-  .df-page-benefitcheckpoints .df-select-gender-text {
+  .df-page-benefitcheckpoints .df-select-gender-text,
+  .df-page-quizlanding .df-select-gender-text {
     font-size: 1.125rem;
-    line-height: 1.375rem;
-    margin-bottom: 13px;
   }
 }
 
-.df-page-benefitcheckpoints .df-select-gender-button {
+.df-page-benefitcheckpoints .df-select-gender-button,
+.df-page-quizlanding .df-select-gender-button {
   width: 156px;
   min-width: 156px;
   display: flex;
@@ -16343,25 +16364,1152 @@ label {
 }
 
 @media (min-width: 768px) {
-  .df-page-benefitcheckpoints .df-select-gender-button {
+  .df-page-benefitcheckpoints .df-select-gender-button,
+  .df-page-quizlanding .df-select-gender-button {
     width: 176px;
     min-width: 176px;
   }
 }
 
-.df-page-benefitcheckpoints .df-select-gender-button svg {
+.df-page-benefitcheckpoints .df-select-gender-button svg,
+.df-page-quizlanding .df-select-gender-button svg {
   width: 24px;
   height: 13px;
 }
 
-.df-page-benefitcheckpoints .df-select-gender-button.df-male {
+.df-page-benefitcheckpoints .df-select-gender-button.df-male,
+.df-page-quizlanding .df-select-gender-button.df-male {
   background: #2D73F6;
-  box-shadow: 0 3px 0 0 #224fa4;
 }
 
-.df-page-benefitcheckpoints .df-select-gender-button.df-female {
+.df-page-benefitcheckpoints .df-select-gender-button.df-female,
+.df-page-quizlanding .df-select-gender-button.df-female {
   background: #DE2B70;
-  box-shadow: 0 3px 0 0 #a92558;
+}
+
+.df-quizsummary-step-number,
+.df-quizsummary-step-title,
+.df-quizsummary-step-description {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .df-quizsummary-step-number,
+  .df-quizsummary-step-title,
+  .df-quizsummary-step-description {
+    text-align: center;
+  }
+}
+
+.df-quizsummary-step-number {
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  letter-spacing: 0.20833313rem;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  color: #DE2B70;
+}
+
+@media (min-width: 768px) {
+  .df-quizsummary-step-number {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
+.df-quizsummary-step-title {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-quizsummary-step-title {
+    font-size: 2.5rem;
+    line-height: 3.0625rem;
+    margin-bottom: 24px;
+  }
+}
+
+.df-quizsummary-step-description {
+  opacity: 0.6;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  text-transform: capitalize;
+}
+
+@media (min-width: 768px) {
+  .df-quizsummary-step-description {
+    font-size: 1.125rem;
+  }
+}
+
+.df-quizsummary-step1,
+.df-quizsummary-step2,
+.df-quizsummary-step3 {
+  padding: 32px 0;
+}
+
+@media (min-width: 768px) {
+  .df-quizsummary-step1,
+  .df-quizsummary-step2,
+  .df-quizsummary-step3 {
+    padding: 76px 0 81px;
+  }
+}
+
+.df-quizsummary-step1 {
+  background: #F3F4F8;
+}
+
+.df-quizsummary-step2 {
+  background: #fff;
+}
+
+.df-quizsummary-step3 {
+  background: #F3F4F8;
+}
+
+.df-product-select-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-list {
+    margin-top: 42px;
+    padding-bottom: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-product-select-list {
+    justify-content: space-between;
+  }
+}
+
+.df-product-select-item {
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 13px 16px 16px 46px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item {
+    width: 370px;
+    height: 497px;
+    padding: 40px;
+  }
+}
+
+.df-product-select-item-tooltip {
+  background: rgba(45, 115, 246, 0.2);
+  border-radius: 10px;
+  position: absolute;
+  bottom: -77px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  padding: 8px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-tooltip {
+    padding: 16px;
+    bottom: -98px;
+  }
+}
+
+.df-product-select-item-tooltip:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  top: -10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #CBDAF8 transparent;
+}
+
+.df-product-select-item-tooltip p {
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-tooltip p {
+    font-size: 1rem;
+  }
+}
+
+.df-product-select-item-title {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-title {
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+  }
+}
+
+.df-product-select-item-description {
+  text-align: left;
+}
+
+.df-product-select-item-description p {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  display: flex;
+  flex-direction: row;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 8px;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-description p {
+    display: block;
+    line-height: 1.5rem;
+  }
+}
+
+.df-product-select-item-description p:last-of-type {
+  margin: 0;
+}
+
+.df-product-select-item-description p span:not(:last-child) {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.df-product-select-item-description p span:not(:last-child):after {
+  content: "•";
+  margin: 0 3px;
+}
+
+.df-product-select-item-price {
+  margin-top: 9px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-price {
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.df-product-select-item-price:first-letter {
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 2;
+  margin-right: 3px;
+  position: relative;
+  top: 3px;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-price:first-letter {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding-top: 0;
+  }
+}
+
+.df-product-select-item-price b {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-price b {
+    font-size: 3.375rem;
+    line-height: 3rem;
+  }
+}
+
+.df-product-select-item-price p {
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  color: #222;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-price p {
+    font-size: 1rem;
+    line-height: 1.1875rem;
+  }
+}
+
+.df-product-select-item-image {
+  position: absolute;
+  right: 13px;
+  width: 40%;
+  top: -25px;
+  margin: 0;
+}
+
+@media (min-width: 375px) {
+  .df-product-select-item-image {
+    width: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-image {
+    position: static;
+    text-align: center;
+    margin: 25px 0;
+    width: 100%;
+  }
+}
+
+.df-product-select-item-image svg,
+.df-product-select-item-image img {
+  width: 100%;
+}
+
+.df-product-select-item-button {
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: calc(100% - 32px);
+  left: 16px;
+  right: 100%;
+  background: #D8DDE8;
+  margin: auto;
+  font-size: 0;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item-button {
+    border: none;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 180px;
+    height: 48px;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    background: #DE2B70;
+    padding: 16px 21px 14px;
+    margin: auto;
+    font-weight: bold;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    color: #fff;
+  }
+}
+
+.df-product-select-item-button:focus,
+.df-product-select-item-button:active {
+  outline: none;
+}
+
+.df-product-select-item .df-safe-money {
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  position: absolute;
+  top: 12px;
+  right: 13px;
+  text-align: center;
+  background: #D8DDE8;
+  color: #222;
+  opacity: 0.8;
+  padding: 4px;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item .df-safe-money {
+    top: 38px;
+    right: 32px;
+    padding: 8px 6px 7px;
+  }
+}
+
+.df-product-select-item .df-radio {
+  display: none;
+}
+
+.df-product-select-item.active {
+  border-color: #2D73F6;
+  margin-bottom: 87px;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item.active {
+    margin-bottom: 115px;
+  }
+}
+
+.df-product-select-item.active .df-safe-money {
+  background: #E91010;
+  color: #fff;
+  opacity: 1;
+}
+
+.df-product-select-item.active .df-product-select-item-button {
+  background: url("/svg/paymentcheck.svg") no-repeat;
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .df-product-select-item.active .df-product-select-item-button {
+    background: #2D73F6;
+  }
+
+  .df-product-select-item.active .df-product-select-item-button:before {
+    content: '';
+    background: url("/svg/paymentcheckWhite.svg") no-repeat;
+    background-size: contain;
+    height: 20px;
+    width: 20px;
+    position: relative;
+  }
+}
+
+.df-product-select-item.active .df-product-select-item-tooltip {
+  display: block;
+}
+
+.df-section-personal-summary {
+  background: #fff;
+  padding: 36px 0 32px;
+}
+
+@media (min-width: 768px) {
+  .df-section-personal-summary {
+    padding: 77px 0 81px;
+  }
+}
+
+.df-section-personal-summary .df-two-column-1 {
+  justify-content: space-around;
+  max-width: 906px;
+}
+
+.df-section-personal-summary .df-personal-summary-title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: rgba(34, 34, 34, 0.8);
+  margin-top: 0;
+  margin-bottom: 26px;
+}
+
+@media (min-width: 768px) {
+  .df-section-personal-summary .df-personal-summary-title {
+    font-size: 2.125rem;
+    line-height: 2rem;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+}
+
+.df-section-personal-summary .df-personal-summary-item {
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .df-section-personal-summary .df-personal-summary-item {
+    width: 350px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .df-section-personal-summary .df-personal-summary-item {
+    width: 413px;
+  }
+}
+
+.df-section-personal-summary .df-personal-summary-item-title {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(34, 34, 34, 0.8);
+  padding-left: 21px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.df-section-personal-summary .df-personal-summary-item-title:before {
+  content: '·';
+  color: #E92E25;
+  font-size: 2.25rem;
+  line-height: 1;
+  position: absolute;
+  top: -8px;
+  left: 0;
+}
+
+.df-section-personal-summary .df-personal-summary-item-text {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  color: rgba(34, 34, 34, 0.6);
+  padding-left: 21px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .df-section-personal-summary .df-personal-summary-item-text {
+    margin-bottom: 0;
+  }
+}
+
+.df-section-personal-summary .df-personal-summary-item-text2 {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.625rem;
+  line-height: 2rem;
+  color: #E92E25;
+  width: 200px;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .df-section-personal-summary .df-personal-summary-item-text2 {
+    font-size: 1.625rem;
+  }
+}
+
+.df-section-personal-summary .df-personal-summary-item-description {
+  padding: 16px 32px 16px 16px;
+  border-radius: 14px;
+  background: rgba(233, 46, 37, 0.1);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #E92E25;
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .df-section-personal-summary .df-personal-summary-item-description {
+    padding: 28px 14px 28px 16px;
+    font-size: 1rem;
+    margin-top: 22px;
+  }
+}
+
+.df-section-select-shipping .df-shipping-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-section-select-shipping .df-shipping-info {
+    justify-content: space-around;
+    flex-direction: row;
+    max-width: 904px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-select-shipping .df-shipping-info {
+    justify-content: space-between;
+  }
+}
+
+.df-section-select-shipping .df-shipping-item {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .df-section-select-shipping .df-shipping-item {
+    width: 350px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-select-shipping .df-shipping-item {
+    width: 413px;
+    margin-bottom: 30px;
+  }
+}
+
+.df-section-select-shipping .df-shipping-item-title {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.df-section-select-shipping .df-shipping-item-input {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  padding: 14px 16px;
+}
+
+.df-section-select-shipping .df-shipping-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-select-shipping .df-shipping-checkbox-container {
+    margin-top: 40px;
+  }
+}
+
+.df-section-select-shipping .df-shipping-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.df-section-select-shipping .df-shipping-checkbox-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #E9EDF3;
+  border-radius: 3px;
+}
+
+.df-section-select-shipping .df-shipping-checkbox-checkmark:after {
+  content: '';
+  left: 9px;
+  top: 5px;
+  width: 7px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(40deg);
+  position: absolute;
+  display: none;
+}
+
+.df-section-select-shipping .df-shipping-checkbox-container:hover input ~ .df-shipping-checkbox-checkmark {
+  background-color: #ccc;
+}
+
+.df-section-select-shipping .df-shipping-checkbox-container input:checked ~ .df-shipping-checkbox-checkmark {
+  background-color: #DE2B70;
+}
+
+.df-section-select-shipping .df-shipping-checkbox-container input:checked ~ .df-shipping-checkbox-checkmark:after {
+  display: block;
+}
+
+.df-section-more-benefits {
+  padding: 36px 0 330px;
+  background: url("/images/landing-desktop-quiz-mobile.png"), linear-gradient(97.04deg, #FAE9D9 12.24%, #FBE9DA 23.09%, #FAE5D4 38.02%, #F7E5D3 41.04%, #F8E5D4 44.21%, #FBE2CE 47.42%, #F9E3CE 50.22%, #F9E3CE 53.16%, #F9E0CA 57.87%, #F7DEC8 64.69%, #F4DAC3 70.74%, #F3D7C1 76.73%, #EAC8AD 99.05%);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .df-section-more-benefits {
+    height: 700px;
+    padding: 132px 0 136px;
+    background-image: url("/images/landing-desktop-quiz.png"), linear-gradient(190.33deg, #FAE9D9 2.82%, #FCF0E4 13.37%, #FAEEE2 27.88%, #FBEBDE 30.82%, #FAEADD 33.9%, #F9E8DA 37.02%, #F8E6D8 39.74%, #F6E3D4 42.6%, #F4E1D3 47.18%, #F3E0D1 53.81%, #F0DDCE 59.69%, #EEDBCC 65.51%, #EEDBCC 87.21%);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+  }
+}
+
+.df-section-more-benefits-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .df-section-more-benefits-title {
+    font-size: 2.5rem;
+    line-height: 3.0625rem;
+    margin-bottom: 25px;
+  }
+}
+
+.df-section-more-benefits-button {
+  background: #DE2B70;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .df-section-more-benefits-button {
+    width: 327px;
+    margin: 0;
+  }
+}
+
+.df-section-more-benefits .df-list {
+  margin-bottom: 7px;
+}
+
+.df-section-more-benefits .df-list-item {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  opacity: 0.8;
+  padding-left: 30px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .df-section-more-benefits .df-list-item {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+}
+
+.df-section-more-benefits .df-list-item:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  bottom: 0;
+  background: url("/svg/paymentcheck.svg") no-repeat;
+  background-size: contain;
+  height: 16px;
+  width: 16px;
+}
+
+.df-section-box-hack {
+  padding: 36px 0 410px;
+  background: url("/images/summary-box-hack-mobile.png"), #fff;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: 375px;
+}
+
+@media (min-width: 576px) {
+  .df-section-box-hack {
+    padding: 32px 0 300px;
+    background: #F3F4F8;
+    background-size: 400px;
+    height: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-section-box-hack {
+    padding: 132px 0 136px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-section-box-hack {
+    height: 700px;
+  }
+}
+
+.df-section-box-hack-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 8px;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-box-hack-title {
+    font-size: 3.75rem;
+    line-height: 4.125rem;
+    margin-bottom: 17px;
+  }
+}
+
+.df-section-box-hack-text {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  color: rgba(34, 34, 34, 0.8);
+}
+
+@media (min-width: 768px) {
+  .df-section-box-hack-text {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
+.df-section-box-hack-image {
+  max-width: 734px;
+  max-height: 438px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  display: none;
+  margin-top: 20px;
+}
+
+@media (min-width: 576px) {
+  .df-section-box-hack-image {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-section-box-hack-image {
+    margin-top: 0;
+  }
+}
+
+.df-section-box-hack .df-two-column-2-3-right {
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.df-section-testimonials {
+  overflow: hidden;
+  padding: 32px 0;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials {
+    padding: 71px 0 80px;
+  }
+}
+
+.df-section-testimonials-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials-title {
+    font-size: 2.5rem;
+    line-height: 3.0625rem;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+}
+
+.df-section-testimonials-text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  opacity: 0.8;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials-text {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    max-width: 739px;
+    margin: 0 auto 50px;
+  }
+}
+
+.df-section-testimonials .df-testimonials-slider {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.df-section-testimonials .df-testimonials-slider-item {
+  padding: 32px 16px;
+  display: flex !important;
+  flex-direction: column;
+  width: 249px !important;
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  min-height: 368px;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials .df-testimonials-slider-item {
+    padding: 38px 40px 13px;
+    width: 566px !important;
+    min-height: 266px;
+  }
+}
+
+.df-section-testimonials .df-testimonials-slider-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.df-section-testimonials .df-testimonials-slider-item-userphoto {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials .df-testimonials-slider-item-userphoto {
+    width: 82px;
+    height: 82px;
+    margin-right: 24px;
+    margin-bottom: 0;
+  }
+}
+
+.df-section-testimonials .df-testimonials-slider-item-userphoto img {
+  width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.df-section-testimonials .df-testimonials-slider-item-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: rgba(34, 34, 34, 0.8);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials .df-testimonials-slider-item-text {
+    font-size: 1rem;
+    max-width: 486px;
+    text-align: left;
+  }
+}
+
+.df-section-testimonials .df-testimonials-slider-item-userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials .df-testimonials-slider-item-userinfo {
+    align-items: unset;
+    margin-bottom: 24px;
+  }
+}
+
+.df-section-testimonials .df-testimonials-slider-item .df-row {
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials .df-testimonials-slider-item .df-row {
+    flex-direction: row;
+    align-items: unset;
+  }
+}
+
+.df-section-testimonials .df-testimonials-slider .df-user-name {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  color: #000;
+  margin-bottom: 9px;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials .df-testimonials-slider .df-user-name {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    color: #222222;
+  }
+}
+
+.df-section-testimonials .df-testimonials-slider .df-user-raiting {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 102px;
+  margin-bottom: 8px;
+}
+
+.df-section-testimonials .df-testimonials-slider .df-user-raiting-item {
+  width: 16.75px;
+  height: 16px;
+  background: url("/svg/starYellow.svg") no-repeat center;
+  background-size: contain;
+}
+
+.df-section-testimonials .df-testimonials-slider .df-user-status {
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.005em;
+  color: #2D73F6;
+}
+
+@media (min-width: 768px) {
+  .df-section-testimonials .df-testimonials-slider .slick-list {
+    padding: 40px 0;
+    overflow: visible;
+  }
+}
+
+.df-page-quizlanding {
+  background: url("/images/landing-desktop-quiz-mobile.png"), linear-gradient(190.33deg, #FAE9D9 2.82%, #FCF0E4 13.37%, #FAEEE2 27.88%, #FBEBDE 30.82%, #FAEADD 33.9%, #F9E8DA 37.02%, #F8E6D8 39.74%, #F6E3D4 42.6%, #F4E1D3 47.18%, #F3E0D1 53.81%, #F0DDCE 59.69%, #EEDBCC 65.51%, #EEDBCC 87.21%);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0 0 300px;
+}
+
+@media (min-width: 768px) {
+  .df-page-quizlanding {
+    background-image: url("/images/landing-desktop-quiz.png"), linear-gradient(190.33deg, #FAE9D9 2.82%, #FCF0E4 13.37%, #FAEEE2 27.88%, #FBEBDE 30.82%, #FAEADD 33.9%, #F9E8DA 37.02%, #F8E6D8 39.74%, #F6E3D4 42.6%, #F4E1D3 47.18%, #F3E0D1 53.81%, #F0DDCE 59.69%, #EEDBCC 65.51%, #EEDBCC 87.21%);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+    padding: 0;
+  }
+}
+
+.df-page-quizlanding-title {
+  font-size: 2.5rem;
+  line-height: 3.0625rem;
+  margin: 0 0 16px;
+}
+
+@media (min-width: 768px) {
+  .df-page-quizlanding-title {
+    max-width: 441px;
+    font-size: 3.375rem;
+    line-height: 3.875rem;
+  }
+}
+
+.df-page-quizlanding-text {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: rgba(34, 34, 34, 0.8);
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-page-quizlanding-text {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 24px;
+  }
+}
+
+.df-page-quizlanding-subtitle {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: rgba(34, 34, 34, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .df-page-quizlanding-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+}
+
+.df-page-quizlanding .df-logo-header {
+  margin: 0 0 34px;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .df-page-quizlanding .df-logo-header {
+    margin: 0 0 137px;
+  }
+}
+
+.df-page-quizlanding .df-logo-header svg {
+  width: 201px;
+  height: 25px;
+}
+
+.df-page-quizlanding .df-select-gender-text {
+  line-height: 1.5rem;
+  color: rgba(34, 34, 34, 0.8);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.df-page-quizlanding .df-select-gender-button {
+  text-align: center;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .df-page-quizlanding .df-select-gender-button {
+    width: 160px;
+    min-width: 160px;
+  }
+}
+
+.df-page-quizlanding .df-two-column-2-3-left,
+.df-page-quizlanding .df-two-column-2-3-right {
+  padding: 33px 0;
+}
+
+@media (min-width: 768px) {
+  .df-page-quizlanding .df-two-column-2-3-left,
+  .df-page-quizlanding .df-two-column-2-3-right {
+    padding: 45px 0;
+  }
 }
 
 /* make sure to set some focus styles for accessibility */

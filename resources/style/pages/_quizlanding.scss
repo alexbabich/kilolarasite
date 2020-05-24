@@ -1,0 +1,100 @@
+.df-page-quizlanding {
+    background: url('/images/landing-desktop-quiz-mobile.png'), linear-gradient(190.33deg, #FAE9D9 2.82%, #FCF0E4 13.37%, #FAEEE2 27.88%, #FBEBDE 30.82%, #FAEADD 33.9%, #F9E8DA 37.02%, #F8E6D8 39.74%, #F6E3D4 42.6%, #F4E1D3 47.18%, #F3E0D1 53.81%, #F0DDCE 59.69%, #EEDBCC 65.51%, #EEDBCC 87.21%);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0 0 300px;
+
+    @include tablet {
+        background-image: url('/images/landing-desktop-quiz.png'), linear-gradient(190.33deg, #FAE9D9 2.82%, #FCF0E4 13.37%, #FAEEE2 27.88%, #FBEBDE 30.82%, #FAEADD 33.9%, #F9E8DA 37.02%, #F8E6D8 39.74%, #F6E3D4 42.6%, #F4E1D3 47.18%, #F3E0D1 53.81%, #F0DDCE 59.69%, #EEDBCC 65.51%, #EEDBCC 87.21%);
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: contain;
+        padding: 0;
+    }
+
+    &-title {
+        font-size: rem(40);
+        line-height: rem(49);
+        margin: 0 0 16px;
+        
+        @include tablet {
+            max-width: 441px;
+            font-size: rem(54);
+            line-height: rem(62);
+        }
+    }
+
+    &-text {
+        font-size: rem(18);
+        line-height: rem(24);
+        color: rgba(34, 34, 34, 0.8);
+        margin-bottom: 16px;
+
+        @include tablet {
+            font-size: rem(24);
+            line-height: rem(32);
+            margin-bottom: 24px;
+        }
+    }
+
+    &-subtitle {
+        font-weight: bold;
+        font-size: rem(16);
+        line-height: rem(20);
+        color: rgba(34, 34, 34, 0.6);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+
+        @include tablet {
+            font-size: rem(18);
+            line-height: rem(24);
+        }
+    }
+
+    .df-logo-header {
+        margin: 0 0 34px;
+        padding: 0;
+
+        @include tablet {
+            margin: 0 0 137px;
+        }
+        
+        svg {
+            width: 201px;
+            height: 25px;
+        }
+    }
+
+    .df-select-gender {
+
+        &-text {
+            line-height: rem(24);
+            color: rgba(34, 34, 34, 0.8);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        &-button {
+            text-align: center;
+            display: block;
+
+            @include tablet {
+                width: 160px;
+                min-width: 160px;
+            }
+        }
+    }
+
+    .df-two-column-2-3 {
+
+        &-left,
+        &-right {
+            padding: 33px 0;
+
+            @include tablet {
+                padding: 45px 0;
+            }
+        }
+    }
+}
