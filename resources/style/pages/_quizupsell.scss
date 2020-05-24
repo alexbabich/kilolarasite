@@ -1,0 +1,683 @@
+.df-page-quizupsell {
+
+    .df-section-title {
+        font-family: 'Lato', sans-serif;
+        font-weight: 900;
+        font-size: rem(30);
+        line-height: rem(38);
+        letter-spacing: 0.0084em;
+        text-align: left;
+        
+        @include tablet {
+            font-size: rem(36);
+            line-height: rem(48);
+            text-align: center;
+        }
+    }
+}
+
+.df-section-message-block {
+    background: #F3F4F8;
+    padding-bottom: 47px;
+
+    @include tablet {
+        padding-bottom: 52px;
+    }
+
+    &-title {
+        font-family: 'Lato', sans-serif;
+        font-weight: 900;
+        font-size: rem(26);
+        line-height: rem(31);
+        letter-spacing: 0.0084em;
+        margin-bottom: 12px;
+        text-align: center;
+
+        @include tablet {
+            font-size: rem(32);
+            line-height: rem(38);
+        }
+    }
+
+    &-text {
+        font-family: 'Lato', sans-serif;
+        font-size: rem(16);
+        line-height: rem(22);
+        text-align: center;
+        opacity: 0.8;
+
+        @include tablet {
+            font-size: rem(18);
+        }
+    }
+}
+
+.df-section-app-benefits {
+    background: url('/images/upsell-afterquiz-mobile.png'), #fff;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 380px;
+    padding-top: 415px;
+
+    @include tablet {
+        padding-top: 0;
+        background: url('/images/upsell-afterquiz.png'), #fff;
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: 50%;
+        min-height: 807px;
+    }
+
+    @include laptopL {
+        background-position: top right;
+        background-size: contain;
+    }
+
+    &-title {
+        margin-bottom: 24px;
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-size: rem(30);
+        line-height: rem(36);
+        letter-spacing: 0.0084em;
+
+        @include tablet {
+            margin-bottom: 34px;
+            font-size: rem(42);
+            line-height: rem(48);
+        }
+    }
+
+    .df-two-column-1 {
+        
+        @include tablet {
+            align-items: center;
+            min-height: 807px;
+        }
+    }
+
+    .df-list {
+        max-width: 540px;
+
+        &-item {
+            padding-left: 33px;
+            position: relative;
+            font-family: 'Lato', sans-serif;
+            font-size: rem(18);
+            line-height: rem(22);
+            opacity: 0.8;
+            margin-bottom: 20px;
+
+            @include tablet {
+                margin-bottom: 16px;
+            }
+
+            &:before {
+                content: '';
+                background: url('/svg/paymentcheck.svg') no-repeat;
+                background-size: contain;
+                height: 20px;
+                width: 20px;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+.df-section-app-message {
+    background: #fff;
+    padding: 46px 0 50px;
+
+    @include tablet {
+        padding: 58px 0;
+    }
+
+    .df-app-message {
+        background: #F3F4F8;
+        border-radius: 30px;
+        max-width: 1180px;
+        display: flex;
+        flex-direction: column;
+        padding: 44px 16px 49px;
+
+        @include tablet {
+            padding: 38px 0;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        &-image {
+            width: 260px;
+            height: 186px;
+            margin: 0 auto 46px;
+
+            @include tablet {
+                margin: 0 37px 0 0;
+                width: 300px;
+                height: 215px;
+            }
+
+            svg {
+                width: 100%;
+            }
+        }
+
+        &-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 494px;
+        }
+
+        &-text,
+        &-text2 {
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-weight: 900;
+            letter-spacing: 0.0084em;
+            margin-bottom: 3px;
+        }
+
+        &-text {
+            font-size: rem(24);
+            line-height: rem(28);
+        }
+
+        &-text2 {
+            font-size: rem(20);
+            line-height: rem(26);
+            color: $baseColor;
+        }
+    }
+}
+
+.df-section-more-offer {
+    background: #F3F4F8;
+    padding: 41px 0 50px;
+    position: relative;
+    overflow: hidden;
+
+    @include tablet {
+        padding: 68px 0 78px;
+    }
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+    }
+
+    &:before {
+        background: url('/images/raspberries.png') no-repeat;
+        background-size: contain;
+        height: 299px;
+        width: 283px;
+        top: 50%;
+        left: 0;
+        display: none;
+
+        @include tablet {
+            display: block;
+        }
+    }
+
+    &:after {
+        background: url('/images/gymnast.png') no-repeat;
+        background-size: contain;
+        width: 193.37px;
+        height: 183px;
+        top: 60%;
+        right: -40px;
+
+        @include tablet {
+            top: 45%;
+            height: 353px;
+            width: 373px;
+        }
+    }
+
+    &-title {
+        font-family: 'Lato', sans-serif;
+        font-size: rem(30);
+        line-height: rem(38);
+        text-align: center;
+        letter-spacing: 0.0084em;
+        margin-bottom: 16px;
+
+        @include tablet {
+            font-size: rem(36);
+            line-height: rem(48);
+            margin-bottom: 12px;
+        }
+    }
+
+    &-rating {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 183px;
+        height: 30px;
+        margin: auto;
+
+        .df-rating-item {
+            width: 26.84px;
+            height: 25.2px;
+            background: url('/svg/starYellow.svg') no-repeat center;
+            background-size: contain;
+
+            @include tablet {
+                width: 29.82px;
+                height: 28px;
+            }
+
+            &-grey {
+                width: 26.84px;
+                height: 25.2px;
+                background: url('/svg/starGrey.svg') no-repeat center;
+                background-size: contain;
+
+                @include tablet {
+                    width: 29.82px;
+                    height: 28px;
+                }
+            }
+        }
+    }
+
+    &-button {
+        font-family: 'Lato', sans-serif;
+        font-weight: normal;
+        font-size: rem(18);
+        line-height: rem(22);
+        letter-spacing: rem(2);
+        text-transform: uppercase;        
+        color: #FFFFFF;
+        background: $baseColor;
+        width: 100%;
+        margin-bottom: 22px;
+        height: auto;
+        
+        @include tablet {
+            width: 565px;
+        }
+
+        span {
+            font-weight: normal;
+            opacity: 0.8;
+        }
+    }
+
+    .df-product-select {
+
+        &-list {
+            
+            @include tablet {
+                padding-bottom: 0;
+                justify-content: space-around;
+            }
+        }
+
+        &-item {
+            cursor: pointer;
+            height: 124px;
+                
+            @include tablet {
+                width: 327px;
+                height: 169px;
+                padding: 24px 16px 17px 52px;
+            }
+            
+            &-title {
+                font-size: rem(16);
+                line-height: rem(19);
+                margin-bottom: 11px;
+
+                @include tablet {
+                    font-size: rem(18);
+                    line-height: rem(24);
+                    margin-bottom: 0;
+                }
+
+                span {
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+            }
+
+            &-description {
+
+                p {
+                    color: rgb(139, 139, 139);
+                }
+            }
+
+            &-price {
+                display: none;
+
+                @include tablet {
+                    display: block;
+                    text-align: left;
+                    margin-bottom: 5px;
+                    margin-top: 5px;
+
+                    &:first-letter {
+                        font-size: rem(18);
+                        line-height: rem(22);
+                        line-height: 2.4;
+                    }
+                    
+                    b {
+                        font-size: rem(40);
+                        line-height: rem(49);
+                    }
+    
+                    p {
+                        font-size: rem(14);
+                        line-height: rem(17);
+                        text-transform: none;
+                    }
+                }
+            }
+
+            &-button {
+                width: 20px;
+                height: 20px;
+                bottom: unset;
+                top: 0;
+                left: 16px;
+                right: unset;
+                padding: 0;
+                background: #D8DDE8;
+                margin: auto;
+                bottom: 0;
+
+                @include tablet {
+                    top: 26px;
+                    left: 16px;
+                    right: unset;
+                    bottom: unset;
+                }
+            }
+
+            &-tooltip {
+
+                @include tablet {
+                    padding: 8px;
+                    bottom: -75px;
+                }
+            }
+
+            &.active {
+                margin-bottom: 100px;
+
+                .df-product-select-item {
+
+                    &-button {
+                        background: url('/svg/paymentcheck.svg') no-repeat;
+                        background-size: contain;
+                        
+                        @include tablet {
+                            &:before {
+                                background: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .df-safe-money {
+                top: unset;
+                right: unset;
+                bottom: 20px;
+
+                @include tablet {
+                    top: 24px;
+                    right: 16px;
+                    bottom: unset;
+                }
+            }
+        }
+    }
+
+    .df-who-app {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 27px;
+        z-index: 2;
+        position: relative;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+            margin-top: 22px;
+        }
+
+        &-title {
+            max-width: 239px;
+            margin-left: 0;
+
+            @include tablet {
+                margin-left: auto;
+                max-width: 100%;
+            }
+        }
+
+        &-item {
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+            width: 100%;
+
+            @include tablet {
+                width: 327px;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 15px;
+
+                @include tablet {
+                    margin-bottom: 0;
+                    margin-right: 24px;
+                }
+            }
+
+            &-image {
+                background: rgba(45, 115, 246, 0.1);
+                height: 56px;
+                width: 56px;
+                border-radius: 50%;
+                margin-right: 11px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            &-text {
+                font-family: 'Lato', sans-serif;
+                font-weight: normal;
+                font-size: rem(16);
+                line-height: rem(20);
+                letter-spacing: 0.0084em;
+                color: #222;
+                opacity: 0.8;
+                width: 194px;
+            }
+        }
+    }
+}
+
+.df-section-customers {
+    background: url('/images/customers-bg.png'),#fff;
+    background-position: bottom center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 42px 0 23px;
+
+    @include tablet {
+        padding: 68px 0 39px;
+    }
+
+    .df-section-title {
+        max-width: 519px;
+        margin-bottom: 16px;
+
+        @include tablet {
+            margin-bottom: 39px;
+        }
+    }
+
+    .df-customers-list {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 23px;
+
+        @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: 39px;
+        }
+
+        &-item {
+            width: 100%;
+            margin-bottom: 35px;
+            
+            @include tablet {
+                width: 352px;
+                margin-bottom: 0;
+            }
+
+            &:not(:last-child) {
+                margin-right: 51px;
+            }
+
+            .df-customers-info {
+                width: 100%;
+                height: auto;
+                max-height: 352px;
+                max-width: 352px;
+                position: relative;
+                margin-bottom: 17px;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                overflow: hidden;
+
+                @include tablet {
+                    width: 352px;
+                    height: 352px;
+                }
+
+                &-image {
+                    width: 100%;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                &-userstatus,
+                &-name {
+                    font-family: 'Lato', sans-serif;
+                    position: absolute;
+                    text-align: center;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                }
+
+                &-name {
+                    background: #EAF1FE;
+                    border-radius: 40px;
+                    color: $blueColor;
+                    font-weight: bold;
+                    font-size: rem(18);
+                    line-height: rem(30);
+                    width: 280px;
+                    height: 40px;
+                    bottom: 40px;
+                    padding: 4px 0;
+                    z-index: 2;
+                }
+
+                &-userstatus {
+                    bottom: 0;
+                    font-weight: normal;
+                    font-size: rem(15);
+                    line-height: rem(16);
+                    color: rgba(34, 34, 34, 0.8);
+                    background: #fff;
+                    height: 61px;
+                    padding-top: 30px;
+
+                    svg {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            .df-customers-description {
+                &-title,
+                &-text {
+                    font-family: 'Lato', sans-serif;
+                    color: #222;
+                }
+
+                &-title {
+                    font-weight: bold;
+                    font-size: rem(18);
+                    line-height: rem(30);
+                    margin-bottom: 5px;
+
+                    @include tablet {
+                        margin-bottom: 15px;
+                    }
+                }
+
+                &-text {
+                    font-weight: normal;
+                    font-size: rem(16);
+                    line-height: rem(24);
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+.df-offer-button {
+    
+    .df-type-payment {
+
+        &-list {
+            margin-bottom: 33px;
+            text-align: center;
+
+            svg {
+                &:not(:last-child) {
+                    margin-right: 16px;
+                }
+            }
+        }
+
+        &-text {
+            font-family: 'Lato', sans-serif;
+            font-weight: normal;
+            font-size: rem(14);
+            line-height: rem(24);
+            letter-spacing: 0.0084em;
+            margin-bottom: 0;
+            text-align: center;
+            color: #222;
+        }
+    }
+}

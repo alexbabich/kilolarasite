@@ -177,9 +177,6 @@
                 </div>
             </section>
 
-
-
-
             <section class="df-quizsummary-step3 df-section-select-payment">
                 <div class="df-container df-direction-column">
                     <p class="df-quizsummary-step-number">STEP 3</p>
@@ -237,7 +234,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="df-payment-submit">
                                     <div class="df-payment-submit-checkbox">
                                         <label class="df-payment-submit-checkbox-container">
@@ -294,7 +290,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     
                     <div class="df-select-payment-total">
@@ -321,8 +316,6 @@
                     </div>
                 </div>
             </section>
-
-
 
             <section class="df-section-testimonials">
                 <div class="df-container">
