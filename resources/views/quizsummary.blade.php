@@ -185,12 +185,146 @@
                     <p class="df-quizsummary-step-number">STEP 3</p>
                     <h2 class="df-quizsummary-step-title">Select a secure payment method</h2>
                 </div>
+                <div class="df-container df-select-payment">
+
+                    <div class="df-select-payment-type">
+                        <div class="df-payment-type-tabs">
+                            <div class="df-payment-type-tabs-button active" data-type="creditcard">
+                                <label>Credit card</label>
+                                <div class="df-right-side">
+                                    @svg('visa.svg')
+                                    @svg('mastercard.svg')
+                                    @svg('maestro.svg')
+                                    @svg('american-express.svg')
+                                    @svg('union-pay.svg')
+                                </div>
+                            </div>
+                            <div class="df-payment-type-tabs-button" data-type="paypal">
+                                <label for="pp">PayPal</label>
+                                <div class="df-right-side">
+                                    @svg('paypal.svg')
+                                </div>
+                            </div>
+                            <div class="df-payment-type-tabs-button" data-type="giropay">
+                                <label for="gp">GiroPay</label>
+                                <div class="df-right-side">
+                                    @svg('giropay.svg')
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="df-payment-type-content">
+                            <div id="creditcard" class="df-payment-type-content-item active">
+                                <div class="df-payment-type-content-item-wrapper">
+                                    <h3 class="df-payment-type-content-item-title">Enter your credit card details</h3>
+                                    <div class="df-creditcard-item">
+                                        <label class="df-creditcard-item-title">Card Holder name</label>
+                                        <input class="df-creditcard-item-input" type="text" placeholder="John Doe" />
+                                    </div>
+                                    <div class="df-creditcard-item">
+                                        <label class="df-creditcard-item-title">Card Number</label>
+                                        <input class="df-creditcard-item-input" type="text" placeholder="1234 5678 2345" />
+                                    </div>
+                                    <div class="df-creditcard-two-column">
+                                        <div class="df-creditcard-item">
+                                            <label class="df-creditcard-item-title">Expiration Date <span>(MM / YY)</span></label>
+                                            <input class="df-creditcard-item-input" type="text" placeholder="12 / 20" />
+                                        </div>
+                                        <div class="df-creditcard-item">
+                                            <label class="df-creditcard-item-title">CVV</label>
+                                            <input class="df-creditcard-item-input" type="text" placeholder="12 / 20" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="df-payment-submit">
+                                    <div class="df-payment-submit-checkbox">
+                                        <label class="df-payment-submit-checkbox-container">
+                                            I agree with the <a href="">T&Cs</a> and <a href="">Privacy Policy</a>
+                                            <input type="checkbox" />
+                                            <span class="df-payment-submit-checkbox-checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="df-payment-submit-button">@svg('lockWhite.svg')SUBMIT SECURE PAYMENT</button>
+                                    <div class="df-payment-submit-items">
+                                        @svg('https.svg')
+                                        @svg('norton.svg')
+                                        @svg('sslsecure.svg')
+                                        @svg('mcafee.svg')
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="paypal" class="df-payment-type-content-item">
+                                <div class="df-payment-submit">
+                                    <div class="df-payment-submit-checkbox">
+                                        <label class="df-payment-submit-checkbox-container">
+                                            I agree with the <a href="">T&Cs</a> and <a href="">Privacy Policy</a>
+                                            <input type="checkbox" />
+                                            <span class="df-payment-submit-checkbox-checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="df-payment-submit-button">SUBMIT SECURE PAYMENT with @svg('paypal-button.svg')</button>
+                                    <div class="df-payment-submit-items">
+                                        @svg('https.svg')
+                                        @svg('norton.svg')
+                                        @svg('sslsecure.svg')
+                                        @svg('mcafee.svg')
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="giropay" class="df-payment-type-content-item">
+                                <div class="df-payment-submit">
+                                    <div class="df-payment-submit-checkbox">
+                                        <label class="df-payment-submit-checkbox-container">
+                                            I agree with the <a href="">T&Cs</a> and <a href="">Privacy Policy</a>
+                                            <input type="checkbox" />
+                                            <span class="df-payment-submit-checkbox-checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="df-payment-submit-button">SUBMIT SECURE PAYMENT with @svg('giropay-button.svg')</button>
+                                    <div class="df-payment-submit-items">
+                                        @svg('https.svg')
+                                        @svg('norton.svg')
+                                        @svg('sslsecure.svg')
+                                        @svg('mcafee.svg')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="df-select-payment-total">
+                        <div class="df-select-payment-total-item">
+                            <p>DoFasting Annual plan</p>
+                            <p>$264</p>
+                        </div>
+                        <div class="df-select-payment-total-item">
+                            <p>Discount -75%</p>
+                            <p>-$198</p>
+                        </div>
+                        <div class="df-select-payment-total-item">
+                            <p>Referral code<span>friendsforhealth</span></p>
+                            <p>-$6</p>
+                        </div>
+                        <div class="df-select-payment-total-item">
+                            <p>Referral code</p>
+                            <p class="df-underline-text df-text-red">Enter code</p>
+                        </div>
+                        <div class="df-select-payment-total-itemtotal">
+                            <p>Total</p>
+                            <p>$66</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
 
 
             <section class="df-section-testimonials">
-
                 <div class="df-container">
                     <h2 class="df-section-testimonials-title">Hear success stories from our clients</h2>
                     <p class="df-section-testimonials-text">Nothing inspires more than seeing other people succeed, right? So, read these amazing stories and get ready to start your own. A few months from now you could be one of them!</p>
@@ -256,12 +390,7 @@
                         </div>
                     </div>
                 </div>
-
             </section>
-
-
-
-
 
             <section class="df-section-more-benefits">
                 <div class="df-container df-two-column-2-3 df-column-reverse">
@@ -307,7 +436,6 @@
                     $(this).html('SELECTED');
                 })
 
-
                 if (window.matchMedia('(max-width: 767px)').matches) {
                     $('.df-product-select-item').click(function () {
                         let $boxes = $(this);
@@ -333,6 +461,21 @@
                 });
                 // end script
 
+
+                // script for payment tabs
+                $('.df-payment-type-tabs-button').click(function () {
+                    var i;
+                    var x = $('.df-payment-type-content-item');
+                    var y = $('.df-payment-type-tabs-button');
+                    for (i = 0; i < x.length; i++) {
+                        x.eq(i).removeClass('active');
+                        y.eq(i).removeClass('active');
+                    }
+
+                    $(this).addClass('active');
+                    $('#'+$(this).attr('data-type')).addClass('active');
+                })
+                // end script
 
             });
         </script>
