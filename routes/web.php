@@ -28,8 +28,13 @@ Route::get('/quizupsell', function () {
     return view('quizupsell');
 });
 
+Route::get('/reviews', function () {
+    return view('reviews');
+});
 
-
+Route::get('/reviewinner', function () {
+    return view('reviewinner');
+});
 
 
 

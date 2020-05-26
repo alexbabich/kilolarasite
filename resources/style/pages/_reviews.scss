@@ -1,0 +1,84 @@
+
+.df-section-join-facebook {
+    height: 352px;
+ 
+    
+    .df-join-facebook {
+        position: relative;
+        background: url('/images/join-facebook-community.png') no-repeat;
+        background-size: contain;
+        background-position: right;
+        width: 100%;
+        height: 630px;
+        padding: 44px 16px 0;
+
+        @include tablet {
+            height: 352px;
+            background-position: center;
+            padding: 67px 0 0 94px;
+        }
+
+        &-title,
+        &-text {
+            font-family: 'Lato', sans-serif;
+            color: #fff;
+            text-align: center;
+
+            @include tablet {
+                text-align: left
+            }
+        }
+
+        &-title {
+            font-weight: 900;
+            font-size: rem(30);
+            line-height: rem(36);
+            margin: 0 0 15px;
+
+            @include tablet {
+                font-size: rem(36);
+                line-height: rem(38);
+                max-width: 369px;
+            }
+        }
+
+        &-text {
+            font-weight: normal;
+            font-size: rem(16);
+            line-height: rem(24);
+            margin: 0 0 20px;
+            
+            @include tablet {
+                font-size: rem(18);
+                max-width: 369px;
+            }
+        }
+
+        &-button {
+            margin: 0;
+            background: $baseColor;
+
+            @include tablet {
+                width: 176px;
+            }
+        }
+
+        .df-logo {
+            width: 140.87px;
+            height: 17.53px;
+            position: absolute;
+            bottom: 44.47px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            
+            @include tablet {
+                bottom: 100%;
+                top: 30px;
+                right: 30px;
+                left: unset;
+                margin: 0;
+            }
+        }
+    }
+}

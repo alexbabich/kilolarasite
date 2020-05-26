@@ -18779,6 +18779,519 @@ label {
   }
 }
 
+.df-section-join-facebook {
+  height: 352px;
+}
+
+.df-section-join-facebook .df-join-facebook {
+  position: relative;
+  background: url("/images/join-facebook-community.png") no-repeat;
+  background-size: contain;
+  background-position: right;
+  width: 100%;
+  height: 630px;
+  padding: 44px 16px 0;
+}
+
+@media (min-width: 768px) {
+  .df-section-join-facebook .df-join-facebook {
+    height: 352px;
+    background-position: center;
+    padding: 67px 0 0 94px;
+  }
+}
+
+.df-section-join-facebook .df-join-facebook-title,
+.df-section-join-facebook .df-join-facebook-text {
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-join-facebook .df-join-facebook-title,
+  .df-section-join-facebook .df-join-facebook-text {
+    text-align: left;
+  }
+}
+
+.df-section-join-facebook .df-join-facebook-title {
+  font-weight: 900;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin: 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  .df-section-join-facebook .df-join-facebook-title {
+    font-size: 2.25rem;
+    line-height: 2.375rem;
+    max-width: 369px;
+  }
+}
+
+.df-section-join-facebook .df-join-facebook-text {
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 0 0 20px;
+}
+
+@media (min-width: 768px) {
+  .df-section-join-facebook .df-join-facebook-text {
+    font-size: 1.125rem;
+    max-width: 369px;
+  }
+}
+
+.df-section-join-facebook .df-join-facebook-button {
+  margin: 0;
+  background: #DE2B70;
+}
+
+@media (min-width: 768px) {
+  .df-section-join-facebook .df-join-facebook-button {
+    width: 176px;
+  }
+}
+
+.df-section-join-facebook .df-join-facebook .df-logo {
+  width: 140.87px;
+  height: 17.53px;
+  position: absolute;
+  bottom: 44.47px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .df-section-join-facebook .df-join-facebook .df-logo {
+    bottom: 100%;
+    top: 30px;
+    right: 30px;
+    left: unset;
+    margin: 0;
+  }
+}
+
+.df-page-reviewinner {
+  padding-top: 24px;
+  padding-bottom: 78px;
+  background: white;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner {
+    padding-top: 48px;
+    padding-bottom: 131px;
+  }
+}
+
+.df-page-reviewinner .df-back-link {
+  font-family: 'Lato', sans-serif;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.625rem;
+  color: #2D73F6;
+  display: flex;
+  align-items: center;
+  width: 129px;
+  margin-left: 15px;
+}
+
+.df-page-reviewinner .df-back-link svg {
+  width: 22px;
+  height: 12.22px;
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner .df-back-link svg {
+    margin-right: 0;
+  }
+}
+
+.df-page-reviewinner .df-back-link.df-ontop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner .df-back-link.df-ontop {
+    display: flex;
+  }
+}
+
+.df-page-reviewinner .df-logo-header {
+  padding: 0;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner .df-logo-header {
+    margin-bottom: 12px;
+    text-align: left;
+  }
+}
+
+.df-page-reviewinner .df-logo-header svg {
+  width: 140px;
+  height: 17.42px;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner .df-logo-header svg {
+    width: 200.87px;
+    height: 25px;
+  }
+}
+
+.df-page-reviewinner .df-user-image-mobile,
+.df-page-reviewinner .df-user-image-desktop {
+  position: relative;
+}
+
+.df-page-reviewinner .df-user-image-mobile .df-user-nickname,
+.df-page-reviewinner .df-user-image-desktop .df-user-nickname {
+  position: absolute;
+  top: 20px;
+}
+
+.df-page-reviewinner .df-user-image-mobile img,
+.df-page-reviewinner .df-user-image-desktop img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.df-page-reviewinner .df-user-image-mobile {
+  width: 375px;
+  height: 254px;
+  flex-direction: column;
+  margin-bottom: 62px;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner .df-user-image-mobile {
+    display: none;
+  }
+}
+
+.df-page-reviewinner .df-user-image-mobile .df-user-nickname {
+  left: 16px;
+}
+
+.df-page-reviewinner .df-user-image-mobile img {
+  height: 100%;
+  width: auto;
+  margin-bottom: 28px;
+}
+
+.df-page-reviewinner .df-user-image-desktop {
+  width: 556px;
+  height: 574px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner .df-user-image-desktop {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}
+
+.df-page-reviewinner .df-user-image-desktop .df-user-nickname {
+  left: 20px;
+}
+
+.df-page-reviewinner .df-user-nickname {
+  background: #FCEAF1;
+  border-radius: 50px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  line-height: 1.875rem;
+  color: #DE2B70;
+  width: 154px;
+  height: 30px;
+  text-align: center;
+}
+
+.df-page-reviewinner .df-user-slogan {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 1.375rem;
+  line-height: 2.0625rem;
+  text-align: center;
+  margin: 43px auto;
+  color: #2D73F6;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviewinner .df-user-slogan {
+    max-width: 768px;
+    margin: 76px auto 68px;
+    font-size: 1.625rem;
+    line-height: 2.25rem;
+  }
+}
+
+.df-section-user-preview {
+  background: url("/images/wave-grey.png"), #e9edf300;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.df-user-preview {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.df-user-preview .df-user-info {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .df-user-preview .df-user-info {
+    max-width: 520px;
+  }
+}
+
+.df-user-preview .df-user-info-name {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 1.875rem;
+  line-height: 2.375rem;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .df-user-preview .df-user-info-name {
+    font-size: 2.625rem;
+    line-height: 3.25rem;
+    margin-bottom: 25px;
+  }
+}
+
+.df-user-preview .df-user-info-description {
+  font-family: 'Lato', sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.625rem;
+  color: rgba(34, 34, 34, 0.8);
+  margin: 0 0 23px;
+}
+
+@media (min-width: 768px) {
+  .df-user-preview .df-user-info-description {
+    margin: 0 0 26px;
+    font-size: 1.125rem;
+  }
+}
+
+.df-user-preview .df-user-info-playbutton {
+  background: #DE2B70;
+  border-radius: 14px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  width: 100%;
+  border: none;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .df-user-preview .df-user-info-playbutton {
+    max-width: 220px;
+  }
+}
+
+.df-user-preview .df-user-info-playbutton svg {
+  height: 23.3px;
+  width: 23.3px;
+  margin-right: 10px;
+}
+
+.df-section-start-journey {
+  background: white;
+}
+
+.df-section-start-journey .df-container {
+  overflow: visible;
+}
+
+.df-section-start-journey .df-journey-block {
+  background: #f3f4f8;
+  border-radius: 10px;
+  position: relative;
+  padding: 43px 42px 315px;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-journey-block {
+    padding: 45px 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-start-journey .df-journey-block {
+    padding: 45px 94px;
+  }
+}
+
+.df-section-start-journey .df-journey-block:after {
+  content: '';
+  background: url("/images/phoneapp.png") no-repeat;
+  width: 170px;
+  height: 360px;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -77px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-journey-block:after {
+    width: 206px;
+    height: 435px;
+    bottom: unset;
+    left: unset;
+    top: 27px;
+    right: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-section-start-journey .df-journey-block:after {
+    right: 186px;
+  }
+}
+
+.df-section-start-journey .df-journey-block-title,
+.df-section-start-journey .df-journey-block-text {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-journey-block-title,
+  .df-section-start-journey .df-journey-block-text {
+    text-align: left;
+  }
+}
+
+.df-section-start-journey .df-journey-block-title {
+  font-weight: 900;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin: 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-journey-block-title {
+    font-size: 2.25rem;
+    line-height: 2.625rem;
+    max-width: 307px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-start-journey .df-journey-block-title {
+    max-width: 100%;
+    line-height: 4.125rem;
+    margin: 0;
+  }
+}
+
+.df-section-start-journey .df-journey-block-text {
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-journey-block-text {
+    max-width: 307px;
+    margin-bottom: 27px;
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-start-journey .df-journey-block-text {
+    max-width: 507px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-section-start-journey .df-journey-block-text {
+    max-width: 507px;
+  }
+}
+
+.df-section-start-journey .df-select-gender {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-select-gender {
+    flex-direction: row;
+  }
+}
+
+.df-section-start-journey .df-select-gender-text {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-select-gender-text {
+    text-align: left;
+  }
+}
+
+.df-section-start-journey .df-select-gender-button {
+  margin: 0;
+}
+
+.df-section-start-journey .df-select-gender-button:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .df-section-start-journey .df-select-gender-button:not(:last-child) {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.df-section-start-journey .df-select-gender-button.df-male {
+  background: #2D73F6;
+}
+
+.df-section-start-journey .df-select-gender-button.df-female {
+  background: #DE2B70;
+}
+
 /* make sure to set some focus styles for accessibility */
 
 :focus {

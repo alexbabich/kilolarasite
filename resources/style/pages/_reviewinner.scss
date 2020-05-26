@@ -1,0 +1,369 @@
+.df-page-reviewinner {
+    padding-top: 24px;
+    padding-bottom: 78px;
+    background: rgb(255, 255, 255);
+
+    @include tablet {
+        padding-top: 48px;
+        padding-bottom: 131px;
+    }
+
+    .df-back-link {
+        font-family: 'Lato', sans-serif;
+        font-weight: normal;
+        font-size: rem(14);
+        line-height: rem(26);
+        color: $blueColor;
+        display: flex;
+        align-items: center;
+        width: 129px;
+        margin-left: 15px;
+
+        svg {
+            width: 22px;
+            height: 12.22px;
+            margin-right: 10px;
+
+            @include tablet {
+                margin-right: 0;
+            }
+        }
+
+
+        &.df-ontop {
+            display: none;
+
+            @include tablet {
+                display: flex;
+            }
+        }
+    }
+
+    .df-logo-header {
+        padding: 0;
+        text-align: center;
+        margin-bottom: 24px;
+
+        @include tablet {
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        svg {
+            width: 140px;
+            height: 17.42px;
+            
+            @include tablet {
+                width: 200.87px;
+                height: 25px;
+            }
+        }
+    }
+
+    .df-user-image {
+        
+        &-mobile,
+        &-desktop {
+            position: relative;
+
+            .df-user-nickname {
+                position: absolute;
+                top: 20px;
+            }
+            
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &-mobile {
+            width: 375px;
+            height: 254px;
+            flex-direction: column;
+            margin-bottom: 62px;
+
+            @include tablet {
+                display: none;
+            }
+
+            .df-user-nickname {
+                left: 16px;
+            }
+
+            img {
+                height: 100%;
+                width: auto;
+                margin-bottom: 28px;
+            }
+        }
+
+        &-desktop {
+            width: 556px;
+            height: 574px;
+            display: none;
+
+            @include tablet {
+                display: flex;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .df-user-nickname {
+                left: 20px;
+            }
+        }
+    }
+
+    .df-user {
+
+        &-nickname {
+            background: #FCEAF1;
+            border-radius: 50px;
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            font-size: rem(13);
+            line-height: rem(30);
+            color: $textRed;
+            width: 154px;
+            height: 30px;
+            text-align: center;
+        }
+
+        &-slogan {
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            font-size: rem(22);
+            line-height: rem(33);
+            text-align: center;
+            margin: 43px auto;
+            color: $blueColor;
+
+            @include tablet {
+                max-width: 768px;
+                margin: 76px auto 68px;
+                font-size: rem(26);
+                line-height: rem(36);
+            }
+        }
+    }
+}
+
+.df-section-user-preview {
+    background: url('/images/wave-grey.png'), #e9edf300;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.df-user-preview {
+    justify-content: space-between;
+    align-items: center;
+
+    .df-user-info {
+        width: 100%;
+        
+        @include tablet {
+            max-width: 520px;
+        }
+
+        &-name {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: rem(30);
+            line-height: rem(38);
+            margin-bottom: 16px;
+
+            @include tablet {
+                font-size: rem(42);
+                line-height: rem(52);
+                margin-bottom: 25px;
+            }
+        }
+
+        &-description {
+            font-family: 'Lato', sans-serif;
+            font-weight: normal;
+            font-size: rem(16);
+            line-height: rem(26);
+            color: rgba(34, 34, 34, 0.8);
+            margin: 0 0 23px;
+
+            @include tablet {
+                margin: 0 0 26px;
+                font-size: rem(18);
+            }
+        }
+
+        &-playbutton {
+            background: $baseColor;
+            border-radius: 14px;
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            font-size: rem(18);
+            line-height: rem(22);
+            letter-spacing: rem(2);
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+            width: 100%;
+            border: none;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+            @include tablet {
+                max-width: 220px;
+            }
+
+            svg {
+                height: 23.3px;
+                width: 23.3px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.df-section-start-journey {
+    background: rgb(255, 255, 255);
+
+    .df-container {
+        overflow: visible;
+    }
+
+    .df-journey-block {
+        background: rgb(243, 244, 248);
+        border-radius: 10px;
+        position: relative;
+        padding: 43px 42px 315px;
+
+        @include tablet {
+            padding: 45px 50px;
+        }
+
+        @include tabletL {
+            padding: 45px 94px;
+        }
+
+        &:after {
+            content: '';
+            background: url('/images/phoneapp.png') no-repeat;
+            width: 170px;
+            height: 360px;
+            background-size: cover;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -77px;
+            margin: auto;
+
+            @include tablet {
+                width: 206px;
+                height: 435px;
+                bottom: unset;
+                left: unset;
+                top: 27px;
+                right: 16px;
+            }
+
+            @include laptopL {
+                right: 186px;
+            }
+        }
+
+        &-title,
+        &-text {
+            font-family: 'Lato', sans-serif;
+            text-align: center;
+
+            @include tablet {
+                text-align: left;
+            }
+        }
+
+        &-title {
+            font-weight: 900;
+            font-size: rem(30);
+            line-height: rem(36);
+            margin: 0 0 15px;
+
+            @include tablet {
+                font-size: rem(36);
+                line-height: rem(42);
+                max-width: 307px;
+            }
+
+            @include tabletL {
+                max-width: 100%;
+                line-height: rem(66);
+                margin: 0;
+            }
+        }
+
+        &-text {
+            font-weight: normal;
+            font-size: rem(16);
+            line-height: rem(24);
+            margin-bottom: 20px;
+
+            @include tablet {
+                max-width: 307px;
+                margin-bottom: 27px;
+                font-size: rem(18);
+            }
+
+            @include tabletL {
+                max-width: 507px;
+            }
+
+            @include laptopL {
+                max-width: 507px;
+            }
+        }
+    }
+
+    .df-select-gender {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        &-text {
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            font-size: rem(18);
+            line-height: rem(22);
+            margin-bottom: 15px;
+            text-align: center;
+
+            @include tablet {
+                text-align: left;
+            }
+        }
+
+        &-button {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+
+                @include tablet {
+                    margin-right: 16px;
+                    margin-bottom: 0;
+                }
+            }
+
+            &.df-male {
+                background: $blueColor;
+            }
+
+            &.df-female {
+                background: $baseColor;
+            }
+        }
+    }
+}
