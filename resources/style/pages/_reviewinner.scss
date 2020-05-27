@@ -231,13 +231,27 @@
     &.df-second-version {
         margin: 60px auto;
 
+        .df-container {
+            padding: 0;
+        }
+
         .df-journey-block {
-            background: url('/images/start-journey.png') no-repeat;
+            height: 511px;
+            background: url('/images/start-journey-mobile.png') no-repeat;
             background-size: cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            border-radius: 0;
+            padding: 75px 32px 80px;
+
+            @include tablet {
+                height: auto;
+                border-radius: 10px;
+                background: url('/images/start-journey.png') no-repeat;
+                background-size: cover;
+            }
 
             &:after {
                 display: none;
@@ -248,6 +262,17 @@
             .df-select-gender-text {
                 color: #fff;
                 text-align: center;
+            }
+
+            .df-direction-column,
+            .df-select-gender-button {
+                max-width: 311px;
+                width: 100%;
+
+                @include tablet {
+                    max-width: unset;
+                    width: auto;
+                }
             }
         }
     }

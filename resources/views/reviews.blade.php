@@ -12,6 +12,67 @@
     <body>
         <div class="df-page-reviews">
 
+            <section class="df-section-top-block">
+                <div class="df-container">
+                    <div class="df-two-column-1">
+                        <div class="df-two-column-1-left">
+                            <p class="df-raiting">
+                                <span class="df-raiting-item"></span>
+                                <span class="df-raiting-item"></span>
+                                <span class="df-raiting-item"></span>
+                                <span class="df-raiting-item"></span>
+                                <span class="df-raiting-item"></span>
+                                <span class="df-text">(10,000+ reviews)</span>
+                            </p>
+                            <h2 class="df-section-title">Hey. You make us smile, too!</h2>
+                            <p class="df-text">More than 10,000 happy clients all over the world, <span class="df-text-red df-bold">read all stories bellow</span></p>
+                        
+                        </div>
+                        <div class="df-two-column-1-right">
+                            <div class="df-slogan-message">
+                                <p>Now I recommend it to anyone who ever wanted to try fasting. It keeps you on track and gives awesome meal suggestions.</>
+                                <span class="df-slogan-message-user">Taylor M.</span>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="df-container">
+                <div class="df-devider"></div>
+            </div>
+
+            <section class="df-section-counts">
+                <div class="df-container">
+                    <div class="df-counts-list">
+                        <div class="df-counts-list-item">
+                            <div class="df-counts-list-item-icon">
+                                @svg('play-fill.svg')
+                            </div>
+                            <div class="df-counts-list-item-number">200+</div>
+                            <div class="df-counts-list-item-text">Video reviews</div>
+                        </div>
+
+                        <div class="df-counts-list-item">
+                            <div class="df-counts-list-item-icon">
+                                @svg('user-star.svg')
+                            </div>
+                            <div class="df-counts-list-item-number">10,000+</div>
+                            <div class="df-counts-list-item-text">Happy clients</div>
+                        </div>
+
+                        <div class="df-counts-list-item">
+                            <div class="df-counts-list-item-icon">
+                                @svg('chat-heart-line.svg')
+                            </div>
+                            <div class="df-counts-list-item-number">300+</div>
+                            <div class="df-counts-list-item-text">Success stories</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="df-section-start-journey">
                 <div class="df-container">
                     <div class="df-journey-block">
@@ -28,18 +89,63 @@
                 </div>
             </section>
 
-
             <section class="df-section-video-reviews">
                 <div class="df-container">
+                    <h3 class="df-section-title">Video reviews</h3>
+                </div>
+                <div class="df-container">
                     <div class="df-two-column-1">
-                        <div class="df-two-column-1-left"></div>
-                        <div class="df-two-column-1-right"></div>
+                        <div class="df-two-column-1-left df-video-preview-big">
+                            <div class="df-preview-image">
+                                <img src="/images/video-preview-big.png" alt="" />
+                                <span class="df-playvideo"></span>
+                            </div>
+                            <p class="df-preview-usernick">@mariu_healthyeats</p>
+                            <p class="df-preview-username">Mariu Cabral</p>
+                            <p class="df-preview-usertext">Mariu Cabral is a nutrition student, blogger, and a wellness enthusiast. She’s been doing intermittent fasting for a while, but struggled to keep track of her diet and fasting times.</p>
+                            <a href="" class="df-button df-storylink">Read story</a>
+                        </div>
+                        <div class="df-two-column-1-right df-video-preview-list">
+                            <div class="df-video-preview-list-item">
+                                <div class="df-preview-small-image">
+                                    <img src="/images/video-preview-small1.png" alt="" />
+                                    <span class="df-playvideo"></span>
+                                </div>
+                                <div class="df-preview-small-additional">
+                                    <p class="df-preview-usernick">@gymjules_</p>
+                                    <p class="df-preview-username">Jules</p>
+                                    <p class="df-preview-usertext">As a weight loss coach, Jules strongly believes in the power of professional guidance...</p>
+                                    <a href="" class="df-preview-storylink">Read story</a>
+                                </div>
+                            </div>
+                            <div class="df-video-preview-list-item">
+                                <div class="df-preview-small-image">
+                                    <img src="/images/video-preview-small2.png" alt="" />
+                                    <span class="df-playvideo"></span>
+                                </div>
+                                <div class="df-preview-small-additional">
+                                    <p class="df-preview-usernick">@em_keen</p>
+                                    <p class="df-preview-username">Em Keen</p>
+                                    <p class="df-preview-usertext">Em Keen is a yoga and meditation teacher as well as a “big advocate for intermittent fasting”...</p>
+                                    <a href="" class="df-preview-storylink">Read story</a>
+                                </div>
+                            </div>
+                            <div class="df-video-preview-list-item">
+                                <div class="df-preview-small-image">
+                                    <img src="/images/video-preview-small3.png" alt="" />
+                                    <span class="df-playvideo"></span>
+                                </div>
+                                <div class="df-preview-small-additional">
+                                    <p class="df-preview-usernick">@joseamendieta</p>
+                                    <p class="df-preview-username">Josea Mendieta</p>
+                                    <p class="df-preview-usertext">Jose Mendieta is a medical student, bodybuilder and coach...</p>
+                                    <a href="" class="df-preview-storylink">Read story</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-
-
-
 
             <section class="df-section-reviews">
                 <div class="df-container">
@@ -395,6 +501,26 @@
            
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+            $(function(){
+
+                function truncate(str, n){
+                    return (str.length > n) ? str.substr(0, n-1) + '&hellip;' : str;
+                };
+
+                if (window.matchMedia('(max-width: 767px)').matches) {
+                    $('.df-video-preview-list-item').each(function () {
+                    
+                        let str = $(this).find($('.df-preview-usertext')).text();
+                        const n = 28;
+                        let newText = (str.length > n) ? str.substr(0, n-1) + '...' : str;
+
+                        $(this).find($('.df-preview-usertext')).text(newText)
+                    })
+                }
+            });
+        </script>
     </body>
 </html>
