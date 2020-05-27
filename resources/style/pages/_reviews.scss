@@ -1,21 +1,68 @@
+.df-page-reviews {
+    background: #fff;
 
-.df-section-join-facebook {
-    height: 352px;
- 
+    .df-section-customers {
+        background: url('/images/wave2-grey.png'), #e9edf300;
+        padding: 60px 0;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        .df-section-title {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            font-style: normal;
+            font-size: rem(34);
+            line-height: rem(41);
+
+            @include tablet {
+                font-size: rem(40);
+                line-height: rem(48);
+            }
+        }
+    }
+
+    .df-read-more-button {
+        background: $blueColor;
+
+        @include tablet {
+            display: none;
+        }
+    }
+}
+
+.df-section-reviews {
+    background: linear-gradient(180deg, #F3F4F8 0%, #F3F4F8 89.72%, rgba(243, 244, 248, 0) 100%);
+
+    .df-section-title {
+        font-family: 'Lato', sans-serif;
+        font-size: rem(34);
+        line-height: rem(41);
+        text-align: center;
+        margin-bottom: 21px;
+
+        @include tablet {
+            font-size: rem(40);
+            line-height: rem(48);
+        }
+    }
     
     .df-join-facebook {
         position: relative;
-        background: url('/images/join-facebook-community.png') no-repeat;
+        background: url('/images/join-facebook-community-mobile.png') no-repeat;
         background-size: contain;
         background-position: right;
         width: 100%;
         height: 630px;
         padding: 44px 16px 0;
+        margin: 51px auto 61px;
 
         @include tablet {
             height: 352px;
+            background: url('/images/join-facebook-community.png') no-repeat;
             background-position: center;
+            background-size: contain;
             padding: 67px 0 0 94px;
+            margin: 64px auto 60px;
         }
 
         &-title,
@@ -46,7 +93,7 @@
             font-weight: normal;
             font-size: rem(16);
             line-height: rem(24);
-            margin: 0 0 20px;
+            margin: 0 0 30px;
             
             @include tablet {
                 font-size: rem(18);
@@ -78,6 +125,122 @@
                 right: 30px;
                 left: unset;
                 margin: 0;
+            }
+        }
+    }
+
+    .df-reviews-list {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+
+        &-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            @include tablet {
+                margin-bottom: 0;
+            }
+
+            .df-user-photo {
+                width: 36px;
+                height: 34px;
+                margin-right: 11px;
+
+                img {
+                    border-radius: 50%;
+                    object-fit: fill;
+                    width: 100%;
+                }
+            }
+
+            .df-user-additional {
+                width: 300px;
+            }
+        }
+
+        .df-additional-act {
+
+            &-item {
+                font-family: Arial;
+                font-weight: normal;
+                font-size: rem(14);
+                line-height: rem(24);
+                color: #3B5994;
+
+                &.active {
+                    font-weight: bold;
+                    color: #F25268;
+                }
+
+                &:not(:last-child) {
+
+                    &:after {
+                        content: '·';
+                        font-weight: bold;
+                        color: rgba(34, 34, 34, 0.6);;
+                        margin-left: 3px;
+                    }
+                }
+
+                &:last-child {
+                    color: rgba(34, 34, 34, 0.6);
+                }
+            }
+        }
+
+        .df-user-message {
+            background: #E7EAF5;
+            border-radius: 20px;
+            padding: 12px 14px;
+            position: relative;
+            margin-bottom: 5px;
+
+            .df-user-name {
+                font-family: Arial;
+                font-weight: bold;
+                font-size: rem(14);
+                line-height: rem(20);
+                color: #3B5994;
+            }
+
+            .df-like-count {
+                position: absolute;
+                bottom: -13px;
+                right: 0;
+                background: #FFFFFF;
+                border-radius: 100px;
+                padding: 0 5px 0 2px;
+                font-family: Arial;
+                font-weight: normal;
+                font-size: rem(13);
+                line-height: rem(24);
+                color: #222;
+                display: flex;
+                align-items: center;
+                align-content: center;
+                text-align: center;
+                min-width: 30px;
+                justify-content: center;
+
+                svg {
+                    border: 2px solid #fff;
+                    border-radius: 50%;
+                    position: relative;
+                    left: -3px;
+
+                    &:not(:last-child) {
+                        position: relative;
+                        left: 3px;
+                        z-index: 2;
+                    }
+                }
             }
         }
     }

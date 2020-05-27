@@ -228,6 +228,30 @@
 .df-section-start-journey {
     background: rgb(255, 255, 255);
 
+    &.df-second-version {
+        margin: 60px auto;
+
+        .df-journey-block {
+            background: url('/images/start-journey.png') no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &:after {
+                display: none;
+            }
+
+            &-title,
+            &-text,
+            .df-select-gender-text {
+                color: #fff;
+                text-align: center;
+            }
+        }
+    }
+
     .df-container {
         overflow: visible;
     }

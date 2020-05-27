@@ -18779,43 +18779,98 @@ label {
   }
 }
 
-.df-section-join-facebook {
-  height: 352px;
+.df-page-reviews {
+  background: #fff;
 }
 
-.df-section-join-facebook .df-join-facebook {
+.df-page-reviews .df-section-customers {
+  background: url("/images/wave2-grey.png"), #e9edf300;
+  padding: 60px 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.df-page-reviews .df-section-customers .df-section-title {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-size: 2.125rem;
+  line-height: 2.5625rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviews .df-section-customers .df-section-title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+.df-page-reviews .df-read-more-button {
+  background: #2D73F6;
+}
+
+@media (min-width: 768px) {
+  .df-page-reviews .df-read-more-button {
+    display: none;
+  }
+}
+
+.df-section-reviews {
+  background: linear-gradient(180deg, #F3F4F8 0%, #F3F4F8 89.72%, rgba(243, 244, 248, 0) 100%);
+}
+
+.df-section-reviews .df-section-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.125rem;
+  line-height: 2.5625rem;
+  text-align: center;
+  margin-bottom: 21px;
+}
+
+@media (min-width: 768px) {
+  .df-section-reviews .df-section-title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+.df-section-reviews .df-join-facebook {
   position: relative;
-  background: url("/images/join-facebook-community.png") no-repeat;
+  background: url("/images/join-facebook-community-mobile.png") no-repeat;
   background-size: contain;
   background-position: right;
   width: 100%;
   height: 630px;
   padding: 44px 16px 0;
+  margin: 51px auto 61px;
 }
 
 @media (min-width: 768px) {
-  .df-section-join-facebook .df-join-facebook {
+  .df-section-reviews .df-join-facebook {
     height: 352px;
+    background: url("/images/join-facebook-community.png") no-repeat;
     background-position: center;
+    background-size: contain;
     padding: 67px 0 0 94px;
+    margin: 64px auto 60px;
   }
 }
 
-.df-section-join-facebook .df-join-facebook-title,
-.df-section-join-facebook .df-join-facebook-text {
+.df-section-reviews .df-join-facebook-title,
+.df-section-reviews .df-join-facebook-text {
   font-family: 'Lato', sans-serif;
   color: #fff;
   text-align: center;
 }
 
 @media (min-width: 768px) {
-  .df-section-join-facebook .df-join-facebook-title,
-  .df-section-join-facebook .df-join-facebook-text {
+  .df-section-reviews .df-join-facebook-title,
+  .df-section-reviews .df-join-facebook-text {
     text-align: left;
   }
 }
 
-.df-section-join-facebook .df-join-facebook-title {
+.df-section-reviews .df-join-facebook-title {
   font-weight: 900;
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -18823,39 +18878,39 @@ label {
 }
 
 @media (min-width: 768px) {
-  .df-section-join-facebook .df-join-facebook-title {
+  .df-section-reviews .df-join-facebook-title {
     font-size: 2.25rem;
     line-height: 2.375rem;
     max-width: 369px;
   }
 }
 
-.df-section-join-facebook .df-join-facebook-text {
+.df-section-reviews .df-join-facebook-text {
   font-weight: normal;
   font-size: 1rem;
   line-height: 1.5rem;
-  margin: 0 0 20px;
+  margin: 0 0 30px;
 }
 
 @media (min-width: 768px) {
-  .df-section-join-facebook .df-join-facebook-text {
+  .df-section-reviews .df-join-facebook-text {
     font-size: 1.125rem;
     max-width: 369px;
   }
 }
 
-.df-section-join-facebook .df-join-facebook-button {
+.df-section-reviews .df-join-facebook-button {
   margin: 0;
   background: #DE2B70;
 }
 
 @media (min-width: 768px) {
-  .df-section-join-facebook .df-join-facebook-button {
+  .df-section-reviews .df-join-facebook-button {
     width: 176px;
   }
 }
 
-.df-section-join-facebook .df-join-facebook .df-logo {
+.df-section-reviews .df-join-facebook .df-logo {
   width: 140.87px;
   height: 17.53px;
   position: absolute;
@@ -18866,13 +18921,126 @@ label {
 }
 
 @media (min-width: 768px) {
-  .df-section-join-facebook .df-join-facebook .df-logo {
+  .df-section-reviews .df-join-facebook .df-logo {
     bottom: 100%;
     top: 30px;
     right: 30px;
     left: unset;
     margin: 0;
   }
+}
+
+.df-section-reviews .df-reviews-list {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.df-section-reviews .df-reviews-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-section-reviews .df-reviews-list-item {
+    margin-bottom: 0;
+  }
+}
+
+.df-section-reviews .df-reviews-list-item .df-user-photo {
+  width: 36px;
+  height: 34px;
+  margin-right: 11px;
+}
+
+.df-section-reviews .df-reviews-list-item .df-user-photo img {
+  border-radius: 50%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+}
+
+.df-section-reviews .df-reviews-list-item .df-user-additional {
+  width: 300px;
+}
+
+.df-section-reviews .df-reviews-list .df-additional-act-item {
+  font-family: Arial;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #3B5994;
+}
+
+.df-section-reviews .df-reviews-list .df-additional-act-item.active {
+  font-weight: bold;
+  color: #F25268;
+}
+
+.df-section-reviews .df-reviews-list .df-additional-act-item:not(:last-child):after {
+  content: '·';
+  font-weight: bold;
+  color: rgba(34, 34, 34, 0.6);
+  margin-left: 3px;
+}
+
+.df-section-reviews .df-reviews-list .df-additional-act-item:last-child {
+  color: rgba(34, 34, 34, 0.6);
+}
+
+.df-section-reviews .df-reviews-list .df-user-message {
+  background: #E7EAF5;
+  border-radius: 20px;
+  padding: 12px 14px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.df-section-reviews .df-reviews-list .df-user-message .df-user-name {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #3B5994;
+}
+
+.df-section-reviews .df-reviews-list .df-user-message .df-like-count {
+  position: absolute;
+  bottom: -13px;
+  right: 0;
+  background: #FFFFFF;
+  border-radius: 100px;
+  padding: 0 5px 0 2px;
+  font-family: Arial;
+  font-weight: normal;
+  font-size: 0.8125rem;
+  line-height: 1.5rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  min-width: 30px;
+  justify-content: center;
+}
+
+.df-section-reviews .df-reviews-list .df-user-message .df-like-count svg {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  left: -3px;
+}
+
+.df-section-reviews .df-reviews-list .df-user-message .df-like-count svg:not(:last-child) {
+  position: relative;
+  left: 3px;
+  z-index: 2;
 }
 
 .df-page-reviewinner {
@@ -19124,6 +19292,30 @@ label {
 
 .df-section-start-journey {
   background: white;
+}
+
+.df-section-start-journey.df-second-version {
+  margin: 60px auto;
+}
+
+.df-section-start-journey.df-second-version .df-journey-block {
+  background: url("/images/start-journey.png") no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.df-section-start-journey.df-second-version .df-journey-block:after {
+  display: none;
+}
+
+.df-section-start-journey.df-second-version .df-journey-block-title,
+.df-section-start-journey.df-second-version .df-journey-block-text,
+.df-section-start-journey.df-second-version .df-journey-block .df-select-gender-text {
+  color: #fff;
+  text-align: center;
 }
 
 .df-section-start-journey .df-container {
