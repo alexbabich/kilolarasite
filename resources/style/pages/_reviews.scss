@@ -746,6 +746,39 @@
         padding: 24px 0;
     }
 
+    &.df-without-timer {
+        height: 76px;
+
+        @include tablet {
+            height: 97px;
+        }
+
+        .df-countdown {
+            flex-direction: row;
+
+            @include tablet {
+                justify-content: center;
+            }
+
+            .df-countdown-timer-text {
+
+                font-family: 'Cabin', sans-serif;
+                font-weight: normal;
+                font-size: rem(15);
+                line-height: rem(24);
+                color: #fff;
+                
+                @include tablet {
+                    font-size: rem(20);
+                    margin-top: 0;
+                    margin-right: 28px;
+                    opacity: 0.8;
+                    letter-spacing: 0.9px;
+                }
+            }
+        }
+    }
+
     .df-countdown {
         display: flex;
         flex-direction: row-reverse;

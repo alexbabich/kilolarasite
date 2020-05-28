@@ -12,13 +12,10 @@
     <body>
         <div id="df-page" class="df-page-newupsell">
             
-            <section id="df-section-countdown" class="df-section-countdown">
+            <section id="df-section-countdown" class="df-section-countdown df-without-timer">
                 <div class="df-container df-countdown">
-                    <button class="df-button df-countdown-button" type="button">ADD NOW!</button>
-                    <div class="df-countdown-timer">
-                        <p class="df-countdown-timer-text">This offer is valid for:</p>
-                        <div id="df-countdown-timer-list" class="df-countdown-timer-list"></div>
-                    </div>
+                    <p class="df-countdown-timer-text">Multiply Your Results!</p>
+                    <button class="df-button df-countdown-button" type="button">BUY NOW</button>
                 </div>
             </section>
 
@@ -666,44 +663,6 @@
         <script>
             $(function(){
                 
-                // script countdown
-                var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
-
-                var x = setInterval(function() {
-
-                    var now = new Date().getTime();
-
-                    var distance = countDownDate - now;
-
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    var tre = `
-                    <div class="df-countdown-timer-list-item">
-                    ${hours}
-                    <span>HOURS</span>
-                    </div>
-                    <div class="df-countdown-timer-list-item">
-                    ${minutes}
-                    <span>MINUTES</span>
-                    </div>
-                    <div class="df-countdown-timer-list-item">
-                    ${seconds}
-                    <span>SECONDS</span>
-                    </div>`;
-
-
-                    document.getElementById("df-countdown-timer-list").innerHTML = tre;
-    
-                    if (distance < 0) {
-                        clearInterval(x);
-                        document.getElementById("df-countdown-timer-list").innerHTML = "EXPIRED";
-                    }
-                }, 1000);
-                // end script
-
                 // script for sticky onscroll
                 window.onscroll = function() {
                     myFunction()

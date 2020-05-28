@@ -19588,6 +19588,44 @@ label {
   }
 }
 
+.df-section-countdown.df-without-timer {
+  height: 76px;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown.df-without-timer {
+    height: 97px;
+  }
+}
+
+.df-section-countdown.df-without-timer .df-countdown {
+  flex-direction: row;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown.df-without-timer .df-countdown {
+    justify-content: center;
+  }
+}
+
+.df-section-countdown.df-without-timer .df-countdown .df-countdown-timer-text {
+  font-family: 'Cabin', sans-serif;
+  font-weight: normal;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown.df-without-timer .df-countdown .df-countdown-timer-text {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-right: 28px;
+    opacity: 0.8;
+    letter-spacing: 0.9px;
+  }
+}
+
 .df-section-countdown .df-countdown {
   display: flex;
   flex-direction: row-reverse;
