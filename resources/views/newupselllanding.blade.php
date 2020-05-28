@@ -10,7 +10,18 @@
         <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700|Lato:300,400,700,900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="df-page-newupsell">
+        <div id="df-page" class="df-page-newupsell">
+            
+            <section id="df-section-countdown" class="df-section-countdown">
+                <div class="df-container df-countdown">
+                    <button class="df-button df-countdown-button" type="button">ADD NOW!</button>
+                    <div class="df-countdown-timer">
+                        <p class="df-countdown-timer-text">This offer is valid for:</p>
+                        <div id="df-countdown-timer-list" class="df-countdown-timer-list"></div>
+                    </div>
+                </div>
+            </section>
+
             <div class="df-container">
                 <!-- is class df-pass-first-step and df-pass-second-step is showing progress-->
                 <div class="df-row df-justify-between df-steps-nav df-pass-first-step">
@@ -650,6 +661,69 @@
             </section>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+            $(function(){
+                
+                // script countdown
+                var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+
+                var x = setInterval(function() {
+
+                    var now = new Date().getTime();
+
+                    var distance = countDownDate - now;
+
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    var tre = `
+                    <div class="df-countdown-timer-list-item">
+                    ${hours}
+                    <span>HOURS</span>
+                    </div>
+                    <div class="df-countdown-timer-list-item">
+                    ${minutes}
+                    <span>MINUTES</span>
+                    </div>
+                    <div class="df-countdown-timer-list-item">
+                    ${seconds}
+                    <span>SECONDS</span>
+                    </div>`;
+
+
+                    document.getElementById("df-countdown-timer-list").innerHTML = tre;
+    
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("df-countdown-timer-list").innerHTML = "EXPIRED";
+                    }
+                }, 1000);
+                // end script
+
+                // script for sticky onscroll
+                window.onscroll = function() {
+                    myFunction()
+                };
+
+                var header = document.getElementById("df-section-countdown");
+
+                var sticky = 100;
+
+                function myFunction() {
+                    if (window.pageYOffset > sticky) {
+                        header.classList.add("df-sticky");
+                        document.getElementById("df-page").classList.add("df-scroll");
+                    } else {
+                        document.getElementById("df-page").classList.remove("df-scroll");
+                        header.classList.remove("df-sticky");
+                    }
+                }
+                // end script
+            });
+        </script>
     </body>
 </html>
