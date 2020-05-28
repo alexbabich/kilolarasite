@@ -281,3 +281,18 @@ ul {
         background-position: left top;
     }
 }
+
+
+.df-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+#df-page {
+    
+    &.df-scroll {
+        padding-top: 120px;
+    }
+}

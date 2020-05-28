@@ -736,3 +736,127 @@
         }
     }
 }
+
+.df-section-countdown {
+    background: $baseColor;
+    padding: 14px 0;
+    height: 97px;
+
+    @include tablet {
+        padding: 24px 0;
+    }
+
+    .df-countdown {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        &-button {
+            background: #fff;
+            color: $baseColor;
+            font-size: rem(18);
+            line-height: rem(22);
+            text-align: center;
+            letter-spacing: rem(2);
+            margin: 0;
+            width: 140px;
+
+            @include tablet {
+                width: 249px;
+            }
+        }
+    }
+
+    .df-countdown-timer {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    .df-countdown-timer-text {
+        font-family: 'Cabin', sans-serif;
+        font-weight: normal;
+        font-size: rem(15);
+        line-height: rem(24);
+        color: #fff;
+        text-align: center;
+
+        @include tablet {
+            text-align: left;
+            font-size: rem(20);
+            letter-spacing: rem(0.9);
+            opacity: 0.8;
+            margin-right: 36px;
+            margin-top: 10px;
+        }
+    }
+
+    .df-countdown-timer-list {
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 146px;
+
+        @include tablet {
+            width: 217px;
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: row;
+            font-family: 'Cabin', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: rem(24);
+            line-height: rem(24);
+            letter-spacing: rem(2);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 45px;
+            align-items: center;
+            justify-content: space-between;
+        
+            @include tablet {
+                height: 49px;
+                font-size: rem(30);
+            }
+
+            &:not(:last-child) {
+                &:after {
+                    position: absolute;
+                    content: ':';
+                    top: 0;
+                    right: -6px;
+
+                    @include tablet {
+                        right: -25px;
+                    }
+                }
+            }
+
+            span {
+                font-weight: 600;
+                font-size: rem(8);
+                line-height: rem(10);
+                letter-spacing: rem(1);
+                opacity: 0.8;
+
+                @include tablet {
+                    font-size: rem(12);
+                    line-height: rem(15);
+                }
+            }
+        }
+    }
+}

@@ -19576,6 +19576,146 @@ label {
   text-align: center;
 }
 
+.df-section-countdown {
+  background: #DE2B70;
+  padding: 14px 0;
+  height: 97px;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown {
+    padding: 24px 0;
+  }
+}
+
+.df-section-countdown .df-countdown {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown {
+    flex-direction: row;
+  }
+}
+
+.df-section-countdown .df-countdown-button {
+  background: #fff;
+  color: #DE2B70;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  text-align: center;
+  letter-spacing: 0.125rem;
+  margin: 0;
+  width: 140px;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown-button {
+    width: 249px;
+  }
+}
+
+.df-section-countdown .df-countdown-timer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown-timer {
+    flex-direction: row;
+  }
+}
+
+.df-section-countdown .df-countdown-timer-text {
+  font-family: 'Cabin', sans-serif;
+  font-weight: normal;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown-timer-text {
+    text-align: left;
+    font-size: 1.25rem;
+    letter-spacing: 0.05625rem;
+    opacity: 0.8;
+    margin-right: 36px;
+    margin-top: 10px;
+  }
+}
+
+.df-section-countdown .df-countdown-timer-list {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 146px;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown-timer-list {
+    width: 217px;
+  }
+}
+
+.df-section-countdown .df-countdown-timer-list-item {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Cabin', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.125rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 45px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown-timer-list-item {
+    height: 49px;
+    font-size: 1.875rem;
+  }
+}
+
+.df-section-countdown .df-countdown-timer-list-item:not(:last-child):after {
+  position: absolute;
+  content: ':';
+  top: 0;
+  right: -6px;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown-timer-list-item:not(:last-child):after {
+    right: -25px;
+  }
+}
+
+.df-section-countdown .df-countdown-timer-list-item span {
+  font-weight: 600;
+  font-size: 0.5rem;
+  line-height: 0.625rem;
+  letter-spacing: 0.0625rem;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .df-section-countdown .df-countdown-timer-list-item span {
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+  }
+}
+
 .df-page-reviewinner {
   padding-top: 24px;
   padding-bottom: 78px;
@@ -20330,5 +20470,16 @@ ul {
   .df-join-block-img {
     background-position: left top;
   }
+}
+
+.df-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+#df-page.df-scroll {
+  padding-top: 120px;
 }
 

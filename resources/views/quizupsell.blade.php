@@ -257,10 +257,6 @@
                     $('.df-perweek').html($boxes.attr('data-price'))
                 })
                 // end script
-
-                // 
-
-                // end script
             });
         </script>
     </body>
