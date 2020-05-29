@@ -1,0 +1,448 @@
+.df-page-newupsell {
+    
+    &.df-green-theme {
+        * {
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .df-slogan {
+            min-height: 75px;
+            font-weight: 500;
+
+            &.df-slogan-actnow {
+                height: 148px;
+
+                span {
+                    color: #fff;
+                    font-size: rem(18);
+                    line-height: rem(22);
+                    text-align: center;
+                    letter-spacing: rem(2);
+                    margin: 2px 0 10px;
+                    font-weight: 400;
+
+                    &:last-of-type {
+                        font-weight: bold;
+                        font-size: rem(24);
+                        line-height: rem(26);
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: underline;
+    
+                        @include tablet {
+                            font-size: rem(28);
+                            line-height: rem(32);
+                        }
+                    }
+                }
+            }
+        }
+
+        .df-section-straight {
+
+            &-text {
+
+                p {
+                    font-weight: 500;
+                    font-size: rem(20);
+
+                    @include tablet {
+                        font-size: rem(22);
+                    }
+
+                    &:first-child {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .df-page-title {
+                font-weight: 400;
+                margin-left: 0;
+                font-size: rem(24);
+
+                @include tablet {
+                    font-size: rem(40);
+                    margin-left: auto;
+                }
+            }
+
+            .df-simple-text {
+                font-size: rem(18);
+
+                @include tablet {
+
+                }
+            }
+
+            .df-list-item:before {
+                background: url('/svg/paymentcheckGreen.svg') no-repeat;
+                background-size: cover;
+            }
+
+            .df-image-description {
+                font-weight: 500;
+            }
+        }
+
+        .df-section-result {
+
+            &-text,
+            &-description {
+                max-width: 509px;
+            }
+
+            &-description {
+
+                @include tablet {
+                    padding: 14px 35px 13px 38px;
+                }
+            }
+
+            &-text {
+
+                &:after {
+                    content: '';
+                    background: url('/svg/chartResultsGreen.svg') no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        .df-section-dietologists-identified {
+
+            .df-page-title {
+                font-size: rem(24);
+                line-height: rem(28);
+                max-width: 691px;
+
+                @include tablet {
+                    font-size: rem(40);
+                    line-height: rem(52);
+                }
+            }
+
+            .df-dietologists-identified-description-title {
+                max-width: 606px;
+                margin-bottom: 0;
+                padding: 0 20px;
+
+                @include tablet {
+                    padding: 0;
+                }
+            }
+
+            .df-dietologists-identified-description-text {
+                font-weight: 500;
+            }
+
+            .df-dietologists-types {
+
+                @include tablet {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .df-section-simple {
+
+            p {
+                font-weight: 500;
+                max-width: 859px;
+            }
+        }
+
+        .df-section-scientists-explain .df-list-item:not(:last-child):before {
+            background: $greenColor;
+            font-family: 'Cabin', sans-serif;
+        }
+
+        .df-section-about-complex-title,
+        .df-section-about-complex-text {
+            color: $blueColorLighter;
+            max-width: 935px;
+        }
+
+        .df-section-about-complex-text {
+            text-align: center;
+        }
+
+        .df-section-about-complex {
+
+            .df-list {
+                counter-reset: section;
+                padding-top: 200px;
+
+                @include tablet {
+                    padding-top: 0;
+                }
+
+                &:before {
+                    background: url('/images/complexMobile2.png') no-repeat;
+                    background-size: contain;
+                    height: 185.47px;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    width: 100%;
+                }
+
+                &-item {
+                    font-weight: 500;
+                    font-size: rem(16);
+                    line-height: rem(20);
+                    color: #222;
+                    padding-left: 35px;
+                    position: relative;
+
+                    &:before {
+                        counter-increment: section;
+                        content: counter(section);
+                        height: 22px;
+                        width: 22px;
+                        background: $blueColor;
+                        color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-weight: bold;
+                        font-size: rem(13);
+                        line-height: rem(24);
+                        font-family: 'Cabin', sans-serif;
+                    }
+                }
+            }
+        }
+
+        .df-section-scientists-optimistic {
+            background: #fff;
+
+            &-testimonial {
+                
+                .df-side-right {
+                    padding: 10px 10px 0 27px;
+                }
+            }
+
+            .df-text {
+                font-size: rem(20);
+                
+                @include tablet {
+                    line-height: rem(26);
+                }
+            }
+        }
+
+        .df-section-revolutionary-science {
+            
+            &-title {
+                font-size: rem(24);
+                line-height: rem(28);
+
+                @include tablet {
+                    font-size: rem(36);
+                    line-height: rem(43);
+                }
+            }
+
+            .df-list {
+                
+                &:after {
+                    content: '';
+                    background: url('/svg/percentGreen.svg') no-repeat;
+                    background-size: contain;
+                }
+
+                &-item {
+                    
+                    &:before {
+                        background: $greenColor;
+                    }
+                }
+            }
+        }
+
+        .df-section-exploit {
+
+            &-list {
+
+                &-item  {
+
+                    .df-item-description {
+                        
+                        &-title,
+                        &-text {
+                            text-align: center;
+
+                            @include tablet {
+                                text-align: left;
+                            }
+                        }
+
+                        &-title {
+                            color: $greenColor;
+                            
+                            &:before {
+                                background: $greenColor;
+                            }
+                        }
+                    }
+                }
+            }            
+        }
+
+        .df-section-question {
+
+            &-title {
+                max-width: 637px;
+            }
+
+            .df-questions-content-or {
+                font-weight: 500;
+            }
+
+            .df-questions-content-button {
+                padding: 12px 13px 13px;
+
+                &.df-button-yes {
+                    background: $blueColorLighter;
+                }
+
+                &.df-button-no {
+                    background: $greenColor;
+                }
+            }
+
+            .df-moneyback {
+                padding: 20px;
+
+                @include tablet {
+                    padding: 20px 36px;
+                }
+            }
+        }
+
+        .df-section-what {
+
+            .df-what-item-title {
+                line-height: rem(26);
+                text-align: center;
+                background: #0D1DAB;
+                clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+                min-height: 95px;
+                height: auto;
+            }
+
+            .df-what-item .df-with-icon.df-money-back .df-what-item-text {
+                margin-left: 15px;
+                max-width: calc(100% - 20px);
+                font-size: rem(18);
+
+                @include tablet {
+                    margin-left: 25px;
+                    margin-top: 30px;
+                }
+
+                span {
+                    display: inline;
+
+                    @include tablet {
+                        display: block;
+                    }
+                }
+            }
+
+            .df-two-column-1-right {
+
+                .df-what-item:last-child {
+
+                    .df-what-item-title {
+                        padding: 20px 28px 35px;
+
+                        @include tablet {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .df-section-product-preview {
+            
+            .df-product-preview-button {
+                background: $blueColor;
+            }
+
+            .df-image-description {
+                text-align: center;
+
+                @include tablet {
+                    text-align: left;
+                }
+            }
+
+            .df-list {
+                max-width: 918px;
+                margin: 0 auto;
+                background: none;
+
+                @include tablet {
+                    margin: 20px auto 0;
+                }
+                
+                &-item {
+
+                    @include tablet {
+                        width: 400px;
+                    }
+                    
+                    &:first-letter {
+                        color: $blueColor;
+                    }
+                }
+            }
+        }
+
+        .df-section-nutritional-value {
+            
+            .df-nutritional-value {
+
+                &-text {
+                    max-width: 726px;
+
+                    &:last-of-type {
+                        max-width: 473px;
+                        color: $greenColor;
+                        font-weight: bold;
+                    }
+                }
+
+                .df-list {
+                    max-width: 372px;
+                    padding-left: 20px;
+
+                    @include tablet {
+                        padding-left: 0;
+                    }
+
+                    &-item {
+                        margin-bottom: 5px;
+    
+                        &:before {
+                            top: 3px;
+
+                            @include tablet {
+                                top: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

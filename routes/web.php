@@ -36,8 +36,6 @@ Route::get('/reviewinner', function () {
     return view('reviewinner');
 });
 
-
-
 Route::get('/benefitcheckpoints', function () {
     return view('benefitcheckpoints');
 });
@@ -64,6 +62,10 @@ Route::get('/newupselllanding', function () {
 
 Route::get('/newupsell', function () {
     return view('newupsell');
+});
+
+Route::get('/newupsellgreen', function () {
+    return view('newupsellgreen');
 });
 
 Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');

@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;
 
-0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap);@charset "UTF-8";
+0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap);@import url(https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -11324,12 +11324,24 @@ label {
   color: #2D73F6;
 }
 
+.df-text-blue-lighter {
+  color: #027AFF;
+}
+
+.df-text-blue-havy {
+  color: #1a23a6;
+}
+
 .df-text-purple {
   color: #DE2B70;
 }
 
 .df-text-red {
   color: #DE2B70;
+}
+
+.df-text-green {
+  color: #31C062;
 }
 
 .df-crossed-text {
@@ -15269,6 +15281,413 @@ label {
   border-radius: 50%;
   width: 80px;
   height: 80px;
+}
+
+.df-page-newupsell.df-green-theme * {
+  font-family: 'Rubik', sans-serif;
+}
+
+.df-page-newupsell.df-green-theme .df-slogan {
+  min-height: 75px;
+  font-weight: 500;
+}
+
+.df-page-newupsell.df-green-theme .df-slogan.df-slogan-actnow {
+  height: 148px;
+}
+
+.df-page-newupsell.df-green-theme .df-slogan.df-slogan-actnow span {
+  color: #fff;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  text-align: center;
+  letter-spacing: 0.125rem;
+  margin: 2px 0 10px;
+  font-weight: 400;
+}
+
+.df-page-newupsell.df-green-theme .df-slogan.df-slogan-actnow span:last-of-type {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.625rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-slogan.df-slogan-actnow span:last-of-type {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-straight-text p {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-straight-text p {
+    font-size: 1.375rem;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-straight-text p:first-child {
+  font-weight: bold;
+}
+
+.df-page-newupsell.df-green-theme .df-section-straight .df-page-title {
+  font-weight: 400;
+  margin-left: 0;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-straight .df-page-title {
+    font-size: 2.5rem;
+    margin-left: auto;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-straight .df-simple-text {
+  font-size: 1.125rem;
+}
+
+.df-page-newupsell.df-green-theme .df-section-straight .df-list-item:before {
+  background: url("/svg/paymentcheckGreen.svg") no-repeat;
+  background-size: cover;
+}
+
+.df-page-newupsell.df-green-theme .df-section-straight .df-image-description {
+  font-weight: 500;
+}
+
+.df-page-newupsell.df-green-theme .df-section-result-text,
+.df-page-newupsell.df-green-theme .df-section-result-description {
+  max-width: 509px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-result-description {
+    padding: 14px 35px 13px 38px;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-result-text:after {
+  content: '';
+  background: url("/svg/chartResultsGreen.svg") no-repeat;
+  background-size: contain;
+}
+
+.df-page-newupsell.df-green-theme .df-section-dietologists-identified .df-page-title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  max-width: 691px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-dietologists-identified .df-page-title {
+    font-size: 2.5rem;
+    line-height: 3.25rem;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-dietologists-identified .df-dietologists-identified-description-title {
+  max-width: 606px;
+  margin-bottom: 0;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-dietologists-identified .df-dietologists-identified-description-title {
+    padding: 0;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-dietologists-identified .df-dietologists-identified-description-text {
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-dietologists-identified .df-dietologists-types {
+    margin-bottom: 10px;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-simple p {
+  font-weight: 500;
+  max-width: 859px;
+}
+
+.df-page-newupsell.df-green-theme .df-section-scientists-explain .df-list-item:not(:last-child):before {
+  background: #31C062;
+  font-family: 'Cabin', sans-serif;
+}
+
+.df-page-newupsell.df-green-theme .df-section-about-complex-title,
+.df-page-newupsell.df-green-theme .df-section-about-complex-text {
+  color: #027AFF;
+  max-width: 935px;
+}
+
+.df-page-newupsell.df-green-theme .df-section-about-complex-text {
+  text-align: center;
+}
+
+.df-page-newupsell.df-green-theme .df-section-about-complex .df-list {
+  counter-reset: section;
+  padding-top: 200px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-about-complex .df-list {
+    padding-top: 0;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-about-complex .df-list:before {
+  background: url("/images/complexMobile2.png") no-repeat;
+  background-size: contain;
+  height: 185.47px;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.df-page-newupsell.df-green-theme .df-section-about-complex .df-list-item {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #222;
+  padding-left: 35px;
+  position: relative;
+}
+
+.df-page-newupsell.df-green-theme .df-section-about-complex .df-list-item:before {
+  counter-increment: section;
+  content: counter(section);
+  height: 22px;
+  width: 22px;
+  background: #2D73F6;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  line-height: 1.5rem;
+  font-family: 'Cabin', sans-serif;
+}
+
+.df-page-newupsell.df-green-theme .df-section-scientists-optimistic {
+  background: #fff;
+}
+
+.df-page-newupsell.df-green-theme .df-section-scientists-optimistic-testimonial .df-side-right {
+  padding: 10px 10px 0 27px;
+}
+
+.df-page-newupsell.df-green-theme .df-section-scientists-optimistic .df-text {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-scientists-optimistic .df-text {
+    line-height: 1.625rem;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-revolutionary-science-title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-revolutionary-science-title {
+    font-size: 2.25rem;
+    line-height: 2.6875rem;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-revolutionary-science .df-list:after {
+  content: '';
+  background: url("/svg/percentGreen.svg") no-repeat;
+  background-size: contain;
+}
+
+.df-page-newupsell.df-green-theme .df-section-revolutionary-science .df-list-item:before {
+  background: #31C062;
+}
+
+.df-page-newupsell.df-green-theme .df-section-exploit-list-item .df-item-description-title,
+.df-page-newupsell.df-green-theme .df-section-exploit-list-item .df-item-description-text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-exploit-list-item .df-item-description-title,
+  .df-page-newupsell.df-green-theme .df-section-exploit-list-item .df-item-description-text {
+    text-align: left;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-exploit-list-item .df-item-description-title {
+  color: #31C062;
+}
+
+.df-page-newupsell.df-green-theme .df-section-exploit-list-item .df-item-description-title:before {
+  background: #31C062;
+}
+
+.df-page-newupsell.df-green-theme .df-section-question-title {
+  max-width: 637px;
+}
+
+.df-page-newupsell.df-green-theme .df-section-question .df-questions-content-or {
+  font-weight: 500;
+}
+
+.df-page-newupsell.df-green-theme .df-section-question .df-questions-content-button {
+  padding: 12px 13px 13px;
+}
+
+.df-page-newupsell.df-green-theme .df-section-question .df-questions-content-button.df-button-yes {
+  background: #027AFF;
+}
+
+.df-page-newupsell.df-green-theme .df-section-question .df-questions-content-button.df-button-no {
+  background: #31C062;
+}
+
+.df-page-newupsell.df-green-theme .df-section-question .df-moneyback {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-question .df-moneyback {
+    padding: 20px 36px;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-what .df-what-item-title {
+  line-height: 1.625rem;
+  text-align: center;
+  background: #0D1DAB;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+          clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+  min-height: 95px;
+  height: auto;
+}
+
+.df-page-newupsell.df-green-theme .df-section-what .df-what-item .df-with-icon.df-money-back .df-what-item-text {
+  margin-left: 15px;
+  max-width: calc(100% - 20px);
+  font-size: 1.125rem;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-what .df-what-item .df-with-icon.df-money-back .df-what-item-text {
+    margin-left: 25px;
+    margin-top: 30px;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-what .df-what-item .df-with-icon.df-money-back .df-what-item-text span {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-what .df-what-item .df-with-icon.df-money-back .df-what-item-text span {
+    display: block;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-what .df-two-column-1-right .df-what-item:last-child .df-what-item-title {
+  padding: 20px 28px 35px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-what .df-two-column-1-right .df-what-item:last-child .df-what-item-title {
+    padding: 0;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-product-preview .df-product-preview-button {
+  background: #2D73F6;
+}
+
+.df-page-newupsell.df-green-theme .df-section-product-preview .df-image-description {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-product-preview .df-image-description {
+    text-align: left;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-product-preview .df-list {
+  max-width: 918px;
+  margin: 0 auto;
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-product-preview .df-list {
+    margin: 20px auto 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-product-preview .df-list-item {
+    width: 400px;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-product-preview .df-list-item:first-letter {
+  color: #2D73F6;
+}
+
+.df-page-newupsell.df-green-theme .df-section-nutritional-value .df-nutritional-value-text {
+  max-width: 726px;
+}
+
+.df-page-newupsell.df-green-theme .df-section-nutritional-value .df-nutritional-value-text:last-of-type {
+  max-width: 473px;
+  color: #31C062;
+  font-weight: bold;
+}
+
+.df-page-newupsell.df-green-theme .df-section-nutritional-value .df-nutritional-value .df-list {
+  max-width: 372px;
+  padding-left: 20px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-nutritional-value .df-nutritional-value .df-list {
+    padding-left: 0;
+  }
+}
+
+.df-page-newupsell.df-green-theme .df-section-nutritional-value .df-nutritional-value .df-list-item {
+  margin-bottom: 5px;
+}
+
+.df-page-newupsell.df-green-theme .df-section-nutritional-value .df-nutritional-value .df-list-item:before {
+  top: 3px;
+}
+
+@media (min-width: 768px) {
+  .df-page-newupsell.df-green-theme .df-section-nutritional-value .df-nutritional-value .df-list-item:before {
+    top: 2px;
+  }
 }
 
 .df-page-gummies-upsell .df-product-list,
@@ -20255,6 +20674,10 @@ ul {
 
 .df-red-bg {
   background-color: #DE2B70;
+}
+
+.df-green-bg {
+  background-color: #31C062;
 }
 
 .df-ul-empty-style {
