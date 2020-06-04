@@ -64,20 +64,27 @@
     .df-join-facebook {
         position: relative;
         background: url('/images/join-facebook-community-mobile.png') no-repeat;
-        background-size: contain;
+        background-size: cover;
         background-position: right;
         width: 100%;
         height: 630px;
         padding: 44px 16px 0;
         margin: 51px auto 61px;
+        overflow: hidden;
+        border-radius: 10px;
 
         @include tablet {
             height: 352px;
             background: url('/images/join-facebook-community.png') no-repeat;
             background-position: center;
+            background-size: cover;
+            padding: 67px 0 0 34px;
+            margin: 64px auto 60px;
+        }
+
+        @include tabletL {
             background-size: contain;
             padding: 67px 0 0 94px;
-            margin: 64px auto 60px;
         }
 
         &-title,
@@ -133,8 +140,24 @@
             left: 0;
             right: 0;
             margin: auto;
-            
+
             @include tablet {
+                bottom: 100%;
+                top: 50px;
+                right: 30px;
+                left: unset;
+                margin: 0;
+            }
+
+            @include tabletL {
+                bottom: 100%;
+                top: 50px;
+                right: 30px;
+                left: unset;
+                margin: 0;
+            }
+            
+            @include laptopL{
                 bottom: 100%;
                 top: 30px;
                 right: 30px;
@@ -149,7 +172,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         align-content: center;
 
@@ -571,6 +594,17 @@
         align-content: center;
         justify-content: center;
 
+        @include tablet {
+            padding-top: 10%;
+            padding-right: 20px;
+        }
+
+        @include tabletL {
+            padding: 0;
+            align-content: center;
+            justify-content: center;
+        }
+
         .df-text {
             font-family: 'Lato', sans-serif;
             font-weight: normal;
@@ -578,8 +612,10 @@
             line-height: rem(26);
             color: rgba(34, 34, 34, 0.8);
             margin-bottom: 43px;
+            text-align: center;
 
             @include tablet {
+                text-align: left;
                 margin-bottom: 0;
                 max-width: 422px;
                 margin-left: 0;
@@ -589,9 +625,10 @@
 
     .df-raiting {
         margin-bottom: 14px;
+        text-align: center;
 
         @include tablet {
-
+            text-align: left;
         }
 
         &-item {
@@ -621,6 +658,7 @@
             line-height: rem(22);
             display: block;
             color: $blueColor;
+            margin-bottom: 0;
 
             @include tablet {
                 display: inline;
@@ -634,8 +672,10 @@
         line-height: rem(42);
         margin-bottom: 14px;
         margin-top: 0;
+        text-align: center;
 
         @include tablet {
+            text-align: left;
             margin-bottom: 19px;
             max-width: 422px;
             margin-left: 0;
@@ -645,15 +685,20 @@
     .df-two-column-1-right {
         background: url('/images/user-before.png') no-repeat;
         background-size: contain;
-        width: 343px;
+        background-position: center;
+        width: 100%;
         height: 354.1px;
         position: relative;
         margin-bottom: 150px;
 
         @include tablet {
+            margin-bottom: 60px;
+            width: 343px;
+        }
+
+        @include tabletL {
             min-height: 574px;
             min-width: 556px;
-            margin-bottom: 60px;
         }
 
         &:before {
@@ -664,9 +709,22 @@
             bottom: -60px;
             width: 194.71px;
             height: 392.1px;
-            left: 24.29px;
+            left: -100px;
+            right: 0;
+            margin: auto;
+
+            @include mobileL {
+                left: 107px;
+                right: unset;
+                margin: 0;
+            }
 
             @include tablet {
+                height: 384px;
+                top: 10px;
+            }
+
+            @include tabletL {
                 width: 290px;
                 height: 584px;
                 bottom: unset;
@@ -688,6 +746,11 @@
             bottom: -90px;
 
             @include tablet {
+                bottom: -40px;
+                z-index: 9;
+            }
+
+            @include tabletL {
                 bottom: unset;
                 top: 32px;
                 left: -115%;

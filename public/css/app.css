@@ -18945,7 +18945,7 @@ label {
 
 .df-section-customers .df-customers-list {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   margin-bottom: 23px;
 }
@@ -18966,12 +18966,14 @@ label {
 @media (min-width: 768px) {
   .df-section-customers .df-customers-list-item {
     width: 352px;
-    margin-bottom: 0;
+    margin-bottom: 30px;
   }
 }
 
-.df-section-customers .df-customers-list-item:not(:last-child) {
-  margin-right: 51px;
+@media (min-width: 1200px) {
+  .df-section-customers .df-customers-list-item {
+    margin-bottom: 0;
+  }
 }
 
 .df-section-customers .df-customers-list-item .df-customers-info {
@@ -18980,7 +18982,7 @@ label {
   max-height: 352px;
   max-width: 352px;
   position: relative;
-  margin-bottom: 17px;
+  margin: 0 auto 17px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   overflow: hidden;
@@ -19275,12 +19277,14 @@ label {
 .df-section-reviews .df-join-facebook {
   position: relative;
   background: url("/images/join-facebook-community-mobile.png") no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: right;
   width: 100%;
   height: 630px;
   padding: 44px 16px 0;
   margin: 51px auto 61px;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 @media (min-width: 768px) {
@@ -19288,9 +19292,16 @@ label {
     height: 352px;
     background: url("/images/join-facebook-community.png") no-repeat;
     background-position: center;
+    background-size: cover;
+    padding: 67px 0 0 34px;
+    margin: 64px auto 60px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-reviews .df-join-facebook {
     background-size: contain;
     padding: 67px 0 0 94px;
-    margin: 64px auto 60px;
   }
 }
 
@@ -19361,6 +19372,26 @@ label {
 @media (min-width: 768px) {
   .df-section-reviews .df-join-facebook .df-logo {
     bottom: 100%;
+    top: 50px;
+    right: 30px;
+    left: unset;
+    margin: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-reviews .df-join-facebook .df-logo {
+    bottom: 100%;
+    top: 50px;
+    right: 30px;
+    left: unset;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .df-section-reviews .df-join-facebook .df-logo {
+    bottom: 100%;
     top: 30px;
     right: 30px;
     left: unset;
@@ -19373,7 +19404,7 @@ label {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
 }
@@ -19821,6 +19852,21 @@ label {
   justify-content: center;
 }
 
+@media (min-width: 768px) {
+  .df-section-top-block .df-two-column-1-left {
+    padding-top: 10%;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-top-block .df-two-column-1-left {
+    padding: 0;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
 .df-section-top-block .df-two-column-1-left .df-text {
   font-family: 'Lato', sans-serif;
   font-weight: normal;
@@ -19828,10 +19874,12 @@ label {
   line-height: 1.625rem;
   color: rgba(34, 34, 34, 0.8);
   margin-bottom: 43px;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .df-section-top-block .df-two-column-1-left .df-text {
+    text-align: left;
     margin-bottom: 0;
     max-width: 422px;
     margin-left: 0;
@@ -19840,6 +19888,13 @@ label {
 
 .df-section-top-block .df-raiting {
   margin-bottom: 14px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .df-section-top-block .df-raiting {
+    text-align: left;
+  }
 }
 
 .df-section-top-block .df-raiting-item {
@@ -19871,6 +19926,7 @@ label {
   line-height: 1.375rem;
   display: block;
   color: #2D73F6;
+  margin-bottom: 0;
 }
 
 @media (min-width: 768px) {
@@ -19885,10 +19941,12 @@ label {
   line-height: 2.625rem;
   margin-bottom: 14px;
   margin-top: 0;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .df-section-top-block .df-section-title {
+    text-align: left;
     margin-bottom: 19px;
     max-width: 422px;
     margin-left: 0;
@@ -19898,7 +19956,8 @@ label {
 .df-section-top-block .df-two-column-1-right {
   background: url("/images/user-before.png") no-repeat;
   background-size: contain;
-  width: 343px;
+  background-position: center;
+  width: 100%;
   height: 354.1px;
   position: relative;
   margin-bottom: 150px;
@@ -19906,9 +19965,15 @@ label {
 
 @media (min-width: 768px) {
   .df-section-top-block .df-two-column-1-right {
+    margin-bottom: 60px;
+    width: 343px;
+  }
+}
+
+@media (min-width: 992px) {
+  .df-section-top-block .df-two-column-1-right {
     min-height: 574px;
     min-width: 556px;
-    margin-bottom: 60px;
   }
 }
 
@@ -19920,10 +19985,27 @@ label {
   bottom: -60px;
   width: 194.71px;
   height: 392.1px;
-  left: 24.29px;
+  left: -100px;
+  right: 0;
+  margin: auto;
+}
+
+@media (min-width: 576px) {
+  .df-section-top-block .df-two-column-1-right:before {
+    left: 107px;
+    right: unset;
+    margin: 0;
+  }
 }
 
 @media (min-width: 768px) {
+  .df-section-top-block .df-two-column-1-right:before {
+    height: 384px;
+    top: 10px;
+  }
+}
+
+@media (min-width: 992px) {
   .df-section-top-block .df-two-column-1-right:before {
     width: 290px;
     height: 584px;
@@ -19947,6 +20029,13 @@ label {
 }
 
 @media (min-width: 768px) {
+  .df-section-top-block .df-two-column-1-right .df-slogan-message {
+    bottom: -40px;
+    z-index: 9;
+  }
+}
+
+@media (min-width: 992px) {
   .df-section-top-block .df-two-column-1-right .df-slogan-message {
     bottom: unset;
     top: 32px;
@@ -20444,12 +20533,20 @@ label {
   padding: 75px 32px 80px;
 }
 
+@media (min-width: 576px) {
+  .df-section-start-journey.df-second-version .df-journey-block {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}
+
 @media (min-width: 768px) {
   .df-section-start-journey.df-second-version .df-journey-block {
     height: auto;
     border-radius: 10px;
     background: url("/images/start-journey.png") no-repeat;
     background-size: cover;
+    background-position: center;
   }
 }
 

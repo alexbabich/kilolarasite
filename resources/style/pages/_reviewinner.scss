@@ -246,11 +246,17 @@
             border-radius: 0;
             padding: 75px 32px 80px;
 
+            @include mobileL {
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
             @include tablet {
                 height: auto;
                 border-radius: 10px;
                 background: url('/images/start-journey.png') no-repeat;
                 background-size: cover;
+                background-position: center;
             }
 
             &:after {
