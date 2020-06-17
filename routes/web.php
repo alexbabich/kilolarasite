@@ -68,6 +68,10 @@ Route::get('/newupsellgreen', function () {
     return view('newupsellgreen');
 });
 
+Route::get('/summaryfemale', function () {
+    return view('summaryfemale');
+});
+
 Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
 
 

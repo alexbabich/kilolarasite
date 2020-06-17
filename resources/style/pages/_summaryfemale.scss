@@ -1,0 +1,828 @@
+.df-page-summaryfemale {
+
+    &-title {
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 36px;
+        color: #222;
+        margin-bottom: 16px;
+        margin-top: 0;
+
+        @include tablet {
+            font-size: 40px;
+            line-height: 48px;
+            margin-bottom: 19px;
+        }
+    }
+
+    &-button {
+        background: $baseColor;
+        margin-top: 24px;
+        
+        @include tablet {
+            width: 216px;
+            margin-top: 0;
+            margin-left: 0;
+        }
+    }
+
+    &-text {
+        font-family: 'Lato', sans-serif;
+        font-size: rem(16);
+        line-height: rem(24);
+        color: #1A1E27;
+        margin-bottom: 16px;
+        margin-top: 0;
+
+        @include tablet {
+            font-size: rem(18);
+            line-height: rem(26);
+            margin-bottom: 30px;
+        }
+    }
+
+    .df-section-header {
+        height: 1218px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        @include tablet {
+            height: 692px;
+        }
+
+        img {
+            height: 320px;
+            margin-bottom: 17px;
+
+            @include tablet {
+                margin-bottom: 33px;
+                height: 257px;
+            }
+        }
+
+        .df-logo-header {
+            width: 120px;
+            height: 14.93px;
+            position: absolute;
+            top: 25px;
+            margin: auto;
+            left: 0;
+            right: 0;
+            padding: 0;
+
+            @include tablet {
+                right: unset;
+                left: unset;
+                top: 49px;
+                width: 200.87px;
+                height: 25px;
+            }
+        }
+
+        .df-header-contents {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @include tablet {
+                flex-direction: row;
+            }
+
+            &-item {
+                background: #FFF;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                width: 100%;
+                min-height: 186px;
+
+                @include tablet {
+                    width: 47%;
+                    min-height: 230px;
+                }
+
+                &-title {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: bold;
+                    font-size: 18px;
+                    line-height: 24px;
+                    color: rgba(34, 34, 34, 0.6);
+                    margin: 0 0 17px;
+                }
+
+                &.df-header-yes {
+                    padding: 16px 17px 0;
+                    margin-bottom: 16px;
+
+                    @include tablet {
+                        padding: 17px 22px 0;
+                        margin-bottom: 0;
+                    }
+                    
+                    .df-item-content {
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        align-items: center;
+                        height: 85%;
+                        min-height: 130px;
+                        
+                        p {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
+
+                &.df-header-week {
+                    padding: 32px 8px;
+
+                    @include tablet {
+                        padding: 24px 14px;
+                    }
+
+                    .df-item-content {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        align-content: center;
+                        justify-content: center;
+    
+                        @include tablet {
+                            flex-direction: column;
+                        }
+    
+                        p {
+                            font-family: 'Cabin', sans-serif;
+                            font-weight: bold;
+                            font-size: rem(26);
+                            line-height: rem(66);
+                            color: #2D73F6;
+                            margin-top: 20px;
+        
+                            b {
+                                font-size: rem(54);
+                                line-height: rem(66);
+                            }
+                        }
+
+                        span {
+                            font-family: 'Lato', sans-serif;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: rgba(34, 34, 34, 0.8);
+                            padding-top: 32px;
+                            margin-left: 10px;
+
+                            @include tablet {
+                                padding-top: 0;
+                                margin-left: 0;
+                            }
+                        }
+                    }
+
+                    svg {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .df-yes-text {
+                background: url('/svg/bigheart.svg') no-repeat;
+                background-size: contain;
+                height: 88px;
+                width: 99px;
+                font-family: 'Cabin', sans-serif;
+                font-weight: 600;
+                font-size: rem(20);
+                line-height: rem(20);
+                letter-spacing: rem(2);
+                color: #FFF;
+            }
+        }
+    }
+
+    .df-section-intermittent {
+        padding: 40px 0;
+        background: #F3F4F8;
+
+        @include tablet {
+            padding: 100px 0;
+        }
+
+        &-title {
+            font-family: 'Cabin', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: rem(24);
+            line-height: rem(29);
+            color: rgba(34, 34, 34, 0.8);
+            text-align: center;
+        }
+
+        .df-intermittent {
+            
+            &-list {
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin-top: 32px;
+
+                @include tablet {
+                    flex-direction: row;
+                    margin-top: 80px;
+                }
+
+                @include tabletL {
+                    justify-content: space-between;
+                }
+            }
+
+            &-item {
+                max-width: 260px;
+                width: 100%;
+                margin: auto;
+                text-align: center;
+
+                @include tabletL {
+                    max-width: unset;
+                    width: auto;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 40px;
+
+                    @include tabletL {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .df-section-promise {
+        background: rgb(253, 253, 254);
+        padding-top: 40px;
+        padding-bottom: 44px;
+
+        @include tablet {
+            padding-top: 60px;
+            padding-bottom: 78px;
+        }
+
+        &-title {
+            font-family: 'Cabin', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: rem(30);
+            line-height: rem(36);
+            color: #222;
+            text-align: left;
+            margin-bottom: 18px;
+
+            @include tablet {
+                text-align: center;
+                font-size: rem(40);
+                line-height: rem(66);
+                margin-bottom: 32px;
+            }
+        }
+
+        &-text {
+            font-family: 'Cabin', sans-serif;
+            font-size: rem(16);
+            line-height: rem(24);
+            color: #222;
+            opacity: 0.8;
+            max-width: 734px;
+            margin: 0 auto 20px;
+        }
+
+        &-textsignature {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 734px;
+            margin: 0 auto 20px;
+            
+            span {
+                display: inline-block;
+                font-family: 'Cabin', sans-serif;
+                font-size: rem(16);
+                line-height: rem(24);
+                color: #222;
+                opacity: 0.8;
+            }
+        }
+
+        &-button {
+            background: $baseColor;
+            min-width: 216px;
+            margin-top: 12px;
+        }
+    }
+
+    .df-section-appdofasting {
+        background: rgb(253, 253, 254);
+        padding-bottom: 40px;
+        padding-top: 16px;
+
+        @include tablet {
+            padding-top: 48px;
+            padding-bottom: 70px;
+        }
+
+        .df-appdofasting {
+            max-width: 327px;
+            background: rgb(243, 244, 248);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            margin: auto;
+            padding: 340px 16px 34px;
+            position: relative;
+
+            @include tablet {
+                padding: 56px 91px;
+                max-width: 1180px;
+            }
+
+            &:after {
+                content: '';
+                background: url('/images/dofastingapp-mobile.png') no-repeat;
+                background-size: contain;
+                position: absolute;
+                top: 34px;
+                height: 286px;
+                width: 235px;
+                margin: auto;
+                left: 0;
+                right: 0;
+
+                @include tablet {
+                    background: url('/images/dofastingapp-desktop.png') no-repeat;
+                    background-size: contain;
+                    top: 0;
+                    height: 380px;
+                    width: 330px;
+                    right: calc(50% - 470px);
+                    left: unset;
+                }
+            }
+
+            &-title {
+                font-family: 'Lato', sans-serif;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 29px;
+                text-align: center;
+                color: #222;
+                margin-top: 0;
+                margin-bottom: 23px;
+                
+                @include tablet {
+                    font-size: rem(40);
+                    line-height: rem(48);
+                    margin-bottom: 32px;
+                    text-align: left;
+                    width: 300px;
+                }
+
+                @include tabletL {
+                    width: 100%;
+                }
+            }
+
+            &-button {
+                background: $baseColor;
+                width: 216px;
+                margin: auto;
+
+                @include tablet {
+                    margin-left: 0;
+                }
+            }
+
+            &-list {
+                margin-bottom: 22px;
+            }
+
+            &-item {
+                position: relative;
+                padding-left: 40px;
+                font-family: 'Cabin', sans-serif;
+                font-size: rem(20);
+                line-height: rem(20);
+                color: rgba(34, 34, 34, 0.8);
+                margin-bottom: 16px;
+                height: 23px;
+
+                &:before {
+                    content: '';
+                    background: url('/svg/paymentcheck.svg') no-repeat;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 24px;
+                    width: 24px;
+                }
+            }
+        }
+    }
+
+    .df-section-bodychange {
+        background: rgb(253, 253, 254);
+        padding-top: 16px;
+
+        @include tablet {
+            padding-top: 48px;
+        }
+
+        .df-devider {
+            margin-bottom: 24px;
+        }
+
+        .df-two-column-1-right {
+            justify-content: center;
+        }
+
+        .df-bodychange {
+            max-width: 327px;
+            background: #FFF;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            margin: auto;
+            padding: 24px 16px 0;
+            position: relative;
+
+            @include tablet {
+                max-width: 1180px;
+                padding: 32px 32px 0;
+            }
+
+            &-title {
+                font-family: 'Lato', sans-serif;
+                font-weight: bold;
+                font-size: rem(18);
+                line-height: rem(24);
+                color: rgba(34, 34, 34, 0.8);
+                margin-top: 0;
+                margin-bottom: 16px;
+
+                @include tablet {
+                    margin-bottom: 33px;
+                    font-size: rem(24);
+                }
+            }
+
+            &-secondtitle {
+                font-family: 'Lato', sans-serif;
+                font-weight: bold;
+                font-size: rem(18);
+                line-height: rem(26);
+                color: #222;
+                margin-top: 0;
+                margin-bottom: 8px;
+
+                @include tablet {
+                    font-size: rem(24);
+                    margin-bottom: 17px;
+                }
+            }
+
+            &-text {
+                font-family: 'Lato', sans-serif;
+                font-weight: 500;
+                font-size: rem(16);
+                line-height: rem(24);
+                color: rgba(34, 34, 34, 0.6);
+
+                @include tablet {
+                    font-size: rem(18);
+                    line-height: rem(28);
+                }
+            }
+
+            &-vs {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                img {
+                    height: 300px;
+                    width: auto;
+
+                    @include tablet {
+
+                    }
+                }
+
+                &-title {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: bold;
+                    font-size: rem(16);
+                    line-height: rem(24);
+                    color: rgba(34, 34, 34, 0.8);
+
+                    @include tablet {
+                        font-size: rem(18);
+                    }
+                }
+
+                &-item {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: 600;
+                    font-size: rem(16);
+                    line-height: rem(24);
+                    color: rgba(34, 34, 34, 0.8);
+                    margin-bottom: 44px;
+                    text-align: center;
+
+                    &:last-child {
+                        margin-bottom: 21px;
+                    }
+                }
+
+                &-middle {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    height: 100%;
+                }
+
+                &-after,
+                &-before {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 120px;
+                    align-items: center;
+                    position: relative;
+                    margin-bottom: 44px;
+
+                    @include tablet {
+                        width: 176px;
+                        margin-bottom: 0;
+                    }
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(255,255,255,0);
+                        background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 65%, rgba(255,255,255,1) 100%);
+                        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(65%, rgba(255,255,255,0)), color-stop(100%, rgba(255,255,255,1)));
+                        background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 65%, rgba(255,255,255,1) 100%);
+                        background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 65%, rgba(255,255,255,1) 100%);
+                        background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 65%, rgba(255,255,255,1) 100%);
+                        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 65%, rgba(255,255,255,1) 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+
+                        @include tablet {
+                            display: none;
+                        }
+                    }
+                }                 
+            }
+        }
+    }
+
+    .df-section-summary {
+        background: rgb(253, 253, 254);
+        padding-top: 32px;
+
+        @include tablet {
+            padding-top: 60px;
+        }
+
+        &-title {
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            font-size: rem(30);
+            line-height: rem(36);
+            color: #222;
+            text-align: left;
+            max-width: 327px;
+            margin: 0 auto 24px;
+
+            @include tablet {
+                font-size: rem(40);
+                line-height: rem(48);
+                text-align: center;
+                margin-bottom: 32px;
+                max-width: unset;
+            }
+        }
+
+        .df-summary {
+
+            &-loss {
+
+                &-list {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                &-item {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    &:not(:last-child) {
+                        margin-bottom: 34px;
+
+                        @include tablet {
+                            margin-bottom: 37px;
+                        }
+                    }
+
+                    p {
+                        font-family: 'Lato', sans-serif;
+                        font-weight: 500;
+                        font-size: rem(16);
+                        line-height: rem(20);
+                        color: rgba(34, 34, 34, 0.6);
+                        margin-bottom: 8px;
+
+                        @include tablet {
+                            font-size: rem(18);
+                            max-width: 110px;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    svg {
+                        max-width: 374px;
+                    }
+                }
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                max-width: 1180px;
+                margin: auto;
+                justify-content: center;
+
+                @include tablet {
+                    justify-content: space-between;
+                }
+            }
+
+            &-item {
+                width: 327px;
+                min-height: 230px;
+                background: #FFF;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                padding: 24px 16px;
+                margin: 0 auto 16px;
+
+                @include tablet {
+                    padding: 32px;
+                    width: 530px;
+                    min-height: 258px;
+                    margin-bottom: 48px;
+                }
+
+                @include laptopL {
+                    width: 566px;
+                }
+
+                &-title {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: bold;
+                    font-size: rem(18);
+                    line-height: rem(24);
+                    color: rgba(34, 34, 34, 0.6);
+                    margin-bottom: 16px;
+
+                    @include tablet {
+                        margin-bottom: 24px;
+                        font-size: rem(24);
+                    }
+                }
+
+                &-content {
+                    display: flex;
+                    flex-direction: column;
+
+                    &.df-summary-activity-daily {
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        @include tablet {
+                            flex-direction: row;
+                        }
+
+                        .df-summary-activity {
+                            width: 100%;
+                            margin-top: 0;
+
+                            @include tablet {
+                                margin-top: 36px;
+                            }
+
+                            &:not(:last-child) {
+                                margin-bottom: 29px;
+
+                                @include tablet {
+                                    margin-bottom: 0;
+                                }
+                            }
+
+                            @include tablet {
+                                width: 48%;
+                            }
+                        }
+            
+                        .df-summary-activity-text {
+
+                            p {
+                                font-family: 'Lato', sans-serif;
+                                font-weight: bold;
+                                font-size: rem(34);
+                                line-height: rem(41);
+                                color: #222;
+                            }
+                        }
+                    }
+                
+                    .df-summary-item-text {
+                        font-family: 'Lato', sans-serif;
+                        font-weight: bold;
+                        font-size: rem(32);
+                        line-height: rem(38);
+                        color: #DE2B70;
+
+                        @include tablet {
+                            font-size: rem(40);
+                            line-height: rem(48);
+                        }
+                    }
+                }
+
+                .df-devider {
+                    margin-bottom: 24px;
+                }
+
+                svg {
+                    width: 100%;
+                }
+            }
+        }
+
+        .df-summary-activity {
+            display: flex;
+            flex-direction: row;
+            margin-top: 36px;
+
+            @include tablet {
+                margin-top: 52px;
+            }
+
+            &-text {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: 500;
+                    font-size: rem(16);
+                    line-height: rem(24);
+                    color: rgba(34, 34, 34, 0.6);
+
+                    @include tablet {
+                        font-size: rem(18);
+                    }
+                }
+
+                p {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: bold;
+                    font-size: rem(32);
+                    line-height: rem(38);
+                    color: #222;
+
+                    @include tablet {
+                        font-size: rem(40);
+                        line-height: rem(48);
+                    }
+                }
+            }
+
+            svg {
+                width: auto;
+                margin-right: 22px;
+            }
+        }
+
+        
+    }
+}
