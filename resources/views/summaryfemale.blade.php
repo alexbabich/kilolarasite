@@ -58,13 +58,16 @@
                         <div class="df-devider"></div>
                         <div class="df-summary-item-content">
                             <p class="df-summary-item-text">55.56</p>
-                            <div class="df-desktop">
-                                <!-- use bmi2.svg for other condition -->
-                                @svg('bmi.svg')
-                            </div>
-                            <div class="df-mobile">
-                                <!-- use bmi2-mobile.svg for other condition -->
-                                @svg('bmi-mobile.svg')
+                            <div class="df-range-slider">
+                                <div class="range-slider">
+                                    <span id="rs-bullet" class="rs-label">YOU</span>
+                                    <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="200">    
+                                </div>
+                                <div class="box-minmax">
+                                    <span class="minmax-min">Underweight</span>
+                                    <span>Normal (BMI 21)</span>
+                                    <span class="minmax-max">Obese</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -74,11 +77,15 @@
                         <div class="df-summary-item-content df-summary-loss-list">
                             <div class="df-summary-loss-item">
                                 <p>Optimal weight loss</p>
-                                @svg('lossoptional.svg')
+                                <div class="df-daily-slider">
+                                    <span class="df-daily-slider-optimal">1400-1500 kcal</span>
+                                </div>
                             </div>
                             <div class="df-summary-loss-item">
                                 <p>Maximum weight loss</p>
-                                @svg('lossmaximum.svg')
+                                <div class="df-daily-slider">
+                                    <span class="df-daily-slider-maximum">1200-1300 kcal</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -207,6 +214,23 @@
         <script src="{{ asset('js/app.js') }}"></script>
         <script>
             $(function(){
+                var rangeSlider = document.getElementById("rs-range-line");
+                var rangeBullet = document.getElementById("rs-bullet");
+
+                rangeSlider.addEventListener("input", showSliderValue, false);
+
+                function showSliderValue() {
+                    var bulletPosition = (rangeSlider.value / rangeSlider.max);
+                    rangeBullet.style.left = (bulletPosition * 486) + "px";
+
+                    if ( (bulletPosition * 486) < 243 ) {
+                        $('.minmax-min').css('font-weight', 'bold')
+                        $('.minmax-max').css('font-weight', 'normal')
+                    } else {
+                        $('.minmax-min').css('font-weight', 'normal')
+                        $('.minmax-max').css('font-weight', 'bold')
+                    }
+                }
 
             });
         </script>

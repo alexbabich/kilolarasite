@@ -630,8 +630,12 @@
 
                 &-item {
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
+                    flex-direction: column;
+
+                    @include tablet {
+                        align-items: center;
+                        flex-direction: row;
+                    }
 
                     &:not(:last-child) {
                         margin-bottom: 34px;
@@ -822,7 +826,159 @@
                 margin-right: 22px;
             }
         }
+    }
 
+    .df-daily-slider {
+        position: relative;
+        display: inline-block;
+
+        &:after {
+            content: '';
+            position: absolute;
+            background: #E2E3E9;
+            height: 8px;
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            min-width: 100%;
+            left: 0;
+
+            @include tablet {
+                min-width: 370px;
+            }
+        }
+
+        span {
+            font-family: 'Lato';
+            font-weight: bold;
+            font-size: rem(18);
+            line-height: rem(24);
+            color: #222;
+            position: relative;
+            width: fit-content;
+            top: -5px;
+
+            &:after {
+                content: '';
+                border-radius: 10px;
+                position: absolute;
+                height: 12px;
+                width: 100%;
+                bottom: -16px;
+                left: 0;
+                box-shadow: 0 0 0 3px #fff;
+                z-index: 2;
+            }
+        }
+
+        .df-daily-slider-optimal {
+            left: 160px;
+            
+            &:after {
+                background: #2D73F6;
+            }
+        }
+
+        .df-daily-slider-maximum {
+            left: 80px;
+
+            &:after {
+                background: #DE2B70;
+            }
+        }
+    }
+}
+
+.df-range-slider {
+    width: 100%;
+
+    .range-slider {
+        position: relative;
+
+        &:after {
+            content: '';
+            background: url('/svg/range.svg') no-repeat;
+            width: 107px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 24px;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+
+    .box-minmax{
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Lato';
+        font-weight: 500;
+        font-size: rem(16);
+        line-height: rem(24);
+        text-align: center;
+        color: rgba(36, 36, 36, 0.6);
+
+        @include tablet {
+            font-size: rem(18);
+        }
+    }
+
+    .rs-range {
+        width: 100%;
+        -webkit-appearance: none;
+        background: #E2E3E9;
+        padding: 0;
+        min-height: auto;
+        height: 8px;
+
+        &:focus {
+            outline: none;
+        }
+    
+        &::-webkit-slider-thumb {
+            box-shadow: none;
+            border: 2px solid #ffffff;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background: #DE2B70;
+            cursor: pointer;
+            -webkit-appearance: none;
+            position: relative;
+            z-index: 99
+        }
+    
+        &::-moz-range-thumb {
+            position: relative;
+            z-index: 99;
+            box-shadow: none;
+            border: 2px solid #ffffff;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background: #DE2B70;
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
         
+        &::-moz-focus-outer {
+            border: 0;
+        }
+    }
+
+      .rs-label {
+        display: block;
+        width: 30px;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Lato';
+        font-weight: bold;
+        font-size: rem(13);
+        line-height: rem(24);
+        color: #DE2B70;
+        position: relative;
     }
 }
